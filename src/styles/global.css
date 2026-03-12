@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+@theme {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --color-primary: var(--color-accent);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- GLOBAL TYPOGRAPHY --- */
+h1 {
+  font-size: 32px; /* Tu nueva medida exacta para móvil */
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: clamp(40px, 8vw, 72px); /* Escalado fluido estilo Noura en tablet */
+    font-weight: 500;
+    letter-spacing: -2px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 72px; /* Medida exacta de escritorio */
+  }
+}
+
+.container-base {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 768px) {
+  .container-base {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

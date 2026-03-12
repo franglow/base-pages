@@ -1,0 +1,303 @@
+---
+interface Props {
+  navData: any;
+}
+
+import Button from '../ui/Button.astro';
+
+const { navData } = Astro.props;
+---
+
+<header id="main-header" class="main-header">
+  <div id="header-container" class="header-container">
+    
+    <div class="header-left">
+      <a href="/" class="logo-container z-50" aria-label="Home">
+        <div class="isotipo"></div>
+        <div class="text-container">
+          <span class="word-base">base</span>
+          <span class="connector">-</span>
+          <span class="word-pages">pages</span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="desktop-nav">
+      {navData.items.map((item: any) => (
+        <a href={item.href} class="rolling-link" data-text={item.label}></a>
+      ))}
+    </nav>
+
+    <div class="header-right">
+      <a href="/contact" class="header-cta">{navData.cta}</a>
+      
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<div id="mobile-menu" class="mobile-menu">
+  <div id="mobile-menu-content" class="mobile-menu-content">
+    <nav class="mobile-nav">
+      {navData.items.map((item: any) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+    <div class="mobile-divider"></div>
+    <Button href="/contact" class="mobile-cta-btn">{navData.cta}</Button>
+  </div>
+</div>
+
+<style>
+  /* Registro de propiedad global para el gradiente animado (necesita is:global o estar en tu CSS global, pero lo dejamos aquí por seguridad) */
+  @property --grad-angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: false;
+  }
+
+  /* === HEADER LAYOUT === */
+  .main-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .main-header.scrolled {
+    background-color: rgba(248, 247, 245, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba(229, 231, 235, 0.5);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .header-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 0.3s ease;
+  }
+
+  .header-container.scrolled {
+    padding: 12px 24px;
+  }
+
+  .header-left { flex: 1; display: flex; justify-content: flex-start; }
+  .desktop-nav { display: none; flex: 1; justify-content: center; align-items: center; gap: 32px; }
+  .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 16px; }
+
+  /* Desktop Elements */
+  .header-cta {
+    display: none;
+    background: #111827;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+  }
+  .header-cta:hover { transform: scale(1.05); }
+
+  /* Mobile Hamburger Toggle */
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 50;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .line {
+    display: block;
+    width: 24px; height: 2px;
+    background-color: #111827;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .menu-toggle.is-open .line-1 { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.is-open .line-2 { opacity: 0; }
+  .menu-toggle.is-open .line-3 { transform: translateY(-8px) rotate(-45deg); }
+
+  /* === MOBILE MENU OVERLAY === */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background-color: #F0F0F0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-menu-content {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 40px; padding: 96px 24px 48px;
+    transform: scale(0.95) translateY(32px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+  .mobile-menu.is-open .mobile-menu-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  .mobile-nav { display: flex; flex-direction: column; align-items: center; gap: 32px; width: 100%; }
+  .mobile-nav a { font-size: 36px; font-weight: 700; letter-spacing: -1px; color: #111827; text-decoration: none; transition: color 0.3s; }
+  .mobile-nav a:hover { color: #9ca3af; }
+  .mobile-divider { width: 48px; height: 1px; background-color: rgba(0,0,0,0.1); margin: 8px 0; }
+  .mobile-cta-btn { 
+    background: #111827; 
+    color: #fff; 
+    width: 100%; 
+    max-width: 320px; 
+    text-align: center; 
+    padding: 16px; 
+    border-radius: 16px !important; 
+    font-size: 18px; 
+    font-weight: 500; 
+    text-decoration: none; 
+    transition: transform 0.3s; 
+  }
+  .mobile-cta-btn:hover { transform: scale(1.05); }
+
+  /* === LOGO ANIMATION & STYLES === */
+  .logo-container {
+    --c-green: #A8BFAF; --c-cream: #E8DDC8; --c-peach: #F6D7C8; --c-text: #1C1C1C;
+    --ease-organic: cubic-bezier(0.65, 0, 0.35, 1); 
+    --duration: 0.8s;
+    display: flex; align-items: center; justify-content: center; position: relative; gap: 7px; 
+    transition: gap var(--duration) var(--ease-organic);
+    text-decoration: none;
+  }
+  .isotipo {
+    width: 26px; height: 48px; border-radius: 3px;
+    --grad-angle: 90deg;
+    background: linear-gradient(var(--grad-angle), var(--c-green), var(--c-cream), var(--c-peach));
+    transform-origin: center center; transform: rotate(0deg); 
+    transition: transform var(--duration) var(--ease-organic), --grad-angle var(--duration) var(--ease-organic);
+    flex-shrink: 0; z-index: 2;
+    filter: url(#liquid-filter); /* Conecta el isotipo al filtro líquido del LandingLayout */
+    will-change: transform, width, height, border-radius, filter, box-shadow;
+  }
+  .text-container {
+    display: flex; align-items: baseline; font-weight: 700; font-size: 26px; color: var(--c-text);
+    line-height: 1; letter-spacing: -0.04em; margin: 0; position: relative;
+    transform-style: preserve-3d; margin-top: -5px; 
+    transition: margin-top var(--duration) var(--ease-organic);
+  }
+  .word-base { display: inline-block; transition: transform var(--duration) var(--ease-organic); transform: translate(0px, -9px); }
+  .word-pages { display: inline-block; transition: transform var(--duration) var(--ease-organic); transform: translate(-58px, 9px); }
+  .connector { display: inline-block; overflow: hidden; width: 0; opacity: 0; transform: translateX(-10px); transition: all var(--duration) var(--ease-organic); }
+
+  /* === ROLLING TEXT ANIMATION === */
+  .rolling-link {
+    display: flex; overflow: hidden; line-height: 1.2; height: 1.2em;
+    font-size: 15px; font-weight: 500; color: #9ca3af; text-decoration: none; transition: color 0.3s;
+  }
+  .rolling-link:hover { color: #111827; }
+  /* Nota: Las clases .letter-wrapper y .letter se inyectan por JS, por lo que usamos :global() en Astro si tu CSS está scoped, o simplemente aseguramos que funcionen. */
+  :global(.letter-wrapper) { position: relative; display: inline-block; height: 100%; }
+  :global(.letter-wrapper.is-rolling) { transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1); transform: translateY(-100%); }
+  :global(.letter) { display: flex; align-items: center; height: 100%; white-space: pre; }
+  :global(.letter-wrapper .letter:nth-child(2)) { position: absolute; top: 100%; left: 0; }
+
+  /* Expandir Navbar y Logo en Desktop */
+  @media (min-width: 900px) {
+    .desktop-nav { display: flex; }
+    .header-cta { display: block; }
+    .menu-toggle { display: none; }
+    
+    .logo-container { gap: 16px; }
+    .isotipo { transform: rotate(-90deg); --grad-angle: 180deg; }
+    .text-container { margin-top: -3px; }
+    .word-base { transform: translate(0, 0); }
+    .word-pages { transform: translate(0, 0); }
+    .connector { width: 14px; opacity: 1; transform: translateX(0); }
+  }
+</style>
+
+<script>
+  // En Astro, la lógica de UI debe inicializarse en un evento para soportar ViewTransitions
+  function initLandingHeader() {
+    // 1. ROLLING TEXT GENERATOR
+    document.querySelectorAll('.rolling-link').forEach(link => {
+      const text = link.getAttribute('data-text');
+      if(text) {
+        link.innerHTML = ''; 
+        text.split('').forEach((char, index) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'letter-wrapper';
+          wrapper.style.transitionDelay = `${index * 0.03}s`;
+          const content = char === ' ' ? '\u00A0' : char;
+          wrapper.innerHTML = `<span class="letter">${content}</span><span class="letter">${content}</span>`;
+          link.appendChild(wrapper);
+        });
+      }
+      link.addEventListener('mouseenter', () => {
+        link.querySelectorAll('.letter-wrapper').forEach(w => w.classList.add('is-rolling'));
+      });
+      link.addEventListener('mouseleave', () => {
+        link.querySelectorAll('.letter-wrapper').forEach(w => w.classList.remove('is-rolling'));
+      });
+    });
+
+    // 2. MOBILE MENU
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Limpiamos event listeners previos para evitar duplicados en ViewTransitions
+    const newToggle = menuToggle?.cloneNode(true);
+    menuToggle?.parentNode?.replaceChild(newToggle as Node, menuToggle);
+
+    newToggle?.addEventListener('click', () => {
+      const isOpen = (newToggle as HTMLElement).classList.toggle('is-open');
+      if (isOpen) {
+        document.body.classList.add('overflow-hidden');
+        mobileMenu?.classList.add('is-open');
+      } else {
+        document.body.classList.remove('overflow-hidden');
+        mobileMenu?.classList.remove('is-open');
+      }
+    });
+
+    // 3. HEADER TRANSPARENTE ON SCROLL
+    const mainHeader = document.getElementById('main-header');
+    const headerContainer = document.getElementById('header-container');
+
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        mainHeader?.classList.add('scrolled');
+        headerContainer?.classList.add('scrolled');
+      } else {
+        mainHeader?.classList.remove('scrolled');
+        headerContainer?.classList.remove('scrolled');
+      }
+    };
+
+    window.removeEventListener('scroll', handleScroll); // Limpieza de seguridad
+    window.addEventListener('scroll', handleScroll);
+  }
+
+  // Inicializar al cargar
+  initLandingHeader();
+  document.addEventListener('astro:page-load', initLandingHeader);
+</script>

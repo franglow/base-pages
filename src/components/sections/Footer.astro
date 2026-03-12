@@ -1,0 +1,48 @@
+---
+interface Props {
+  data: any;
+}
+const { data } = Astro.props;
+
+// 🎯 LÓGICA DINÁMICA: Obtenemos el año actual (ej. 2026, 2027, etc.)
+const currentYear = new Date().getFullYear();
+
+// Reemplazamos el marcador '{year}' de tus JSON por el año real
+const copyrightText = data.copyright.replace('{year}', currentYear);
+---
+
+<footer class="px-4 pb-4">
+  <div class="rounded-[var(--radius-card)] px-8 pt-16 pb-8 md:px-16 md:pb-4 max-w-[var(--container-max)] mx-auto relative overflow-hidden">
+    
+    <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
+      <div class="flex gap-16">
+        {data.columns.map((col: any) => (
+          <div class="space-y-4">
+            <h4 class="font-medium text-sm text-[var(--color-text-muted)] min-h-[20px]">{col.title}</h4>
+            <ul class="space-y-2">
+              {col.links.map((link: any) => (
+                <li>
+                  <a href={link.href} class="text-sm font-medium hover:text-[var(--color-text-muted)] transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex gap-4">
+         <a href="#" class="text-xl">📷</a>
+         <a href="#" class="text-xl">✖</a>
+         <a href="#" class="text-xl">▶</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between text-xs text-[var(--color-text-muted)] mb-4 md:mb-0 relative z-10">
+      <span>{copyrightText}</span>
+      <span>{data.credits}</span>
+    </div>
+
+  </div>
+</footer>

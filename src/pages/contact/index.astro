@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/sections/Header.astro';
+import Footer from '../../components/sections/Footer.astro';
+
+import enData from '../../content/i18n/en.json';
+
+// Extraemos los datos generales y los de contacto
+const { nav, footer, contactPage } = enData;
+---
+
+<Layout title="Contact | Base Pages">
+  
+  <Header navData={nav} />
+
+  <main class="contact-page bg-[#f8f7f5] min-h-screen flex flex-col justify-center">
+    <div class="w-full max-w-2xl mx-auto px-6 pt-40 pb-32">
+      
+      <h1 class="text-[48px] md:text-[64px] font-medium text-gray-900 mb-12 tracking-tight">
+        {contactPage.title}
+      </h1>
+
+      <form action="#" method="POST" class="flex flex-col gap-8">
+        
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder={contactPage.form.namePlaceholder} 
+            required 
+            class="minimal-input" 
+          />
+        </div>
+
+        <div class="input-group">
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder={contactPage.form.emailPlaceholder} 
+            required 
+            class="minimal-input" 
+          />
+        </div>
+
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="subject" 
+            name="subject" 
+            placeholder={contactPage.form.subjectPlaceholder} 
+            required 
+            class="minimal-input" 
+          />
+        </div>
+
+        <div class="input-group">
+          <textarea 
+            id="message" 
+            name="message" 
+            placeholder={contactPage.form.messagePlaceholder} 
+            required 
+            rows="1" 
+            class="minimal-input resize-none"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn mt-4">
+          {contactPage.form.submitText}
+        </button>
+
+      </form>
+    </div>
+  </main>
+
+  <Footer data={footer} />
+
+</Layout>
+
+<style>
+  /* === ESTILOS DEL FORMULARIO MINIMALISTA === */
+  
+  .minimal-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #111827; /* Línea negra inferior */
+    padding: 16px 0;
+    font-size: 16px;
+    color: #111827;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s ease, border-width 0.1s ease;
+  }
+
+  /* Color oscuro para el placeholder igual que en el diseño */
+  .minimal-input::placeholder {
+    color: #111827;
+    font-weight: 400;
+    opacity: 1; /* Asegura que el color se vea sólido en todos los navegadores */
+  }
+
+  /* Interacción al hacer click */
+  .minimal-input:focus {
+    border-bottom-width: 2px;
+    border-bottom-color: #000000;
+    margin-bottom: -1px; /* Evita que el layout salte al cambiar el grosor del borde */
+  }
+
+  /* === ESTILO DEL BOTÓN === */
+  .submit-btn {
+    background-color: #111827;
+    color: #ffffff;
+    width: 100%;
+    padding: 20px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Sombra difusa y profunda hacia abajo, calcada de tu captura */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.5);
+  }
+</style>

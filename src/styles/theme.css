@@ -1,0 +1,19 @@
+:root {
+  /* --- TYPOGRAPHY --- */
+  --font-heading: "Inter", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* --- PALETTE (Noura Spec) --- */
+  --color-bg: #F9F9F7;
+  --color-surface: #FFFFFF;
+  --color-text: #111111;
+  --color-text-muted: #666666; 
+  --color-accent: #000000;
+  --color-accent-fg: #FFFFFF;
+  
+  /* --- SPACING & SHAPE --- */
+  --radius-button: 9999px;
+  --radius-card: 24px;
+  --container-max: 1440px;
+  --header-height: 80px;
+}

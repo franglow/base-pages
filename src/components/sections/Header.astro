@@ -1,0 +1,317 @@
+---
+import LavaButton from '../ui/LavaButton.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  navData: any;
+}
+
+const { navData } = Astro.props;
+---
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+  
+  <div
+    id="header-container"
+    class="
+      w-full
+      max-w-7xl mx-auto
+      px-6 md:px-10
+      py-6 
+      flex items-center 
+      justify-between
+      transition-all duration-300
+    "
+  >
+    <div class="flex-1 flex justify-start">
+      <a href="/" class="logo-container z-50">
+        <div class="isotipo"></div>
+        <div class="text-container">
+          <span class="word-base">base</span>
+          <span class="connector">-</span>
+          <span class="word-pages">pages</span>
+        </div>
+      </a>
+    </div>
+
+    <nav class="hidden md:flex flex-1 justify-center items-center gap-8">
+      {navData.items.map((item: any) => (
+        <a
+          href={item.href}
+          class="rolling-link text-[15px] font-medium text-gray-500 hover:text-black transition-colors"
+          aria-label={item.label}
+        >
+          {/* Astro divide la palabra en letras en el servidor automáticamente */}
+          {item.label.split('').map((char: string, index: number) => (
+            <div 
+              class="letter-wrapper" 
+              style={`transition-delay: ${index * 0.03}s`} 
+              aria-hidden="true"
+            >
+              <span class="letter">{char === ' ' ? '\u00A0' : char}</span>
+              <span class="letter">{char === ' ' ? '\u00A0' : char}</span>
+            </div>
+          ))}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex-1 flex justify-end items-center gap-4">
+      
+      <div class="hidden md:block">
+        <Button href="/contact" class="bg-black text-white px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
+          {navData.cta}
+        </Button>
+      </div>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden relative z-50 p-2 space-y-1.5 group"
+      >
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-300 origin-center group-[.is-open]:rotate-45 group-[.is-open]:translate-y-2"></span>
+        <span class="block w-6 h-0.5 bg-black transition-opacity duration-300 group-[.is-open]:opacity-0"></span>
+        <span class="block w-6 h-0.5 bg-black transition-transform duration-300 origin-center group-[.is-open]:-rotate-45 group-[.is-open]:-translate-y-2"></span>
+      </button>
+
+    </div>
+  </div>
+</header>
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 bg-[#F0F0F0] opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col"
+>
+  <div
+    id="mobile-menu-content"
+    class="flex-1 flex flex-col items-center justify-center gap-10 px-6 pb-12 pt-24 transform scale-95 opacity-0 translate-y-8 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+  >
+    <nav class="flex flex-col items-center gap-8 w-full">
+      {navData.items.map((item: any) => (
+        <a
+          href={item.href}
+          class="text-4xl font-bold tracking-tighter text-[var(--color-text)] hover:text-gray-400 transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="w-12 h-px bg-black/10 my-2"></div>
+
+    <div class="w-full max-w-xs">
+      <Button href="/contact" class="bg-black text-white w-full justify-center !py-4 text-lg !rounded-2xl shadow-xl hover:scale-105 transition-transform">
+        {navData.cta}
+      </Button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // --- 1. LÓGICA DEL MENÚ MÓVIL CON BLOQUEO DE SCROLL ---
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const content = document.getElementById('mobile-menu-content');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.classList.toggle('is-open');
+
+    if (isOpen) {
+      // 🔒 AL ABRIR: Bloqueamos el scroll de la página principal
+      document.body.classList.add('overflow-hidden');
+      
+      menu?.classList.remove('opacity-0', 'pointer-events-none');
+
+      setTimeout(() => {
+        content?.classList.remove('scale-95', 'opacity-0', 'translate-y-4');
+        content?.classList.add('scale-100', 'opacity-100', 'translate-y-0');
+      }, 50);
+    } else {
+      // 🔓 AL CERRAR: Restauramos el scroll de la página
+      document.body.classList.remove('overflow-hidden');
+      
+      content?.classList.remove('scale-100', 'opacity-100', 'translate-y-0');
+      content?.classList.add('scale-95', 'opacity-0', 'translate-y-4');
+
+      setTimeout(() => {
+        menu?.classList.add('opacity-0', 'pointer-events-none');
+      }, 200);
+    }
+  });
+
+  // --- 2. LÓGICA: HEADER TRANSPARENTE ON SCROLL ---
+  const header = document.getElementById('main-header');
+  const headerContainer = document.getElementById('header-container');
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      header?.classList.add('bg-[var(--color-bg)]/80', 'backdrop-blur-md', 'shadow-sm');
+      headerContainer?.classList.replace('py-6', 'py-2');
+    } else {
+      header?.classList.remove('bg-[var(--color-bg)]/80', 'backdrop-blur-md', 'shadow-sm');
+      headerContainer?.classList.replace('py-2', 'py-6');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  // --- 3. LÓGICA: ROLLING TEXT (RESETEO INVISIBLE) ---
+  const rollingLinks = document.querySelectorAll('.rolling-link');
+
+  rollingLinks.forEach(link => {
+    // Al entrar el mouse, suben las letras
+    link.addEventListener('mouseenter', () => {
+      const wrappers = link.querySelectorAll('.letter-wrapper');
+      wrappers.forEach(w => w.classList.add('is-rolling'));
+    });
+
+    // Al salir, se resetean al instante (invisiblemente)
+    link.addEventListener('mouseleave', () => {
+      const wrappers = link.querySelectorAll('.letter-wrapper');
+      wrappers.forEach(w => w.classList.remove('is-rolling'));
+    });
+  });
+</script>
+
+<style is:global>
+  /* Se define de manera global para que el navegador sepa animar los grados del degradé */
+  @property --grad-angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: false;
+  }
+</style>
+
+<style>
+  /* Variables y estilos encapsulados solo para este componente */
+  .logo-container {
+    --c-green: #A8BFAF;
+    --c-cream: #E8DDC8;
+    --c-peach: #F6D7C8;
+    --c-text: #1C1C1C;
+    --ease-organic: cubic-bezier(0.65, 0, 0.35, 1); 
+    --duration: 0.8s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 7px; 
+    transition: gap var(--duration) var(--ease-organic);
+    text-decoration: none;
+  }
+
+  .isotipo {
+    width: 26px;
+    height: 48px;
+    border-radius: 3px;
+    --grad-angle: 90deg;
+    background: linear-gradient(var(--grad-angle), var(--c-green), var(--c-cream), var(--c-peach));
+    transform-origin: center center;
+    transform: rotate(0deg); 
+    transition: 
+      transform var(--duration) var(--ease-organic),
+      --grad-angle var(--duration) var(--ease-organic);
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
+  .text-container {
+    display: flex;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 26px; /* Ajustado ligeramente para emparejar con Tailwind text-2xl/3xl */
+    color: var(--c-text);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    margin-top: -5px; 
+    transition: margin-top var(--duration) var(--ease-organic);
+  }
+
+  .word-base {
+    display: inline-block;
+    transition: transform var(--duration) var(--ease-organic);
+    transform: translate(0px, -9px);
+  }
+
+  .word-pages {
+    display: inline-block;
+    transition: transform var(--duration) var(--ease-organic);
+    transform: translate(-58px, 9px); /* Ajuste basado en el tamaño de fuente 26px */
+  }
+
+  .connector {
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--duration) var(--ease-organic);
+  }
+
+  /* MEDIA QUERY: Alineado con el 'md:' de Tailwind (768px) */
+  @media (min-width: 768px) {
+    .logo-container {
+      gap: 16px;
+    }
+
+    .isotipo {
+      transform: rotate(-90deg);
+      --grad-angle: 180deg; 
+    }
+
+    .text-container {
+      /* El ajuste óptico para subir el texto y dejarlo perfecto con el rectángulo horizontal */
+      margin-top: -3px; 
+    }
+
+    .word-base {
+      transform: translate(0, 0);
+    }
+
+    .word-pages {
+      transform: translate(0, 0);
+    }
+
+    .connector {
+      width: 14px;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* =========================================
+     ANIMACIÓN ROLLING TEXT (DESKTOP MENU)
+     ========================================= */
+  .rolling-link {
+    display: flex;
+    overflow: hidden;
+    /* Ajustamos el alto para que coincida exactamente con la fuente de Tailwind */
+    line-height: 1.2;
+    height: 1.2em; 
+  }
+
+  .letter-wrapper {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+  }
+
+  .letter-wrapper.is-rolling {
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    transform: translateY(-100%);
+  }
+
+  .letter {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    white-space: pre; /* Respeta los espacios en nombres compuestos */
+  }
+
+  .letter-wrapper .letter:nth-child(2) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+</style>

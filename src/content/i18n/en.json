@@ -1,0 +1,319 @@
+{
+  "nav": {
+    "items": [
+      { "label": "Home", "href": "/" },
+      { "label": "About", "href": "/about" },
+      { "label": "Works", "href": "/works" },
+      { "label": "Services", "href": "/services" }
+    ],
+    "cta": "Contact"
+  },
+  "hero": {
+    "titles": [
+      "Ignite your digital presence.",
+      "High-performance digital engines."
+    ],
+    "subtitle": "Lightning-fast architectures designed to capture leads and outshine the competition. We build the spark, you drive the growth.",
+    "cta": "Ignite your project",
+    "location": "US",
+    "promo": "Use for free",
+    "language": "English",
+    "switchLanguage": "Deutsch",
+    "switchUrl": "/de"
+  },
+  "services": {
+    "tagline": "SERVICES & PRICING",
+    "headline": "We don't charge by the hour. We charge for value, speed, and clean code that converts. Pick your foundation.",
+    "headerTitle": "Services",
+    "headerCount": "5",
+    "items": [
+      {
+        "title": "The Starter Page",
+        "subtitle": "Built for speed. Perfect for validating ideas, events, and capturing leads. Mobile-first and lightning fast.",
+        "price": "From €890",
+        "delivery": "3-5 days",
+        "image": "/src/assets/images/services/pkg-01.webp",
+        "url": "/services/starter"
+      },
+      {
+        "title": "The Growth Page",
+        "subtitle": "Designed to convert. Ideal for growing businesses running ad campaigns. Includes CRO and integrations.",
+        "price": "From €1,750",
+        "delivery": "7-10 days",
+        "image": "/src/assets/images/services/pkg-02.webp",
+        "url": "/services/growth"
+      },
+      {
+        "title": "The Scale Website",
+        "subtitle": "A complete digital foundation. Multi-page websites with Headless CMS so you can edit content easily.",
+        "price": "From €3,800",
+        "delivery": "3-5 weeks",
+        "image": "/src/assets/images/services/pkg-03.webp",
+        "url": "/services/scale"
+      }
+    ],
+    "cta": {
+      "pill": "Continuous Care",
+      "title": "Protect your investment with our Care & Optimization retainer.",
+      "buttonText": "Let's talk",
+      "buttonUrl": "/contact",
+      "exploreText": "Explore package",
+      "exploreUrl": "/services/care",
+      "note": "Starting at €190/mo. Fast edge hosting, security updates, and performance monitoring."
+    },
+    "partnership": {
+      "tagline": "FOR UX/UI DESIGNERS",
+      "headline": "You design the experience. I build the engine.",
+      "description": "Stop fighting with page builders and technical limits. You focus on creating stunning designs in Figma, and I will translate them into lightning-fast, high-converting code. Let's deliver premium digital products together.",
+      "pillars": [
+        {
+          "title": "Pixel-Perfect Development",
+          "description": "Your Figma file is my blueprint. Every margin, typography, and animation is respected."
+        },
+        {
+          "title": "Zero Tech Headaches",
+          "description": "I handle modern frameworks (Astro/Next.js), Core Web Vitals, technical SEO, and flawless responsive behavior."
+        },
+        {
+          "title": "White-Label Delivery",
+          "description": "I work as your technical partner in the shadows. You own the client relationship, I make sure the code is flawless."
+        }
+      ],
+      "cta": {
+        "buttonText": "Let's team up",
+        "buttonUrl": "/contact"
+      }
+    }
+  },
+  "starterPage": {
+    "hero": {
+      "tagline": "THE STARTER PACKAGE",
+      "titleBold": "High-Performance Landing Page.",
+      "titleLight": "Built for speed. Perfect for validating ideas.",
+      "subtitle": "We build lightning-fast, mobile-first single-page websites designed to capture leads and rank as top sources on AI search engines.",
+      "priceBadge": "From €890",
+      "deliveryBadge": "3-5 days delivery"
+    },
+    "features": [
+      {
+        "title": "Lightning Fast",
+        "description": "Built with Astro to guarantee a perfect 100/100 Lighthouse score. Zero JavaScript bloat, ensuring your site loads instantly."
+      },
+      {
+        "title": "Mobile-First Design",
+        "description": "Flawless experience on every device. Over 70% of web traffic is mobile, we build for it first so you never lose a single lead."
+      },
+      {
+        "title": "AI-Ready SEO",
+        "description": "Clean HTML structure and semantic markup optimized for both traditional Google algorithms and AI engines like ChatGPT."
+      },
+      {
+        "title": "Lead Capture",
+        "description": "Integrated contact forms connected directly to your email or preferred CRM workspace to validate your ideas instantly."
+      }
+    ],
+    "finalCta": {
+      "headline": "Ready to build your engine?",
+      "subtitle": "Stop fighting with page builders. Let's launch a premium digital product together.",
+      "buttonText": "Let's talk",
+      "buttonUrl": "/contact"
+    }
+  },
+  "scalePage": {
+    "hero": {
+      "tagline": "THE SCALE WEBSITE",
+      "titleBold": "Complete Digital Foundation.",
+      "titleLight": "Multi-page architecture. Headless CMS powered.",
+      "subtitle": "A robust, scalable platform designed for established brands. We combine dynamic content management with flawless front-end performance so you can edit content easily without breaking the design.",
+      "priceBadge": "From €3,800",
+      "deliveryBadge": "3-5 weeks delivery"
+    },
+    "features": [
+      {
+        "title": "Headless CMS Integration",
+        "description": "Manage your content effortlessly with a custom studio (Sanity or Storyblok). Update text, images, and cases without ever touching a line of code or compromising site speed."
+      },
+      {
+        "title": "Multi-Page Architecture",
+        "description": "Complex sitemaps, dynamic routing, and perfectly structured internal linking. We build an interconnected ecosystem designed for enterprise-level SEO scaling."
+      },
+      {
+        "title": "Advanced Interactions",
+        "description": "Premium GSAP scroll animations, WebGL elements, and page transitions (ViewTransitions) that elevate your brand narrative and keep users engaged longer."
+      },
+      {
+        "title": "Future-Proof Scalability",
+        "description": "A component-driven design system engineered with Astro and Tailwind. Your platform is ready to add new features, languages, and pages instantly as your business expands."
+      }
+    ],
+    "finalCta": {
+      "headline": "Ready to dominate your market?",
+      "subtitle": "Let's architect a premium digital experience that sets the industry standard.",
+      "buttonText": "Book a discovery call",
+      "buttonUrl": "/contact"
+    }
+  },
+  "growthPage": {
+    "hero": {
+      "tagline": "THE GROWTH PACKAGE",
+      "titleBold": "High-Converting Digital Engine.",
+      "titleLight": "Designed to scale. Built for ROI.",
+      "subtitle": "A strategic landing page engineered for growing businesses running ad campaigns. We blend CRO techniques with deep integrations to turn clicks into revenue.",
+      "priceBadge": "From €1,750",
+      "deliveryBadge": "7-10 days delivery"
+    },
+    "features": [
+      {
+        "title": "Conversion Rate Optimization",
+        "description": "Data-driven UX/UI design focused entirely on user psychology. We eliminate friction points to seamlessly guide your visitors toward taking action."
+      },
+      {
+        "title": "Deep Integrations",
+        "description": "Seamlessly connect your CRM, email marketing tools, tracking pixels, and payment gateways. No manual work, just pure marketing automation."
+      },
+      {
+        "title": "Ad-Ready Architecture",
+        "description": "Optimized experiences with perfect message match for your Google and Meta Ads. We ensure your load times never waste a single cent of your ad spend."
+      },
+      {
+        "title": "A/B Testing Ready",
+        "description": "Built with modular sections that allow you to easily test different headlines, offers, and layouts to continuously improve your Return on Ad Spend (ROAS)."
+      }
+    ],
+    "finalCta": {
+      "headline": "Ready to scale your campaigns?",
+      "subtitle": "Stop wasting ad spend on slow, confusing pages. Let's build a machine that converts.",
+      "buttonText": "Book a strategy call",
+      "buttonUrl": "/contact"
+    }
+  },
+  "carePage": {
+    "hero": {
+      "tagline": "CONTINUOUS CARE",
+      "titleBold": "Protect your investment.",
+      "titleLight": "Care & Optimization retainer.",
+      "subtitle": "Your digital asset needs continuous tuning to perform at its peak. We handle fast edge hosting, proactive security updates, and performance monitoring so you can focus on your business.",
+      "priceBadge": "Starting at €190/mo",
+      "deliveryBadge": "Cancel anytime"
+    },
+    "features": [
+      {
+        "title": "Fast Edge Hosting",
+        "description": "Your site is deployed globally on edge networks. This guarantees 99.9% uptime and lightning-fast load times for your users, regardless of their geographical location."
+      },
+      {
+        "title": "Proactive Security",
+        "description": "Constant dependency updates and threat monitoring. We patch vulnerabilities before they become a problem, ensuring your data and your users remain strictly protected."
+      },
+      {
+        "title": "Performance Monitoring",
+        "description": "We track your Core Web Vitals continuously. If a new content update or third-party script degrades your Lighthouse score, we detect it and optimize it immediately."
+      },
+      {
+        "title": "Priority Support",
+        "description": "Get a direct line to your developer. Need to integrate a new tracking pixel, adjust a layout, or consult on technical SEO? Consider us your in-house technical partner."
+      }
+    ],
+    "finalCta": {
+      "headline": "Keep your engine running at 100%",
+      "subtitle": "Don't let your digital asset degrade over time. Partner with us for peace of mind.",
+      "buttonText": "Start your retainer",
+      "buttonUrl": "/contact"
+    }
+  },
+  "designerBanner": {
+    "prefix": "For UX/UI Designers:",
+    "text": "Let's turn your Figma designs into lightning-fast, pixel-perfect code.",
+    "linkText": "See partnership details",
+    "url": "/services#partnership"
+  },
+  "aboutPage": {
+    "hero": {
+      "tagline": "ABOUT US",
+      "headline": "Future-proofing brands for the AI search era with high-performance digital architectures.",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+    },
+    "approach": {
+      "tagline": "OUR METHOD",
+      "items": [
+        {
+          "title": "The Strategy",
+          "description": "Search has evolved. We map out your visibility not just for Google, but for AI engines like ChatGPT and Perplexity. We focus on entity optimization to ensure your brand becomes a cited authority.",
+          "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "title": "The Execution",
+          "description": "We build lightning-fast, mobile-first platforms. Every pixel is optimized for conversions, and every line of code is structured with Schema markup so AI crawlers can easily extract and cite your data.",
+          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "title": "The Growth",
+          "description": "You get a digital asset that ranks higher in traditional search, gets recommended by AI assistants, and turns that high-quality, targeted traffic into loyal clients.",
+          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    "values": [
+      {
+        "number": "01",
+        "title": "We engineer for AI retrieval",
+        "description": "If an AI crawler cannot read your site, you don't exist in the new web. We deliver clean architecture, structured data, and ultra-fast load times so you are always the primary source.",
+        "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "number": "02",
+        "title": "We design conversion funnels",
+        "description": "As AI answers more questions directly, the traffic that does reach your site is highly qualified. We build frictionless user experiences that guide these high-intent visitors straight to checkout or contact.",
+        "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "number": "03",
+        "title": "We build resilient partnerships",
+        "description": "The digital landscape changes daily. Whether adapting to new LLM algorithms, optimizing for AI Overviews, or launching a new campaign, we act as your dedicated technical growth team for the long haul.",
+        "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    "team": {
+      "title": "Team",
+      "members": [
+        {
+          "name": "Fran Cortez",
+          "role": "Founder & Technical SEO Engineer",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+        }
+      ]
+    }
+  },
+  "contactPage": {
+    "title": "Contact",
+    "form": {
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email",
+      "subjectPlaceholder": "Subject",
+      "messagePlaceholder": "Message",
+      "submitText": "Send message"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Pages",
+        "links": [
+          { "label": "Home", "href": "/" },
+          { "label": "About", "href": "/about" },
+          { "label": "Works", "href": "/works" }
+        ]
+      },
+      {
+        "title": " ",
+        "links": [
+          { "label": "Work page", "href": "/works/carma-retreats" },
+          { "label": "Services", "href": "/services" },
+          { "label": "Contact", "href": "/contact" }
+        ]
+      }
+    ],
+    "copyright": "© {year} base-pages.com",
+    "credits": "Powered by base-pages.com ·"
+  }
+}

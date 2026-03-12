@@ -1,0 +1,132 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<div 
+  class={`lava-container ${className}`} 
+  onmouseenter="this.style.setProperty('--x', event.offsetX + 'px'); 
+                this.style.setProperty('--y', event.offsetY + 'px');
+                this.dataset.palette = Math.floor(Math.random() * 3)"
+>
+  <div class="lava-wrapper">
+    <div class="noise-overlay"></div>
+    <div class="light-diffuser"></div>
+    
+    <div class="blob cloud-a"></div>
+    <div class="blob cloud-b"></div>
+    <div class="blob cloud-c"></div>
+  </div>
+
+  <div class="content-wrapper">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  :root {
+    /* Palette 0: Aurora (Pinks, Purples, Soft Blues) */
+    --c0-1: #ffdefa; --c0-2: #d5ceff; --c0-3: #b8e9ff;
+    /* Palette 1: Spring (Mints, Yellows, Peaches) */
+    --c1-1: #e2ffeb; --c1-2: #fff8d5; --c1-3: #ffd8be;
+    /* Palette 2: Sunset (Corals, Lavenders, Creams) */
+    --c2-1: #ffc2c2; --c2-2: #e3d5ff; --c2-3: #fff5e1;
+  }
+
+  .lava-container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    background-color: #F9F9F7;
+  }
+
+  .lava-wrapper {
+    position: absolute;
+    inset: 0;
+    filter: url('#lava-goo');
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .light-diffuser {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    z-index: 3;
+  }
+
+  .noise-overlay {
+    position: absolute;
+    inset: -50%;
+    filter: url('#lava-grain');
+    opacity: 0.18; /* Grit helps the colors feel more "physical" */
+    z-index: 4;
+  }
+
+  .blob {
+    position: absolute;
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    width: 0; 
+    height: 0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    /* Blend mode is the secret to the "explosion" feel */
+    mix-blend-mode: multiply;
+    
+    transition: 
+      width 2s ease-in, 
+      height 2s ease-in, 
+      opacity 0.8s ease-out;
+  }
+
+  /* Define the Gradient Explosion logic */
+  [data-palette="0"] .cloud-a { background: radial-gradient(circle, var(--c0-1), transparent); }
+  [data-palette="0"] .cloud-b { background: radial-gradient(circle, var(--c0-2), transparent); }
+  [data-palette="0"] .cloud-c { background: radial-gradient(circle, var(--c0-3), transparent); }
+
+  [data-palette="1"] .cloud-a { background: radial-gradient(circle, var(--c1-1), transparent); }
+  [data-palette="1"] .cloud-b { background: radial-gradient(circle, var(--c1-2), transparent); }
+  [data-palette="1"] .cloud-c { background: radial-gradient(circle, var(--c1-3), transparent); }
+
+  [data-palette="2"] .cloud-a { background: radial-gradient(circle, var(--c2-1), transparent); }
+  [data-palette="2"] .cloud-b { background: radial-gradient(circle, var(--c2-2), transparent); }
+  [data-palette="2"] .cloud-c { background: radial-gradient(circle, var(--c2-3), transparent); }
+
+  .lava-container:hover .blob {
+    width: 90px; /* Slightly larger to allow colors to overlap and mix */
+    height: 90px;
+    opacity: 0.7;
+    transition: 
+      width 6s cubic-bezier(0.1, 0, 0.3, 1), 
+      height 6s cubic-bezier(0.1, 0, 0.3, 1), 
+      opacity 3s ease-in;
+  }
+
+  /* Unique animations so they drift apart and create the "explosion" */
+  .lava-container:hover .cloud-a { animation: float1 20s infinite alternate ease-in-out; }
+  .lava-container:hover .cloud-b { animation: float2 25s infinite alternate ease-in-out; animation-delay: 0.5s; }
+  .lava-container:hover .cloud-c { animation: float3 22s infinite alternate ease-in-out; animation-delay: 1s; }
+
+  @keyframes float1 { 0% {transform:translate(-50%,-50%)} 100% {transform:translate(-100%, -30%)} }
+  @keyframes float2 { 0% {transform:translate(-50%,-50%)} 100% {transform:translate(60%, -50%)} }
+  @keyframes float3 { 0% {transform:translate(-50%,-50%)} 100% {transform:translate(-20%, 60%)} }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .lava-container button, .lava-container [class*="bg-"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+</style>

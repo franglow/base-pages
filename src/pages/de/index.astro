@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/sections/Header.astro';
+import Hero from '../../components/sections/Hero.astro';
+import RevealSection from '../../components/sections/RevealSection.astro';
+import PortfolioGrid from '../../components/sections/PortfolioGrid.astro';
+import Footer from '../../components/sections/Footer.astro';
+import enData from '../../content/i18n/de.json';
+---
+
+<Layout title="Base Pages">
+  <Header navData={enData.nav} />
+  <main>
+    <Hero data={enData.hero} />
+    <RevealSection />
+    <PortfolioGrid />
+  </main>
+  <Footer data={enData.footer} />
+</Layout>

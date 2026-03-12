@@ -1,0 +1,192 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/sections/Header.astro';
+import Footer from '../../../components/sections/Footer.astro';
+import enData from '../../../content/i18n/de.json';
+
+export async function getStaticPaths() {
+  const projects = [
+    {
+      id: 'carma-retreats',
+      title: 'Carma Retreats',
+      subtitle: 'Connection, Culture, and Community',
+      headline: 'Blending wellness and code into a bold digital system',
+      challenge: 'Visualizing peace through motion and color',
+      challengeText: 'Creating a digital space that feels as calm as a Sri Lankan sunrise while maintaining high technical performance.',
+      results: 'A vibrant system for a bold digital future',
+      resultsText: 'A seamless booking experience and a visual identity that resonates with modern travelers.',
+      nextCase: 'Cornelia Jaeger',
+      nextId: 'cornelia-jaeger',
+      mainImgDesk: '/images/portfolio-grid/carma-main.jpg',
+      mainImgMob: '/images/portfolio-grid/carma-main-mobile.png',
+      secImgDesk: '/images/works/carma/carma-01-desktop.png',
+      secImgMob: '/images/works/carma/carma-01-mobile.png',
+      tertiaryImgDesk: '/images/works/carma/carma-02-desktop.png',
+      tertiaryImgMob: '/images/works/carma/carma-02-mobile.png',
+      nextImg: '/images/portfolio-grid/cornelia-main.jpg'
+    },
+    {
+      id: 'cornelia-jaeger',
+      title: 'Cornelia Jaeger',
+      subtitle: 'Holistic Occupational Therapy',
+      headline: 'Empowering families through thoughtful digital design',
+      challenge: 'Structuring care and professional trust',
+      challengeText: 'Communicating clinical expertise with a warm, accessible approach for parents in need of support.',
+      results: 'Clarity and empathy in every interaction',
+      resultsText: 'An intuitive platform that bridges the gap between therapy and home-based support.',
+      nextCase: 'Carma Retreats',
+      nextId: 'carma-retreats',
+      mainImgDesk: '/images/portfolio-grid/cornelia-main.jpg',
+      mainImgMob: '/images/portfolio-grid/cornelia-main.jpg', 
+      secImgDesk: '/images/works/cornelia/cornelia-01-desktop.png',
+      secImgMob: '/images/works/cornelia/cornelia-01-mobile.png',
+      tertiaryImgDesk: '/images/works/cornelia/cornelia-02-desktop.png',
+      tertiaryImgMob: '/images/works/cornelia/cornelia-02-mobile.png',
+      nextImg: '/images/portfolio-grid/carma-main.png'
+    }
+  ];
+
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} - Noura`}>
+  <Header navData={enData.nav} />  
+  <main class="work-detail">
+    <section class="intro-header">
+      <div class="meta">
+        <span class="client-name">{project.title.toUpperCase()}</span>
+        <span class="subtitle">{project.subtitle}</span>
+      </div>
+      <h1>{project.headline}</h1>
+    </section>
+
+    <div class="main-image-wrapper">
+      <picture>
+        <source media="(max-width: 768px)" srcset={project.mainImgMob} />
+        <img src={project.mainImgDesk} alt={project.title} class="full-img" loading="eager" />
+      </picture>
+    </div>
+
+    <section class="grid-section">
+      <div class="text-content">
+        <span class="label">CHALLENGE</span>
+        <h2>{project.challenge}</h2>
+        <p>{project.challengeText}</p>
+      </div>
+      <div class="image-content">
+        <picture>
+          <source media="(max-width: 768px)" srcset={project.secImgMob} />
+          <img src={project.secImgDesk} alt="Challenge visual" class="rounded-img" />
+        </picture>
+      </div>
+    </section>
+
+    <div class="full-image-wrapper">
+      <picture>
+        <source media="(max-width: 768px)" srcset={project.tertiaryImgMob} />
+        <img src={project.tertiaryImgDesk} alt="Visual system details" class="full-img" loading="lazy" />
+      </picture>
+    </div>
+
+    <section class="results-section">
+       <div class="text-content">
+        <span class="label">RESULTS</span>
+        <h2>{project.results}</h2>
+      </div>
+      <div class="results-description">
+        <p>{project.resultsText}</p>
+      </div>
+    </section>
+
+    <section class="next-case">
+       <div class="next-label">
+         Next case <a href={`/works/${project.nextId}`} class="badge">{project.nextCase.toUpperCase()}</a>
+       </div>
+       <a href={`/works/${project.nextId}`} class="next-img-link">
+         <img src={project.nextImg} alt="Next project" />
+       </a>
+    </section>
+  </main>
+  <Footer data={enData.footer} />
+</Layout>
+
+<style>
+  /* --- Global & Layout --- */
+  .work-detail { padding-top: 120px; background: #f8f7f5; }
+  
+  /* --- Intro Header --- */
+  .intro-header { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
+  .meta { display: flex; gap: 20px; margin-bottom: 40px; font-size: 14px; font-weight: 500; }
+  .client-name { color: #1a1a1a; }
+  .subtitle { color: #888; }
+  h1 { font-size: clamp(40px, 8vw, 84px); line-height: 1.1; letter-spacing: -2px; max-width: 900px; margin: 0; }
+
+  /* --- Image Wrappers --- */
+  .main-image-wrapper, .full-image-wrapper { padding: 0 24px; margin-bottom: 120px; }
+  .full-img { width: 100%; border-radius: 40px; object-fit: cover; display: block; }
+  .rounded-img { width: 100%; border-radius: 32px; object-fit: cover; display: block; }
+
+  /* --- Grid Section (Challenge) --- */
+  .grid-section { 
+    display: grid; 
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 80px; 
+    max-width: 1200px; 
+    margin: 0 auto 120px; 
+    padding: 0 24px;
+    align-items: center;
+  }
+  .label { font-size: 12px; font-weight: 700; color: #1a1a1a; display: block; margin-bottom: 24px; letter-spacing: 1px; }
+  h2 { font-size: 48px; line-height: 1.2; margin-bottom: 24px; letter-spacing: -1px; margin-top: 0; }
+  p { font-size: 18px; line-height: 1.6; color: #555; max-width: 440px; }
+
+  /* --- Results Section --- */
+  .results-section {
+    max-width: 1200px;
+    margin: 0 auto 150px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .results-section h2 { max-width: 500px; }
+  .results-description { margin-top: 80px; max-width: 440px; }
+
+  /* --- Next Case Navigation --- */
+  .next-case { border-top: 1px solid #ddd; padding: 120px 24px; text-align: center; }
+  .next-label { font-size: 18px; margin-bottom: 40px; color: #1a1a1a; }
+  .badge { 
+    background: #e8e8e8; 
+    padding: 10px 20px; 
+    border-radius: 30px; 
+    text-decoration: none; 
+    color: #000; 
+    font-weight: 600; 
+    font-size: 13px;
+    margin-left: 10px;
+    transition: background 0.3s ease;
+  }
+  .badge:hover { background: #dcdcdc; }
+  .next-img-link { display: block; margin-top: 40px; }
+  .next-img-link img { width: 100%; max-width: 900px; border-radius: 40px; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .next-img-link:hover img { transform: scale(1.02); }
+
+  /* --- Mobile Adjustments --- */
+  @media (max-width: 768px) {
+    .work-detail { padding-top: 80px; }
+    .intro-header { padding-bottom: 40px; }
+    h1 { font-size: 42px; letter-spacing: -1px; }
+    .main-image-wrapper, .full-image-wrapper { margin-bottom: 60px; padding: 0 16px; }
+    .grid-section { grid-template-columns: 1fr; gap: 40px; margin-bottom: 60px; }
+    .results-section { flex-direction: column; margin-bottom: 80px; }
+    .results-description { margin-top: 20px; }
+    .next-case { padding: 80px 16px; }
+    h2 { font-size: 32px; }
+  }
+</style>

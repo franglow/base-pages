@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "items": [
+      { "label": "Startseite", "href": "/de" },
+      { "label": "Über uns", "href": "/de/about" },
+      { "label": "Projekte", "href": "/de/works" },
+      { "label": "Blog", "href": "/de/blog" }
+    ],
+    "cta": "Kontakt"
+  },
+  "hero": {
+    "titles": [
+      "Websites, die performen",
+      "Landingpages, die abliefern"
+    ],
+    "subtitle": "Wir bauen die Website, die du brauchst — ganz einfach.",
+    "cta": "Mehr erfahren",
+    "location": "Deutschland",
+    "promo": "Kostenlos nutzen",
+    "language": "Deutsch",
+    "switchLanguage": "English",
+    "switchUrl": "/"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Seiten",
+        "links": [
+          { "label": "Startseite", "href": "/de" },
+          { "label": "Über uns", "href": "/de/about" },
+          { "label": "Projekte", "href": "/de/works" }
+        ]
+      },
+      {
+        "title": " ",
+        "links": [
+          { "label": "Projektseite", "href": "/de/works/carma-retreats" },
+          { "label": "Blog", "href": "/de/blog" },
+          { "label": "Kontakt", "href": "/de/contact" }
+        ]
+      }
+    ],
+    "copyright": "© {year} base-pages.com",
+    "credits": "Powered by base-pages.com ·"
+  }
+}

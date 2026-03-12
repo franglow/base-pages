@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "items": [
+      { "label": "Inicio", "href": "/es" },
+      { "label": "Nosotros", "href": "/es/about" },
+      { "label": "Proyectos", "href": "/es/works" },
+      { "label": "Blog", "href": "/es/blog" }
+    ],
+    "cta": "Contacto"
+  },
+  "hero": {
+    "titles": [
+      "Sitios web que rinden",
+      "Landing pages que convierten"
+    ],
+    "subtitle": "Construimos la web que necesitás — así de simple.",
+    "cta": "Conocé más",
+    "location": "Argentina",
+    "promo": "Usalo gratis",
+    "language": "Español",
+    "switchLanguage": "English",
+    "switchUrl": "/"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Páginas",
+        "links": [
+          { "label": "Inicio", "href": "/es" },
+          { "label": "Nosotros", "href": "/es/about" },
+          { "label": "Proyectos", "href": "/es/works" }
+        ]
+      },
+      {
+        "title": " ",
+        "links": [
+          { "label": "Ver proyecto", "href": "/es/works/carma-retreats" },
+          { "label": "Blog", "href": "/es/blog" },
+          { "label": "Contacto", "href": "/es/contact" }
+        ]
+      }
+    ],
+    "copyright": "© {year} base-pages.com",
+    "credits": "Powered by base-pages.com ·"
+  }
+}
