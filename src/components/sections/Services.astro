@@ -1,8 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 const { data } = Astro.props;
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/services/*.{jpeg,jpg,png,gif,webp}');
 ---
 
 <section class="max-w-7xl mx-auto px-6 py-24 md:py-32">
@@ -22,17 +19,33 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
     </div>
 
     <div class="lg:col-span-5 flex flex-col gap-12 md:gap-20 lg:pt-24">
-      {data.items.map((item: any) => (
+      {/* ADDED INDEX TO MAP FUNCTION */}
+      {data.items.map((item: any, index: number) => (
         <article class="service-card flex flex-col gap-5">
           
-          <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-[344px] h-[229px] md:w-[360px] md:h-[240px] lg:w-[402px] lg:h-[268px] bg-gray-100 group">
-            <div class="service-img-wrapper w-full h-full will-change-transform">
-              {/* Reemplazamos <img> por <Image /> para optimizar y que la ruta funcione */}
-              <Image 
-                src={images[item.image]()} 
-                alt={item.title} 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-              />
+          <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-[344px] h-[229px] md:w-[360px] md:h-[240px] lg:w-[402px] lg:h-[268px] group">
+            
+            {/* CHANGED BACKGROUND TO MATCH YOUR THEME */}
+            <div class="service-img-wrapper w-full h-full will-change-transform bg-[#f8f7f5] flex items-center justify-center transition-transform duration-700 group-hover:scale-105 border border-gray-100">
+              
+              {/* SHAPE 1: THE STARTER (Squircle) */}
+              {index === 0 && (
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-[32px] md:rounded-[40px] brand-gradient shape-breath shadow-lg shadow-black/5" />
+              )}
+
+              {/* SHAPE 2: THE GROWTH (Pill) */}
+              {index === 1 && (
+                <div class="w-40 h-24 md:w-48 md:h-28 rounded-[40px] md:rounded-[48px] brand-gradient shape-tilt shadow-lg shadow-black/5" />
+              )}
+
+              {/* SHAPE 3: THE SCALE (Overlapping Squircles) */}
+              {index === 2 && (
+                <div class="relative w-32 h-32 md:w-40 md:h-40">
+                  <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-60 mix-blend-multiply shape-overlap-1" />
+                  <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-90 backdrop-blur-sm shape-overlap-2 shadow-lg shadow-black/5" />
+                </div>
+              )}
+
             </div>
           </a>
 
@@ -120,6 +133,55 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
   #reveal-text .word.active {
     color: #111827; 
   }
+
+  /* --- BRAND GRADIENT & GEOMETRY ANIMATIONS --- */
+  
+  .brand-gradient {
+    background: linear-gradient(135deg, #A8BFAF 0%, #E8DDC8 50%, #F6D7C8 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* The Starter */
+  .shape-breath {
+    animation: breath 6s ease-in-out infinite;
+  }
+  @keyframes breath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* The Growth */
+  .shape-tilt {
+    transform: rotate(-35deg);
+    animation: tilt 8s ease-in-out infinite;
+  }
+  @keyframes tilt {
+    0%, 100% { transform: rotate(-35deg) scale(1); }
+    50% { transform: rotate(-25deg) scale(1.03); }
+  }
+
+  /* The Scale */
+  .shape-overlap-1 {
+    animation: overlap1 6s ease-in-out infinite;
+  }
+  .shape-overlap-2 {
+    animation: overlap2 6s ease-in-out infinite;
+  }
+  @keyframes overlap1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-12px, -12px) scale(1.02); }
+  }
+  @keyframes overlap2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(12px, 12px) scale(0.98); }
+  }
 </style>
 
 <script>
@@ -174,7 +236,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
     });
   }
 
-  // --- 2. EFECTO SCRUB ZOOM GLOBAL (Para PC, Tablet y Móvil) ---
+  // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
   function initScrubZoom() {
     gsap.registerPlugin(ScrollTrigger);
 
