@@ -237,19 +237,12 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
       ease: "power1.inOut"
     }, 0)
     
-    .fromTo(".expanding-box", 
-      {
-        width: startWidth,
-        height: startHeight,
-        borderRadius: startRadius 
-      },
-      {
-        width: finalWidth,       
-        height: finalHeight,     
-        borderRadius: finalRadius, 
-        ease: "none" 
-      }, 
-    0)
+    .to(".expanding-box", {
+      width: finalWidth,       
+      height: finalHeight,     
+      borderRadius: finalRadius, 
+      ease: "none" 
+    }, 0)
 
     .fromTo(".overlay-text", 
       {
