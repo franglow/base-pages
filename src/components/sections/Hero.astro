@@ -295,9 +295,15 @@ const images = [
   initTitleRotation();
 
   let resizeTimer;
+  let currentWidth = window.innerWidth; // Store initial width
+
   window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(initHero, 200);
+    // Check if the width actually changed
+    if (window.innerWidth !== currentWidth) {
+      currentWidth = window.innerWidth; // Update stored width
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(initHero, 200);
+    }
   });
 
 
