@@ -14,16 +14,70 @@ import enData from '../content/i18n/en.json';
   <Header navData={enData.nav} />
   <main>
     <Hero data={enData.hero} />
-    <div class="max-w-7xl mx-auto px-6 mt-20 md:mt-32">
-      <div class="w-full border-t border-gray-200"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 mt-12 md:mt-24 w-full relative z-40">
+      
+      <div class="flex items-center pb-6 text-sm font-semibold text-gray-800">
+        
+        <div class="relative" id="lang-switcher-container">
+          <button 
+            id="lang-btn" 
+            class="flex items-center gap-2 hover:opacity-70 transition-opacity focus:outline-none"
+            aria-expanded="false"
+          >
+            <span class="text-xl">🌐</span> {enData.hero.language}
+          </button>
+
+          <div 
+            id="lang-dropdown" 
+            class="absolute top-full left-0 mt-3 hidden flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden min-w-[120px] origin-top-left transition-all"
+          >
+            <a href={enData.hero.switchUrl} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
+              {enData.hero.switchLanguage}
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="w-full border-t border-dashed md:border-solid border-gray-300 md:border-gray-200"></div>
+
     </div>
+
     <RevealSection />
     <PortfolioGrid />
-    <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="max-w-7xl mx-auto px-6 mt-32">
       <div class="w-full border-t border-gray-200"></div>
     </div>
+    
     <Services data={enData.services} />
     <DesignerBanner data={enData.designerBanner} />
   </main>
   <Footer data={enData.footer} />
 </Layout>
+
+<script>
+  // Language switcher dropdown logic
+  const langBtn = document.getElementById('lang-btn');
+  const langDropdown = document.getElementById('lang-dropdown');
+
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      langDropdown.classList.toggle('hidden');
+      langDropdown.classList.toggle('flex');
+      
+      const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
+      langBtn.setAttribute('aria-expanded', String(!isExpanded));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langDropdown.contains(e.target as Node)) {
+        langDropdown.classList.add('hidden');
+        langDropdown.classList.remove('flex');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

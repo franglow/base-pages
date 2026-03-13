@@ -1,8 +1,9 @@
 ---
+import Button from '../ui/Button.astro';
 const { data } = Astro.props;
 ---
 
-<section class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+<section id="services" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
   
   <div id="scroll-container" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start relative">
     
@@ -115,9 +116,9 @@ const { data } = Astro.props;
       </div>
 
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-12 md:mt-16 w-full">
-        <a href={data.cta.buttonUrl} class="shrink-0 bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors">
+        <Button href="/contact" class="shrink-0 bg-black text-white px-8 py-4 !rounded-2xl font-medium hover:scale-105 transition-transform shadow-lg">
           {data.cta.buttonText}
-        </a>
+        </Button>
         <p class="text-gray-500 text-[14px] max-w-[280px] leading-relaxed">
           {data.cta.note}
         </p>

@@ -12,22 +12,10 @@ const heroImagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets
 const heroImages = await Promise.all(
   Object.keys(heroImagesGlob).map((key) => heroImagesGlob[key]().then(res => res.default))
 );
-
-const images = [
-  { src: "/images/hero/Hero-01.webp" },
-  { src: "/images/hero/Hero-02.webp" },
-  { src: "/images/hero/Hero-03.webp" },
-  { src: "/images/hero/Hero-04.webp" },
-  { src: "/images/hero/Hero-05.webp" },
-  { src: "/images/hero/Hero-06.webp" },
-  { src: "/images/hero/Hero-07.webp" },
-  { src: "/images/hero/Hero-08.webp" },
-];
 ---
 
 <section class="relative min-h-[90svh] md:min-h-screen w-full overflow-hidden flex flex-col items-center justify-center mt-[var(--header-height)] pt-[var(--header-height)] min-[320px]:max-h-[500px]:min-h-[700px]">
 
-  <!-- Orbit -->
   <div class="orbit-container absolute top-1/2 left-1/2 w-0 h-0 z-0">
     {heroImages.map((img, index) => (
       <div class="orbit-item absolute top-0 left-0 w-0 h-0 will-change-transform">
@@ -37,11 +25,10 @@ const images = [
             animationDelay: `${index * 0.2}s`
           }}
         >
-          {/* 3. Use the <Image /> component for automatic optimization */}
           <Image 
             src={img} 
             alt="" 
-            width={220} // Double the desktop size for high-density (Retina) screens
+            width={220}
             class="w-full h-full object-cover" 
             loading="eager" 
           />
@@ -50,15 +37,13 @@ const images = [
     ))}
   </div>
 
-  <!-- Content -->
-  <div class="relative z-30 text-center max-w-4xl px-4 flex flex-col items-center md:mt-[-2vh] max-[1000px]:landscape:mt-8">
+  <div class="relative z-30 text-center max-w-5xl w-full px-4 flex flex-col items-center -mt-16 md:-mt-[12vh] max-[1000px]:landscape:mt-8">
 
       <div class="relative h-[90px] md:h-[220px] w-full overflow-hidden flex items-center justify-center mb-1 md:mb-6">
         <div class="h1-mask-container relative h-full w-full flex items-center justify-center">
           {data.titles.map((title: string) => (
-            <h1 class="rotating-title absolute w-full max-w-[95%] md:max-w-[900px] text-center text-[32px] md:text-[55px] lg:text-[55px] font-semibold tracking-tighter leading-[1.1] opacity-0">
+            <h1 class="rotating-title absolute w-full max-w-[95%] md:max-w-[900px] lg:max-w-[600px] text-center text-[32px] md:text-[55px] lg:text-[55px] font-semibold tracking-tighter leading-[1.1] opacity-0">
               {title.split(" ").map((word: string) => (
-                /* Achicamos el py-2 a py-1 en móvil para que robe menos espacio vertical */
                 <span class="inline-block translate-y-[120%] opacity-0 py-1 md:py-2 mr-[0.2em]">{word}</span>
               ))}
             </h1>
@@ -66,57 +51,31 @@ const images = [
         </div>
       </div>
 
-      <p class="text-[16px] md:text-[18px] text-[var(--color-text-muted)] font-medium max-w-sm mx-auto px-2 -mt-2 md:mt-0 mb-6 md:mb-8">
+      <p class="text-[16px] md:text-[18px] text-[var(--color-text-muted)] font-medium max-w-lg text-balance mx-auto px-2 -mt-2 md:mt-0 mb-6 md:mb-8">
         {data.subtitle}
       </p>
 
       <div>
-        <Button class="bg-black text-white px-8 py-4 !rounded-2xl hover:scale-105 transition-transform shadow-lg">
+        <Button href={data.ctaUrl || "#services"} class="bg-black text-white px-8 py-4 !rounded-2xl hover:scale-105 transition-transform shadow-lg">
           {data.cta}
         </Button>
       </div>
     </div>
-
-  <div class="absolute inset-0 w-full max-w-7xl mx-auto px-6 md:px-10 pointer-events-none z-40">
-    
-    <div class="absolute max-md:top-[calc(100svh-100px)] md:bottom-6 pointer-events-auto text-sm font-semibold text-gray-800" id="lang-switcher-container">
-      <button 
-        id="lang-btn" 
-        class="flex items-center gap-2 hover:opacity-70 transition-opacity focus:outline-none"
-        aria-expanded="false"
-      >
-        <span class="text-xl">🌐</span> {data.language}
-      </button>
-
-      <div 
-        id="lang-dropdown" 
-        class="absolute bottom-full left-0 mb-3 hidden flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden min-w-[120px] origin-bottom-left transition-all"
-      >
-        <a href={data.switchUrl} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
-          {data.switchLanguage}
-        </a>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <style>
-/* 1. CARTAS ORBIT (Dimensiones y Animación) */
+/* 1. CARTAS ORBIT */
 .orbit-card {
-  /* Tamaño para móvil: contenido y elegante */
   width: 72px;   
   height: 94px;  
   transform: translate(-50%, -50%);
   border-radius: 0.6rem; 
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  /* El ciclo de 10 segundos que definimos (3s frente, 1s giro, 5s atrás, 1s giro) */
   animation: flip-domino 10s infinite ease-in-out;
   backface-visibility: visible;
 }
 
-/* 2. RESPONSIVE: Ajustes para Desktop */
 @media (min-width: 768px) {
   .orbit-card {
     width: 110px;
@@ -130,9 +89,9 @@ const images = [
   }
 }
 
-/* 3. CONTENEDOR DE TÍTULO (Máscara) */
+/* 3. CONTENEDOR DE TÍTULO */
 .h1-mask-container {
-  height: 110px; /* Altura en móvil para que el stagger respire */
+  height: 110px; 
   position: relative;
   width: 100%;
   display: flex;
@@ -155,40 +114,14 @@ const images = [
   padding: 0 0.05em; 
 }
 
-/* 4. KEYFRAMES: El giro pausado y elegante */
+/* 4. KEYFRAMES */
 @keyframes flip-domino {
-  /* 0% a 30%: 3 segundos quieto de frente */
-  0%, 30% { 
-    transform: translate(-50%, -50%) perspective(1000px) rotateY(0deg); 
-  }
-  /* 30% a 40%: 1 segundo de giro lento hacia atrás */
-  40% { 
-    transform: translate(-50%, -50%) perspective(1000px) rotateY(180deg); 
-  }
-  /* 40% a 90%: 5 segundos quieto de espaldas */
-  40%, 90% { 
-    transform: translate(-50%, -50%) perspective(1000px) rotateY(180deg); 
-  }
-  /* 90% a 100%: 1 segundo de giro lento hacia adelante */
-  100% { 
-    transform: translate(-50%, -50%) perspective(1000px) rotateY(0deg); 
-  }
+  0%, 30% { transform: translate(-50%, -50%) perspective(1000px) rotateY(0deg); }
+  40% { transform: translate(-50%, -50%) perspective(1000px) rotateY(180deg); }
+  40%, 90% { transform: translate(-50%, -50%) perspective(1000px) rotateY(180deg); }
+  100% { transform: translate(-50%, -50%) perspective(1000px) rotateY(0deg); }
 }
 
-/* 5. GLOBE ICON (Balanceo 3D) */
-@keyframes globe-3d-sway {
-  0% { transform: rotateY(-25deg); }
-  100% { transform: rotateY(25deg); }
-}
-
-.globe-icon {
-  display: inline-block;
-  animation: globe-3d-sway 3s ease-in-out infinite alternate;
-  transform-origin: center center;
-  perspective: 1000px;
-}
-
-/* 6. AJUSTE DE POSICIÓN DEL CONTENIDO (Para centrar en el círculo) */
 .hero-content-wrapper {
   position: relative;
   z-index: 30;
@@ -196,7 +129,6 @@ const images = [
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Centrado visual en móvil */
   margin-top: -2rem; 
 }
 
@@ -215,9 +147,6 @@ const images = [
 
   let timeline = null;
 
-  // --- Lógica del Orbit (Tu código actual) ---
-
-  // 🎯 Bajamos de 38 a 32 para que el círculo sea más chico y entre en el viewport móvil
   const getRadiusVH = () => window.innerWidth < MOBILE_BREAKPOINT ? 32 : 41.8;
 
   function initHero() {
@@ -225,8 +154,6 @@ const images = [
     const items = document.querySelectorAll('.orbit-item');
     if (!container || !items.length) return;
 
-    // 🎯 FIX: Usamos Math.max para obligar a que el cálculo tenga una base mínima de 700px.
-    // Así, en celulares apaisados (375px de alto), las fotos no colapsan hacia el centro.
     const safeHeight = Math.max(window.innerHeight, 700);
     const radiusPx = (safeHeight * getRadiusVH()) / 100;
     
@@ -249,7 +176,6 @@ const images = [
       .progress(progress);
   }
 
-// --- NUEVA Lógica: Rotación de H1 con Doble Rebote y Stagger ---
   function initTitleRotation() {
     const titles = document.querySelectorAll('.rotating-title');
     if (!titles.length) return;
@@ -260,77 +186,26 @@ const images = [
       const words = title.querySelectorAll('span');
       const tl = gsap.timeline();
 
-      // 1. Encendemos el contenedor Padre (las palabras siguen invisibles por su clase opacity-0)
       tl.set(title, { opacity: 1 }) 
-        
-        // 2. Animación de ENTRADA (desde abajo, apareciendo)
-        .to(words, {
-          y: "0%",
-          opacity: 1,
-          duration: 0.8,
-          ease: "back.out(2.5)", 
-          stagger: 0.08,        
-        })
-        
-        // 3. Animación de SALIDA (hacia arriba, desapareciendo)
-        .to(words, {
-          y: "-120%", // Lo bajamos de -150% a -120% para evitar tirones
-          opacity: 0,
-          duration: 0.6,
-          ease: "back.in(1.5)", 
-          stagger: 0.05,
-          delay: 2.5, // 2.5 segundos es el tiempo ideal de lectura para frases cortas
-        })
-        
-        // 4. Apagamos el contenedor Padre
+        .to(words, { y: "0%", opacity: 1, duration: 0.8, ease: "back.out(2.5)", stagger: 0.08 })
+        .to(words, { y: "-120%", opacity: 0, duration: 0.6, ease: "back.in(1.5)", stagger: 0.05, delay: 2.5 })
         .set(title, { opacity: 0 });
 
-      // Agregamos la sub-línea a la línea maestra (sin pausas extrañas)
       masterTl.add(tl);
     });
   }
 
-  // Inicializar todo
   initHero();
   initTitleRotation();
 
   let resizeTimer;
-  let currentWidth = window.innerWidth; // Store initial width
+  let currentWidth = window.innerWidth;
 
   window.addEventListener("resize", () => {
-    // Check if the width actually changed
     if (window.innerWidth !== currentWidth) {
-      currentWidth = window.innerWidth; // Update stored width
+      currentWidth = window.innerWidth;
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(initHero, 200);
     }
   });
-
-
-  const langBtn = document.getElementById('lang-btn');
-  const langDropdown = document.getElementById('lang-dropdown');
-
-  // Evento de click en el botón
-  if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); // Evita que el evento burbujee
-      
-      // Alternamos las clases para mostrar/ocultar
-      langDropdown.classList.toggle('hidden');
-      langDropdown.classList.toggle('flex');
-      
-      // Accesibilidad
-      const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
-      langBtn.setAttribute('aria-expanded', !isExpanded);
-    });
-
-    // Evento para cerrar si el usuario hace click afuera del menú
-    document.addEventListener('click', (e) => {
-      if (!langDropdown.contains(e.target as Node)) {
-        langDropdown.classList.add('hidden');
-        langDropdown.classList.remove('flex');
-        langBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
 </script>

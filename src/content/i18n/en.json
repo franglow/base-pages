@@ -10,11 +10,12 @@
   },
   "hero": {
     "titles": [
-      "Ignite your digital presence.",
-      "High-performance digital engines."
+      "Websites that perform.",
+      "Landing pages that convert."
     ],
-    "subtitle": "Lightning-fast architectures designed to capture leads and outshine the competition. We build the spark, you drive the growth.",
-    "cta": "Ignite your project",
+    "subtitle": "Lightning-fast architectures designed to capture leads and outshine the competition.",
+    "cta": "Explore services",
+    "ctaUrl": "#services",
     "location": "US",
     "promo": "Use for free",
     "language": "English",
