@@ -49,7 +49,7 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
 
   .scroll-indicator {
     position: absolute;
-    top: 15vh; 
+    top: 15dvh; 
     left: 0;
     width: 100%;
     text-align: center;
@@ -226,14 +226,14 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
         start: "top top",
         end: "+=300%", 
         scrub: 2,
-        pin: true,
+        pin: ".pin-wrapper",
         invalidateOnRefresh: true 
       }
     });
 
     tl.to(".scroll-indicator", {
-      y: "-20vh", 
       opacity: 0, 
+      duration: 0.15,
       ease: "power1.inOut"
     }, 0)
     
