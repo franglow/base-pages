@@ -3,7 +3,7 @@ import Button from '../ui/Button.astro';
 const { data } = Astro.props;
 ---
 
-<section id="services" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+<section id="services" class="max-w-7xl mx-auto px-6 py-24 md:py-32 scroll-mt-24">
   
   <div id="scroll-container" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start relative">
     
@@ -20,13 +20,14 @@ const { data } = Astro.props;
     </div>
 
     <div class="lg:col-span-5 flex flex-col gap-12 md:gap-20 lg:pt-24">
-      {/* ADDED INDEX TO MAP FUNCTION */}
       {data.items.map((item: any, index: number) => (
-        <article class="service-card flex flex-col gap-5">
+        /* 🎯 FIX: Added 'observe-card' class for the IntersectionObserver */
+        <article class="service-card observe-card flex flex-col gap-5">
           
           <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-full max-w-[344px] md:max-w-[360px] lg:max-w-[402px] aspect-[1.5] group">
             
-            <div class="service-img-wrapper w-full h-full will-change-transform bg-[#f8f7f5] flex items-center justify-center border border-gray-100">
+            {/* 🎯 FIX: Native CSS hover scale instead of GSAP scroll scrub */}
+            <div class="service-img-wrapper w-full h-full will-change-transform bg-[#f8f7f5] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-[1.15] border border-gray-100">
               
               {/* SHAPE 1: THE STARTER (Squircle) */}
               {index === 0 && (
@@ -139,7 +140,13 @@ const { data } = Astro.props;
   .brand-gradient {
     background: linear-gradient(135deg, #A8BFAF 0%, #E8DDC8 50%, #F6D7C8 100%);
     background-size: 200% 200%;
-    animation: gradientShift 8s ease infinite;
+    /* 🎯 FIX: Default state is paused */
+    animation: gradientShift 8s ease infinite paused;
+  }
+
+  /* 🎯 FIX: Play animations ONLY when .is-in-view class is added by JS */
+  .observe-card.is-in-view .brand-gradient {
+    animation-play-state: running;
   }
 
   @keyframes gradientShift {
@@ -150,7 +157,10 @@ const { data } = Astro.props;
 
   /* The Starter */
   .shape-breath {
-    animation: breath 6s ease-in-out infinite;
+    animation: breath 6s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-breath {
+    animation-play-state: running;
   }
   @keyframes breath {
     0%, 100% { transform: scale(1); }
@@ -160,7 +170,10 @@ const { data } = Astro.props;
   /* The Growth */
   .shape-tilt {
     transform: rotate(-35deg);
-    animation: tilt 8s ease-in-out infinite;
+    animation: tilt 8s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-tilt {
+    animation-play-state: running;
   }
   @keyframes tilt {
     0%, 100% { transform: rotate(-35deg) scale(1); }
@@ -169,10 +182,16 @@ const { data } = Astro.props;
 
   /* The Scale */
   .shape-overlap-1 {
-    animation: overlap1 6s ease-in-out infinite;
+    animation: overlap1 6s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-overlap-1 {
+    animation-play-state: running;
   }
   .shape-overlap-2 {
-    animation: overlap2 6s ease-in-out infinite;
+    animation: overlap2 6s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-overlap-2 {
+    animation-play-state: running;
   }
   @keyframes overlap1 {
     0%, 100% { transform: translate(0, 0) scale(1); }
@@ -185,100 +204,79 @@ const { data } = Astro.props;
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
   function initAll() {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.config({ ignoreMobileResize: true });
+    
+    // --- 1. LÓGICA DEL TEXTO STICKY (Solo Desktop) ---
+    const textElement = document.getElementById('reveal-text');
+    const container = document.getElementById('scroll-container');
+    const leftCol = document.getElementById('left-col');
+    let scrollHandler;
 
-    // 🎯 FIX: Use gsap.matchMedia() to strictly isolate heavy animations to Desktop
-    let mm = gsap.matchMedia();
+    if (textElement && container && leftCol) {
+      if (!textElement.hasAttribute('data-split')) {
+        const text = textElement.innerText;
+        const words = text.split(' ');
+        textElement.innerHTML = '';
 
-    // This code will ONLY run on screens 1024px and wider
-    mm.add("(min-width: 1024px)", () => {
-      
-      // --- 1. LÓGICA DEL TEXTO STICKY ---
-      const textElement = document.getElementById('reveal-text');
-      const container = document.getElementById('scroll-container');
-      const leftCol = document.getElementById('left-col');
-      let scrollHandler; // Store the handler so we can clean it up later
-
-      if (textElement && container && leftCol) {
-        if (!textElement.hasAttribute('data-split')) {
-          const text = textElement.innerText;
-          const words = text.split(' ');
-          textElement.innerHTML = '';
-
-          words.forEach(word => {
-            const span = document.createElement('span');
-            span.innerText = word + ' ';
-            span.classList.add('word');
-            textElement.appendChild(span);
-          });
-          textElement.setAttribute('data-split', 'true');
-        }
-
-        const wordSpans = document.querySelectorAll('#reveal-text .word');
-
-        scrollHandler = () => {
-          const containerRect = container.getBoundingClientRect();
-          const stickyTop = 128; 
-          const maxScroll = container.offsetHeight - leftCol.offsetHeight;
-          const scrolled = stickyTop - containerRect.top;
-          
-          let progress = scrolled / maxScroll;
-          progress = Math.max(0, Math.min(1, progress));
-          
-          const wordsToHighlight = Math.floor(progress * wordSpans.length);
-          
-          wordSpans.forEach((span, index) => {
-            if (index < wordsToHighlight) {
-              span.classList.add('active');
-            } else {
-              span.classList.remove('active');
-            }
-          });
-        };
-
-        // Attach scroll listener ONLY on desktop
-        window.addEventListener('scroll', scrollHandler);
+        words.forEach(word => {
+          const span = document.createElement('span');
+          span.innerText = word + ' ';
+          span.classList.add('word');
+          textElement.appendChild(span);
+        });
+        textElement.setAttribute('data-split', 'true');
       }
 
-      // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
-      const cards = document.querySelectorAll('.service-card');
+      const wordSpans = document.querySelectorAll('#reveal-text .word');
 
-      cards.forEach((card) => {
-        const wrapper = card.querySelector('.service-img-wrapper');
+      scrollHandler = () => {
+        // Only run on desktop
+        if (window.innerWidth < 1024) return;
 
-        gsap.fromTo(wrapper, 
-          { scale: 1 }, 
-          {
-            scale: 1.15, 
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top bottom", 
-              end: "bottom top",   
-              scrub: true 
-            }
+        const containerRect = container.getBoundingClientRect();
+        const stickyTop = 128; 
+        const maxScroll = container.offsetHeight - leftCol.offsetHeight;
+        const scrolled = stickyTop - containerRect.top;
+        
+        let progress = scrolled / maxScroll;
+        progress = Math.max(0, Math.min(1, progress));
+        
+        const wordsToHighlight = Math.floor(progress * wordSpans.length);
+        
+        wordSpans.forEach((span, index) => {
+          if (index < wordsToHighlight) {
+            span.classList.add('active');
+          } else {
+            span.classList.remove('active');
           }
-        );
-      });
-
-      // --- 3. CLEANUP (If user resizes window back to mobile) ---
-      return () => {
-        if (scrollHandler) {
-          window.removeEventListener('scroll', scrollHandler); // Removes the heavy scroll listener
-        }
-        // GSAP automatically kills the ScrollTriggers created in this matchMedia block!
+        });
       };
-      
-    });
+
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+    }
+
+    // --- 2. PAUSE ANIMATIONS OFF-SCREEN (Fixes Mobile Jank) ---
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1 // Triggers when 10% of the card is visible
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+        } else {
+          entry.target.classList.remove('is-in-view'); // Pause CSS animations
+        }
+      });
+    }, observerOptions);
+
+    const cards = document.querySelectorAll('.observe-card');
+    cards.forEach(card => cardObserver.observe(card));
   }
 
   initAll();
   
-  // Soporte para Astro ViewTransitions
   document.addEventListener('astro:page-load', initAll);
 </script>
