@@ -21,29 +21,28 @@ const { data } = Astro.props;
 
     <div class="lg:col-span-5 flex flex-col gap-12 md:gap-20 lg:pt-24">
       {data.items.map((item: any, index: number) => (
-        /* 🎯 FIX: Added 'observe-card' class for the IntersectionObserver */
-        <article class="service-card observe-card flex flex-col gap-5">
+        <article class="service-card flex flex-col gap-5">
           
-          <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-full max-w-[344px] md:max-w-[360px] lg:max-w-[402px] aspect-[1.5] group">
+          <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-full max-w-[344px] md:max-w-[360px] lg:max-w-[402px] aspect-[1.5]">
             
-            {/* 🎯 FIX: Native CSS hover scale instead of GSAP scroll scrub */}
-            <div class="service-img-wrapper w-full h-full will-change-transform bg-[#f8f7f5] flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-[1.15] border border-gray-100">
+            {/* 🎯 VERSIÓN ESTÁTICA: Sin transiciones, sin hover, sin will-change */}
+            <div class="service-img-wrapper w-full h-full bg-[#f8f7f5] flex items-center justify-center border border-gray-100">
               
               {/* SHAPE 1: THE STARTER (Squircle) */}
               {index === 0 && (
-                <div class="w-32 h-32 md:w-40 md:h-40 rounded-[32px] md:rounded-[40px] brand-gradient shape-breath shadow-lg shadow-black/5" />
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-[32px] md:rounded-[40px] brand-gradient shadow-lg shadow-black/5" />
               )}
 
-              {/* SHAPE 2: THE GROWTH (Pill) */}
+              {/* SHAPE 2: THE GROWTH (Pill) - Inclinación fija por defecto */}
               {index === 1 && (
-                <div class="w-40 h-24 md:w-48 md:h-28 rounded-[40px] md:rounded-[48px] brand-gradient shape-tilt shadow-lg shadow-black/5" />
+                <div class="w-40 h-24 md:w-48 md:h-28 rounded-[40px] md:rounded-[48px] brand-gradient shadow-lg shadow-black/5" style="transform: rotate(-35deg);" />
               )}
 
               {/* SHAPE 3: THE SCALE (Overlapping Squircles) */}
               {index === 2 && (
                 <div class="relative w-32 h-32 md:w-40 md:h-40">
-                  <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-60 mix-blend-multiply shape-overlap-1" />
-                  <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-90 backdrop-blur-sm shape-overlap-2 shadow-lg shadow-black/5" />
+                  <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-60 mix-blend-multiply" style="transform: translate(-12px, -12px);" />
+                  <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-90 backdrop-blur-sm shadow-lg shadow-black/5" style="transform: translate(12px, 12px);" />
                 </div>
               )}
 
@@ -51,15 +50,15 @@ const { data } = Astro.props;
           </a>
 
           <div>
-            <h3 class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-gray-900 transition-colors">
+            <h3 class="text-[16px] md:text-[18px] lg:text-[20px] font-semibold text-gray-900">
               {item.title}
             </h3>
             
             <p class="text-gray-500 text-[14px] md:text-base mt-2 mb-5">
               {item.description || item.subtitle}
-              <a href={item.url} class="md:hidden group inline-flex items-center gap-1 text-gray-900 font-medium hover:text-gray-500 transition-colors ml-1 whitespace-nowrap">
+              <a href={item.url} class="md:hidden inline-flex items-center gap-1 text-gray-900 font-medium ml-1 whitespace-nowrap">
                 Explore package
-                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </a>
@@ -79,9 +78,9 @@ const { data } = Astro.props;
                 </span>
               </div>
 
-              <a href={item.url} class="hidden md:inline-flex group items-center gap-1.5 text-gray-900 font-medium text-[15px] hover:text-gray-500 transition-colors">
+              <a href={item.url} class="hidden md:inline-flex items-center gap-1.5 text-gray-900 font-medium text-[15px]">
                 Explore package
-                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </a>
@@ -116,7 +115,7 @@ const { data } = Astro.props;
       </div>
 
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-12 md:mt-16 w-full">
-        <Button href="/contact" class="shrink-0 bg-black text-white px-8 py-4 !rounded-2xl font-medium hover:scale-105 transition-transform shadow-lg">
+        <Button href="/contact" class="shrink-0 bg-black text-white px-8 py-4 !rounded-2xl font-medium shadow-lg">
           {data.cta.buttonText}
         </Button>
         <p class="text-gray-500 text-[14px] max-w-[280px] leading-relaxed">
@@ -135,156 +134,66 @@ const { data } = Astro.props;
     color: #111827; 
   }
 
-  /* --- BRAND GRADIENT & GEOMETRY ANIMATIONS --- */
-  
+  /* 🎯 VERSIÓN ESTÁTICA: Gradiente fijo, sin animaciones */
   .brand-gradient {
     background: linear-gradient(135deg, #A8BFAF 0%, #E8DDC8 50%, #F6D7C8 100%);
-    background-size: 200% 200%;
-    /* 🎯 FIX: Default state is paused */
-    animation: gradientShift 8s ease infinite paused;
-  }
-
-  /* 🎯 FIX: Play animations ONLY when .is-in-view class is added by JS */
-  .observe-card.is-in-view .brand-gradient {
-    animation-play-state: running;
-  }
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* The Starter */
-  .shape-breath {
-    animation: breath 6s ease-in-out infinite paused;
-  }
-  .observe-card.is-in-view .shape-breath {
-    animation-play-state: running;
-  }
-  @keyframes breath {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  /* The Growth */
-  .shape-tilt {
-    transform: rotate(-35deg);
-    animation: tilt 8s ease-in-out infinite paused;
-  }
-  .observe-card.is-in-view .shape-tilt {
-    animation-play-state: running;
-  }
-  @keyframes tilt {
-    0%, 100% { transform: rotate(-35deg) scale(1); }
-    50% { transform: rotate(-25deg) scale(1.03); }
-  }
-
-  /* The Scale */
-  .shape-overlap-1 {
-    animation: overlap1 6s ease-in-out infinite paused;
-  }
-  .observe-card.is-in-view .shape-overlap-1 {
-    animation-play-state: running;
-  }
-  .shape-overlap-2 {
-    animation: overlap2 6s ease-in-out infinite paused;
-  }
-  .observe-card.is-in-view .shape-overlap-2 {
-    animation-play-state: running;
-  }
-  @keyframes overlap1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-12px, -12px) scale(1.02); }
-  }
-  @keyframes overlap2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(12px, 12px) scale(0.98); }
   }
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
   function initAll() {
-    gsap.registerPlugin(ScrollTrigger);
+    
+    // --- 1. LÓGICA DEL TEXTO STICKY (Solo Desktop) ---
+    const textElement = document.getElementById('reveal-text');
+    const container = document.getElementById('scroll-container');
+    const leftCol = document.getElementById('left-col');
+    let scrollHandler;
 
-    // 🎯 FIX GLOBAL DE GSAP: Le decimos que ignore si la barra de direcciones aparece o desaparece en móvil
-    ScrollTrigger.config({ ignoreMobileResize: true });
+    if (textElement && container && leftCol) {
+      if (!textElement.hasAttribute('data-split')) {
+        const text = textElement.innerText;
+        const words = text.split(' ');
+        textElement.innerHTML = '';
 
-    // 🎯 AISLAMIENTO ESTRICTO: Todo lo que esté acá adentro SOLO se ejecutará en Desktop (>= 1024px)
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 1024px)", () => {
-      
-      // --- 1. LÓGICA DEL TEXTO STICKY (Refactorizada para mejor rendimiento) ---
-      const textElement = document.getElementById('reveal-text');
-      const container = document.getElementById('scroll-container');
-      const leftCol = document.getElementById('left-col');
-
-      if (textElement && container && leftCol) {
-        if (!textElement.hasAttribute('data-split')) {
-          const text = textElement.innerText;
-          const words = text.split(' ');
-          textElement.innerHTML = '';
-
-          words.forEach(word => {
-            const span = document.createElement('span');
-            span.innerText = word + ' ';
-            span.classList.add('word');
-            textElement.appendChild(span);
-          });
-          textElement.setAttribute('data-split', 'true');
-        }
-
-        const wordSpans = document.querySelectorAll('#reveal-text .word');
-
-        // Usamos GSAP para calcular el scroll en vez de un event listener nativo
-        ScrollTrigger.create({
-          trigger: container,
-          start: "top top+=128", 
-          end: () => `+=${container.offsetHeight - leftCol.offsetHeight}`,
-          onUpdate: (self) => {
-            const wordsToHighlight = Math.floor(self.progress * wordSpans.length);
-            wordSpans.forEach((span, index) => {
-              if (index < wordsToHighlight) {
-                span.classList.add('active');
-              } else {
-                span.classList.remove('active');
-              }
-            });
-          }
+        words.forEach(word => {
+          const span = document.createElement('span');
+          span.innerText = word + ' ';
+          span.classList.add('word');
+          textElement.appendChild(span);
         });
+        textElement.setAttribute('data-split', 'true');
       }
 
-      // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
-      const cards = document.querySelectorAll('.service-card');
+      const wordSpans = document.querySelectorAll('#reveal-text .word');
 
-      cards.forEach((card) => {
-        const wrapper = card.querySelector('.service-img-wrapper');
+      scrollHandler = () => {
+        // En móvil, abortamos instantáneamente. Cero costo de rendimiento.
+        if (window.innerWidth < 1024) return;
 
-        gsap.fromTo(wrapper, 
-          { scale: 1 }, 
-          {
-            scale: 1.15,
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              start: "top bottom", 
-              end: "bottom top",   
-              scrub: true 
-            }
+        const containerRect = container.getBoundingClientRect();
+        const stickyTop = 128; 
+        const maxScroll = container.offsetHeight - leftCol.offsetHeight;
+        const scrolled = stickyTop - containerRect.top;
+        
+        let progress = scrolled / maxScroll;
+        progress = Math.max(0, Math.min(1, progress));
+        
+        const wordsToHighlight = Math.floor(progress * wordSpans.length);
+        
+        wordSpans.forEach((span, index) => {
+          if (index < wordsToHighlight) {
+            span.classList.add('active');
+          } else {
+            span.classList.remove('active');
           }
-        );
-      });
+        });
+      };
 
-    }); // <-- FIN DEL MATCHMEDIA. En móviles, GSAP literalmente no hará nada aquí.
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+    }
   }
 
-  // Inicialización
   initAll();
   
-  // Soporte para Astro ViewTransitions
   document.addEventListener('astro:page-load', initAll);
 </script>
