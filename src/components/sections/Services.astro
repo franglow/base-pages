@@ -24,10 +24,9 @@ const { data } = Astro.props;
       {data.items.map((item: any, index: number) => (
         <article class="service-card flex flex-col gap-5">
           
-          <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-[344px] h-[229px] md:w-[360px] md:h-[240px] lg:w-[402px] lg:h-[268px] group">
+          <a href={item.url} class="block rounded-[20px] overflow-hidden shadow-sm relative z-0 transform-gpu w-full max-w-[344px] md:max-w-[360px] lg:max-w-[402px] aspect-[1.5] group">
             
-            {/* CHANGED BACKGROUND TO MATCH YOUR THEME */}
-            <div class="service-img-wrapper w-full h-full will-change-transform bg-[#f8f7f5] flex items-center justify-center transition-transform duration-700 group-hover:scale-105 border border-gray-100">
+            <div class="service-img-wrapper w-full h-full will-change-transform bg-[#f8f7f5] flex items-center justify-center border border-gray-100">
               
               {/* SHAPE 1: THE STARTER (Squircle) */}
               {index === 0 && (
@@ -240,6 +239,9 @@ const { data } = Astro.props;
   // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
   function initScrubZoom() {
     gsap.registerPlugin(ScrollTrigger);
+    
+    // 🎯 FIX 3: Stop GSAP from freezing the scroll to recalculate when the mobile URL bar shrinks
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     const cards = document.querySelectorAll('.service-card');
 
