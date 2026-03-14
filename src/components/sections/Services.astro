@@ -188,86 +188,93 @@ const { data } = Astro.props;
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  // --- 1. LÓGICA DEL TEXTO STICKY ---
-  function initScrollReveal() {
-    const textElement = document.getElementById('reveal-text');
-    const container = document.getElementById('scroll-container');
-    const leftCol = document.getElementById('left-col');
-
-    if (!textElement || !container || !leftCol) return;
-
-    if (!textElement.hasAttribute('data-split')) {
-      const text = textElement.innerText;
-      const words = text.split(' ');
-      textElement.innerHTML = '';
-
-      words.forEach(word => {
-        const span = document.createElement('span');
-        span.innerText = word + ' ';
-        span.classList.add('word');
-        textElement.appendChild(span);
-      });
-      textElement.setAttribute('data-split', 'true');
-    }
-
-    const wordSpans = document.querySelectorAll('#reveal-text .word');
-
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth < 1024) return;
-
-      const containerRect = container.getBoundingClientRect();
-      const stickyTop = 128; 
-      
-      const maxScroll = container.offsetHeight - leftCol.offsetHeight;
-      const scrolled = stickyTop - containerRect.top;
-      
-      let progress = scrolled / maxScroll;
-      progress = Math.max(0, Math.min(1, progress));
-      
-      const wordsToHighlight = Math.floor(progress * wordSpans.length);
-      
-      wordSpans.forEach((span, index) => {
-        if (index < wordsToHighlight) {
-          span.classList.add('active');
-        } else {
-          span.classList.remove('active');
-        }
-      });
-    });
-  }
-
-  // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
-  function initScrubZoom() {
+  function initAll() {
     gsap.registerPlugin(ScrollTrigger);
-    
-    // 🎯 FIX 3: Stop GSAP from freezing the scroll to recalculate when the mobile URL bar shrinks
     ScrollTrigger.config({ ignoreMobileResize: true });
 
-    const cards = document.querySelectorAll('.service-card');
+    // 🎯 FIX: Use gsap.matchMedia() to strictly isolate heavy animations to Desktop
+    let mm = gsap.matchMedia();
 
-    cards.forEach((card) => {
-      const wrapper = card.querySelector('.service-img-wrapper');
+    // This code will ONLY run on screens 1024px and wider
+    mm.add("(min-width: 1024px)", () => {
+      
+      // --- 1. LÓGICA DEL TEXTO STICKY ---
+      const textElement = document.getElementById('reveal-text');
+      const container = document.getElementById('scroll-container');
+      const leftCol = document.getElementById('left-col');
+      let scrollHandler; // Store the handler so we can clean it up later
 
-      gsap.fromTo(wrapper, 
-        { scale: 1 }, 
-        {
-          scale: 1.15, // Nivel de zoom interno al hacer scroll
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom", 
-            end: "bottom top",   
-            scrub: true // Ata la animación a la rueda del mouse
-          }
+      if (textElement && container && leftCol) {
+        if (!textElement.hasAttribute('data-split')) {
+          const text = textElement.innerText;
+          const words = text.split(' ');
+          textElement.innerHTML = '';
+
+          words.forEach(word => {
+            const span = document.createElement('span');
+            span.innerText = word + ' ';
+            span.classList.add('word');
+            textElement.appendChild(span);
+          });
+          textElement.setAttribute('data-split', 'true');
         }
-      );
-    });
-  }
 
-  // --- INICIALIZADOR GENERAL ---
-  function initAll() {
-    initScrollReveal();
-    initScrubZoom();
+        const wordSpans = document.querySelectorAll('#reveal-text .word');
+
+        scrollHandler = () => {
+          const containerRect = container.getBoundingClientRect();
+          const stickyTop = 128; 
+          const maxScroll = container.offsetHeight - leftCol.offsetHeight;
+          const scrolled = stickyTop - containerRect.top;
+          
+          let progress = scrolled / maxScroll;
+          progress = Math.max(0, Math.min(1, progress));
+          
+          const wordsToHighlight = Math.floor(progress * wordSpans.length);
+          
+          wordSpans.forEach((span, index) => {
+            if (index < wordsToHighlight) {
+              span.classList.add('active');
+            } else {
+              span.classList.remove('active');
+            }
+          });
+        };
+
+        // Attach scroll listener ONLY on desktop
+        window.addEventListener('scroll', scrollHandler);
+      }
+
+      // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
+      const cards = document.querySelectorAll('.service-card');
+
+      cards.forEach((card) => {
+        const wrapper = card.querySelector('.service-img-wrapper');
+
+        gsap.fromTo(wrapper, 
+          { scale: 1 }, 
+          {
+            scale: 1.15, 
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom", 
+              end: "bottom top",   
+              scrub: true 
+            }
+          }
+        );
+      });
+
+      // --- 3. CLEANUP (If user resizes window back to mobile) ---
+      return () => {
+        if (scrollHandler) {
+          window.removeEventListener('scroll', scrollHandler); // Removes the heavy scroll listener
+        }
+        // GSAP automatically kills the ScrollTriggers created in this matchMedia block!
+      };
+      
+    });
   }
 
   initAll();
