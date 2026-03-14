@@ -204,79 +204,87 @@ const { data } = Astro.props;
 </style>
 
 <script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
   function initAll() {
-    
-    // --- 1. LÓGICA DEL TEXTO STICKY (Solo Desktop) ---
-    const textElement = document.getElementById('reveal-text');
-    const container = document.getElementById('scroll-container');
-    const leftCol = document.getElementById('left-col');
-    let scrollHandler;
+    gsap.registerPlugin(ScrollTrigger);
 
-    if (textElement && container && leftCol) {
-      if (!textElement.hasAttribute('data-split')) {
-        const text = textElement.innerText;
-        const words = text.split(' ');
-        textElement.innerHTML = '';
+    // 🎯 FIX GLOBAL DE GSAP: Le decimos que ignore si la barra de direcciones aparece o desaparece en móvil
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
-        words.forEach(word => {
-          const span = document.createElement('span');
-          span.innerText = word + ' ';
-          span.classList.add('word');
-          textElement.appendChild(span);
-        });
-        textElement.setAttribute('data-split', 'true');
-      }
+    // 🎯 AISLAMIENTO ESTRICTO: Todo lo que esté acá adentro SOLO se ejecutará en Desktop (>= 1024px)
+    let mm = gsap.matchMedia();
 
-      const wordSpans = document.querySelectorAll('#reveal-text .word');
+    mm.add("(min-width: 1024px)", () => {
+      
+      // --- 1. LÓGICA DEL TEXTO STICKY (Refactorizada para mejor rendimiento) ---
+      const textElement = document.getElementById('reveal-text');
+      const container = document.getElementById('scroll-container');
+      const leftCol = document.getElementById('left-col');
 
-      scrollHandler = () => {
-        // Only run on desktop
-        if (window.innerWidth < 1024) return;
+      if (textElement && container && leftCol) {
+        if (!textElement.hasAttribute('data-split')) {
+          const text = textElement.innerText;
+          const words = text.split(' ');
+          textElement.innerHTML = '';
 
-        const containerRect = container.getBoundingClientRect();
-        const stickyTop = 128; 
-        const maxScroll = container.offsetHeight - leftCol.offsetHeight;
-        const scrolled = stickyTop - containerRect.top;
-        
-        let progress = scrolled / maxScroll;
-        progress = Math.max(0, Math.min(1, progress));
-        
-        const wordsToHighlight = Math.floor(progress * wordSpans.length);
-        
-        wordSpans.forEach((span, index) => {
-          if (index < wordsToHighlight) {
-            span.classList.add('active');
-          } else {
-            span.classList.remove('active');
+          words.forEach(word => {
+            const span = document.createElement('span');
+            span.innerText = word + ' ';
+            span.classList.add('word');
+            textElement.appendChild(span);
+          });
+          textElement.setAttribute('data-split', 'true');
+        }
+
+        const wordSpans = document.querySelectorAll('#reveal-text .word');
+
+        // Usamos GSAP para calcular el scroll en vez de un event listener nativo
+        ScrollTrigger.create({
+          trigger: container,
+          start: "top top+=128", 
+          end: () => `+=${container.offsetHeight - leftCol.offsetHeight}`,
+          onUpdate: (self) => {
+            const wordsToHighlight = Math.floor(self.progress * wordSpans.length);
+            wordSpans.forEach((span, index) => {
+              if (index < wordsToHighlight) {
+                span.classList.add('active');
+              } else {
+                span.classList.remove('active');
+              }
+            });
           }
         });
-      };
+      }
 
-      window.addEventListener('scroll', scrollHandler, { passive: true });
-    }
+      // --- 2. EFECTO SCRUB ZOOM GLOBAL ---
+      const cards = document.querySelectorAll('.service-card');
 
-    // --- 2. PAUSE ANIMATIONS OFF-SCREEN (Fixes Mobile Jank) ---
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1 // Triggers when 10% of the card is visible
-    };
+      cards.forEach((card) => {
+        const wrapper = card.querySelector('.service-img-wrapper');
 
-    const cardObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in-view');
-        } else {
-          entry.target.classList.remove('is-in-view'); // Pause CSS animations
-        }
+        gsap.fromTo(wrapper, 
+          { scale: 1 }, 
+          {
+            scale: 1.15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom", 
+              end: "bottom top",   
+              scrub: true 
+            }
+          }
+        );
       });
-    }, observerOptions);
 
-    const cards = document.querySelectorAll('.observe-card');
-    cards.forEach(card => cardObserver.observe(card));
+    }); // <-- FIN DEL MATCHMEDIA. En móviles, GSAP literalmente no hará nada aquí.
   }
 
+  // Inicialización
   initAll();
   
+  // Soporte para Astro ViewTransitions
   document.addEventListener('astro:page-load', initAll);
 </script>
