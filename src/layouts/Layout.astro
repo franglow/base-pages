@@ -31,5 +31,23 @@ const { title } = Astro.props;
         </filter>
       </defs>
     </svg>
+    <script>
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      // Registramos el plugin
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 🎯 LA SOLUCIÓN DEFINITIVA PARA MÓVILES
+      // Esto intercepta el scroll táctil y evita que la barra del navegador 
+      // aparezca/desaparezca constantemente, congelando el layout shift.
+      ScrollTrigger.normalizeScroll({
+        allowNestedScroll: true,
+        type: "touch,wheel,pointer", // Intercepta todos los métodos de scroll
+      });
+
+      // Mantenemos la protección extra por si acaso
+      ScrollTrigger.config({ ignoreMobileResize: true });
+    </script>
   </body>
 </html>
