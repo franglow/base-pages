@@ -14,7 +14,7 @@ const heroImages = await Promise.all(
 );
 ---
 
-<section class="relative min-h-[90svh] md:min-h-screen w-full overflow-hidden flex flex-col items-center justify-center mt-[var(--header-height)] pt-[var(--header-height)] min-[320px]:max-h-[500px]:min-h-[700px]">
+<section class="relative min-h-[90svh] md:min-h-[100svh] w-full overflow-hidden flex flex-col items-center justify-center mt-[var(--header-height)] pt-[var(--header-height)] min-[320px]:max-h-[500px]:min-h-[700px]">
 
   <div class="orbit-container absolute top-1/2 left-1/2 w-0 h-0 z-0">
     {heroImages.map((img, index) => (
@@ -37,7 +37,7 @@ const heroImages = await Promise.all(
     ))}
   </div>
 
-  <div class="relative z-30 text-center max-w-5xl w-full px-4 flex flex-col items-center -mt-16 md:-mt-[12vh] max-[1000px]:landscape:mt-8">
+  <div class="relative z-30 text-center max-w-5xl w-full px-4 flex flex-col items-center -mt-16 md:-mt-[12svh] max-[1000px]:landscape:mt-8">
 
       <div class="relative h-[90px] md:h-[220px] w-full overflow-hidden flex items-center justify-center mb-1 md:mb-6">
         <div class="h1-mask-container relative h-full w-full flex items-center justify-center">

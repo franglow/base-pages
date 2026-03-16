@@ -1,10 +1,6 @@
 ---
 // src/components/sections/RevealSection.astro
-
-// 1. Import the Picture component
 import { Picture } from 'astro:assets';
-
-// 2. Import the local image from your src/assets folder
 import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg'; 
 ---
 
@@ -44,13 +40,12 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
   .reveal-container {
     position: relative;
     width: 100%;
-    /* 100dvh for the section itself + 300dvh for the scroll duration = 400dvh */
     height: 400svh; 
   }
 
   .scroll-indicator {
     position: absolute;
-    top: 15svh; /* Updated to dvh */
+    top: 15svh; 
     left: 0;
     width: 100%;
     text-align: center;
@@ -62,10 +57,9 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
   }
 
   .pin-wrapper {
-    /* 🎯 Native CSS pinning instead of GSAP */
     position: sticky; 
     top: 0;
-    height: 100svh; /* Updated to dvh */
+    height: 100svh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,7 +73,7 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
     justify-content: center;
     gap: clamp(8px, 1.5vw, 16px); 
     width: 100%;
-    height: 100svh; /* Updated to dvh */
+    height: 100svh; 
     font-size: clamp(32px, 5vw, 56px);
   }
 
@@ -113,14 +107,14 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
     z-index: 5;
   }
 
-  /* Make the <picture> wrapper invisible to the layout engine */
   .expanding-box picture {
     display: contents;
   }
 
   .expanding-box img {
     width: 100vw;
-    height: 100vh;
+    /* 🎯 FIX 3: Cambiamos 100vh por 100svh para que la imagen no salte */
+    height: 100svh;
     object-fit: cover;
     position: absolute;
     left: 50%;
@@ -191,14 +185,13 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // 🎯 Prevents mobile address bar from triggering heavy recalculations
   ScrollTrigger.config({ ignoreMobileResize: true });
 
   let mm = gsap.matchMedia();
 
   mm.add({
     isMobile: "(max-width: 767px)",
-    isDesktop: "(min-width: 768px)" // Covers both tablet and desktop
+    isDesktop: "(min-width: 768px)" 
   }, (context) => {
     
     let { isMobile } = context.conditions;
@@ -207,28 +200,26 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
       scrollTrigger: {
         trigger: ".reveal-container",
         start: "top top",
-        end: "bottom bottom", // Matches the 400dvh container height
+        end: "bottom bottom", 
         scrub: 1, 
         invalidateOnRefresh: true 
       }
     });
 
-    // 1. Fade out the indicator naturally
     tl.to(".scroll-indicator", {
       opacity: 0, 
       duration: 0.15, 
       ease: "power1.inOut"
     }, 0)
     
-    // 2. Expand the box using pure CSS math variables
     .to(".expanding-box", {
       width: isMobile ? "calc(100vw - 32px)" : "min(calc(100vw - 96px), 1280px)",
-      height: isMobile ? "calc(100dvh - 48px)" : "calc(100svh - 80px)",
+      /* 🎯 FIX 4: Cambiamos calc(100dvh - 48px) por calc(100svh - 48px) */
+      height: isMobile ? "calc(100svh - 48px)" : "calc(100svh - 80px)",
       borderRadius: "16px",
       ease: "none"
     }, 0)
 
-    // 3. Reveal the overlay text
     .fromTo(".overlay-text", 
       {
         y: "20px",    
