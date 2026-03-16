@@ -14,6 +14,12 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style is:global>
+      /* Solo mantenemos esto para evitar el rebote elástico nativo del celular */
+      html, body {
+        overscroll-behavior: none; 
+      }
+    </style>
   </head>
   <body>
     <slot />
@@ -31,45 +37,22 @@ const { title } = Astro.props;
         </filter>
       </defs>
     </svg>
-    <style is:global>
-      /* 🎯 FIX ANTI-VIBRACIÓN PARA normalizeScroll */
-      
-      html, body {
-        /* 1. Obligatorio para GSAP: Evita que el scroll nativo pelee contra el JS (elimina el rebote) */
-        overscroll-behavior: none; 
-      }
-
-      html {
-        /* 2. Evita que el CSS smooth-scroll interfiera con los cálculos de GSAP */
-        scroll-behavior: auto !important; 
-      }
-
-      body {
-        /* 3. Fuerza al motor de texto a renderizar nítido durante transformaciones por JS */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-        /* 4. Previene tirones en el repintado (Hardware Acceleration) */
-        transform: translateZ(0);
-      }
-    </style>
 
     <script>
       import { gsap } from "gsap";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-      // Registramos el plugin
       gsap.registerPlugin(ScrollTrigger);
 
-      // 🎯 LA SOLUCIÓN DEFINITIVA PARA MÓVILES (Tu versión)
-      // Esto intercepta el scroll táctil y evita que la barra del navegador 
-      // aparezca/desaparezca constantemente, congelando el layout shift.
+      // 🎯 LA SOLUCIÓN DEFINITIVA PARA MÓVILES
       ScrollTrigger.normalizeScroll({
         allowNestedScroll: true,
-        type: "touch,wheel,pointer", // Intercepta todos los métodos de scroll
+        type: "touch,wheel,pointer",
+        // 🎯 FIX: Le decimos a GSAP que agarre el Header fijo y lo estabilice
+        // para que no se rompa ni vibre durante el scroll interceptado.
+        fixedElements: "#main-header" 
       });
 
-      // Mantenemos la protección extra por si acaso
       ScrollTrigger.config({ ignoreMobileResize: true });
     </script>
   </body>
