@@ -31,29 +31,46 @@ const { title } = Astro.props;
         </filter>
       </defs>
     </svg>
+    <style is:global>
+      /* 🎯 FIX ANTI-VIBRACIÓN PARA normalizeScroll */
+      
+      html, body {
+        /* 1. Obligatorio para GSAP: Evita que el scroll nativo pelee contra el JS (elimina el rebote) */
+        overscroll-behavior: none; 
+      }
+
+      html {
+        /* 2. Evita que el CSS smooth-scroll interfiera con los cálculos de GSAP */
+        scroll-behavior: auto !important; 
+      }
+
+      body {
+        /* 3. Fuerza al motor de texto a renderizar nítido durante transformaciones por JS */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        /* 4. Previene tirones en el repintado (Hardware Acceleration) */
+        transform: translateZ(0);
+      }
+    </style>
+
     <script>
       import { gsap } from "gsap";
       import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+      // Registramos el plugin
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Desactivamos la detección de resize que viene por defecto en GSAP
-      ScrollTrigger.config({ 
-        ignoreMobileResize: true 
+      // 🎯 LA SOLUCIÓN DEFINITIVA PARA MÓVILES (Tu versión)
+      // Esto intercepta el scroll táctil y evita que la barra del navegador 
+      // aparezca/desaparezca constantemente, congelando el layout shift.
+      ScrollTrigger.normalizeScroll({
+        allowNestedScroll: true,
+        type: "touch,wheel,pointer", // Intercepta todos los métodos de scroll
       });
 
-      // 2. Evaluamos si es un dispositivo móvil (pantallas menores a 1024px)
-      const isMobile = window.innerWidth < 1024;
-
-      if (isMobile) {
-        // 🎯 LA CURA PARA EL SALTO SIN VIBRACIÓN:
-        // Le decimos a GSAP que SOLO recalcule la página cuando carga por primera vez.
-        // Al quitar la palabra "resize" de esta lista, la barra de DuckDuckGo/Safari 
-        // puede aparecer y desaparecer con fluidez nativa, y GSAP simplemente la ignorará.
-        ScrollTrigger.config({
-          autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" 
-        });
-      }
+      // Mantenemos la protección extra por si acaso
+      ScrollTrigger.config({ ignoreMobileResize: true });
     </script>
   </body>
 </html>
