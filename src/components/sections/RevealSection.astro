@@ -40,12 +40,12 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
   .reveal-container {
     position: relative;
     width: 100%;
-    height: 400svh; 
+    height: calc(var(--vh, 1svh) * 400); 
   }
 
   .scroll-indicator {
     position: absolute;
-    top: 15svh; 
+    top: calc(var(--vh, 1svh) * 15); 
     left: 0;
     width: 100%;
     text-align: center;
@@ -59,11 +59,12 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
   .pin-wrapper {
     position: sticky; 
     top: 0;
-    height: 100svh; 
+    height: calc(var(--vh, 1svh) * 100); 
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    overflow-anchor: none;
   }
 
   .content-wrapper {
@@ -73,7 +74,7 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
     justify-content: center;
     gap: clamp(8px, 1.5vw, 16px); 
     width: 100%;
-    height: 100svh; 
+    height: calc(var(--vh, 1svh) * 100); 
     font-size: clamp(32px, 5vw, 56px);
   }
 
@@ -113,7 +114,7 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
 
   .expanding-box img {
     width: 100vw;
-    height: 100svh;
+    height: calc(var(--vh, 1svh) * 100);
     object-fit: cover;
     position: absolute;
     left: 50%;
@@ -193,6 +194,10 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
     
     let { isMobile } = context.conditions;
 
+    // Compute locked pixel height from --vh custom property
+    const vhPx = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh')) || (window.innerHeight * 0.01);
+    const fullH = vhPx * 100;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".reveal-container",
@@ -210,7 +215,7 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
     
     .to(".expanding-box", {
       width: isMobile ? "calc(100vw - 32px)" : "min(calc(100vw - 96px), 1280px)",
-      height: isMobile ? "calc(100svh - 48px)" : "calc(100svh - 80px)",
+      height: isMobile ? `${fullH - 48}px` : `${fullH - 80}px`,
       borderRadius: "16px",
       ease: "none"
     }, 0)

@@ -9,11 +9,14 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, interactive-widget=resizes-visual" />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script is:inline>
+      document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+    </script>
 
   </head>
   <body>
@@ -39,10 +42,16 @@ const { title } = Astro.props;
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // Single consolidated config — the second .config() call was overriding the first.
-      // ignoreMobileResize: tells GSAP to ignore vertical-only viewport changes (mobile chrome)
-      // autoRefreshEvents: on mobile, we strip "resize" and "visibilitychange" to prevent
-      //   ScrollTrigger from recalculating positions when the address bar hides/shows.
+      // Lock --vh: only update when the WIDTH changes (not height-only from address bar)
+      let _lastW = window.innerWidth;
+      window.addEventListener('resize', () => {
+        if (window.innerWidth !== _lastW) {
+          _lastW = window.innerWidth;
+          document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+        }
+      });
+
+      // GSAP config: ignore mobile vertical resizes, limit refresh events on mobile
       const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
       ScrollTrigger.config({
