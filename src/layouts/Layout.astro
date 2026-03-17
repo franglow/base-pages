@@ -14,14 +14,7 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style is:global>
-      /* 🎯 LA CURA NATIVA PARA EL SALTO */
-      /* Esto le prohíbe al navegador forzar saltos automáticos para 
-         "corregir" la vista cuando la barra de direcciones desaparece. */
-      body {
-        overflow-anchor: none; 
-      }
-    </style>
+
   </head>
   <body>
     <slot />
@@ -46,20 +39,16 @@ const { title } = Astro.props;
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Adiós normalizeScroll. Recuperamos la fluidez nativa y evitamos los mareos.
-      
-      // 2. Le decimos a GSAP que ignore categóricamente los cambios en el eje Y (la barra móvil)
-      ScrollTrigger.config({ 
-        ignoreMobileResize: true 
-      });
+      // Single consolidated config — the second .config() call was overriding the first.
+      // ignoreMobileResize: tells GSAP to ignore vertical-only viewport changes (mobile chrome)
+      // autoRefreshEvents: on mobile, we strip "resize" and "visibilitychange" to prevent
+      //   ScrollTrigger from recalculating positions when the address bar hides/shows.
+      const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
-      // 3. Blindaje extra para móviles: apagamos los recálculos en el resize
-      if (typeof window !== "undefined" && window.innerWidth < 1024) {
-        ScrollTrigger.config({
-          // Eliminamos 'resize' de los eventos que disparan un refresh automático
-          autoRefreshEvents: "DOMContentLoaded,load" 
-        });
-      }
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+        ...(isMobile && { autoRefreshEvents: "DOMContentLoaded,load" })
+      });
     </script>
   </body>
 </html>
