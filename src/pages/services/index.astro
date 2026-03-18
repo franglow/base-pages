@@ -28,17 +28,30 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
         </h2>
         
         <div class="projects-grid">
-          {services.items.map((pkg: any) => (
-            <article class="project-card">
+          {services.items.map((pkg: any, index: number) => (
+            <article class="project-card observe-card">
               <div class="image-container">
                 <a href={pkg.url} class="image-link">
                   <div class="scroll-zoom-wrapper">
-                    <Image 
-                      src={pkg.image.startsWith('http') ? pkg.image : images[pkg.image]()} 
-                      inferSize={pkg.image.startsWith('http')}
-                      class="main-img" 
-                      alt={pkg.title} 
-                    />
+
+                    {/* SHAPE 1: THE STARTER (Squircle) */}
+                    {index === 0 && (
+                      <div class="w-32 h-32 md:w-40 md:h-40 rounded-[32px] md:rounded-[40px] brand-gradient shape-breath shadow-lg shadow-black/5" />
+                    )}
+
+                    {/* SHAPE 2: THE GROWTH (Pill) */}
+                    {index === 1 && (
+                      <div class="w-40 h-24 md:w-48 md:h-28 rounded-[40px] md:rounded-[48px] brand-gradient shape-tilt shadow-lg shadow-black/5" />
+                    )}
+
+                    {/* SHAPE 3: THE SCALE (Overlapping Squircles) */}
+                    {index === 2 && (
+                      <div class="relative w-32 h-32 md:w-40 md:h-40">
+                        <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-60 mix-blend-multiply shape-overlap-1" />
+                        <div class="absolute inset-0 rounded-[32px] md:rounded-[40px] brand-gradient opacity-90 backdrop-blur-sm shape-overlap-2 shadow-lg shadow-black/5" />
+                      </div>
+                    )}
+
                   </div>
                 </a>
               </div>
@@ -191,25 +204,23 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
     margin-bottom: clamp(24px, 4vw, 40px);
   }
 
-  .image-link {
-    display: block;
-    overflow: hidden; 
-    border-radius: 20px;
-    transform: translateZ(0); 
-  }
-
   .scroll-zoom-wrapper {
     width: 100%;
     height: 100%;
     will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .main-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 16 / 9;
+  .image-link {
     display: block;
+    overflow: hidden; 
+    border-radius: 20px;
+    transform: translateZ(0);
+    background-color: #f8f7f5;
+    border: 1px solid #e5e5e5;
+    aspect-ratio: 16 / 9;
   }
 
   .project-info h3 {
@@ -227,6 +238,65 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
     margin: 0 auto;
     font-weight: 400;
   }
+
+  /* --- BRAND GRADIENT & GEOMETRY ANIMATIONS --- */
+  .brand-gradient {
+    background: linear-gradient(135deg, #A8BFAF 0%, #E8DDC8 50%, #F6D7C8 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite paused;
+  }
+  .observe-card.is-in-view .brand-gradient {
+    animation-play-state: running;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .shape-breath {
+    animation: breath 6s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-breath {
+    animation-play-state: running;
+  }
+  @keyframes breath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .shape-tilt {
+    transform: rotate(-35deg);
+    animation: tilt 8s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-tilt {
+    animation-play-state: running;
+  }
+  @keyframes tilt {
+    0%, 100% { transform: rotate(-35deg) scale(1); }
+    50% { transform: rotate(-25deg) scale(1.03); }
+  }
+
+  .shape-overlap-1 {
+    animation: overlap1 6s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-overlap-1 {
+    animation-play-state: running;
+  }
+  .shape-overlap-2 {
+    animation: overlap2 6s ease-in-out infinite paused;
+  }
+  .observe-card.is-in-view .shape-overlap-2 {
+    animation-play-state: running;
+  }
+  @keyframes overlap1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-12px, -12px) scale(1.02); }
+  }
+  @keyframes overlap2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(12px, 12px) scale(0.98); }
+  }
 </style>
 
 <script>
@@ -236,6 +306,20 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
   function initServicesScrubZoom() {
     gsap.registerPlugin(ScrollTrigger);
 
+    // IntersectionObserver for CSS animation visibility
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+        } else {
+          entry.target.classList.remove('is-in-view');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.observe-card').forEach(card => cardObserver.observe(card));
+
+    // GSAP scroll zoom
     const cards = document.querySelectorAll('.project-card');
 
     cards.forEach((card) => {
