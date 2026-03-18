@@ -18,7 +18,9 @@
         "href": "/services"
       }
     ],
-    "cta": "Contact"
+    "cta": "Contact",
+    "contactHref": "/contact",
+    "homeHref": "/"
   },
   "hero": {
     "titles": [
@@ -32,8 +34,14 @@
     "promo": "Use for free",
     "language": "English",
     "languages": [
-      { "label": "Deutsch", "url": "/de" },
-      { "label": "Español", "url": "/es" }
+      {
+        "label": "Deutsch",
+        "url": "/de"
+      },
+      {
+        "label": "Español",
+        "url": "/es"
+      }
     ]
   },
   "services": {
