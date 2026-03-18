@@ -252,17 +252,17 @@
         {
           "title": "The Strategy",
           "description": "Search has evolved. We map out your visibility not just for Google, but for AI engines like ChatGPT and Perplexity. We focus on entity optimization to ensure your brand becomes a cited authority.",
-          "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+          "image": "/src/assets/images/about-page/strategy.png"
         },
         {
           "title": "The Execution",
           "description": "We build lightning-fast, mobile-first platforms. Every pixel is optimized for conversions, and every line of code is structured with Schema markup so AI crawlers can easily extract and cite your data.",
-          "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+          "image": "/src/assets/images/about-page/execution.png"
         },
         {
           "title": "The Growth",
           "description": "You get a digital asset that ranks higher in traditional search, gets recommended by AI assistants, and turns that high-quality, targeted traffic into loyal clients.",
-          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+          "image": "/src/assets/images/about-page/growth.png"
         }
       ]
     },
@@ -271,19 +271,19 @@
         "number": "01",
         "title": "We engineer for AI retrieval",
         "description": "If an AI crawler cannot read your site, you don't exist in the new web. We deliver clean architecture, structured data, and ultra-fast load times so you are always the primary source.",
-        "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+        "image": "/src/assets/images/about-page/retrieval.png"
       },
       {
         "number": "02",
         "title": "We design conversion funnels",
         "description": "As AI answers more questions directly, the traffic that does reach your site is highly qualified. We build frictionless user experiences that guide these high-intent visitors straight to checkout or contact.",
-        "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=80"
+        "image": "/src/assets/images/about-page/funnels.png"
       },
       {
         "number": "03",
         "title": "We build resilient partnerships",
         "description": "The digital landscape changes daily. Whether adapting to new LLM algorithms, optimizing for AI Overviews, or launching a new campaign, we act as your dedicated technical growth team for the long haul.",
-        "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+        "image": "/src/assets/images/about-page/resilient.png"
       }
     ],
     "team": {
@@ -292,7 +292,7 @@
         {
           "name": "Fran Cortez",
           "role": "Founder & Technical SEO Engineer",
-          "image": "/src/assets/images/team/mug-flow.jpeg"
+          "image": "/src/assets/images/about-page/mug-flow.jpeg"
         }
       ]
     }
