@@ -1,10 +1,22 @@
 {
   "nav": {
     "items": [
-      { "label": "Home", "href": "/" },
-      { "label": "About", "href": "/about" },
-      { "label": "Works", "href": "/works" },
-      { "label": "Services", "href": "/services" }
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Works",
+        "href": "/works"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      }
     ],
     "cta": "Contact"
   },
@@ -280,7 +292,7 @@
         {
           "name": "Fran Cortez",
           "role": "Founder & Technical SEO Engineer",
-          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+          "image": "/src/assets/images/team/mug-flow.jpeg"
         }
       ]
     }
@@ -300,17 +312,35 @@
       {
         "title": "Pages",
         "links": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/about" },
-          { "label": "Works", "href": "/works" }
+          {
+            "label": "Home",
+            "href": "/"
+          },
+          {
+            "label": "About",
+            "href": "/about"
+          },
+          {
+            "label": "Works",
+            "href": "/works"
+          }
         ]
       },
       {
         "title": " ",
         "links": [
-          { "label": "Work page", "href": "/works/carma-retreats" },
-          { "label": "Services", "href": "/services" },
-          { "label": "Contact", "href": "/contact" }
+          {
+            "label": "Work page",
+            "href": "/works/carma-retreats"
+          },
+          {
+            "label": "Services",
+            "href": "/services"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
         ]
       }
     ],
