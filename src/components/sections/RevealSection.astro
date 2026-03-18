@@ -214,7 +214,8 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
     }, 0)
     
     .to(".expanding-box", {
-      width: isMobile ? "calc(100vw - 32px)" : "min(calc(100vw - 96px), 1280px)",
+      // Pre-compute exact pixels — GSAP cannot interpolate min()/calc() strings mid-scrub
+      width: isMobile ? `${window.innerWidth - 32}px` : `${Math.min(window.innerWidth - 96, 1280)}px`,
       height: isMobile ? `${fullH - 48}px` : `${fullH - 80}px`,
       borderRadius: "16px",
       ease: "none"
