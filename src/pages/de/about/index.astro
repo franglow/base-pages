@@ -1,0 +1,244 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/sections/Header.astro';
+import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
+import Footer from '../../../components/sections/Footer.astro';
+import deData from '../../../content/i18n/de.json'; 
+import { Image } from 'astro:assets';
+
+const { aboutPage, footer, nav } = deData;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
+---
+
+<Layout title="Über uns - base-pages">
+  <main class="w-full pb-32">
+    <Header navData={nav} />
+    
+    <header class="pt-32 md:pt-40 px-6 max-w-5xl mx-auto text-center">
+      <div class="overflow-hidden mb-8">
+        <span id="hero-tagline" class="text-sm font-bold tracking-widest uppercase text-gray-900 inline-block opacity-0 translate-y-full">
+          {aboutPage.hero.tagline}
+        </span>
+      </div>
+      
+      <div class="overflow-hidden mb-16 md:mb-24">
+        <h1 id="hero-headline" class="text-gray-900 flex flex-wrap justify-center gap-x-3 md:gap-x-5 gap-y-2 opacity-0">
+          {aboutPage.hero.headline}
+        </h1>
+      </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-6 mt-32 reveal-element">
+      <div class="border-t border-gray-200 pt-8 mb-16">
+        <div class="flex items-center gap-4">
+          <div class="h-[2px] w-8 bg-gradient-to-r from-[#A8BFAF] via-[#E8DDC8] to-[#F6D7C8]"></div>
+          <span class="text-sm font-bold tracking-widest uppercase text-gray-900">{aboutPage.approach.tagline}</span>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        {aboutPage.approach.items.map((item: any) => (
+          <div class="flex flex-col gap-6 reveal-element">
+            <div class="rounded-[20px] overflow-hidden aspect-[4/3] bg-gray-100">
+              <Image 
+                src={item.image.startsWith('http') ? item.image : images[item.image]()} 
+                inferSize={item.image.startsWith('http')}
+                alt={item.title} 
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+              />
+            </div>
+            <div>
+              <h2 class="text-[16px] lg:text-[20px] font-semibold text-gray-900 mb-3 leading-tight">{item.title}</h2>
+              <p class="text-gray-500 leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mt-32 md:mt-48 relative grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-10 lg:gap-20">
+      
+      <div class="hidden md:block h-full relative">
+        <div class="sticky top-[20vh] lg:top-[5vh] h-[60vh] w-full lg:w-[605px] lg:h-[767px] rounded-[20px] overflow-hidden bg-gray-100">
+          {aboutPage.values.map((val: any, index: number) => (
+            <Image 
+              src={val.image.startsWith('http') ? val.image : images[val.image]()} 
+              inferSize={val.image.startsWith('http')}
+              alt={val.title} 
+              id={`img-${index + 1}`} 
+              class="val-img absolute inset-0 w-full h-full object-cover" 
+              style={`z-index: ${aboutPage.values.length - index};`} 
+            />
+          ))}
+        </div>
+      </div>
+
+      <div class="pt-[5vh] md:pt-[20vh] pb-[5vh] md:pb-[30vh]">
+        {aboutPage.values.map((val: any, index: number) => (
+          <div 
+            id={`text-${index + 1}`} 
+            class:list={[
+              "val-text-block mb-[15vh] md:mb-[40vh] lg:mb-[50vh] last:mb-0", 
+              index === 0 ? "md:opacity-100" : "md:opacity-30"
+            ]}
+          >
+            <Image 
+              src={val.image.startsWith('http') ? val.image : images[val.image]()} 
+              inferSize={val.image.startsWith('http')}
+              alt={val.title} 
+              class="block md:hidden w-full h-[50vh] object-cover rounded-[20px] mb-6"
+            />
+            
+            <div class="val-text-content">
+              <span class="text-[14px] font-['Roboto_Mono',_monospace] font-bold tracking-widest  mb-4 block">{val.number}</span>
+              <h2 class="text-[28px] md:text-4xl lg:text-5xl font-medium text-gray-900 leading-tight mb-4 md:mb-6">
+                {val.title}
+              </h2>
+              <p class="text-[14px] leading-[22px] md:text-lg md:leading-relaxed lg:text-xl">
+                {val.description}
+              </p>
+            </div>
+            
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mt-32 md:mt-48 reveal-element">
+      <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-16">{aboutPage.team.title}</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {aboutPage.team.members.map((member: any) => (
+          <div class="flex flex-col gap-4 reveal-element">
+            <div class="rounded-[20px] overflow-hidden aspect-[4/5] bg-gray-100">
+              <Image 
+                src={member.image.startsWith('http') ? member.image : images[member.image]()} 
+                inferSize={member.image.startsWith('http')}
+                alt={member.name} 
+                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
+              />
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-900">{member.name}</h4>
+              <p class="text-gray-500 text-sm">{member.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <DesignerBanner data={deData.designerBanner} />
+  </main>
+  
+  <Footer data={footer} />
+</Layout>
+
+<style is:global>
+  .reveal-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal-element.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initHeroAnimation() {
+    const tagline = document.getElementById("hero-tagline");
+    const headline = document.getElementById("hero-headline");
+
+    if (!tagline || !headline) return;
+
+    const text = headline.innerText;
+    headline.innerHTML = "";
+    headline.classList.remove("opacity-0"); 
+
+    const words = text.split(" ");
+    const wordElements = words.map(word => {
+      const span = document.createElement("span");
+      span.innerText = word;
+      span.className = "inline-block opacity-0 translate-y-full";
+      headline.appendChild(span);
+      return span;
+    });
+
+    const tl = gsap.timeline({ delay: 0.1 });
+    tl.to(tagline, { y: "0%", opacity: 1, duration: 0.6, ease: "power3.out" })
+      .to(wordElements, { y: "0%", opacity: 1, duration: 0.8, ease: "back.out(1.5)", stagger: 0.05 }, "-=0.4");
+  }
+
+  function initValuesScroll() {
+    const textBlocks = gsap.utils.toArray('.val-text-block');
+    if (textBlocks.length === 0) return;
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      gsap.set(".val-img", { opacity: 1 }); 
+      
+      for (let i = 1; i < textBlocks.length; i++) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: `#text-${i}`, 
+            start: "center 5%", 
+            endTrigger: `#text-${i + 1}`, 
+            end: "center 50%", 
+            scrub: true,
+          }
+        });
+        
+        tl.to(`#img-${i}`, { opacity: 0, ease: "none" }, 0)
+          .to(`#text-${i}`, { opacity: 0.3, ease: "none" }, 0)
+          .to(`#text-${i + 1}`, { opacity: 1, ease: "none" }, 0);
+      }
+    });
+
+    mm.add("(max-width: 767px)", () => {
+      textBlocks.forEach((block: any) => {
+        const textContent = block.querySelector('.val-text-content');
+        gsap.set(textContent, { opacity: 0.3 });
+
+        ScrollTrigger.create({
+          trigger: block,
+          start: "top 65%", end: "bottom 35%",
+          onEnter: () => gsap.to(textContent, { opacity: 1, duration: 0.4 }),
+          onLeave: () => gsap.to(textContent, { opacity: 0.3, duration: 0.4 }),
+          onEnterBack: () => gsap.to(textContent, { opacity: 1, duration: 0.4 }),
+          onLeaveBack: () => gsap.to(textContent, { opacity: 0.3, duration: 0.4 }),
+        });
+      });
+    });
+  }
+
+  function initReveal() {
+    const reveals = document.querySelectorAll('.reveal-element');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, { root: null, threshold: 0.15 });
+
+    reveals.forEach(reveal => observer.observe(reveal));
+  }
+
+  initHeroAnimation();
+  initValuesScroll();
+  initReveal();
+  
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 100);
+
+</script>

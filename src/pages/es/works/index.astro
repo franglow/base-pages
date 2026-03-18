@@ -1,0 +1,17 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/sections/Header.astro';
+import PortfolioGrid from '../../../components/sections/PortfolioGrid.astro';
+import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
+import Footer from '../../../components/sections/Footer.astro';
+import esData from '../../../content/i18n/es.json';
+---
+
+<Layout title="Proyectos">
+  <Header navData={esData.nav} />
+  <main style="padding-top: 100px;"> 
+    <PortfolioGrid />
+    <DesignerBanner data={esData.designerBanner} />
+  </main>
+  <Footer data={esData.footer} />
+</Layout>

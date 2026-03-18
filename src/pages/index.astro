@@ -32,9 +32,11 @@ import enData from '../content/i18n/en.json';
             id="lang-dropdown" 
             class="absolute top-full left-0 mt-3 hidden flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden min-w-[120px] origin-top-left transition-all"
           >
-            <a href={enData.hero.switchUrl} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
-              {enData.hero.switchLanguage}
-            </a>
+            {enData.hero.languages.map((lang: any) => (
+              <a href={lang.url} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
+                {lang.label}
+              </a>
+            ))}
           </div>
         </div>
 

@@ -31,8 +31,10 @@
     "location": "Argentina",
     "promo": "Usalo gratis",
     "language": "Español",
-    "switchLanguage": "English",
-    "switchUrl": "/"
+    "languages": [
+      { "label": "English", "url": "/" },
+      { "label": "Deutsch", "url": "/de" }
+    ]
   },
   "services": {
     "tagline": "SERVICIOS Y PRECIOS",

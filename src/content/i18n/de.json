@@ -31,8 +31,10 @@
     "location": "Deutschland",
     "promo": "Kostenlos nutzen",
     "language": "Deutsch",
-    "switchLanguage": "English",
-    "switchUrl": "/"
+    "languages": [
+      { "label": "English", "url": "/" },
+      { "label": "Español", "url": "/es" }
+    ]
   },
   "services": {
     "tagline": "DIENSTLEISTUNGEN & PREISE",

@@ -4,16 +4,81 @@ import Header from '../../components/sections/Header.astro';
 import Hero from '../../components/sections/Hero.astro';
 import RevealSection from '../../components/sections/RevealSection.astro';
 import PortfolioGrid from '../../components/sections/PortfolioGrid.astro';
+import Services from '../../components/sections/Services.astro';
+import DesignerBanner from '../../components/sections/DesignerBanner.astro';
 import Footer from '../../components/sections/Footer.astro';
-import enData from '../../content/i18n/de.json';
+import deData from '../../content/i18n/de.json';
 ---
 
 <Layout title="Base Pages">
-  <Header navData={enData.nav} />
+  <Header navData={deData.nav} />
   <main>
-    <Hero data={enData.hero} />
+    <Hero data={deData.hero} />
+    
+    <div class="max-w-7xl mx-auto px-6 mt-12 md:mt-24 w-full relative z-40">
+      
+      <div class="flex items-center pb-6 text-sm font-semibold text-gray-800">
+        
+        <div class="relative" id="lang-switcher-container">
+          <button 
+            id="lang-btn" 
+            class="flex items-center gap-2 hover:opacity-70 transition-opacity focus:outline-none"
+            aria-expanded="false"
+          >
+            <span class="text-xl">🌐</span> {deData.hero.language}
+          </button>
+
+          <div 
+            id="lang-dropdown" 
+            class="absolute top-full left-0 mt-3 hidden flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden min-w-[120px] origin-top-left transition-all"
+          >
+            {deData.hero.languages.map((lang: any) => (
+              <a href={lang.url} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
+                {lang.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="w-full border-t border-dashed md:border-solid border-gray-300 md:border-gray-200"></div>
+
+    </div>
+
     <RevealSection />
     <PortfolioGrid />
+    
+    <div class="max-w-7xl mx-auto px-6 mt-32">
+      <div class="w-full border-t border-gray-200"></div>
+    </div>
+    
+    <Services data={deData.services} />
+    <DesignerBanner data={deData.designerBanner} />
   </main>
-  <Footer data={enData.footer} />
+  <Footer data={deData.footer} />
 </Layout>
+
+<script>
+  const langBtn = document.getElementById('lang-btn');
+  const langDropdown = document.getElementById('lang-dropdown');
+
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      langDropdown.classList.toggle('hidden');
+      langDropdown.classList.toggle('flex');
+      
+      const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
+      langBtn.setAttribute('aria-expanded', String(!isExpanded));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!langDropdown.contains(e.target as Node)) {
+        langDropdown.classList.add('hidden');
+        langDropdown.classList.remove('flex');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

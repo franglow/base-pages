@@ -31,8 +31,10 @@
     "location": "US",
     "promo": "Use for free",
     "language": "English",
-    "switchLanguage": "Deutsch",
-    "switchUrl": "/de"
+    "languages": [
+      { "label": "Deutsch", "url": "/de" },
+      { "label": "Español", "url": "/es" }
+    ]
   },
   "services": {
     "tagline": "SERVICES & PRICING",

@@ -1,0 +1,292 @@
+---
+import LandingLayout from '../../../layouts/LandingLayout.astro';
+import LandingHeader from '../../../components/sections/LandingHeader.astro'; 
+import Footer from '../../../components/sections/Footer.astro'; 
+import Button from '../../../components/ui/Button.astro';
+
+import esData from '../../../content/i18n/es.json';
+
+// Extraemos los datos para The Scale Website
+const { footer, nav, scalePage } = esData;
+---
+
+<LandingLayout title="The Scale Website | Base Pages">
+  
+  <LandingHeader navData={nav} />
+
+  <main class="scale-page">
+    <section class="hero-section">
+      <div class="container hero-inner">
+        <div class="tagline">
+          <div class="line"></div> {scalePage.hero.tagline}
+        </div>
+        <h1 class="main-title">
+          <span class="title-bold">{scalePage.hero.titleBold}</span>
+          <span class="title-light">{scalePage.hero.titleLight}</span>
+        </h1>
+        <p class="hero-subtitle">
+          {scalePage.hero.subtitle}
+        </p>
+        <div class="hero-badges">
+          <span class="pill">{scalePage.hero.priceBadge}</span>
+          <span class="pill border-pill">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            {scalePage.hero.deliveryBadge}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services-section" class="scroll-container">
+      
+      <div class="left-col">
+        <div class="animation-wrapper">
+          <svg id="scale-shape" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <g id="scale-group">
+              <rect id="scale-layer-3" x="80" y="80" width="240" height="240" rx="70" fill="url(#brand-gradient)" filter="url(#liquid-filter)" style="mix-blend-mode: multiply;" />
+              <rect id="scale-layer-2" x="80" y="80" width="240" height="240" rx="70" fill="url(#brand-gradient)" filter="url(#liquid-filter)" style="mix-blend-mode: multiply;" />
+              <rect id="scale-layer-1" x="80" y="80" width="240" height="240" rx="70" fill="url(#brand-gradient)" filter="url(#liquid-filter)" />
+            </g>
+          </svg>
+        </div>
+        <div class="mt-6 w-full hidden md:block">
+           <Button href={scalePage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center py-3.5 rounded-full text-[15px] font-medium hover:scale-105 transition-transform">
+             Start your architecture
+           </Button>
+        </div>
+      </div>
+
+      <div class="right-col">
+        {scalePage.features.map((feature: any, index: number) => (
+          <div class="feature-card">
+            <div class="icon-wrapper">
+              {index === 0 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>}
+              {index === 1 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>}
+              {index === 2 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>}
+              {index === 3 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>}
+            </div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>{scalePage.finalCta.headline}</h2>
+          <p>{scalePage.finalCta.subtitle}</p>
+          <div class="flex justify-center mt-6">
+            <Button 
+              href={scalePage.finalCta.buttonUrl} 
+              class="bg-white text-gray-900 px-8 py-3.5 rounded-full font-medium hover:scale-105 transition-transform shadow-sm"
+            >
+              {scalePage.finalCta.buttonText}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer data={footer} />
+
+</LandingLayout>
+
+<style>
+  /* === VARIABLES Y BASE === */
+  :root {
+    --text-main: #111827;
+    --text-muted: #9ca3af;
+  }
+
+  .scale-page { padding-top: 100px; }
+  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  svg { width: 18px; height: 18px; }
+
+  /* === TIPOGRAFÍA EDITORIAL === */
+  .main-title { margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 4px; }
+  .title-bold { font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -1px; line-height: 1.05; color: var(--text-main); }
+  .title-light { font-size: clamp(22px, 3vw, 36px); font-weight: 400; letter-spacing: -1px; line-height: 1.2; color: var(--text-main); }
+  .hero-subtitle { font-size: 18px; line-height: 1.6; font-weight: 400; color: var(--text-main); max-width: 600px; margin: 0 0 40px 0; }
+
+  /* === HERO SECTION === */
+  .hero-section { padding: 80px 0 40px 0; }
+  .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .tagline { display: flex; align-items: center; gap: 15px; font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 30px; font-weight: 700; }
+  .line { height: 2px; width: 30px; background: var(--text-main); }
+  .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .pill { background: #ebebeb; color: var(--text-main); padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .border-pill { background: transparent; border: 1px solid #d1d5db; color: #6b7280; }
+
+  /* === SCROLL ANIMATION SECTION === */
+  .scroll-container { display: flex; flex-direction: column; gap: 40px; padding: 20px 24px 80px 24px; align-items: flex-start; }
+
+  .left-col { 
+    flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; 
+    z-index: 10; background: transparent; padding: 0 24px 20px 24px;
+    margin: 0 -24px; width: calc(100% + 48px);
+  }
+
+  .animation-wrapper { 
+    width: 100%; max-width: 260px; margin: 0 auto; aspect-ratio: 1 / 1; 
+    display: flex; align-items: center; justify-content: center; 
+    background: transparent; border-radius: 20px; overflow: hidden; 
+  }
+
+  #scale-shape {
+    width: 80%; height: 80%; opacity: 0; filter: blur(6px);
+    transform: scale(0.96); transform-origin: center; will-change: transform, filter, opacity;
+  }
+
+  .right-col { flex: 1; display: flex; flex-direction: column; gap: 24px; z-index: 1; width: 100%; }
+  
+  .feature-card { background: white; padding: 32px 24px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid rgba(229, 231, 235, 0.4); }
+  .icon-wrapper { width: 48px; height: 48px; background: #f8f7f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--text-main); }
+  .feature-card h3 { font-size: 22px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); }
+  .feature-card p { font-size: 15px; line-height: 1.7; font-weight: 400; color: var(--text-main); margin: 0; }
+
+  .final-cta-section { padding: 0 0 80px 0; }
+  .cta-box { background: var(--text-main); border-radius: 20px; padding: 60px 24px; text-align: center; color: white; }
+  .cta-box h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 500; letter-spacing: -1px; margin: 0 0 16px 0; }
+  .cta-box p { color: #9ca3af; font-size: 18px; margin: 0 0 24px 0; }
+
+  @media (max-width: 899px) {
+    .animation-wrapper { display: none !important; }
+  }
+
+  @media (min-width: 900px) {
+    .container { padding: 0 40px; }
+    .hero-section { padding: 120px 0 80px 0; }
+    .main-title { gap: 8px; }
+    .title-bold { letter-spacing: -2px; }
+
+    .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
+    .left-col { 
+      top: 100px; 
+      z-index: auto; 
+      margin: 0; 
+      width: auto;
+      background: white; 
+      padding: 40px; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
+      border: 1px solid rgba(229, 231, 235, 0.4);
+    }
+    .animation-wrapper { max-width: none; }
+    .right-col { gap: 40px; width: auto; }
+    .feature-card { padding: 40px; }
+    .final-cta-section { padding: 0 0 120px 0; }
+    .cta-box { padding: 80px 40px; }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  function initScaleAnimations() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Limpiamos instancias previas por si hay navegación de cliente (ViewTransitions)
+    ScrollTrigger.getAll().forEach(t => t.kill());
+
+    let mm = gsap.matchMedia();
+
+    // ==========================================
+    // DESKTOP LOGIC (LAYERED ECOSYSTEM)
+    // ==========================================
+    mm.add("(min-width: 900px)", () => {
+      const shapeSvg = document.getElementById('scale-shape');
+      const scaleGroup = document.getElementById('scale-group');
+      const layer1 = document.getElementById('scale-layer-1'); 
+      const layer2 = document.getElementById('scale-layer-2'); 
+      const layer3 = document.getElementById('scale-layer-3'); 
+      const dispMap = document.getElementById('disp-map');
+
+      if(!shapeSvg || !scaleGroup) return;
+
+      gsap.set(shapeSvg, { opacity: 1, filter: "none", scale: 1 });
+      gsap.set(layer1, { opacity: 0, filter: "blur(12px)", scale: 0.95 });
+      gsap.set([layer2, layer3], { opacity: 0, filter: "blur(12px)", scale: 0.95, x: 0, y: 0 });
+      gsap.set(scaleGroup, { y: 0, scale: 1 });
+
+      const tlDesktop = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#services-section",
+          start: "top 65%",
+          end: "bottom bottom",
+          scrub: 1, 
+        }
+      });
+
+      tlDesktop.to(layer1, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 25, ease: "power2.out" }, 0)
+               .to(dispMap, { attr: { scale: 8 }, duration: 25, ease: "sine.inOut" }, 0)
+
+      .to(layer2, { opacity: 0.8, filter: "blur(0px)", x: -20, y: -15, duration: 25, ease: "power1.inOut" }, 25)
+      .to(layer3, { opacity: 0.6, filter: "blur(0px)", x: 25, y: 15, duration: 25, ease: "power1.inOut" }, 25)
+      .to(layer1, { x: -5, y: 5, duration: 25, ease: "power1.inOut" }, 25)
+
+      .to(layer2, { x: -30, y: -25, opacity: 0.9, scale: 0.98, duration: 25, ease: "none" }, 50)
+      .to(layer3, { x: 35, y: 25, opacity: 0.7, scale: 0.96, duration: 25, ease: "none" }, 50)
+      .to(dispMap, { attr: { scale: 3 }, duration: 25, ease: "sine.inOut" }, 50)
+
+      .to(scaleGroup, { y: -15, scale: 1.02, duration: 25, ease: "none" }, 75);
+    });
+
+    // ==========================================
+    // MOBILE LOGIC (HEADER STACKED SHADOWS)
+    // ==========================================
+    mm.add("(max-width: 899px)", () => {
+      const isotipo = document.querySelector('.isotipo');
+      const logoContainer = document.querySelector('.logo-container');
+      const wordBase = document.querySelector('.word-base');
+      const wordPages = document.querySelector('.word-pages');
+      const connector = document.querySelector('.connector');
+      const textContainer = document.querySelector('.text-container');
+      const dispMapGlobal = document.getElementById('disp-map'); 
+      
+      if(!isotipo) return;
+
+      gsap.set(logoContainer, { gap: "16px" });
+      gsap.set(isotipo, { rotation: -90, width: "26px", height: "48px", borderRadius: "3px" });
+      gsap.set(textContainer, { marginTop: "-3px" });
+      gsap.set(wordBase, { x: 0, y: 0 });
+      gsap.set(wordPages, { x: 0, y: 0 });
+      gsap.set(connector, { width: "14px", opacity: 1, x: 0 });
+
+      const tlMobile = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#services-section",
+          start: "top 70%",
+          end: "bottom 80%",
+          scrub: 1, 
+        }
+      });
+
+      tlMobile.to(logoContainer, { gap: "7px", duration: 25, ease: "power2.inOut" }, 0)
+        .to(isotipo, { rotation: 0, width: "32px", height: "32px", borderRadius: "10px", duration: 25, ease: "power2.inOut" }, 0)
+        .to(textContainer, { marginTop: "-5px", duration: 25, ease: "power2.inOut" }, 0)
+        .to(wordBase, { x: 0, y: -9, duration: 25, ease: "power2.inOut" }, 0)
+        .to(wordPages, { x: -58, y: 9, duration: 25, ease: "power2.inOut" }, 0)
+        .to(connector, { width: 0, opacity: 0, x: -10, duration: 25, ease: "power2.inOut" }, 0)
+        
+        .to(dispMapGlobal, { attr: { scale: 15 }, duration: 12.5, ease: "sine.inOut" }, 25)
+        .to(dispMapGlobal, { attr: { scale: 3 }, duration: 12.5, ease: "sine.inOut" }, 37.5)
+        
+        .to(isotipo, {
+          boxShadow: "-4px -4px 0px 0px rgba(168, 191, 175, 0.4), -8px -8px 0px 0px rgba(246, 215, 200, 0.4)",
+          duration: 25,
+          ease: "power1.inOut"
+        }, 40)
+        .to(wordBase, { x: 6, duration: 20, ease: "power1.inOut" }, 40)
+        .to(wordPages, { x: -52, duration: 20, ease: "power1.inOut" }, 45)
+        
+        .to(isotipo, { scale: 1.05, duration: 25, ease: "none" }, 75);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initScaleAnimations);
+  document.addEventListener('astro:page-load', initScaleAnimations);
+</script>
