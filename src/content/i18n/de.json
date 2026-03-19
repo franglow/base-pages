@@ -356,5 +356,25 @@
     ],
     "copyright": "© {year} base-pages.com",
     "credits": "Powered by base-pages.com ·"
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "id": "carma-retreats",
+        "title": "Carma Retreats",
+        "description": "Ein Zufluchtsort für Yoga und Achtsamkeit in Sri Lanka. Wir haben ein digitales Erlebnis entworfen, das ihre Kernwerte widerspiegelt: Verbindung, Kultur und Gemeinschaft.",
+        "image": "/src/assets/images/portfolio-grid/carma-main.jpg",
+        "badge": "/src/assets/images/portfolio-grid/carma-main.jpg",
+        "url": "/de/works/carma-retreats"
+      },
+      {
+        "id": "cornelia-jaeger",
+        "title": "Cornelia Jaeger",
+        "description": "Ganzheitliche Ergotherapie und Coaching für Kinder und Eltern. Eine professionelle Plattform mit Fokus auf Entwicklungsförderung und familiäres Wohlbefinden.",
+        "image": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
+        "badge": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
+        "url": "/de/works/cornelia-jaeger"
+      }
+    ]
   }
 }

@@ -356,5 +356,25 @@
     ],
     "copyright": "© {year} base-pages.com",
     "credits": "Powered by base-pages.com ·"
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "id": "carma-retreats",
+        "title": "Carma Retreats",
+        "description": "Un santuario para yoga y mindfulness en Sri Lanka. Diseñamos una experiencia digital que refleja sus valores fundamentales: Conexión, Cultura y Comunidad.",
+        "image": "/src/assets/images/portfolio-grid/carma-main.jpg",
+        "badge": "/src/assets/images/portfolio-grid/carma-main.jpg",
+        "url": "/es/works/carma-retreats"
+      },
+      {
+        "id": "cornelia-jaeger",
+        "title": "Cornelia Jaeger",
+        "description": "Terapia y Coaching Ocupacional Integral para niños y padres. Una plataforma profesional centrada en el apoyo al desarrollo y el bienestar familiar.",
+        "image": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
+        "badge": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
+        "url": "/es/works/cornelia-jaeger"
+      }
+    ]
   }
 }

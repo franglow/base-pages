@@ -5,45 +5,32 @@ import { Image } from 'astro:assets';
 // 1. Global loader for local images
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
 
-const projects = [
-  {
-    id: "carma-retreats",
-    title: "Carma Retreats",
-    description: "A sanctuary for yoga and mindfulness in Sri Lanka. We designed a digital experience that reflects their core values: Connection, Culture, and Community.",
-    // Updated paths to target the src/assets folder for Astro optimization
-    image: "/src/assets/images/portfolio-grid/carma-main.jpg",
-    badge: "/src/assets/images/portfolio-grid/carma-main.jpg", 
-    url: "https://carma-retreats.com/"
-  },
-  {
-    id: "cornelia-jaeger",
-    title: "Cornelia Jaeger",
-    description: "Holistic Occupational Therapy and Coaching for children and parents. A professional platform focused on developmental support and family well-being.",
-    // Updated paths to target the src/assets folder for Astro optimization
-    image: "/src/assets/images/portfolio-grid/cornelia-main.jpg", 
-    badge: "/src/assets/images/portfolio-grid/cornelia-main.jpg",
-    url: "https://ergotherapiecoaching.de/"
-  }
-];
+interface Props {
+  data?: any;
+}
+const { data } = Astro.props;
+
+// Safely access the data
+const projects = data?.projects || [];
 const projectCount = projects.length;
 ---
 
 <section class="work-section">
   <div class="container">
-    <h2 class="section-title">Work
+    <h2 class="section-title">{data?.title || 'Work'}
       <sup class="text-[14px] bg-gray-900 text-white rounded-full w-[20px] h-[20px] flex items-center justify-center font-semibold mt-2 md:mt-4">
         {projectCount}
       </sup>
     </h2>
     
     <div class="projects-grid">
-      {projects.map((project) => (
+      {projects.map((project: any) => (
         <article class="project-card">
           <div class="image-container">
-            <a href={`/works/${project.id}`} class="image-link">
+            <a href={project.url} class="image-link">
               <div class="scroll-zoom-wrapper">
                 <Image 
-                  src={images[project.image]()} 
+                  src={images[project.gridImg || project.image]()} 
                   class="main-img" 
                   alt={project.title} 
                 />
