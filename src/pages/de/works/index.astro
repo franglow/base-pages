@@ -3,12 +3,12 @@ import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/sections/Header.astro';
 import PortfolioGrid from '../../../components/sections/PortfolioGrid.astro';
 import Footer from '../../../components/sections/Footer.astro';
-import enData from '../../../content/i18n/de.json';
+import deData from '../../../content/i18n/de.json';
 ---
 
 <Layout title="Our Work">
-  <Header navData={enData.nav} />
+  <Header navData={deData.nav} />
   <main style="padding-top: 100px;"> <PortfolioGrid data={deData.portfolio} />
   </main>
-  <Footer data={enData.footer} />
+  <Footer data={deData.footer} />
 </Layout>
