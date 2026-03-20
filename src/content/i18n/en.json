@@ -51,7 +51,7 @@
     "headerCount": "5",
     "items": [
       {
-        "title": "The Starter Page",
+        "title": "The Starter Package",
         "subtitle": "Built for speed. Perfect for validating ideas, events, and capturing leads. Mobile-first and lightning fast.",
         "price": "From €890",
         "delivery": "3-5 days",
@@ -59,7 +59,7 @@
         "url": "/services/starter"
       },
       {
-        "title": "The Growth Page",
+        "title": "The Growth Package",
         "subtitle": "Designed to convert. Ideal for growing businesses running ad campaigns. Includes CRO and integrations.",
         "price": "From €1,750",
         "delivery": "7-10 days",

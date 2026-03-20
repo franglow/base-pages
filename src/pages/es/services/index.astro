@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/ui/Button.astro';
 import Header from '../../../components/sections/Header.astro';
 import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
 import Footer from '../../../components/sections/Footer.astro'; 
@@ -105,9 +106,9 @@ const { services, footer, nav, designerBanner } = esData;
         </h3>
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-          <a href={services.cta.buttonUrl} class="inline-block bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-transform hover:scale-105 duration-300">
+          <Button href={services.cta.buttonUrl} class="bg-black text-white px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
             {services.cta.buttonText}
-          </a>
+          </Button>
           
           <a href={services.cta.exploreUrl} class="group inline-flex items-center gap-1.5 text-gray-900 font-medium text-[16px] hover:text-gray-500 transition-colors">
             {services.cta.exploreText}
@@ -136,9 +137,9 @@ const { services, footer, nav, designerBanner } = esData;
           <p class="text-[16px] leading-[24px] md:text-lg md:leading-relaxed text-gray-400 max-w-lg mb-12">
             {services.partnership.description}
           </p>
-          <a href={services.partnership.cta.buttonUrl} class="inline-block bg-white text-gray-900 px-8 py-4 rounded-full font-medium hover:bg-gray-200 transition-transform hover:scale-105 duration-300">
+          <Button href={services.partnership.cta.buttonUrl} class="bg-white text-gray-900 hover:bg-gray-200 px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
             {services.partnership.cta.buttonText}
-          </a>
+          </Button>
         </div>
 
         <div class="flex flex-col gap-8 md:gap-10">

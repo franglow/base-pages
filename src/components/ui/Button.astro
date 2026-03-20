@@ -3,9 +3,10 @@ interface Props {
   href?: string;
   variant?: 'primary' | 'outline';
   class?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const { href, variant = 'primary', class: className } = Astro.props;
+const { href, variant = 'primary', class: className, type } = Astro.props;
 
 const baseStyles = "inline-flex items-center justify-center px-6 py-3 rounded-2xl font-medium transition-colors cursor-pointer";
 const variants = {
@@ -19,7 +20,7 @@ const variants = {
     <slot />
   </a>
 ) : (
-  <button class:list={[baseStyles, variants[variant], className]}>
+  <button type={type} class:list={[baseStyles, variants[variant], className]}>
     <slot />
   </button>
 )}
