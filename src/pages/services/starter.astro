@@ -46,7 +46,9 @@ const { footer, nav, starterPage } = enData;
             <rect id="core-shape" x="70" y="70" width="260" height="260" rx="70" fill="url(#brand-gradient)" filter="url(#liquid-filter)" />
           </svg>
         </div>
-        <a href={starterPage.finalCta.buttonUrl} class="btn btn-dark w-full" style="margin-top: 24px;">Start your project</a>
+        <Button href={starterPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm mt-6">
+          {starterPage.finalCta.buttonText}
+        </Button>
       </div>
 
       <div class="right-col">
