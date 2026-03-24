@@ -9,6 +9,16 @@
   --color-primary: var(--color-accent);
 }
 
+
+@keyframes arrow-slide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.animate-arrow-loop {
+  animation: arrow-slide 1s ease-in-out infinite;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--color-background);
