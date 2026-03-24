@@ -174,7 +174,7 @@ const { project } = Astro.props;
   }
   .badge:hover { background: #dcdcdc; }
   .next-img-link { display: block; margin-top: 40px; }
-  .next-img-link img { width: 100%; max-width: 900px; border-radius: 40px; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .next-img-link img { width: 100%; max-width: 900px; aspect-ratio: 2 / 1; object-fit: cover; border-radius: 40px; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
   .next-img-link:hover img { transform: scale(1.02); }
 
   /* --- Mobile Adjustments --- */
