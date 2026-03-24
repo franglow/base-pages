@@ -111,13 +111,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {aboutPage.team.members.map((member: any) => (
-          <div class="flex flex-col gap-4 reveal-element">
+          <div class="flex flex-col gap-4 reveal-element pb-[50px]">
             <div class="rounded-[20px] overflow-hidden aspect-[4/5] bg-gray-100">
               <Image 
                 src={member.image.startsWith('http') ? member.image : images[member.image]()} 
                 inferSize={member.image.startsWith('http')}
                 alt={member.name} 
-                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
+                class="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-500" 
               />
             </div>
             <div>
