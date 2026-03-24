@@ -53,6 +53,10 @@ const projectCount = projects.length;
     padding: clamp(60px, 8vw, 100px) 24px;
     background-color: #f8f7f5;
     text-align: center;
+
+    @media (max-width: 768px) {
+  padding: calc(clamp(60px, 8vw, 100px) * 0.2) calc(24px * 0.2);
+}
   }
 
   .container {
