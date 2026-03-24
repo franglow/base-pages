@@ -302,9 +302,11 @@
         {
           "name": "Fran Cortez",
           "role": "Founder & Technical SEO Engineer",
-          "image": "/src/assets/images/about-page/mug-flow.jpeg"
+          "image": "/src/assets/images/about-page/mug-flow.jpeg",
+          "linkedin": "https://www.linkedin.com/in/francortez/"
         }
-      ]
+      ],
+      "linkedinText": "Connect on LinkedIn →"
     }
   },
   "contactPage": {

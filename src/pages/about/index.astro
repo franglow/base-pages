@@ -123,6 +123,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
             <div>
               <h4 class="text-lg font-semibold text-gray-900">{member.name}</h4>
               <p class="text-gray-500 text-sm">{member.role}</p>
+              {member.linkedin && (
+                <a 
+                  href={member.linkedin} 
+                  target="_blank" 
+                  rel="me noopener noreferrer" 
+                  class="inline-block mt-1 text-sm text-slate-500 hover:text-slate-900 transition-colors"
+                >
+                  {aboutPage.team.linkedinText}
+                </a>
+              )}
             </div>
           </div>
         ))}
