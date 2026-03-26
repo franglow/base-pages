@@ -1,0 +1,13 @@
+# Build folders
+.astro/
+dist/
+build/
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Logs and environment
+npm-debug.log*
+.env
