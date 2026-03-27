@@ -7,13 +7,36 @@ import PortfolioGrid from '../../components/sections/PortfolioGrid.astro';
 import Services from '../../components/sections/Services.astro';
 import DesignerBanner from '../../components/sections/DesignerBanner.astro';
 import Footer from '../../components/sections/Footer.astro';
-import deData from '../../i18n/de.json';
+
+import { getI18n } from '../../i18n/utils';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
+import type { Language } from '../../i18n/config';
+
+export function getStaticPaths() {
+  // Option B: English stays at root (/), so only generate /de/ and /es/
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const hreflangLinks = generateHreflangLinks('/', 'https://basepages.dev');
+const canonicalUrl = `https://basepages.dev/${lang}/`;
 ---
 
-<Layout title="Base Pages">
-  <Header navData={deData.nav} />
+<Layout title="Base Pages" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+
+  <Header navData={data.nav} />
   <main>
-    <Hero data={deData.hero} />
+    <Hero data={data.hero} />
     
     <div class="max-w-7xl mx-auto px-6 mt-12 md:mt-24 w-full relative z-40">
       
@@ -25,16 +48,16 @@ import deData from '../../i18n/de.json';
             class="flex items-center gap-2 hover:opacity-70 transition-opacity focus:outline-none"
             aria-expanded="false"
           >
-            <span class="text-xl">🌐</span> {deData.hero.language}
+            <span class="text-xl">🌐</span> {data.hero.language}
           </button>
 
           <div 
             id="lang-dropdown" 
             class="absolute top-full left-0 mt-3 hidden flex-col bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl overflow-hidden min-w-[120px] origin-top-left transition-all"
           >
-            {deData.hero.languages.map((lang: any) => (
-              <a href={lang.url} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
-                {lang.label}
+            {data.hero.languages.map((langOption: any) => (
+              <a href={langOption.url} class="block px-4 py-3 hover:bg-gray-50 transition-colors text-left text-gray-800">
+                {langOption.label}
               </a>
             ))}
           </div>
@@ -47,19 +70,20 @@ import deData from '../../i18n/de.json';
     </div>
 
     <RevealSection />
-    <PortfolioGrid data={deData.portfolio} />
+    <PortfolioGrid data={data.portfolio} />
     
     <div class="max-w-7xl mx-auto px-6 mt-32">
       <div class="w-full border-t border-gray-200"></div>
     </div>
     
-    <Services data={deData.services} />
-    <DesignerBanner data={deData.designerBanner} />
+    <Services data={data.services} />
+    <DesignerBanner data={data.designerBanner} />
   </main>
-  <Footer data={deData.footer} />
+  <Footer data={data.footer} />
 </Layout>
 
 <script>
+  // Language switcher dropdown logic
   const langBtn = document.getElementById('lang-btn');
   const langDropdown = document.getElementById('lang-dropdown');
 
