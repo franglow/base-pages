@@ -66,7 +66,7 @@ const leadEmail = result?.data?.leadEmail;
           </p>
 
           <form method="POST" action={actions.submitScale} class="flex flex-col gap-8">
-            
+            <input type="hidden" name="lang" value="en" />
             <div class="input-group">
               <input type="text" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" />
               {inputErrors?.name && <p class="error-text">{inputErrors.name}</p>}
