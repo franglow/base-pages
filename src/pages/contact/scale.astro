@@ -1,0 +1,139 @@
+---
+export const prerender = false;
+
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+import Header from '../../components/sections/Header.astro';
+import Footer from '../../components/sections/Footer.astro';
+import { actions } from 'astro:actions';
+
+import enData from '../../i18n/en.json';
+
+const { nav, footer, contactPage } = enData;
+
+const result = Astro.getActionResult(actions.submitScale);
+const inputErrors = result?.error?.fields;
+const success = result?.data?.success;
+const leadName = result?.data?.leadName;
+const leadEmail = result?.data?.leadEmail;
+---
+
+<Layout title="Scale Website Contact | Base Pages">
+  <Header navData={nav} />
+
+  <main class="contact-page bg-[#f8f7f5] min-h-screen flex flex-col justify-center">
+    <div class="w-full max-w-2xl mx-auto px-6 pt-40 pb-32">
+      
+      {success ? (
+        <div class="text-center">
+          <div class="mb-6">
+            <span class="font-['Roboto_Mono',_monospace] font-bold tracking-widest uppercase text-[13px] text-emerald-600">
+              ✓ SUBMISSION RECEIVED
+            </span>
+          </div>
+          <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
+            Let's plan your architecture
+          </h1>
+          <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+            Book your consultation call below. We'll review your stack and map out a custom architecture.
+          </p>
+          
+          <!-- Cal.com Embed Placeholder -->
+          <div class="cal-embed-wrapper bg-white rounded-[20px] p-8 border border-gray-100 shadow-sm" style="min-height: 650px;">
+            <p class="text-gray-400 text-sm mb-4">Loading scheduler...</p>
+            <!-- TODO: Replace with actual Cal.com embed -->
+            <div class="bg-gray-50 rounded-2xl p-12 text-center">
+              <p class="text-gray-600 text-lg font-medium mb-2">📅 Cal.com Integration</p>
+              <p class="text-gray-400 text-sm">
+                Event type: <code>scale-consult</code><br/>
+                Prefill: {leadName} / {leadEmail}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div class="mb-4">
+            <span class="font-['Roboto_Mono',_monospace] font-bold tracking-widest uppercase text-[13px] text-gray-400">
+              THE SCALE · €3,800
+            </span>
+          </div>
+          <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-4 tracking-tight leading-tight">
+            Enterprise-grade architecture
+          </h1>
+          <p class="text-gray-500 text-lg mb-12 max-w-md">
+            Tell us about your technical requirements. A consultation call will be scheduled automatically.
+          </p>
+
+          <form method="POST" action={actions.submitScale} class="flex flex-col gap-8">
+            
+            <div class="input-group">
+              <input type="text" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" />
+              {inputErrors?.name && <p class="error-text">{inputErrors.name}</p>}
+            </div>
+
+            <div class="input-group">
+              <input type="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" />
+              {inputErrors?.email && <p class="error-text">{inputErrors.email}</p>}
+            </div>
+
+            <div class="input-group">
+              <select name="cmsPreference" required class="minimal-input select-input">
+                <option value="" disabled selected>Preferred CMS</option>
+                <option value="Headless (Contentful, Sanity)">Headless (Contentful, Sanity)</option>
+                <option value="WordPress">WordPress</option>
+                <option value="Shopify">Shopify</option>
+                <option value="Custom">Custom solution</option>
+                <option value="Not sure">Not sure yet</option>
+              </select>
+              {inputErrors?.cmsPreference && <p class="error-text">{inputErrors.cmsPreference}</p>}
+            </div>
+
+            <div class="input-group">
+              <textarea name="integrations" placeholder="Required integrations (CRM, payments, APIs...)" required rows="2" class="minimal-input resize-none"></textarea>
+              {inputErrors?.integrations && <p class="error-text">{inputErrors.integrations}</p>}
+            </div>
+
+            <div class="input-group">
+              <select name="timeline" required class="minimal-input select-input">
+                <option value="" disabled selected>Project timeline</option>
+                <option value="ASAP">ASAP</option>
+                <option value="1-2 months">1–2 months</option>
+                <option value="3-6 months">3–6 months</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+              {inputErrors?.timeline && <p class="error-text">{inputErrors.timeline}</p>}
+            </div>
+
+            <Button type="submit" class="submit-btn w-full !px-6 !py-2.5 !rounded-2xl !text-sm mt-4">
+              {contactPage.form.submitText}
+            </Button>
+
+          </form>
+        </>
+      )}
+    </div>
+  </main>
+
+  <Footer data={footer} />
+</Layout>
+
+<style>
+  .minimal-input {
+    width: 100%; background: transparent; border: none;
+    border-bottom: 1px solid #111827; padding: 16px 0; font-size: 16px;
+    color: #111827; outline: none; font-family: inherit;
+    transition: border-color 0.3s ease, border-width 0.1s ease;
+  }
+  .minimal-input::placeholder { color: #111827; font-weight: 400; opacity: 1; }
+  .minimal-input:focus { border-bottom-width: 2px; border-bottom-color: #000; margin-bottom: -1px; }
+  .select-input { cursor: pointer; -webkit-appearance: none; appearance: none; }
+  .submit-btn {
+    background-color: #111827; color: #fff; width: 100%; padding: 20px;
+    border-radius: 999px; font-size: 16px; font-weight: 500; cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.5); }
+  .error-text { color: #ef4444; font-size: 13px; margin-top: 6px; }
+</style>

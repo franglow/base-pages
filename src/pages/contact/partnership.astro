@@ -1,0 +1,131 @@
+---
+export const prerender = false;
+
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+import Header from '../../components/sections/Header.astro';
+import Footer from '../../components/sections/Footer.astro';
+import { actions } from 'astro:actions';
+
+import enData from '../../i18n/en.json';
+
+const { nav, footer, contactPage } = enData;
+
+const result = Astro.getActionResult(actions.submitPartnership);
+const inputErrors = result?.error?.fields;
+const success = result?.data?.success;
+const leadName = result?.data?.leadName;
+const leadEmail = result?.data?.leadEmail;
+---
+
+<Layout title="Partnership Inquiry | Base Pages">
+  <Header navData={nav} />
+
+  <main class="contact-page bg-[#f8f7f5] min-h-screen flex flex-col justify-center">
+    <div class="w-full max-w-2xl mx-auto px-6 pt-40 pb-32">
+      
+      {success ? (
+        <div class="text-center">
+          <div class="mb-6">
+            <span class="font-['Roboto_Mono',_monospace] font-bold tracking-widest uppercase text-[13px] text-emerald-600">
+              ✓ APPLICATION RECEIVED
+            </span>
+          </div>
+          <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
+            Let's talk design
+          </h1>
+          <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+            Book your designer call below. We'll review your portfolio and discuss collaboration.
+          </p>
+          
+          <!-- Cal.com Embed Placeholder -->
+          <div class="cal-embed-wrapper bg-white rounded-[20px] p-8 border border-gray-100 shadow-sm" style="min-height: 650px;">
+            <p class="text-gray-400 text-sm mb-4">Loading scheduler...</p>
+            <div class="bg-gray-50 rounded-2xl p-12 text-center">
+              <p class="text-gray-600 text-lg font-medium mb-2">📅 Cal.com Integration</p>
+              <p class="text-gray-400 text-sm">
+                Event type: <code>designer-call</code><br/>
+                Prefill: {leadName} / {leadEmail}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div class="mb-4">
+            <span class="font-['Roboto_Mono',_monospace] font-bold tracking-widest uppercase text-[13px] text-gray-400">
+              PARTNERSHIP · CUSTOM
+            </span>
+          </div>
+          <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-4 tracking-tight leading-tight">
+            Designer partnership
+          </h1>
+          <p class="text-gray-500 text-lg mb-12 max-w-md">
+            Show us your process. We'll schedule a call to explore how we can build together.
+          </p>
+
+          <form method="POST" action={actions.submitPartnership} class="flex flex-col gap-8">
+            
+            <div class="input-group">
+              <input type="text" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" />
+              {inputErrors?.name && <p class="error-text">{inputErrors.name}</p>}
+            </div>
+
+            <div class="input-group">
+              <input type="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" />
+              {inputErrors?.email && <p class="error-text">{inputErrors.email}</p>}
+            </div>
+
+            <div class="input-group">
+              <textarea name="figmaProcess" placeholder="Describe your Figma design workflow and handoff process..." required rows="3" class="minimal-input resize-none"></textarea>
+              {inputErrors?.figmaProcess && <p class="error-text">{inputErrors.figmaProcess}</p>}
+            </div>
+
+            <div class="input-group">
+              <select name="teamSize" required class="minimal-input select-input">
+                <option value="" disabled selected>Team size</option>
+                <option value="Solo">Solo designer</option>
+                <option value="2-5">2–5 people</option>
+                <option value="6-15">6–15 people</option>
+                <option value="15+">15+ people</option>
+              </select>
+              {inputErrors?.teamSize && <p class="error-text">{inputErrors.teamSize}</p>}
+            </div>
+
+            <div class="input-group">
+              <input type="url" name="portfolioUrl" placeholder="Portfolio URL (optional)" class="minimal-input" />
+              {inputErrors?.portfolioUrl && <p class="error-text">{inputErrors.portfolioUrl}</p>}
+            </div>
+
+            <Button type="submit" class="submit-btn w-full !px-6 !py-2.5 !rounded-2xl !text-sm mt-4">
+              {contactPage.form.submitText}
+            </Button>
+
+          </form>
+        </>
+      )}
+    </div>
+  </main>
+
+  <Footer data={footer} />
+</Layout>
+
+<style>
+  .minimal-input {
+    width: 100%; background: transparent; border: none;
+    border-bottom: 1px solid #111827; padding: 16px 0; font-size: 16px;
+    color: #111827; outline: none; font-family: inherit;
+    transition: border-color 0.3s ease, border-width 0.1s ease;
+  }
+  .minimal-input::placeholder { color: #111827; font-weight: 400; opacity: 1; }
+  .minimal-input:focus { border-bottom-width: 2px; border-bottom-color: #000; margin-bottom: -1px; }
+  .select-input { cursor: pointer; -webkit-appearance: none; appearance: none; }
+  .submit-btn {
+    background-color: #111827; color: #fff; width: 100%; padding: 20px;
+    border-radius: 999px; font-size: 16px; font-weight: 500; cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.5); }
+  .error-text { color: #ef4444; font-size: 13px; margin-top: 6px; }
+</style>
