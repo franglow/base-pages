@@ -4,13 +4,30 @@ import LandingHeader from '../../../components/sections/LandingHeader.astro';
 import Footer from '../../../components/sections/Footer.astro'; 
 import Button from '../../../components/ui/Button.astro';
 
-import esData from '../../../i18n/es.json';
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
 
-// Extraemos los datos para The Growth Package
-const { footer, nav, growthPage } = esData;
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { footer, nav, growthPage } = data;
+const hreflangLinks = generateHreflangLinks('/services/growth', 'https://basepages.dev');
 ---
 
-<LandingLayout title="The Growth Package | Base Pages">
+<LandingLayout title="The Growth Package | Base Pages" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/services/growth`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
   
   <LandingHeader navData={nav} />
 
@@ -105,7 +122,6 @@ const { footer, nav, growthPage } = esData;
 </LandingLayout>
 
 <style>
-  /* === VARIABLES Y BASE === */
   :root {
     --text-main: #111827;
     --text-muted: #9ca3af;
@@ -115,13 +131,11 @@ const { footer, nav, growthPage } = esData;
   .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   svg { width: 18px; height: 18px; }
 
-  /* === TIPOGRAFÍA EDITORIAL === */
   .main-title { margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 4px; }
   .title-bold { font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -1px; line-height: 1.05; color: var(--text-main); }
   .title-light { font-size: clamp(22px, 3vw, 36px); font-weight: 400; letter-spacing: -1px; line-height: 1.2; color: var(--text-main); }
   .hero-subtitle { font-size: 18px; line-height: 1.6; font-weight: 400; color: var(--text-main); max-width: 600px; margin: 0 0 40px 0; }
 
-  /* === HERO SECTION === */
   .hero-section { padding: 80px 0 40px 0; }
   .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .tagline { display: flex; align-items: center; gap: 15px; font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 30px; font-weight: 700; }
@@ -130,25 +144,13 @@ const { footer, nav, growthPage } = esData;
   .pill { background: #ebebeb; color: var(--text-main); padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
   .border-pill { background: transparent; border: 1px solid #d1d5db; color: #6b7280; }
 
-  /* === SCROLL ANIMATION SECTION === */
   .scroll-container { display: flex; flex-direction: column; gap: 40px; padding: 20px 24px 80px 24px; align-items: flex-start; }
 
-  .left-col { 
-    flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; 
-    z-index: 10; background: transparent; padding: 0 24px 20px 24px;
-    margin: 0 -24px; width: calc(100% + 48px);
-  }
+  .left-col { flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; z-index: 10; background: transparent; padding: 0 24px 20px 24px; margin: 0 -24px; width: calc(100% + 48px); }
 
-  .animation-wrapper { 
-    width: 100%; max-width: 260px; margin: 0 auto; aspect-ratio: 1 / 1; 
-    display: flex; align-items: center; justify-content: center; 
-    background: transparent; border-radius: 20px; overflow: hidden; 
-  }
+  .animation-wrapper { width: 100%; max-width: 260px; margin: 0 auto; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; background: transparent; border-radius: 20px; overflow: hidden; }
 
-  #growth-shape {
-    width: 80%; height: 80%; opacity: 0; filter: blur(6px);
-    transform: scale(0.96); transform-origin: center; will-change: transform, filter, opacity;
-  }
+  #growth-shape { width: 80%; height: 80%; opacity: 0; filter: blur(6px); transform: scale(0.96); transform-origin: center; will-change: transform, filter, opacity; }
 
   .right-col { flex: 1; display: flex; flex-direction: column; gap: 24px; z-index: 1; width: 100%; }
   
@@ -171,19 +173,8 @@ const { footer, nav, growthPage } = esData;
     .hero-section { padding: 120px 0 80px 0; }
     .main-title { gap: 8px; }
     .title-bold { letter-spacing: -2px; }
-
     .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
-    .left-col { 
-      top: 100px; 
-      z-index: auto; 
-      margin: 0; 
-      width: auto;
-      background: white; 
-      padding: 40px; 
-      border-radius: 20px; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
-      border: 1px solid rgba(229, 231, 235, 0.4);
-    }
+    .left-col { top: 100px; z-index: auto; margin: 0; width: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid rgba(229, 231, 235, 0.4); }
     .animation-wrapper { max-width: none; }
     .right-col { gap: 40px; width: auto; }
     .feature-card { padding: 40px; }
@@ -198,15 +189,10 @@ const { footer, nav, growthPage } = esData;
 
   function initGrowthAnimations() {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Limpiamos instancias previas para compatibilidad con ViewTransitions
     ScrollTrigger.getAll().forEach(t => t.kill());
 
     let mm = gsap.matchMedia();
 
-    // ==========================================
-    // DESKTOP LOGIC (DIRECTED EXPANSION)
-    // ==========================================
     mm.add("(min-width: 900px)", () => {
       const shapeSvg = document.getElementById('growth-shape');
       const extensionShape = document.getElementById('extension-shape');
@@ -215,7 +201,6 @@ const { footer, nav, growthPage } = esData;
 
       if(!shapeSvg || !extensionShape) return;
 
-      // Reseteos
       gsap.set(shapeSvg, { opacity: 0, filter: "blur(6px)", scale: 0.96 });
       gsap.set(extensionShape, { attr: { y: -80, height: 160 } });
       gsap.set(softLayer, { opacity: 0, attr: { x: -80, y: -80, width: 160, height: 160 } });
@@ -230,7 +215,6 @@ const { footer, nav, growthPage } = esData;
         }
       });
 
-      // Animación en diagonal hacia la derecha (Rotación 45deg definida en el SVG)
       tlDesktop.to(shapeSvg, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 25, ease: "power2.out" })
       .to(extensionShape, { attr: { y: -180, height: 260 }, duration: 25, ease: "power2.inOut" })
       .to(softLayer, { 
@@ -244,9 +228,6 @@ const { footer, nav, growthPage } = esData;
       .to(shapeSvg, { scale: 1.02, duration: 25, ease: "none" }, "-=25");
     });
 
-    // ==========================================
-    // MOBILE LOGIC (HORIZONTAL PILL EXPANSION)
-    // ==========================================
     mm.add("(max-width: 899px)", () => {
       const isotipo = document.querySelector('.isotipo');
       const logoContainer = document.querySelector('.logo-container');
@@ -258,7 +239,6 @@ const { footer, nav, growthPage } = esData;
       
       if(!isotipo) return;
 
-      // Reset
       gsap.set(logoContainer, { gap: "16px" });
       gsap.set(isotipo, { rotation: -90, width: "26px", height: "48px", borderRadius: "3px" });
       gsap.set(textContainer, { marginTop: "-3px" });
@@ -275,25 +255,15 @@ const { footer, nav, growthPage } = esData;
         }
       });
 
-      // 1. Transformación a Squircle
       tlMobile.to(logoContainer, { gap: "7px", duration: 25, ease: "power2.inOut" }, 0)
         .to(isotipo, { rotation: 0, width: "32px", height: "32px", borderRadius: "10px", duration: 25, ease: "power2.inOut" }, 0)
         .to(textContainer, { marginTop: "-5px", duration: 25, ease: "power2.inOut" }, 0)
         .to(wordBase, { x: 0, y: -9, duration: 25, ease: "power2.inOut" }, 0)
         .to(wordPages, { x: -58, y: 9, duration: 25, ease: "power2.inOut" }, 0)
         .to(connector, { width: 0, opacity: 0, x: -10, duration: 25, ease: "power2.inOut" }, 0)
-        
-      // 2. GROWTH EXPANSION (Se estira en forma de cápsula hacia la derecha)
-        .to(isotipo, { 
-          width: "64px", 
-          borderRadius: "16px",
-          duration: 25, 
-          ease: "power2.inOut" 
-        }, 25)
+        .to(isotipo, { width: "64px", borderRadius: "16px", duration: 25, ease: "power2.inOut" }, 25)
         .to(dispMapGlobal, { attr: { scale: 15 }, duration: 12.5, ease: "sine.inOut" }, 25)
         .to(dispMapGlobal, { attr: { scale: 3 }, duration: 12.5, ease: "sine.inOut" }, 37.5)
-        
-      // 3. Borde delgado y empuje de texto
         .to(isotipo, {
           boxShadow: "0 0 0 4px #f8f7f5, 0 0 0 5.5px rgba(156, 163, 175, 0.3)",
           duration: 25,
@@ -301,8 +271,6 @@ const { footer, nav, growthPage } = esData;
         }, 40)
         .to(wordBase, { x: 6, duration: 20, ease: "power1.inOut" }, 40)
         .to(wordPages, { x: -52, duration: 20, ease: "power1.inOut" }, 45)
-        
-      // 4. Respiración final sutil
         .to(isotipo, { scale: 1.05, duration: 25, ease: "none" }, 75);
     });
   }

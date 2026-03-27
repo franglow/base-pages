@@ -4,13 +4,30 @@ import LandingHeader from '../../../components/sections/LandingHeader.astro';
 import Footer from '../../../components/sections/Footer.astro'; 
 import Button from '../../../components/ui/Button.astro';
 
-import esData from '../../../i18n/es.json';
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
 
-// Extraemos los datos para Continuous Care
-const { footer, nav, carePage } = esData;
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { footer, nav, carePage } = data;
+const hreflangLinks = generateHreflangLinks('/services/care', 'https://basepages.dev');
 ---
 
-<LandingLayout title="Continuous Care | Base Pages">
+<LandingLayout title="Continuous Care | Base Pages" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/services/care`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
   
   <LandingHeader navData={nav} />
 
@@ -109,7 +126,6 @@ const { footer, nav, carePage } = esData;
 </LandingLayout>
 
 <style>
-  /* === VARIABLES Y BASE === */
   :root {
     --text-main: #111827;
     --text-muted: #9ca3af;
@@ -119,13 +135,11 @@ const { footer, nav, carePage } = esData;
   .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   svg { width: 18px; height: 18px; }
 
-  /* === TIPOGRAFÍA EDITORIAL === */
   .main-title { margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 4px; }
   .title-bold { font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -1px; line-height: 1.05; color: var(--text-main); }
   .title-light { font-size: clamp(22px, 3vw, 36px); font-weight: 400; letter-spacing: -1px; line-height: 1.2; color: var(--text-main); }
   .hero-subtitle { font-size: 18px; line-height: 1.6; font-weight: 400; color: var(--text-main); max-width: 600px; margin: 0 0 40px 0; }
 
-  /* === HERO SECTION === */
   .hero-section { padding: 80px 0 40px 0; }
   .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .tagline { display: flex; align-items: center; gap: 15px; font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 30px; font-weight: 700; }
@@ -134,25 +148,13 @@ const { footer, nav, carePage } = esData;
   .pill { background: #ebebeb; color: var(--text-main); padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
   .border-pill { background: transparent; border: 1px solid #d1d5db; color: #6b7280; }
 
-  /* === SCROLL ANIMATION SECTION === */
   .scroll-container { display: flex; flex-direction: column; gap: 40px; padding: 20px 24px 80px 24px; align-items: flex-start; }
 
-  .left-col { 
-    flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; 
-    z-index: 10; background: transparent; padding: 0 24px 20px 24px;
-    margin: 0 -24px; width: calc(100% + 48px);
-  }
+  .left-col { flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; z-index: 10; background: transparent; padding: 0 24px 20px 24px; margin: 0 -24px; width: calc(100% + 48px); }
 
-  .animation-wrapper { 
-    width: 100%; max-width: 260px; margin: 0 auto; aspect-ratio: 1 / 1; 
-    display: flex; align-items: center; justify-content: center; 
-    background: transparent; border-radius: 20px; overflow: hidden; 
-  }
+  .animation-wrapper { width: 100%; max-width: 260px; margin: 0 auto; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; background: transparent; border-radius: 20px; overflow: hidden; }
 
-  /* Ajuste clave: El JS se encargará de los estados iniciales de opacity y blur */
-  #care-shape {
-    width: 100%; height: 100%; transform-origin: center; will-change: transform, filter, opacity;
-  }
+  #care-shape { width: 100%; height: 100%; transform-origin: center; will-change: transform, filter, opacity; }
 
   .right-col { flex: 1; display: flex; flex-direction: column; gap: 24px; z-index: 1; width: 100%; }
   
@@ -175,19 +177,8 @@ const { footer, nav, carePage } = esData;
     .hero-section { padding: 120px 0 80px 0; }
     .main-title { gap: 8px; }
     .title-bold { letter-spacing: -2px; }
-
     .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
-    .left-col { 
-      top: 100px; 
-      z-index: auto; 
-      margin: 0; 
-      width: auto;
-      background: white; 
-      padding: 40px; 
-      border-radius: 20px; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
-      border: 1px solid rgba(229, 231, 235, 0.4);
-    }
+    .left-col { top: 100px; z-index: auto; margin: 0; width: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid rgba(229, 231, 235, 0.4); }
     .animation-wrapper { max-width: none; }
     .right-col { gap: 40px; width: auto; }
     .feature-card { padding: 40px; }
@@ -202,15 +193,10 @@ const { footer, nav, carePage } = esData;
 
   function initCareAnimations() {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Limpiamos instancias previas para compatibilidad con ViewTransitions
     ScrollTrigger.getAll().forEach(t => t.kill());
 
     let mm = gsap.matchMedia();
 
-    // ==========================================
-    // DESKTOP LOGIC (STABLE RHYTHM / EXHALE)
-    // ==========================================
     mm.add("(min-width: 900px)", () => {
       const shapeSvg = document.getElementById('care-shape');
       const horizonGlow = document.getElementById('horizon-glow');
@@ -218,7 +204,6 @@ const { footer, nav, carePage } = esData;
 
       if(!shapeSvg) return;
 
-      // Reset
       gsap.set(shapeSvg, { opacity: 0, filter: "blur(12px)", y: 0, scale: 1 });
       gsap.set(horizonGlow, { attr: { x: -100 }, opacity: 0 });
       gsap.set(waveDisp, { attr: { scale: 0 } });
@@ -243,9 +228,6 @@ const { footer, nav, carePage } = esData;
       .to(shapeSvg, { y: 15, scale: 0.98, duration: 25, ease: "power2.inOut" }, 75);
     });
 
-    // ==========================================
-    // MOBILE LOGIC (RESPIRACIÓN SUAVE DEL LOGO)
-    // ==========================================
     mm.add("(max-width: 899px)", () => {
       const isotipo = document.querySelector('.isotipo');
       const logoContainer = document.querySelector('.logo-container');
@@ -253,8 +235,6 @@ const { footer, nav, carePage } = esData;
       const wordPages = document.querySelector('.word-pages');
       const connector = document.querySelector('.connector');
       const textContainer = document.querySelector('.text-container');
-      
-      // NOTA: Tomamos el filtro global que está inyectado en el LandingLayout
       const dispMapGlobal = document.getElementById('disp-map'); 
       
       if(!isotipo) return;
@@ -281,11 +261,8 @@ const { footer, nav, carePage } = esData;
         .to(wordBase, { x: 0, y: -9, duration: 25, ease: "power2.inOut" }, 0)
         .to(wordPages, { x: -58, y: 9, duration: 25, ease: "power2.inOut" }, 0)
         .to(connector, { width: 0, opacity: 0, x: -10, duration: 25, ease: "power2.inOut" }, 0)
-        
         .to(dispMapGlobal, { attr: { scale: 12 }, duration: 12.5, ease: "sine.inOut" }, 25)
         .to(dispMapGlobal, { attr: { scale: 2 }, duration: 12.5, ease: "sine.inOut" }, 37.5)
-        
-        // Borde protector para simular monitoreo
         .to(isotipo, {
           boxShadow: "0 0 0 4px #f8f7f5, 0 0 0 5.5px rgba(168, 191, 175, 0.5)",
           duration: 25,
@@ -293,7 +270,6 @@ const { footer, nav, carePage } = esData;
         }, 40)
         .to(wordBase, { x: 6, duration: 20, ease: "power1.inOut" }, 40)
         .to(wordPages, { x: -52, duration: 20, ease: "power1.inOut" }, 45)
-        
         .to(isotipo, { scale: 1.05, duration: 25, ease: "none" }, 75);
     });
   }
