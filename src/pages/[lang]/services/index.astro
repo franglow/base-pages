@@ -5,12 +5,31 @@ import Header from '../../../components/sections/Header.astro';
 import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
 import Footer from '../../../components/sections/Footer.astro'; 
 
-import deData from '../../../i18n/de.json';
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
 
-const { services, footer, nav, designerBanner } = deData;
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { services, footer, nav, designerBanner } = data;
+const hreflangLinks = generateHreflangLinks('/services', 'https://basepages.dev');
 ---
 
-<Layout title="Dienstleistungen - base-pages">
+<Layout title="Services - base-pages" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/services`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+
   <Header navData={nav} />
   
   <main style="padding-top: 100px;" class="bg-[#f8f7f5]">
@@ -153,6 +172,7 @@ const { services, footer, nav, designerBanner } = deData;
 
       </div>
     </section> 
+
   </main>
   
   <Footer data={footer} />
@@ -301,7 +321,6 @@ const { services, footer, nav, designerBanner } = deData;
   function initServicesScrubZoom() {
     gsap.registerPlugin(ScrollTrigger);
 
-    // IntersectionObserver for CSS animation visibility
     const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -314,7 +333,6 @@ const { services, footer, nav, designerBanner } = deData;
     }, observerOptions);
     document.querySelectorAll('.observe-card').forEach(card => cardObserver.observe(card));
 
-    // GSAP scroll zoom
     const cards = document.querySelectorAll('.project-card');
 
     cards.forEach((card) => {

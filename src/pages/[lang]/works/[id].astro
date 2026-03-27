@@ -2,12 +2,16 @@
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/sections/Header.astro';
 import Footer from '../../../components/sections/Footer.astro';
-import esData from '../../../i18n/es.json';
 import { Image } from 'astro:assets';
+
+import { getI18n, localizeHref } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}');
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   const projects = [
     {
       id: 'carma-retreats',
@@ -39,21 +43,41 @@ export async function getStaticPaths() {
       mainImgDesk: '/src/assets/images/portfolio-grid/cornelia-main.jpg',
       secImgDesk: '/src/assets/images/works/cornelia/cornelia-01-desktop.png',
       tertiaryImgDesk: '/src/assets/images/works/cornelia/cornelia-02-desktop.png',
-      nextImg: '/src/assets/images/portfolio-grid/carma-main.jpg' 
+      nextImg: '/src/assets/images/portfolio-grid/carma-main.jpg'
     }
   ];
 
-  return projects.map((project) => ({
-    params: { id: project.id },
-    props: { project },
-  }));
+  const paths = [];
+  
+  for (const lang of SUPPORTED_LANGUAGES) {
+    if (lang === DEFAULT_LANGUAGE) continue;
+    for (const project of projects) {
+      paths.push({
+        params: { lang, id: project.id },
+        props: { project },
+      });
+    }
+  }
+  
+  return paths;
 }
 
-const { project } = Astro.props;
+const { lang } = Astro.params as { lang: Language; id: string };
+const { project } = Astro.props as { project: any };
+const data = getI18n(lang);
+const hreflangLinks = generateHreflangLinks(`/works/${project.id}`, 'https://basepages.dev');
+const nextCaseHref = localizeHref(lang, `/works/${project.nextId}`);
 ---
 
-<Layout title={`${project.title} - Noura`}>
-  <Header navData={esData.nav} />  
+<Layout title={`${project.title} - base-pages`} lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/works/${project.id}`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+
+  <Header navData={data.nav} />  
   <main class="work-detail">
     
     <section class="intro-header container-base">
@@ -115,9 +139,9 @@ const { project } = Astro.props;
 
     <section class="next-case container-base">
        <div class="next-label">
-         Next case <a href={`/es/works/${project.nextId}`} class="badge">{project.nextCase.toUpperCase()}</a>
+         Next case <a href={nextCaseHref} class="badge">{project.nextCase.toUpperCase()}</a>
        </div>
-       <a href={`/es/works/${project.nextId}`} class="next-img-link">
+       <a href={nextCaseHref} class="next-img-link">
          <Image 
            src={images[project.nextImg]()} 
            alt="Next project" 
@@ -127,7 +151,7 @@ const { project } = Astro.props;
        </a>
     </section>
   </main>
-  <Footer data={esData.footer} />
+  <Footer data={data.footer} />
 </Layout>
 
 <style>

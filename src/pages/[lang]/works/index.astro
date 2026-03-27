@@ -1,0 +1,38 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/sections/Header.astro';
+import PortfolioGrid from '../../../components/sections/PortfolioGrid.astro';
+import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
+import Footer from '../../../components/sections/Footer.astro';
+
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const hreflangLinks = generateHreflangLinks('/works', 'https://basepages.dev');
+---
+
+<Layout title="Our Work" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/works`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+
+  <Header navData={data.nav} />
+  <main style="padding-top: 100px;"> 
+    <PortfolioGrid data={data.portfolio} />
+    <DesignerBanner data={data.designerBanner} />
+  </main>
+  <Footer data={data.footer} />
+</Layout>

@@ -3,15 +3,35 @@ import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/sections/Header.astro';
 import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
 import Footer from '../../../components/sections/Footer.astro';
-import deData from '../../../i18n/de.json'; 
 import { Image } from 'astro:assets';
 
-const { aboutPage, footer, nav } = deData;
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { aboutPage, footer, nav } = data;
+const hreflangLinks = generateHreflangLinks('/about', 'https://basepages.dev');
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
 ---
 
-<Layout title="Über uns - base-pages">
+<Layout title="About Us - base-pages" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/about`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+
   <main class="w-full pb-32">
     <Header navData={nav} />
     
@@ -137,7 +157,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
         ))}
       </div>
     </section>
-    <DesignerBanner data={deData.designerBanner} />
+    <DesignerBanner data={data.designerBanner} />
   </main>
   
   <Footer data={footer} />
