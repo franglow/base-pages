@@ -62,13 +62,31 @@ const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev')
           />
         </div>
 
+        <div class="input-group relative">
+          <select 
+            id="interest" 
+            name="interest" 
+            required 
+            class="minimal-input appearance-none bg-transparent cursor-pointer"
+          >
+            <option value="" disabled selected hidden>{contactPage.form.interestLabel}</option>
+            {contactPage.form.interests.map((interest: string) => (
+              <option value={interest} class="text-gray-900">{interest}</option>
+            ))}
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+            </svg>
+          </div>
+        </div>
+
         <div class="input-group">
           <input 
             type="text" 
-            id="subject" 
-            name="subject" 
-            placeholder={contactPage.form.subjectPlaceholder} 
-            required 
+            id="budget" 
+            name="budget" 
+            placeholder={contactPage.form.budgetLabel} 
             class="minimal-input" 
           />
         </div>
@@ -108,6 +126,12 @@ const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev')
     outline: none;
     font-family: inherit;
     transition: border-color 0.3s ease, border-width 0.1s ease;
+  }
+
+  /* El truco de CSS para que el placeholder del select se vea igual que los de texto */
+  select.minimal-input:invalid {
+    color: #111827;
+    opacity: 1; 
   }
 
   .minimal-input::placeholder {

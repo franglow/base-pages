@@ -310,12 +310,20 @@
     }
   },
   "contactPage": {
-    "title": "Contact",
+    "title": "Let's build your engine",
     "form": {
-      "namePlaceholder": "Name",
-      "emailPlaceholder": "Email",
-      "subjectPlaceholder": "Subject",
-      "messagePlaceholder": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your professional email",
+      "interestLabel": "I'm interested in...",
+      "interests": [
+        "The Starter Package (€890)",
+        "The Growth Package (€1,750)",
+        "The Scale Website (€3,800)",
+        "Partnership / White-label",
+        "Other / Custom inquiry"
+      ],
+      "messagePlaceholder": "Tell us about your project and goals",
+      "budgetLabel": "Estimated budget",
       "submitText": "Send message"
     }
   },
