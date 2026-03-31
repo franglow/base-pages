@@ -3,27 +3,24 @@ import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
 import Header from '../../components/sections/Header.astro';
 import Footer from '../../components/sections/Footer.astro';
+import { actions } from 'astro:actions';
 
-import { getI18n } from '../../i18n/utils';
+import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
-import type { Language } from '../../i18n/config';
 
-export function getStaticPaths() {
-  return SUPPORTED_LANGUAGES
-    .filter((lang) => lang !== DEFAULT_LANGUAGE)
-    .map((lang) => ({ params: { lang } }));
-}
+export const prerender = false;
 
-const { lang } = Astro.params as { lang: Language };
-const data = getI18n(lang);
-const { nav, footer, contactPage } = data;
+const { nav, footer, contactPage } = enData;
 const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev');
+
+const result = Astro.getActionResult(actions.submitContact);
+const inputErrors = result?.error?.fields;
+const success = result?.data?.success;
 ---
 
-<Layout title="Contact | Base Pages" lang={lang}>
+<Layout title="Contact | Base Pages" lang="en">
   <Fragment slot="head">
-    <link rel="canonical" href={`https://basepages.dev/${lang}/contact`} />
+    <link rel="canonical" href="https://basepages.dev/contact" />
     {hreflangLinks.map((link) => (
       <link rel="alternate" hreflang={link.lang} href={link.href} />
     ))}
@@ -34,79 +31,93 @@ const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev')
   <main class="contact-page bg-[#f8f7f5] min-h-screen flex flex-col justify-center">
     <div class="w-full max-w-2xl mx-auto px-6 pt-40 pb-32">
       
-      <h1 class="text-[48px] md:text-[64px] font-medium text-gray-900 mb-12 tracking-tight">
-        {contactPage.title}
-      </h1>
-
-      <form action="#" method="POST" class="flex flex-col gap-8">
-        
-        <div class="input-group">
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            placeholder={contactPage.form.namePlaceholder} 
-            required 
-            class="minimal-input" 
-          />
+      {success ? (
+        <div class="text-center py-16">
+          <h1 class="text-[48px] md:text-[64px] font-medium text-gray-900 mb-6 tracking-tight">Thank you!</h1>
+          <p class="text-lg text-gray-600 max-w-md mx-auto">We've received your message and will get back to you within 24 hours.</p>
         </div>
+      ) : (
+        <>
+          <h1 class="text-[48px] md:text-[64px] font-medium text-gray-900 mb-12 tracking-tight">
+            {contactPage.title}
+          </h1>
 
-        <div class="input-group">
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder={contactPage.form.emailPlaceholder} 
-            required 
-            class="minimal-input" 
-          />
-        </div>
+          <form method="POST" action={actions.submitContact} class="flex flex-col gap-8">
+            <input type="hidden" name="lang" value="en" />
+            
+            <div class="input-group">
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder={contactPage.form.namePlaceholder} 
+                required 
+                class="minimal-input" 
+              />
+              {inputErrors?.name && <p class="error-text">{inputErrors.name}</p>}
+            </div>
 
-        <div class="input-group relative">
-          <select 
-            id="interest" 
-            name="interest" 
-            required 
-            class="minimal-input appearance-none bg-transparent cursor-pointer"
-          >
-            <option value="" disabled selected hidden>{contactPage.form.interestLabel}</option>
-            {contactPage.form.interests.map((interest: string) => (
-              <option value={interest} class="text-gray-900">{interest}</option>
-            ))}
-          </select>
-          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-            </svg>
-          </div>
-        </div>
+            <div class="input-group">
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder={contactPage.form.emailPlaceholder} 
+                required 
+                class="minimal-input" 
+              />
+              {inputErrors?.email && <p class="error-text">{inputErrors.email}</p>}
+            </div>
 
-        <div class="input-group">
-          <input 
-            type="text" 
-            id="budget" 
-            name="budget" 
-            placeholder={contactPage.form.budgetLabel} 
-            class="minimal-input" 
-          />
-        </div>
+            <div class="input-group relative">
+              <select 
+                id="interest" 
+                name="interest" 
+                required 
+                class="minimal-input appearance-none bg-transparent cursor-pointer"
+              >
+                <option value="" disabled selected hidden>{contactPage.form.interestLabel}</option>
+                {contactPage.form.interests.map((interest: string) => (
+                  <option value={interest} class="text-gray-900">{interest}</option>
+                ))}
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                </svg>
+              </div>
+              {inputErrors?.interest && <p class="error-text">{inputErrors.interest}</p>}
+            </div>
 
-        <div class="input-group">
-          <textarea 
-            id="message" 
-            name="message" 
-            placeholder={contactPage.form.messagePlaceholder} 
-            required 
-            rows="1" 
-            class="minimal-input resize-none"
-          ></textarea>
-        </div>
+            <div class="input-group">
+              <input 
+                type="text" 
+                id="budget" 
+                name="budget" 
+                placeholder={contactPage.form.budgetLabel} 
+                class="minimal-input" 
+              />
+            </div>
 
-        <Button type="submit" class="submit-btn w-full !px-6 !py-2.5 !rounded-2xl !text-sm mt-4">
-          {contactPage.form.submitText}
-        </Button>
+            <div class="input-group">
+              <textarea 
+                id="message" 
+                name="message" 
+                placeholder={contactPage.form.messagePlaceholder} 
+                required 
+                rows="1" 
+                class="minimal-input resize-none"
+              ></textarea>
+              {inputErrors?.message && <p class="error-text">{inputErrors.message}</p>}
+            </div>
 
-      </form>
+            <Button type="submit" class="submit-btn w-full !px-6 !py-2.5 !rounded-2xl !text-sm mt-4">
+              {contactPage.form.submitText}
+            </Button>
+
+          </form>
+        </>
+      )}
     </div>
   </main>
 
@@ -128,7 +139,6 @@ const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev')
     transition: border-color 0.3s ease, border-width 0.1s ease;
   }
 
-  /* El truco de CSS para que el placeholder del select se vea igual que los de texto */
   select.minimal-input:invalid {
     color: #111827;
     opacity: 1; 
@@ -162,5 +172,11 @@ const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev')
   .submit-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .error-text {
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: 4px;
   }
 </style>

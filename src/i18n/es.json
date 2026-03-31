@@ -310,12 +310,20 @@
     }
   },
   "contactPage": {
-    "title": "Contacto",
+    "title": "Construyamos tu motor",
     "form": {
-      "namePlaceholder": "Nombre",
-      "emailPlaceholder": "Email",
-      "subjectPlaceholder": "Asunto",
-      "messagePlaceholder": "Mensaje",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "Tu email profesional",
+      "interestLabel": "Me interesa...",
+      "interests": [
+        "El Paquete Starter (€890)",
+        "El Paquete Growth (€1.750)",
+        "El Sitio Scale (€3.800)",
+        "Asociación / Marca blanca",
+        "Otro / Consulta personalizada"
+      ],
+      "messagePlaceholder": "Contanos sobre tu proyecto y objetivos",
+      "budgetLabel": "Presupuesto estimado",
       "submitText": "Enviar mensaje"
     }
   },

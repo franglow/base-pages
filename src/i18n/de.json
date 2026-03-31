@@ -310,12 +310,20 @@
     }
   },
   "contactPage": {
-    "title": "Kontakt",
+    "title": "Bauen wir deinen Motor",
     "form": {
-      "namePlaceholder": "Name",
-      "emailPlaceholder": "E-Mail",
-      "subjectPlaceholder": "Betreff",
-      "messagePlaceholder": "Nachricht",
+      "namePlaceholder": "Dein Name",
+      "emailPlaceholder": "Deine geschäftliche E-Mail",
+      "interestLabel": "Ich interessiere mich für...",
+      "interests": [
+        "Das Starter-Paket (€890)",
+        "Das Growth-Paket (€1.750)",
+        "Die Scale-Website (€3.800)",
+        "Partnerschaft / White-Label",
+        "Andere / Individuelle Anfrage"
+      ],
+      "messagePlaceholder": "Erzähl uns von deinem Projekt und deinen Zielen",
+      "budgetLabel": "Geschätztes Budget",
       "submitText": "Nachricht senden"
     }
   },
