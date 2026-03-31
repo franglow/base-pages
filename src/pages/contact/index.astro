@@ -4,13 +4,30 @@ import Button from '../../components/ui/Button.astro';
 import Header from '../../components/sections/Header.astro';
 import Footer from '../../components/sections/Footer.astro';
 
-import enData from '../../i18n/en.json';
+import { getI18n } from '../../i18n/utils';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
+import type { Language } from '../../i18n/config';
 
-// Extraemos los datos generales y los de contacto
-const { nav, footer, contactPage } = enData;
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { nav, footer, contactPage } = data;
+const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev');
 ---
 
-<Layout title="Contact | Base Pages">
+<Layout title="Contact | Base Pages" lang={lang}>
+  <Fragment slot="head">
+    <link rel="canonical" href={`https://basepages.dev/${lang}/contact`} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
   
   <Header navData={nav} />
 
@@ -45,13 +62,31 @@ const { nav, footer, contactPage } = enData;
           />
         </div>
 
+        <div class="input-group relative">
+          <select 
+            id="interest" 
+            name="interest" 
+            required 
+            class="minimal-input appearance-none bg-transparent cursor-pointer"
+          >
+            <option value="" disabled selected hidden>{contactPage.form.interestLabel}</option>
+            {contactPage.form.interests.map((interest: string) => (
+              <option value={interest} class="text-gray-900">{interest}</option>
+            ))}
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+            </svg>
+          </div>
+        </div>
+
         <div class="input-group">
           <input 
             type="text" 
-            id="subject" 
-            name="subject" 
-            placeholder={contactPage.form.subjectPlaceholder} 
-            required 
+            id="budget" 
+            name="budget" 
+            placeholder={contactPage.form.budgetLabel} 
             class="minimal-input" 
           />
         </div>
@@ -80,13 +115,11 @@ const { nav, footer, contactPage } = enData;
 </Layout>
 
 <style>
-  /* === ESTILOS DEL FORMULARIO MINIMALISTA === */
-  
   .minimal-input {
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #111827; /* Línea negra inferior */
+    border-bottom: 1px solid #111827;
     padding: 16px 0;
     font-size: 16px;
     color: #111827;
@@ -95,21 +128,24 @@ const { nav, footer, contactPage } = enData;
     transition: border-color 0.3s ease, border-width 0.1s ease;
   }
 
-  /* Color oscuro para el placeholder igual que en el diseño */
+  /* El truco de CSS para que el placeholder del select se vea igual que los de texto */
+  select.minimal-input:invalid {
+    color: #111827;
+    opacity: 1; 
+  }
+
   .minimal-input::placeholder {
     color: #111827;
     font-weight: 400;
-    opacity: 1; /* Asegura que el color se vea sólido en todos los navegadores */
+    opacity: 1;
   }
 
-  /* Interacción al hacer click */
   .minimal-input:focus {
     border-bottom-width: 2px;
     border-bottom-color: #000000;
-    margin-bottom: -1px; /* Evita que el layout salte al cambiar el grosor del borde */
+    margin-bottom: -1px;
   }
 
-  /* === ESTILO DEL BOTÓN === */
   .submit-btn {
     background-color: #111827;
     color: #ffffff;
@@ -120,7 +156,6 @@ const { nav, footer, contactPage } = enData;
     font-weight: 500;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Sombra difusa y profunda hacia abajo, calcada de tu captura */
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
   }
 
