@@ -243,6 +243,20 @@ const growth = (contactPage as any).form.growth;
     }
 
     interestSelect.addEventListener('change', toggleGrowthFields);
+
+    // Auto-select Growth Package when arriving via ?tier=growth
+    const urlParams = new URLSearchParams(window.location.search);
+    const tier = urlParams.get('tier');
+    if (tier === 'growth') {
+      const options = interestSelect.options;
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].value.toLowerCase().includes(growthKeyword)) {
+          interestSelect.selectedIndex = i;
+          break;
+        }
+      }
+      toggleGrowthFields();
+    }
     
     // Merge channel checkboxes into a single hidden input for the server
     const form = interestSelect.closest('form');

@@ -207,7 +207,7 @@
       "headline": "Ready to scale your campaigns?",
       "subtitle": "Stop wasting ad spend on slow, confusing pages. Let's build a machine that converts.",
       "buttonText": "Book a call",
-      "buttonUrl": "/contact"
+      "buttonUrl": "/contact?tier=growth"
     }
   },
   "carePage": {
