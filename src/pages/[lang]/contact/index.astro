@@ -26,6 +26,8 @@ const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev')
 const result = Astro.getActionResult(actions.submitContact);
 const inputErrors = result?.error?.fields;
 const success = result?.data?.success;
+
+const growth = (contactPage as any).form.growth;
 ---
 
 <Layout title="Contact | Base Pages" lang={lang}>
@@ -105,6 +107,71 @@ const success = result?.data?.success;
               {inputErrors?.interest && <p class="error-text">{inputErrors.interest}</p>}
             </div>
 
+            <!-- Growth Package Qualification Fields (Progressive Disclosure) -->
+            <div id="growth-fields" class="growth-fields">
+              <p class="growth-section-label">{growth.sectionLabel}</p>
+
+              <div class="growth-inner">
+                <div class="input-group">
+                  <input 
+                    type="url" 
+                    id="websiteUrl" 
+                    name="websiteUrl" 
+                    placeholder={growth.websitePlaceholder} 
+                    class="minimal-input" 
+                  />
+                </div>
+
+                <div class="input-group relative">
+                  <select 
+                    id="adSpend" 
+                    name="adSpend" 
+                    class="minimal-input appearance-none bg-transparent cursor-pointer"
+                  >
+                    <option value="" disabled selected hidden>{growth.adSpendLabel}</option>
+                    {growth.adSpendOptions.map((opt: string) => (
+                      <option value={opt} class="text-gray-900">{opt}</option>
+                    ))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <fieldset class="channels-fieldset">
+                  <legend class="channels-legend">{growth.channelsLabel}</legend>
+                  <div class="channels-grid">
+                    {growth.channels.map((ch: string) => (
+                      <label class="channel-chip">
+                        <input type="checkbox" name="channelOption" value={ch} class="channel-checkbox" />
+                        <span class="channel-label">{ch}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <div class="input-group relative">
+                  <select 
+                    id="conversionGoal" 
+                    name="conversionGoal" 
+                    class="minimal-input appearance-none bg-transparent cursor-pointer"
+                  >
+                    <option value="" disabled selected hidden>{growth.goalLabel}</option>
+                    {growth.goals.map((g: string) => (
+                      <option value={g} class="text-gray-900">{g}</option>
+                    ))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="input-group">
               <input 
                 type="text" 
@@ -140,6 +207,63 @@ const success = result?.data?.success;
   <Footer data={footer} />
 
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const interestSelect = document.getElementById('interest') as HTMLSelectElement | null;
+    const growthFields = document.getElementById('growth-fields');
+    if (!interestSelect || !growthFields) return;
+
+    const growthKeyword = 'growth';
+
+    function isGrowthSelected(): boolean {
+      return interestSelect!.value.toLowerCase().includes(growthKeyword);
+    }
+
+    function toggleGrowthFields(): void {
+      const show = isGrowthSelected();
+      
+      if (show) {
+        growthFields!.classList.add('growth-visible');
+        growthFields!.querySelector<HTMLInputElement>('#websiteUrl')?.setAttribute('required', '');
+        growthFields!.querySelector<HTMLSelectElement>('#adSpend')?.setAttribute('required', '');
+        growthFields!.querySelector<HTMLSelectElement>('#conversionGoal')?.setAttribute('required', '');
+      } else {
+        growthFields!.classList.remove('growth-visible');
+        const websiteUrl = growthFields!.querySelector<HTMLInputElement>('#websiteUrl');
+        const adSpend = growthFields!.querySelector<HTMLSelectElement>('#adSpend');
+        const conversionGoal = growthFields!.querySelector<HTMLSelectElement>('#conversionGoal');
+        const checkboxes = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox');
+
+        if (websiteUrl) { websiteUrl.removeAttribute('required'); websiteUrl.value = ''; }
+        if (adSpend) { adSpend.removeAttribute('required'); adSpend.selectedIndex = 0; }
+        if (conversionGoal) { conversionGoal.removeAttribute('required'); conversionGoal.selectedIndex = 0; }
+        checkboxes.forEach(cb => cb.checked = false);
+      }
+    }
+
+    interestSelect.addEventListener('change', toggleGrowthFields);
+    
+    // Merge channel checkboxes into a single hidden input for the server
+    const form = interestSelect.closest('form');
+    if (form) {
+      const hiddenChannels = document.createElement('input');
+      hiddenChannels.type = 'hidden';
+      hiddenChannels.name = 'channels';
+      hiddenChannels.id = 'channels-merged';
+      form.appendChild(hiddenChannels);
+
+      form.addEventListener('submit', () => {
+        const checked = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox:checked');
+        const values = Array.from(checked).map(cb => cb.value);
+        hiddenChannels.value = values.join(', ');
+        growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox').forEach(cb => {
+          cb.removeAttribute('name');
+        });
+      });
+    }
+  });
+</script>
 
 <style>
   .minimal-input {
@@ -194,5 +318,92 @@ const success = result?.data?.success;
     color: #dc2626;
     font-size: 14px;
     margin-top: 4px;
+  }
+
+  /* ── Growth Fields Progressive Disclosure ─────────────────────────── */
+  .growth-fields {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease,
+                margin 0.4s ease;
+    margin: 0;
+  }
+
+  .growth-fields.growth-visible {
+    max-height: 600px;
+    opacity: 1;
+    margin: 0;
+  }
+
+  .growth-section-label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin-bottom: 24px;
+    padding-top: 8px;
+  }
+
+  .growth-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* ── Channel Chips ─────────────────────────────────────────────────── */
+  .channels-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .channels-legend {
+    font-size: 16px;
+    color: #111827;
+    font-weight: 400;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .channels-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .channel-chip {
+    display: inline-flex;
+    cursor: pointer;
+  }
+
+  .channel-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .channel-label {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    font-size: 14px;
+    color: #374151;
+    background: transparent;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+
+  .channel-checkbox:checked + .channel-label {
+    background: #111827;
+    color: #ffffff;
+    border-color: #111827;
+  }
+
+  .channel-label:hover {
+    border-color: #111827;
   }
 </style>

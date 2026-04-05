@@ -13,6 +13,11 @@ export const server = {
       budget: z.string().optional(),
       message: z.string().min(10, 'Message must be at least 10 characters'),
       lang: z.enum(['en', 'de', 'es']).default('en'),
+      // Growth Package qualification fields (optional — only present when Growth is selected)
+      websiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
+      adSpend: z.string().optional(),
+      channels: z.string().optional(),
+      conversionGoal: z.string().optional(),
     }),
     handler: async (input) => {
       const lang = input.lang as Language;
@@ -23,6 +28,9 @@ export const server = {
         email: input.email,
       });
 
+      // Determine if this is a Growth Package lead
+      const isGrowthLead = input.interest.toLowerCase().includes('growth');
+
       // Fire-and-forget: internal lead notification
       sendInternalNotification({
         name: input.name,
@@ -31,6 +39,13 @@ export const server = {
         budget: input.budget,
         message: input.message,
         lang,
+        // Growth-specific fields (only included when present)
+        ...(isGrowthLead && {
+          websiteUrl: input.websiteUrl,
+          adSpend: input.adSpend,
+          channels: input.channels,
+          conversionGoal: input.conversionGoal,
+        }),
       });
 
       return { success: true };

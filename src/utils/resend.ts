@@ -131,7 +131,10 @@ export function sendInternalNotification(data: Record<string, string | undefined
 }
 
 async function _sendInternalNotification(data: Record<string, string | undefined>): Promise<void> {
-  const subject = `📩 New Lead: ${data.interest || 'Contact Form'}`;
+  const isGrowth = data.interest?.toLowerCase().includes('growth');
+  const subject = isGrowth
+    ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
+    : `📩 New Lead: ${data.interest || 'Contact Form'}`;
   const html = buildInternalHtml(data);
 
   const resend = getResendClient();

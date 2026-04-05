@@ -324,7 +324,22 @@
       ],
       "messagePlaceholder": "Contanos sobre tu proyecto y objetivos",
       "budgetLabel": "Presupuesto estimado",
-      "submitText": "Enviar mensaje"
+      "submitText": "Enviar mensaje",
+      "growth": {
+        "sectionLabel": "Ayudanos a preparar tu auditoría de rendimiento",
+        "websitePlaceholder": "URL de tu sitio web actual",
+        "adSpendLabel": "Inversión mensual en publicidad",
+        "adSpendOptions": [
+          "< €1.000/mes",
+          "€1.000 – €5.000/mes",
+          "€5.000 – €15.000/mes",
+          "€15.000+/mes"
+        ],
+        "channelsLabel": "Canales de marketing activos",
+        "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Otro"],
+        "goalLabel": "Objetivo principal de conversión",
+        "goals": ["Generación de Leads", "Ventas E-commerce", "Reconocimiento de Marca"]
+      }
     }
   },
   "footer": {

@@ -324,7 +324,22 @@
       ],
       "messagePlaceholder": "Tell us about your project and goals",
       "budgetLabel": "Estimated budget",
-      "submitText": "Send message"
+      "submitText": "Send message",
+      "growth": {
+        "sectionLabel": "Help us prepare your performance audit",
+        "websitePlaceholder": "Your current website URL",
+        "adSpendLabel": "Monthly ad investment",
+        "adSpendOptions": [
+          "< €1,000/mo",
+          "€1,000 – €5,000/mo",
+          "€5,000 – €15,000/mo",
+          "€15,000+/mo"
+        ],
+        "channelsLabel": "Active marketing channels",
+        "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Other"],
+        "goalLabel": "Primary conversion goal",
+        "goals": ["Lead Generation", "E-commerce Sales", "Brand Awareness"]
+      }
     }
   },
   "footer": {

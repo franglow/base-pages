@@ -324,7 +324,22 @@
       ],
       "messagePlaceholder": "Erzähl uns von deinem Projekt und deinen Zielen",
       "budgetLabel": "Geschätztes Budget",
-      "submitText": "Nachricht senden"
+      "submitText": "Nachricht senden",
+      "growth": {
+        "sectionLabel": "Hilf uns, dein Performance-Audit vorzubereiten",
+        "websitePlaceholder": "URL deiner aktuellen Website",
+        "adSpendLabel": "Monatliche Werbeinvestition",
+        "adSpendOptions": [
+          "< 1.000 €/Monat",
+          "1.000 – 5.000 €/Monat",
+          "5.000 – 15.000 €/Monat",
+          "15.000+ €/Monat"
+        ],
+        "channelsLabel": "Aktive Marketing-Kanäle",
+        "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Sonstige"],
+        "goalLabel": "Primäres Conversion-Ziel",
+        "goals": ["Lead-Generierung", "E-Commerce-Verkäufe", "Markenbekanntheit"]
+      }
     }
   },
   "footer": {
