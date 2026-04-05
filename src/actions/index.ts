@@ -18,6 +18,11 @@ export const server = {
       adSpend: z.string().optional(),
       channels: z.string().optional(),
       conversionGoal: z.string().optional(),
+      // Scale Package briefing fields (optional — only present when Scale is selected)
+      cmsPreference: z.string().optional(),
+      pageScope: z.string().optional(),
+      scaleFeatures: z.string().optional(),
+      launchTimeline: z.string().optional(),
     }),
     handler: async (input) => {
       const lang = input.lang as Language;
@@ -28,8 +33,10 @@ export const server = {
         email: input.email,
       });
 
-      // Determine if this is a Growth Package lead
-      const isGrowthLead = input.interest.toLowerCase().includes('growth');
+      // Determine lead tier
+      const interestLower = input.interest.toLowerCase();
+      const isGrowthLead = interestLower.includes('growth');
+      const isScaleLead = interestLower.includes('scale');
 
       // Fire-and-forget: internal lead notification
       sendInternalNotification({
@@ -46,9 +53,16 @@ export const server = {
           channels: input.channels,
           conversionGoal: input.conversionGoal,
         }),
+        // Scale-specific fields (only included when present)
+        ...(isScaleLead && {
+          cmsPreference: input.cmsPreference,
+          pageScope: input.pageScope,
+          scaleFeatures: input.scaleFeatures,
+          launchTimeline: input.launchTimeline,
+        }),
       });
 
-      return { success: true };
+      return { success: true, isScale: isScaleLead };
     },
   }),
 };

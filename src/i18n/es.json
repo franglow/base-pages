@@ -173,7 +173,7 @@
       "headline": "¿Listo para dominar tu mercado?",
       "subtitle": "Diseñemos una experiencia digital premium que establezca el estándar de la industria.",
       "buttonText": "Agendar llamada de descubrimiento",
-      "buttonUrl": "/es/contact"
+      "buttonUrl": "/es/contact?tier=scale"
     }
   },
   "growthPage": {
@@ -339,6 +339,17 @@
         "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Otro"],
         "goalLabel": "Objetivo principal de conversión",
         "goals": ["Generación de Leads", "Ventas E-commerce", "Reconocimiento de Marca"]
+      },
+      "scale": {
+        "sectionLabel": "Briefing del proyecto para tu llamada de estrategia",
+        "cmsLabel": "Preferencia de CMS",
+        "cmsOptions": ["Sanity", "Storyblok", "Necesito asesoramiento"],
+        "pageScopeLabel": "Cantidad estimada de páginas",
+        "pageScopeOptions": ["1-5 páginas", "5-10 páginas", "10-20 páginas", "20+ páginas"],
+        "featuresLabel": "Funcionalidades principales necesarias",
+        "features": ["Animaciones Avanzadas (GSAP)", "Soporte Multilingüe", "Blog / Motor CMS", "Integraciones con APIs", "E-commerce", "Autenticación de Usuarios"],
+        "timelineLabel": "Plazo de lanzamiento deseado",
+        "timelineOptions": ["En 3-5 semanas", "1-2 meses", "2-3 meses", "Flexible / Sin apuro"]
       }
     }
   },

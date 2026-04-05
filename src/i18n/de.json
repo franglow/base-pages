@@ -173,7 +173,7 @@
       "headline": "Bereit, deinen Markt zu dominieren?",
       "subtitle": "Lass uns ein erstklassiges digitales Erlebnis entwerfen, das den Branchenstandard setzt.",
       "buttonText": "Discovery-Call buchen",
-      "buttonUrl": "/de/contact"
+      "buttonUrl": "/de/contact?tier=scale"
     }
   },
   "growthPage": {
@@ -339,6 +339,17 @@
         "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Sonstige"],
         "goalLabel": "Primäres Conversion-Ziel",
         "goals": ["Lead-Generierung", "E-Commerce-Verkäufe", "Markenbekanntheit"]
+      },
+      "scale": {
+        "sectionLabel": "Projekt-Briefing für dein Strategiegespräch",
+        "cmsLabel": "CMS-Präferenz",
+        "cmsOptions": ["Sanity", "Storyblok", "Ich brauche Beratung"],
+        "pageScopeLabel": "Geschätzte Seitenanzahl",
+        "pageScopeOptions": ["1-5 Seiten", "5-10 Seiten", "10-20 Seiten", "20+ Seiten"],
+        "featuresLabel": "Benötigte Kernfunktionen",
+        "features": ["Erweiterte Animationen (GSAP)", "Mehrsprachigkeit", "Blog / CMS-Engine", "Drittanbieter-API-Integrationen", "E-Commerce", "Benutzerauthentifizierung"],
+        "timelineLabel": "Gewünschter Startzeitpunkt",
+        "timelineOptions": ["In 3-5 Wochen", "1-2 Monate", "2-3 Monate", "Flexibel / Kein Zeitdruck"]
       }
     }
   },

@@ -173,7 +173,7 @@
       "headline": "Ready to dominate your market?",
       "subtitle": "Let's architect a premium digital experience that sets the industry standard.",
       "buttonText": "Book a call",
-      "buttonUrl": "/contact"
+      "buttonUrl": "/contact?tier=scale"
     }
   },
   "growthPage": {
@@ -339,6 +339,17 @@
         "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Other"],
         "goalLabel": "Primary conversion goal",
         "goals": ["Lead Generation", "E-commerce Sales", "Brand Awareness"]
+      },
+      "scale": {
+        "sectionLabel": "Project briefing for your strategy call",
+        "cmsLabel": "CMS preference",
+        "cmsOptions": ["Sanity", "Storyblok", "I need guidance"],
+        "pageScopeLabel": "Estimated number of pages",
+        "pageScopeOptions": ["1-5 pages", "5-10 pages", "10-20 pages", "20+ pages"],
+        "featuresLabel": "Core functionalities needed",
+        "features": ["Advanced Animations (GSAP)", "Multilingual Support", "Blog / CMS Engine", "Third-party API Integrations", "E-commerce", "User Authentication"],
+        "timelineLabel": "Desired launch timeline",
+        "timelineOptions": ["Within 3-5 weeks", "1-2 months", "2-3 months", "Flexible / No rush"]
       }
     }
   },

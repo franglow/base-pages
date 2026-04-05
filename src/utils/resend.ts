@@ -131,10 +131,14 @@ export function sendInternalNotification(data: Record<string, string | undefined
 }
 
 async function _sendInternalNotification(data: Record<string, string | undefined>): Promise<void> {
-  const isGrowth = data.interest?.toLowerCase().includes('growth');
-  const subject = isGrowth
-    ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
-    : `📩 New Lead: ${data.interest || 'Contact Form'}`;
+  const interestLower = data.interest?.toLowerCase() || '';
+  const isGrowth = interestLower.includes('growth');
+  const isScale = interestLower.includes('scale');
+  const subject = isScale
+    ? `🏗️ Scale Lead: ${data.name || 'Contact Form'}`
+    : isGrowth
+      ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
+      : `📩 New Lead: ${data.interest || 'Contact Form'}`;
   const html = buildInternalHtml(data);
 
   const resend = getResendClient();

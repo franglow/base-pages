@@ -18,6 +18,7 @@ const inputErrors = result?.error?.fields;
 const success = result?.data?.success;
 
 const growth = contactPage.form.growth;
+const scale = contactPage.form.scale;
 ---
 
 <Layout title="Contact | Base Pages" lang="en">
@@ -92,38 +93,23 @@ const growth = contactPage.form.growth;
             </div>
 
             <!-- Growth Package Qualification Fields (Progressive Disclosure) -->
-            <div id="growth-fields" class="growth-fields">
-              <p class="growth-section-label">{growth.sectionLabel}</p>
-
-              <div class="growth-inner">
+            <div id="growth-fields" class="tier-fields">
+              <p class="tier-section-label">{growth.sectionLabel}</p>
+              <div class="tier-inner">
                 <div class="input-group">
-                  <input 
-                    type="url" 
-                    id="websiteUrl" 
-                    name="websiteUrl" 
-                    placeholder={growth.websitePlaceholder} 
-                    class="minimal-input" 
-                  />
+                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" />
                 </div>
-
                 <div class="input-group relative">
-                  <select 
-                    id="adSpend" 
-                    name="adSpend" 
-                    class="minimal-input appearance-none bg-transparent cursor-pointer"
-                  >
+                  <select id="adSpend" name="adSpend" class="minimal-input appearance-none bg-transparent cursor-pointer">
                     <option value="" disabled selected hidden>{growth.adSpendLabel}</option>
                     {growth.adSpendOptions.map((opt: string) => (
                       <option value={opt} class="text-gray-900">{opt}</option>
                     ))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                   </div>
                 </div>
-
                 <fieldset class="channels-fieldset">
                   <legend class="channels-legend">{growth.channelsLabel}</legend>
                   <div class="channels-grid">
@@ -135,46 +121,77 @@ const growth = contactPage.form.growth;
                     ))}
                   </div>
                 </fieldset>
-
                 <div class="input-group relative">
-                  <select 
-                    id="conversionGoal" 
-                    name="conversionGoal" 
-                    class="minimal-input appearance-none bg-transparent cursor-pointer"
-                  >
+                  <select id="conversionGoal" name="conversionGoal" class="minimal-input appearance-none bg-transparent cursor-pointer">
                     <option value="" disabled selected hidden>{growth.goalLabel}</option>
                     {growth.goals.map((g: string) => (
                       <option value={g} class="text-gray-900">{g}</option>
                     ))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scale Package Briefing Fields (Progressive Disclosure) -->
+            <div id="scale-fields" class="tier-fields">
+              <p class="tier-section-label">{scale.sectionLabel}</p>
+              <div class="tier-inner">
+                <div class="input-group relative">
+                  <select id="cmsPreference" name="cmsPreference" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected hidden>{scale.cmsLabel}</option>
+                    {scale.cmsOptions.map((opt: string) => (
+                      <option value={opt} class="text-gray-900">{opt}</option>
+                    ))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="input-group relative">
+                  <select id="pageScope" name="pageScope" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected hidden>{scale.pageScopeLabel}</option>
+                    {scale.pageScopeOptions.map((opt: string) => (
+                      <option value={opt} class="text-gray-900">{opt}</option>
+                    ))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <fieldset class="channels-fieldset">
+                  <legend class="channels-legend">{scale.featuresLabel}</legend>
+                  <div class="channels-grid">
+                    {scale.features.map((f: string) => (
+                      <label class="channel-chip">
+                        <input type="checkbox" name="scaleFeatureOption" value={f} class="scale-feature-checkbox" />
+                        <span class="channel-label">{f}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+                <div class="input-group relative">
+                  <select id="launchTimeline" name="launchTimeline" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected hidden>{scale.timelineLabel}</option>
+                    {scale.timelineOptions.map((opt: string) => (
+                      <option value={opt} class="text-gray-900">{opt}</option>
+                    ))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="input-group">
-              <input 
-                type="text" 
-                id="budget" 
-                name="budget" 
-                placeholder={contactPage.form.budgetLabel} 
-                class="minimal-input" 
-              />
+              <input type="text" id="budget" name="budget" placeholder={contactPage.form.budgetLabel} class="minimal-input" />
             </div>
 
             <div class="input-group">
-              <textarea 
-                id="message" 
-                name="message" 
-                placeholder={contactPage.form.messagePlaceholder} 
-                required 
-                rows="1" 
-                class="minimal-input resize-none"
-              ></textarea>
+              <textarea id="message" name="message" placeholder={contactPage.form.messagePlaceholder} required rows="1" class="minimal-input resize-none"></textarea>
               {inputErrors?.message && <p class="error-text">{inputErrors.message}</p>}
             </div>
 
@@ -196,54 +213,81 @@ const growth = contactPage.form.growth;
   document.addEventListener('DOMContentLoaded', () => {
     const interestSelect = document.getElementById('interest') as HTMLSelectElement | null;
     const growthFields = document.getElementById('growth-fields');
-    if (!interestSelect || !growthFields) return;
+    const scaleFields = document.getElementById('scale-fields');
+    if (!interestSelect || !growthFields || !scaleFields) return;
 
-    const growthKeyword = 'growth';
-
-    function isGrowthSelected(): boolean {
-      return interestSelect!.value.toLowerCase().includes(growthKeyword);
+    function getSelectedTier(): 'growth' | 'scale' | null {
+      const val = interestSelect!.value.toLowerCase();
+      if (val.includes('growth')) return 'growth';
+      if (val.includes('scale')) return 'scale';
+      return null;
     }
 
-    function toggleGrowthFields(): void {
-      const show = isGrowthSelected();
-      
-      if (show) {
-        growthFields!.classList.add('growth-visible');
-        growthFields!.querySelector<HTMLInputElement>('#websiteUrl')?.setAttribute('required', '');
-        growthFields!.querySelector<HTMLSelectElement>('#adSpend')?.setAttribute('required', '');
-        growthFields!.querySelector<HTMLSelectElement>('#conversionGoal')?.setAttribute('required', '');
-      } else {
-        growthFields!.classList.remove('growth-visible');
-        const websiteUrl = growthFields!.querySelector<HTMLInputElement>('#websiteUrl');
-        const adSpend = growthFields!.querySelector<HTMLSelectElement>('#adSpend');
-        const conversionGoal = growthFields!.querySelector<HTMLSelectElement>('#conversionGoal');
-        const checkboxes = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox');
-
-        if (websiteUrl) { websiteUrl.removeAttribute('required'); websiteUrl.value = ''; }
-        if (adSpend) { adSpend.removeAttribute('required'); adSpend.selectedIndex = 0; }
-        if (conversionGoal) { conversionGoal.removeAttribute('required'); conversionGoal.selectedIndex = 0; }
-        checkboxes.forEach(cb => cb.checked = false);
-      }
+    // ── Growth toggle ───────────────────────────────────────────────
+    function showGrowth(): void {
+      growthFields!.classList.add('tier-visible');
+      growthFields!.querySelector<HTMLInputElement>('#websiteUrl')?.setAttribute('required', '');
+      growthFields!.querySelector<HTMLSelectElement>('#adSpend')?.setAttribute('required', '');
+      growthFields!.querySelector<HTMLSelectElement>('#conversionGoal')?.setAttribute('required', '');
     }
 
-    interestSelect.addEventListener('change', toggleGrowthFields);
+    function hideGrowth(): void {
+      growthFields!.classList.remove('tier-visible');
+      const websiteUrl = growthFields!.querySelector<HTMLInputElement>('#websiteUrl');
+      const adSpend = growthFields!.querySelector<HTMLSelectElement>('#adSpend');
+      const conversionGoal = growthFields!.querySelector<HTMLSelectElement>('#conversionGoal');
+      const checkboxes = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox');
+      if (websiteUrl) { websiteUrl.removeAttribute('required'); websiteUrl.value = ''; }
+      if (adSpend) { adSpend.removeAttribute('required'); adSpend.selectedIndex = 0; }
+      if (conversionGoal) { conversionGoal.removeAttribute('required'); conversionGoal.selectedIndex = 0; }
+      checkboxes.forEach(cb => cb.checked = false);
+    }
 
-    // Auto-select Growth Package when arriving via ?tier=growth
+    // ── Scale toggle ────────────────────────────────────────────────
+    function showScale(): void {
+      scaleFields!.classList.add('tier-visible');
+      scaleFields!.querySelector<HTMLSelectElement>('#cmsPreference')?.setAttribute('required', '');
+      scaleFields!.querySelector<HTMLSelectElement>('#pageScope')?.setAttribute('required', '');
+      scaleFields!.querySelector<HTMLSelectElement>('#launchTimeline')?.setAttribute('required', '');
+    }
+
+    function hideScale(): void {
+      scaleFields!.classList.remove('tier-visible');
+      const cms = scaleFields!.querySelector<HTMLSelectElement>('#cmsPreference');
+      const scope = scaleFields!.querySelector<HTMLSelectElement>('#pageScope');
+      const timeline = scaleFields!.querySelector<HTMLSelectElement>('#launchTimeline');
+      const checkboxes = scaleFields!.querySelectorAll<HTMLInputElement>('.scale-feature-checkbox');
+      if (cms) { cms.removeAttribute('required'); cms.selectedIndex = 0; }
+      if (scope) { scope.removeAttribute('required'); scope.selectedIndex = 0; }
+      if (timeline) { timeline.removeAttribute('required'); timeline.selectedIndex = 0; }
+      checkboxes.forEach(cb => cb.checked = false);
+    }
+
+    // ── Master toggle ───────────────────────────────────────────────
+    function toggleTierFields(): void {
+      const tier = getSelectedTier();
+      tier === 'growth' ? showGrowth() : hideGrowth();
+      tier === 'scale' ? showScale() : hideScale();
+    }
+
+    interestSelect.addEventListener('change', toggleTierFields);
+
+    // Auto-select tier from ?tier= query param
     const urlParams = new URLSearchParams(window.location.search);
     const tier = urlParams.get('tier');
-    if (tier === 'growth') {
-      // Find the Growth option and select it
+    if (tier === 'growth' || tier === 'scale') {
+      const keyword = tier;
       const options = interestSelect.options;
       for (let i = 0; i < options.length; i++) {
-        if (options[i].value.toLowerCase().includes(growthKeyword)) {
+        if (options[i].value.toLowerCase().includes(keyword)) {
           interestSelect.selectedIndex = i;
           break;
         }
       }
-      toggleGrowthFields();
+      toggleTierFields();
     }
     
-    // Merge channel checkboxes into a single hidden input for the server
+    // Merge checkboxes into hidden inputs on submit
     const form = interestSelect.closest('form');
     if (form) {
       const hiddenChannels = document.createElement('input');
@@ -252,13 +296,22 @@ const growth = contactPage.form.growth;
       hiddenChannels.id = 'channels-merged';
       form.appendChild(hiddenChannels);
 
+      const hiddenScaleFeatures = document.createElement('input');
+      hiddenScaleFeatures.type = 'hidden';
+      hiddenScaleFeatures.name = 'scaleFeatures';
+      hiddenScaleFeatures.id = 'scale-features-merged';
+      form.appendChild(hiddenScaleFeatures);
+
       form.addEventListener('submit', () => {
-        const checked = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox:checked');
-        const values = Array.from(checked).map(cb => cb.value);
-        hiddenChannels.value = values.join(', ');
-        growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox').forEach(cb => {
-          cb.removeAttribute('name');
-        });
+        // Growth channels
+        const checkedChannels = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox:checked');
+        hiddenChannels.value = Array.from(checkedChannels).map(cb => cb.value).join(', ');
+        growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox').forEach(cb => cb.removeAttribute('name'));
+
+        // Scale features
+        const checkedFeatures = scaleFields!.querySelectorAll<HTMLInputElement>('.scale-feature-checkbox:checked');
+        hiddenScaleFeatures.value = Array.from(checkedFeatures).map(cb => cb.value).join(', ');
+        scaleFields!.querySelectorAll<HTMLInputElement>('.scale-feature-checkbox').forEach(cb => cb.removeAttribute('name'));
       });
     }
   });
@@ -319,8 +372,8 @@ const growth = contactPage.form.growth;
     margin-top: 4px;
   }
 
-  /* ── Growth Fields Progressive Disclosure ─────────────────────────── */
-  .growth-fields {
+  /* ── Tier Fields Progressive Disclosure (shared by Growth & Scale) ── */
+  .tier-fields {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -330,13 +383,13 @@ const growth = contactPage.form.growth;
     margin: 0;
   }
 
-  .growth-fields.growth-visible {
-    max-height: 600px;
+  .tier-fields.tier-visible {
+    max-height: 700px;
     opacity: 1;
     margin: 0;
   }
 
-  .growth-section-label {
+  .tier-section-label {
     font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
@@ -346,13 +399,13 @@ const growth = contactPage.form.growth;
     padding-top: 8px;
   }
 
-  .growth-inner {
+  .tier-inner {
     display: flex;
     flex-direction: column;
     gap: 32px;
   }
 
-  /* ── Channel Chips ─────────────────────────────────────────────────── */
+  /* ── Chip Checkboxes (shared by Growth channels & Scale features) ── */
   .channels-fieldset {
     border: none;
     padding: 0;
@@ -378,7 +431,8 @@ const growth = contactPage.form.growth;
     cursor: pointer;
   }
 
-  .channel-checkbox {
+  .channel-checkbox,
+  .scale-feature-checkbox {
     position: absolute;
     opacity: 0;
     pointer-events: none;
@@ -396,7 +450,8 @@ const growth = contactPage.form.growth;
     user-select: none;
   }
 
-  .channel-checkbox:checked + .channel-label {
+  .channel-checkbox:checked + .channel-label,
+  .scale-feature-checkbox:checked + .channel-label {
     background: #111827;
     color: #ffffff;
     border-color: #111827;
