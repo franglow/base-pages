@@ -6,6 +6,8 @@ interface Props {
 import Button from '../ui/Button.astro';
 
 const { navData } = Astro.props;
+const pathClean = Astro.url.pathname.replace(/\/$/, '').replace(/^\/(es|de)/, '');
+const isContactPage = pathClean === '/contact';
 ---
 
 <header id="main-header" class="main-header">
@@ -29,7 +31,9 @@ const { navData } = Astro.props;
     </nav>
 
     <div class="header-right">
-      <a href={navData.contactHref || "/contact"} class="header-cta">{navData.cta}</a>
+      {!isContactPage && (
+        <a href={navData.contactHref || "/contact"} class="header-cta">{navData.cta}</a>
+      )}
       
       <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
         <span class="line line-1"></span>
@@ -49,7 +53,9 @@ const { navData } = Astro.props;
       ))}
     </nav>
     <div class="mobile-divider"></div>
-    <Button href={navData.contactHref || "/contact"} class="mobile-cta-btn">{navData.cta}</Button>
+    {!isContactPage && (
+      <Button href={navData.contactHref || "/contact"} class="mobile-cta-btn">{navData.cta}</Button>
+    )}
   </div>
 </div>
 

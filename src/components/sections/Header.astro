@@ -7,6 +7,8 @@ interface Props {
 }
 
 const { navData } = Astro.props;
+const pathClean = Astro.url.pathname.replace(/\/$/, '').replace(/^\/(es|de)/, '');
+const isContactPage = pathClean === '/contact';
 ---
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
   
@@ -57,11 +59,13 @@ const { navData } = Astro.props;
 
     <div class="flex-1 flex justify-end items-center gap-4">
       
-      <div class="hidden md:block">
-        <Button href={navData.contactHref || "/contact"} class="bg-black text-white px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
-          {navData.cta}
-        </Button>
-      </div>
+      {!isContactPage && (
+        <div class="hidden md:block">
+          <Button href={navData.contactHref || "/contact"} class="bg-black text-white px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
+            {navData.cta}
+          </Button>
+        </div>
+      )}
 
       <button
         id="menu-toggle"
@@ -96,11 +100,13 @@ const { navData } = Astro.props;
 
     <div class="w-12 h-px bg-black/10 my-2"></div>
 
-    <div class="w-full max-w-xs">
-      <Button href={navData.contactHref || "/contact"} class="bg-black text-white w-full justify-center !py-4 text-lg !rounded-2xl shadow-xl hover:scale-105 transition-transform">
-        {navData.cta}
-      </Button>
-    </div>
+    {!isContactPage && (
+      <div class="w-full max-w-xs">
+        <Button href={navData.contactHref || "/contact"} class="bg-black text-white w-full justify-center !py-4 text-lg !rounded-2xl shadow-xl hover:scale-105 transition-transform">
+          {navData.cta}
+        </Button>
+      </div>
+    )}
   </div>
 </div>
 
