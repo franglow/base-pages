@@ -293,6 +293,19 @@ const { services, footer, nav, designerBanner } = enData;
     0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(12px, 12px) scale(0.98); }
   }
+
+  /* ── Desktop-only: 50% vertical reduction ─────────────────────── */
+  @media (min-width: 1024px) {
+    .projects-grid {
+      gap: 60px;
+    }
+    .image-container {
+      margin-bottom: 20px;
+    }
+    .image-link {
+      aspect-ratio: 3 / 1;
+    }
+  }
 </style>
 
 <script>
