@@ -79,7 +79,7 @@
       "pill": "Cuidado Continuo",
       "title": "Protegé tu inversión con nuestro plan de Mantenimiento y Optimización.",
       "buttonText": "Hablemos",
-      "buttonUrl": "/es/contact",
+      "buttonUrl": "/es/contact?tier=care",
       "exploreText": "Explorar paquete",
       "exploreUrl": "/es/services/care",
       "note": "Desde €190/mes. Hosting edge rápido, actualizaciones de seguridad y monitoreo de rendimiento."
@@ -241,7 +241,7 @@
       "headline": "Mantené tu motor funcionando al 100%",
       "subtitle": "No dejes que tu activo digital se deteriore con el tiempo. Asociate con nosotros para tener total tranquilidad.",
       "buttonText": "Iniciar plan",
-      "buttonUrl": "/es/contact"
+      "buttonUrl": "/es/contact?tier=care"
     }
   },
   "designerBanner": {
@@ -320,6 +320,7 @@
         "El Paquete Growth (€1.750)",
         "El Sitio Scale (€3.800)",
         "Asociación / Marca blanca",
+        "Cuidado Continuo (desde €190/mes)",
         "Otro / Consulta personalizada"
       ],
       "messagePlaceholder": "Contanos sobre tu proyecto y objetivos",
@@ -359,6 +360,16 @@
         "projectVolumeLabel": "Diseños de sitios web por mes",
         "projectVolumeOptions": ["1-2 proyectos", "3-5 proyectos", "5+ proyectos"],
         "figmaSamplePlaceholder": "Enlace a archivo Figma (opcional)"
+      },
+      "care": {
+        "sectionLabel": "Ayudanos a evaluar la salud de tu sitio",
+        "websitePlaceholder": "URL de tu sitio web actual",
+        "platformLabel": "Plataforma / stack actual",
+        "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Otro"],
+        "priorityLabel": "Prioridad principal",
+        "priorityOptions": ["Rendimiento / Velocidad", "Seguridad y Backups", "Actualizaciones de Contenido", "Soporte Técnico Continuo"],
+        "originLabel": "¿Construimos nosotros tu sitio actual?",
+        "originOptions": ["Sí — base-pages lo construyó", "No — lo construyó otro equipo"]
       }
     }
   },

@@ -28,6 +28,11 @@ export const server = {
       designTool: z.string().optional(),
       projectVolume: z.string().optional(),
       figmaSample: z.string().optional(),
+      // Continuous Care fields (optional — only present when Care is selected)
+      careWebsiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
+      carePlatform: z.string().optional(),
+      carePriority: z.string().optional(),
+      careOrigin: z.string().optional(),
     }),
     handler: async (input) => {
       const lang = input.lang as Language;
@@ -42,7 +47,8 @@ export const server = {
       const interestLower = input.interest.toLowerCase();
       const isGrowthLead = interestLower.includes('growth');
       const isScaleLead = interestLower.includes('scale');
-      const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('white-label');
+      const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca');
+      const isCareLead = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
 
       // Fire-and-forget: internal lead notification
       sendInternalNotification({
@@ -73,9 +79,16 @@ export const server = {
           projectVolume: input.projectVolume,
           figmaSample: input.figmaSample,
         }),
+        // Care-specific fields (only included when present)
+        ...(isCareLead && {
+          careWebsiteUrl: input.careWebsiteUrl,
+          carePlatform: input.carePlatform,
+          carePriority: input.carePriority,
+          careOrigin: input.careOrigin,
+        }),
       });
 
-      return { success: true, isScale: isScaleLead, isPartnership: isPartnershipLead };
+      return { success: true, isScale: isScaleLead, isPartnership: isPartnershipLead, isCare: isCareLead };
     },
   }),
 };

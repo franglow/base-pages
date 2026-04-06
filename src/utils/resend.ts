@@ -135,13 +135,16 @@ async function _sendInternalNotification(data: Record<string, string | undefined
   const isGrowth = interestLower.includes('growth');
   const isScale = interestLower.includes('scale');
   const isPartnership = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca');
-  const subject = isPartnership
-    ? `🤝 Partnership Lead: ${data.name || 'Contact Form'}`
-    : isScale
-      ? `🏗️ Scale Lead: ${data.name || 'Contact Form'}`
-      : isGrowth
-        ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
-        : `📩 New Lead: ${data.interest || 'Contact Form'}`;
+  const isCare = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
+  const subject = isCare
+    ? `🛡️ Care Lead: ${data.name || 'Contact Form'}`
+    : isPartnership
+      ? `🤝 Partnership Lead: ${data.name || 'Contact Form'}`
+      : isScale
+        ? `🏗️ Scale Lead: ${data.name || 'Contact Form'}`
+        : isGrowth
+          ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
+          : `📩 New Lead: ${data.interest || 'Contact Form'}`;
   const html = buildInternalHtml(data);
 
   const resend = getResendClient();

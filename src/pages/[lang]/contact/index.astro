@@ -30,6 +30,7 @@ const success = result?.data?.success;
 const growth = (contactPage as any).form.growth;
 const scale = (contactPage as any).form.scale;
 const partnership = (contactPage as any).form.partnership;
+const care = (contactPage as any).form.care;
 ---
 
 <Layout title="Contact | Base Pages" lang={lang}>
@@ -193,6 +194,43 @@ const partnership = (contactPage as any).form.partnership;
               </div>
             </div>
 
+            <!-- Continuous Care Fields -->
+            <div id="care-fields" class="tier-fields">
+              <p class="tier-section-label">{care.sectionLabel}</p>
+              <div class="tier-inner">
+                <div class="input-group">
+                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" />
+                </div>
+                <div class="input-group relative">
+                  <select id="carePlatform" name="carePlatform" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected hidden>{care.platformLabel}</option>
+                    {care.platformOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="input-group relative">
+                  <select id="carePriority" name="carePriority" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected hidden>{care.priorityLabel}</option>
+                    {care.priorityOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="input-group relative">
+                  <select id="careOrigin" name="careOrigin" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected hidden>{care.originLabel}</option>
+                    {care.originOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="input-group">
               <input type="text" id="budget" name="budget" placeholder={contactPage.form.budgetLabel} class="minimal-input" />
             </div>
@@ -222,13 +260,15 @@ const partnership = (contactPage as any).form.partnership;
     const growthFields = document.getElementById('growth-fields');
     const scaleFields = document.getElementById('scale-fields');
     const partnerFields = document.getElementById('partnership-fields');
-    if (!interestSelect || !growthFields || !scaleFields || !partnerFields) return;
+    const careFields = document.getElementById('care-fields');
+    if (!interestSelect || !growthFields || !scaleFields || !partnerFields || !careFields) return;
 
-    function getSelectedTier(): 'growth' | 'scale' | 'partnership' | null {
+    function getSelectedTier(): 'growth' | 'scale' | 'partnership' | 'care' | null {
       const val = interestSelect!.value.toLowerCase();
       if (val.includes('growth')) return 'growth';
       if (val.includes('scale')) return 'scale';
       if (val.includes('partnership') || val.includes('white-label') || val.includes('marca blanca')) return 'partnership';
+      if (val.includes('care') || val.includes('cuidado') || val.includes('betreuung')) return 'care';
       return null;
     }
 
@@ -284,22 +324,44 @@ const partnership = (contactPage as any).form.partnership;
       if (fs) { fs.value = ''; }
     }
 
+    // ── Care toggle ──────────────────────────────────────────────────
+    function showCare(): void {
+      careFields!.classList.add('tier-visible');
+      careFields!.querySelector<HTMLInputElement>('#careWebsiteUrl')?.setAttribute('required', '');
+      careFields!.querySelector<HTMLSelectElement>('#carePlatform')?.setAttribute('required', '');
+      careFields!.querySelector<HTMLSelectElement>('#carePriority')?.setAttribute('required', '');
+      careFields!.querySelector<HTMLSelectElement>('#careOrigin')?.setAttribute('required', '');
+    }
+    function hideCare(): void {
+      careFields!.classList.remove('tier-visible');
+      const cw = careFields!.querySelector<HTMLInputElement>('#careWebsiteUrl');
+      const cp = careFields!.querySelector<HTMLSelectElement>('#carePlatform');
+      const cpr = careFields!.querySelector<HTMLSelectElement>('#carePriority');
+      const co = careFields!.querySelector<HTMLSelectElement>('#careOrigin');
+      if (cw) { cw.removeAttribute('required'); cw.value = ''; }
+      if (cp) { cp.removeAttribute('required'); cp.selectedIndex = 0; }
+      if (cpr) { cpr.removeAttribute('required'); cpr.selectedIndex = 0; }
+      if (co) { co.removeAttribute('required'); co.selectedIndex = 0; }
+    }
+
     function toggleTierFields(): void {
       const tier = getSelectedTier();
       tier === 'growth' ? showGrowth() : hideGrowth();
       tier === 'scale' ? showScale() : hideScale();
       tier === 'partnership' ? showPartnership() : hidePartnership();
+      tier === 'care' ? showCare() : hideCare();
     }
 
     interestSelect.addEventListener('change', toggleTierFields);
 
     const urlParams = new URLSearchParams(window.location.search);
     const tierParam = urlParams.get('tier');
-    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership') {
+    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care') {
       const tierKeywords: Record<string, string[]> = {
         growth: ['growth'],
         scale: ['scale'],
         partnership: ['partnership', 'white-label', 'marca blanca', 'partnerschaft'],
+        care: ['care', 'cuidado', 'betreuung'],
       };
       const keywords = tierKeywords[tierParam];
       const options = interestSelect.options;

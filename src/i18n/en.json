@@ -79,7 +79,7 @@
       "pill": "Continuous Care",
       "title": "Protect your investment with my Care & Optimization retainer.",
       "buttonText": "Let's talk",
-      "buttonUrl": "/contact",
+      "buttonUrl": "/contact?tier=care",
       "exploreText": "Explore package",
       "exploreUrl": "/services/care",
       "note": "Starting at €190/mo. Fast edge hosting, security updates, and performance monitoring."
@@ -241,7 +241,7 @@
       "headline": "Keep your engine running at 100%",
       "subtitle": "Don't let your digital asset degrade over time. Partner with me for peace of mind.",
       "buttonText": "Start your retainer",
-      "buttonUrl": "/contact"
+      "buttonUrl": "/contact?tier=care"
     }
   },
   "designerBanner": {
@@ -320,6 +320,7 @@
         "The Growth Package (€1,750)",
         "The Scale Website (€3,800)",
         "Partnership / White-label",
+        "Continuous Care (from €190/mo)",
         "Other / Custom inquiry"
       ],
       "messagePlaceholder": "Tell us about your project and goals",
@@ -359,6 +360,16 @@
         "projectVolumeLabel": "Website designs per month",
         "projectVolumeOptions": ["1-2 projects", "3-5 projects", "5+ projects"],
         "figmaSamplePlaceholder": "Figma file link (optional)"
+      },
+      "care": {
+        "sectionLabel": "Help us assess your site's health",
+        "websitePlaceholder": "Your current website URL",
+        "platformLabel": "Current platform / stack",
+        "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Other"],
+        "priorityLabel": "Main priority",
+        "priorityOptions": ["Performance / Speed", "Security & Backups", "Regular Content Updates", "Ongoing Technical Support"],
+        "originLabel": "Did we build your current site?",
+        "originOptions": ["Yes — base-pages built it", "No — built by another team"]
       }
     }
   },

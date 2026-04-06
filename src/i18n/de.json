@@ -79,7 +79,7 @@
       "pill": "Kontinuierliche Betreuung",
       "title": "Schütze deine Investition mit unserem Betreuungs- & Optimierungs-Retainer.",
       "buttonText": "Lass uns reden",
-      "buttonUrl": "/de/contact",
+      "buttonUrl": "/de/contact?tier=care",
       "exploreText": "Paket ansehen",
       "exploreUrl": "/de/services/care",
       "note": "Ab 190 €/Monat. Schnelles Edge-Hosting, Sicherheitsupdates und Performance-Überwachung."
@@ -241,7 +241,7 @@
       "headline": "Halte deinen Motor auf 100%",
       "subtitle": "Lass dein digitales Asset nicht mit der Zeit veralten. Arbeite mit uns zusammen für ein sicheres Gefühl.",
       "buttonText": "Retainer starten",
-      "buttonUrl": "/de/contact"
+      "buttonUrl": "/de/contact?tier=care"
     }
   },
   "designerBanner": {
@@ -320,6 +320,7 @@
         "Das Growth-Paket (€1.750)",
         "Die Scale-Website (€3.800)",
         "Partnerschaft / White-Label",
+        "Kontinuierliche Betreuung (ab €190/Monat)",
         "Andere / Individuelle Anfrage"
       ],
       "messagePlaceholder": "Erzähl uns von deinem Projekt und deinen Zielen",
@@ -359,6 +360,16 @@
         "projectVolumeLabel": "Website-Designs pro Monat",
         "projectVolumeOptions": ["1-2 Projekte", "3-5 Projekte", "5+ Projekte"],
         "figmaSamplePlaceholder": "Figma-Datei-Link (optional)"
+      },
+      "care": {
+        "sectionLabel": "Hilf uns, den Zustand deiner Website zu bewerten",
+        "websitePlaceholder": "URL deiner aktuellen Website",
+        "platformLabel": "Aktuelle Plattform / Stack",
+        "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Andere"],
+        "priorityLabel": "Hauptpriorität",
+        "priorityOptions": ["Leistung / Geschwindigkeit", "Sicherheit & Backups", "Regelmäßige Inhaltsupdates", "Laufender Technischer Support"],
+        "originLabel": "Haben wir deine aktuelle Website erstellt?",
+        "originOptions": ["Ja — base-pages hat sie gebaut", "Nein — ein anderes Team hat sie gebaut"]
       }
     }
   },
