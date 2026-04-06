@@ -5,12 +5,35 @@ import Footer from '../../components/sections/Footer.astro';
 import Button from '../../components/ui/Button.astro';
 
 import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
-// Extraemos los datos para Continuous Care
 const { footer, nav, carePage } = enData;
+const hreflangLinks = generateHreflangLinks('/services/care', 'https://basepages.dev');
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Continuous Care', url: '/services/care' },
+  ]),
+  getServiceSchema({
+    name: 'Continuous Care',
+    description: carePage.hero.titleLight,
+    price: '190',
+    url: '/services/care',
+  }),
+];
 ---
 
-<LandingLayout title="Continuous Care | Base Pages">
+<LandingLayout
+  title="Continuous Care | base-pages — Website Maintenance & Security"
+  description={carePage.hero.titleLight}
+  canonicalUrl="https://basepages.dev/services/care"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   
   <LandingHeader navData={nav} />
 

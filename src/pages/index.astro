@@ -10,17 +10,20 @@ import Footer from '../components/sections/Footer.astro';
 import enData from '../i18n/en.json';
 
 import { generateHreflangLinks } from '../i18n/hreflang';
+import { getOrganizationSchema, getWebSiteSchema } from '../utils/schema';
 
 const hreflangLinks = generateHreflangLinks('/', 'https://basepages.dev');
+const jsonLd = [getOrganizationSchema(), getWebSiteSchema()];
 ---
 
-<Layout title="Base Pages" lang="en">
-  <Fragment slot="head">
-    <link rel="canonical" href="https://basepages.dev/" />
-    {hreflangLinks.map((link) => (
-      <link rel="alternate" hreflang={link.lang} href={link.href} />
-    ))}
-  </Fragment>
+<Layout
+  title="base-pages — High-Performance Websites & Landing Pages"
+  description="Boutique web studio building ultra-fast, conversion-optimized websites. Expert-crafted Astro sites with premium design and white-glove service."
+  canonicalUrl="https://basepages.dev/"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   <Header navData={enData.nav} />
   <main>
     <Hero data={enData.hero} />

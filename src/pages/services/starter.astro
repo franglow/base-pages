@@ -2,15 +2,39 @@
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import LandingHeader from '../../components/sections/LandingHeader.astro'; 
 import Footer from '../../components/sections/Footer.astro'; 
-import Button from '../../components/ui/Button.astro'; // Importamos tu botón
+import Button from '../../components/ui/Button.astro';
 
 import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
-// Extraemos los datos generales y los específicos de esta landing page
 const { footer, nav, starterPage } = enData;
+const hreflangLinks = generateHreflangLinks('/services/starter', 'https://basepages.dev');
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Starter Package', url: '/services/starter' },
+  ]),
+  getServiceSchema({
+    name: 'The Starter Package',
+    description: starterPage.hero.titleLight,
+    price: '890',
+    url: '/services/starter',
+    deliveryTime: '3-5 days',
+  }),
+];
 ---
 
-<LandingLayout title="The Starter Package | Base Pages">
+<LandingLayout
+  title="The Starter Package | base-pages — Professional One-Page Website"
+  description={starterPage.hero.titleLight}
+  canonicalUrl="https://basepages.dev/services/starter"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   
   <LandingHeader navData={nav} />
 

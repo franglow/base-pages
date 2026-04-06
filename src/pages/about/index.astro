@@ -5,14 +5,29 @@ import DesignerBanner from '../../components/sections/DesignerBanner.astro';
 import Footer from '../../components/sections/Footer.astro';
 import enData from '../../i18n/en.json'; 
 import { Image } from 'astro:assets';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../../utils/schema';
 
 const { aboutPage, footer, nav } = enData;
-
-// Cargador global de imágenes locales (Preparado para el lanzamiento)
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
+const hreflangLinks = generateHreflangLinks('/about', 'https://basepages.dev');
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+  ]),
+];
 ---
 
-<Layout title="About Us - base-pages">
+<Layout
+  title="About | base-pages — Boutique Web Studio"
+  description="Meet the expert behind base-pages. A solo developer building ultra-fast, conversion-optimized websites with direct accountability and senior expertise."
+  canonicalUrl="https://basepages.dev/about"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   <main class="w-full pb-32">
     <Header navData={nav} />
     
@@ -121,7 +136,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
               />
             </div>
             <div>
-              <h4 class="text-lg font-semibold text-gray-900">{member.name}</h4>
+              <h3 class="text-lg font-semibold text-gray-900">{member.name}</h3>
               <p class="text-gray-500 text-sm">{member.role}</p>
               {member.linkedin && (
                 <a 

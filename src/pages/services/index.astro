@@ -6,23 +6,47 @@ import DesignerBanner from '../../components/sections/DesignerBanner.astro';
 import Footer from '../../components/sections/Footer.astro'; 
 
 import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { getOrganizationSchema, getBreadcrumbSchema, getServiceListSchema } from '../../utils/schema';
 
 const { services, footer, nav, designerBanner } = enData;
+const hreflangLinks = generateHreflangLinks('/services', 'https://basepages.dev');
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+  ]),
+  getServiceListSchema(
+    services.items.map((item: any) => ({
+      name: item.title,
+      url: item.url,
+      description: item.subtitle || item.description,
+    }))
+  ),
+];
 ---
 
-<Layout title="Services - base-pages">
+<Layout
+  title="Services & Pricing | base-pages"
+  description="Expert web development packages: Starter, Growth, Scale, and Continuous Care. Ultra-fast Astro sites built for conversion and performance."
+  canonicalUrl="https://basepages.dev/services"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   <Header navData={nav} />
   
   <main style="padding-top: 100px;" class="bg-[#f8f7f5]">
     
     <section class="services-section">
       <div class="container">
-        <h2 class="section-title">
+        <h1 class="section-title">
           {services.headerTitle}
           <sup class="text-[14px] bg-gray-900 text-white rounded-full w-[20px] h-[20px] flex items-center justify-center font-semibold mt-2 md:mt-4">
             {services.headerCount}
           </sup>
-        </h2>
+        </h1>
         
         <div class="projects-grid">
           {services.items.map((pkg: any, index: number) => (

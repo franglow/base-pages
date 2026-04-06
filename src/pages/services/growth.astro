@@ -5,12 +5,36 @@ import Footer from '../../components/sections/Footer.astro';
 import Button from '../../components/ui/Button.astro';
 
 import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
-// Extraemos los datos para The Growth Package
 const { footer, nav, growthPage } = enData;
+const hreflangLinks = generateHreflangLinks('/services/growth', 'https://basepages.dev');
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Growth Package', url: '/services/growth' },
+  ]),
+  getServiceSchema({
+    name: 'The Growth Package',
+    description: growthPage.hero.titleLight,
+    price: '2490',
+    url: '/services/growth',
+    deliveryTime: '10-15 days',
+  }),
+];
 ---
 
-<LandingLayout title="The Growth Package | Base Pages">
+<LandingLayout
+  title="The Growth Package | base-pages — Multi-Page Business Website"
+  description={growthPage.hero.titleLight}
+  canonicalUrl="https://basepages.dev/services/growth"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   
   <LandingHeader navData={nav} />
 

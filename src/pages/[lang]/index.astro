@@ -12,9 +12,9 @@ import { getI18n } from '../../i18n/utils';
 import { generateHreflangLinks } from '../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
 import type { Language } from '../../i18n/config';
+import { getOrganizationSchema, getWebSiteSchema } from '../../utils/schema';
 
 export function getStaticPaths() {
-  // Option B: English stays at root (/), so only generate /de/ and /es/
   return SUPPORTED_LANGUAGES
     .filter((lang) => lang !== DEFAULT_LANGUAGE)
     .map((lang) => ({ params: { lang } }));
@@ -24,15 +24,17 @@ const { lang } = Astro.params as { lang: Language };
 const data = getI18n(lang);
 const hreflangLinks = generateHreflangLinks('/', 'https://basepages.dev');
 const canonicalUrl = `https://basepages.dev/${lang}/`;
+const jsonLd = [getOrganizationSchema(), getWebSiteSchema()];
 ---
 
-<Layout title="Base Pages" lang={lang}>
-  <Fragment slot="head">
-    <link rel="canonical" href={canonicalUrl} />
-    {hreflangLinks.map((link) => (
-      <link rel="alternate" hreflang={link.lang} href={link.href} />
-    ))}
-  </Fragment>
+<Layout
+  title="base-pages — High-Performance Websites & Landing Pages"
+  description={data.hero.subtitle}
+  canonicalUrl={canonicalUrl}
+  lang={lang}
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
 
   <Header navData={data.nav} />
   <main>

@@ -1,10 +1,28 @@
 ---
 import '../styles/global.css';
+import SEOHead from '../components/seo/SEOHead.astro';
+
 interface Props {
   title: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: string;
   lang?: string;
+  jsonLd?: object | object[];
+  hreflangLinks?: { lang: string; href: string }[];
 }
-const { title, lang = 'en' } = Astro.props;
+
+const {
+  title,
+  description = 'Boutique web studio specializing in ultra-fast, conversion-optimized websites. Expert-built Astro sites with premium design and white-glove service.',
+  canonicalUrl = 'https://basepages.dev/',
+  ogImage,
+  ogType,
+  lang = 'en',
+  jsonLd,
+  hreflangLinks,
+} = Astro.props;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -15,6 +33,16 @@ const { title, lang = 'en' } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <SEOHead
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      ogImage={ogImage}
+      ogType={ogType}
+      locale={lang}
+      jsonLd={jsonLd}
+      hreflangLinks={hreflangLinks}
+    />
     <script is:inline>
       document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
     </script>

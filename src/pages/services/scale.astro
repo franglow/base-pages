@@ -5,12 +5,36 @@ import Footer from '../../components/sections/Footer.astro';
 import Button from '../../components/ui/Button.astro';
 
 import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
-// Extraemos los datos para The Scale Website
 const { footer, nav, scalePage } = enData;
+const hreflangLinks = generateHreflangLinks('/services/scale', 'https://basepages.dev');
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Scale Website', url: '/services/scale' },
+  ]),
+  getServiceSchema({
+    name: 'The Scale Website',
+    description: scalePage.hero.titleLight,
+    price: '4900',
+    url: '/services/scale',
+    deliveryTime: '20-30 days',
+  }),
+];
 ---
 
-<LandingLayout title="The Scale Website | Base Pages">
+<LandingLayout
+  title="The Scale Website | base-pages — Enterprise Performance Architecture"
+  description={scalePage.hero.titleLight}
+  canonicalUrl="https://basepages.dev/services/scale"
+  lang="en"
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
   
   <LandingHeader navData={nav} />
 

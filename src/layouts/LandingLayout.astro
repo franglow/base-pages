@@ -1,25 +1,48 @@
 ---
 import '../styles/global.css';
+import SEOHead from '../components/seo/SEOHead.astro';
 
 interface Props {
   title: string;
   description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: string;
   lang?: string;
+  jsonLd?: object | object[];
+  hreflangLinks?: { lang: string; href: string }[];
 }
 
-const { title, description = "High-Performance Landing Page built by base-pages", lang = 'en' } = Astro.props;
+const {
+  title,
+  description = 'High-performance landing page built by base-pages. Expert-crafted Astro sites with premium design.',
+  canonicalUrl = 'https://basepages.dev/',
+  ogImage,
+  ogType,
+  lang = 'en',
+  jsonLd,
+  hreflangLinks,
+} = Astro.props;
 ---
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
     <title>{title}</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <SEOHead
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      ogImage={ogImage}
+      ogType={ogType}
+      locale={lang}
+      jsonLd={jsonLd}
+      hreflangLinks={hreflangLinks}
+    />
     <slot name="head" />
   </head>
   <body class="bg-[#f8f7f5] text-[#111827] antialiased">
