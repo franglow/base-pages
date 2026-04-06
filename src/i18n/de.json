@@ -52,7 +52,7 @@
     "items": [
       {
         "title": "Das Starter-Paket",
-        "subtitle": "Auf Geschwindigkeit ausgelegt. Perfekt, um Ideen und Events zu validieren und Leads zu erfassen. Mobile-first und blitzschnell.",
+        "subtitle": "Deine professionelle digitale Visitenkarte. Eine schnelle, hochwertige One-Page-Website, um dein Business zu starten und Kunden zu gewinnen.",
         "price": "Ab 890 €",
         "delivery": "3-5 Tage",
         "image": "/src/assets/images/services/pkg-01.webp",
@@ -111,33 +111,33 @@
   "starterPage": {
     "hero": {
       "tagline": "DAS STARTER-PAKET",
-      "titleBold": "High-Performance Landingpage.",
-      "titleLight": "Auf Geschwindigkeit ausgelegt. Perfekt zum Validieren von Ideen.",
-      "subtitle": "Ich baue blitzschnelle, Mobile-First Single-Page-Websites, die darauf ausgelegt sind, Leads zu generieren und als Top-Quellen in KI-Suchmaschinen zu ranken.",
+      "titleBold": "Schnell starten. Beeindruckend aussehen.",
+      "titleLight": "Schluss mit komplizierten Baukästen. Hol dir eine echte Profi-Website.",
+      "subtitle": "Ich baue einfache, unglaublich schnelle Websites, die Besucher in echte Anfragen verwandeln. Keine Technik-Kopfschmerzen – nur eine erstklassige digitale Präsenz, die vom ersten Tag an funktioniert.",
       "priceBadge": "Ab 890 €",
       "deliveryBadge": "3-5 Tage Lieferzeit"
     },
     "features": [
       {
-        "title": "Blitzschnell",
-        "description": "Gebaut mit Astro, um einen perfekten 100/100 Lighthouse-Score zu garantieren. Kein JavaScript-Overhead, sodass deine Seite sofort lädt."
+        "title": "Lädt im Handumdrehen",
+        "description": "Niemand wartet gern. Deine Seite lädt sofort, damit du keine ungeduldigen Kunden an langsame Ladebildschirme verlierst."
       },
       {
-        "title": "Mobile-First Design",
-        "description": "Makelloses Erlebnis auf jedem Gerät. Über 70% des Web-Traffics ist mobil – ich baue zuerst dafür, damit du keinen einzigen Lead verlierst."
+        "title": "Perfekt auf dem Smartphone",
+        "description": "Die meisten Kunden suchen mobil. Ich sorge dafür, dass deine Website auf jedem Bildschirm wunderschön aussieht und einwandfrei funktioniert."
       },
       {
-        "title": "KI-bereites SEO",
-        "description": "Saubere HTML-Struktur und semantisches Markup, optimiert sowohl für traditionelle Google-Algorithmen als auch für KI-Engines wie ChatGPT."
+        "title": "Leicht auf Google zu finden",
+        "description": "Ich kümmere mich um die technischen Details, damit Suchmaschinen und KI-Assistenten dich problemlos neuen Kunden empfehlen können."
       },
       {
-        "title": "Lead-Erfassung",
-        "description": "Integrierte Kontaktformulare, die direkt mit deiner E-Mail oder deinem bevorzugten CRM-Workspace verbunden sind, um deine Ideen sofort zu validieren."
+        "title": "Bereit für neue Kunden",
+        "description": "Einfache, effektive Kontaktformulare, die Anfragen direkt in dein Postfach senden – so wird es für Kunden kinderleicht, dich zu buchen."
       }
     ],
     "finalCta": {
-      "headline": "Bereit, deinen Motor zu bauen?",
-      "subtitle": "Schluss mit Page-Buildern. Lass uns gemeinsam ein erstklassiges digitales Produkt auf den Markt bringen.",
+      "headline": "Bereit, dein Business online zu bringen?",
+      "subtitle": "Vergiss komplizierte Baukästen. Lass mich dir eine professionelle Website bauen, die dir echte Ergebnisse bringt.",
       "buttonText": "Lass uns reden",
       "buttonUrl": "/de/contact"
     }

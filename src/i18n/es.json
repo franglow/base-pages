@@ -52,7 +52,7 @@
     "items": [
       {
         "title": "El Paquete Starter",
-        "subtitle": "Construida para la velocidad. Perfecta para validar ideas, eventos y captar leads. Mobile-first y ultrarrápida.",
+        "subtitle": "Tu vidriera digital profesional. Una web rápida y premium de una sola página para lanzar tu negocio y empezar a conseguir clientes.",
         "price": "Desde €890",
         "delivery": "3-5 días",
         "image": "/src/assets/images/services/pkg-01.webp",
@@ -111,33 +111,33 @@
   "starterPage": {
     "hero": {
       "tagline": "EL PAQUETE STARTER",
-      "titleBold": "Landing Page de Alto Rendimiento.",
-      "titleLight": "Construida para la velocidad. Perfecta para validar ideas.",
-      "subtitle": "Desarrollo sitios web single-page, mobile-first y ultrarrápidos, diseñados para captar leads y posicionarse como fuentes principales en motores de búsqueda de IA.",
+      "titleBold": "Lanzá rápido. Destacate del resto.",
+      "titleLight": "Olvidate de las herramientas complicadas. Tené una web profesional de verdad.",
+      "subtitle": "Armo webs simples e increíblemente rápidas que convierten visitas en consultas reales. Sin dolores de cabeza técnicos ni vueltas: solo una presencia digital premium que funciona desde el primer día.",
       "priceBadge": "Desde €890",
       "deliveryBadge": "Entrega en 3-5 días"
     },
     "features": [
       {
-        "title": "Ultrarrápida",
-        "description": "Desarrollada con Astro para garantizar una puntuación perfecta de 100/100 en Lighthouse. Cero sobrecarga de JavaScript, asegurando que tu sitio cargue al instante."
+        "title": "Carga en un abrir y cerrar de ojos",
+        "description": "Nadie quiere esperar. Tu sitio va a cargar al instante para que no pierdas potenciales clientes por culpa de una página lenta."
       },
       {
-        "title": "Diseño Mobile-First",
-        "description": "Experiencia impecable en cualquier dispositivo. Más del 70% del tráfico web es móvil; lo priorizo para que nunca pierdas ni un solo lead."
+        "title": "Se ve perfecto en el celular",
+        "description": "La mayoría de tus clientes te van a buscar desde el teléfono. Me aseguro de que tu web se vea impecable en cualquier pantalla."
       },
       {
-        "title": "SEO Listo para IA",
-        "description": "Estructura HTML limpia y marcado semántico optimizado tanto para algoritmos tradicionales de Google como para motores de IA como ChatGPT."
+        "title": "Fácil de encontrar en Google",
+        "description": "Me encargo de los detalles técnicos para que los buscadores y los nuevos asistentes de IA te recomienden fácilmente a nuevos clientes."
       },
       {
-        "title": "Captación de Leads",
-        "description": "Formularios de contacto integrados y conectados directamente a tu correo o CRM preferido para validar tus ideas al instante."
+        "title": "Lista para recibir clientes",
+        "description": "Formularios de contacto simples y efectivos que te envían las consultas directo a tu mail para que sea muy fácil contratarte."
       }
     ],
     "finalCta": {
-      "headline": "¿Listo para construir tu motor?",
-      "subtitle": "Dejá de pelear con los page builders. Lancemos juntos un producto digital premium.",
+      "headline": "¿Listo para llevar tu negocio a internet?",
+      "subtitle": "Dejá de pelear con herramientas difíciles. Dejame armarte una web profesional que te traiga resultados de verdad.",
       "buttonText": "Hablemos",
       "buttonUrl": "/es/contact"
     }

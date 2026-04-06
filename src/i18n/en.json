@@ -52,7 +52,7 @@
     "items": [
       {
         "title": "The Starter Package",
-        "subtitle": "Built for speed. Perfect for validating ideas, events, and capturing leads. Mobile-first and lightning fast.",
+        "subtitle": "Your professional digital storefront. A fast, premium one-page website to launch your business and start getting clients.",
         "price": "From €890",
         "delivery": "3-5 days",
         "image": "/src/assets/images/services/pkg-01.webp",
@@ -111,33 +111,33 @@
   "starterPage": {
     "hero": {
       "tagline": "THE STARTER PACKAGE",
-      "titleBold": "High-Performance Landing Page.",
-      "titleLight": "Built for speed. Perfect for validating ideas.",
-      "subtitle": "I build lightning-fast, mobile-first single-page websites designed to capture leads and rank as top sources on AI search engines.",
+      "titleBold": "Launch quickly. Look amazing.",
+      "titleLight": "Skip the DIY tools. Get a professional site that actually works.",
+      "subtitle": "I build simple, incredibly fast websites that turn your visitors into real inquiries. No tech headaches or confusing setups—just a premium digital presence that works from day one.",
       "priceBadge": "From €890",
       "deliveryBadge": "3-5 days delivery"
     },
     "features": [
       {
-        "title": "Lightning Fast",
-        "description": "Built with Astro to guarantee a perfect 100/100 Lighthouse score. Zero JavaScript bloat, ensuring your site loads instantly."
+        "title": "Loads in the blink of an eye",
+        "description": "People hate waiting. Your site will load instantly, meaning you won't lose impatient potential clients to slow loading screens."
       },
       {
-        "title": "Mobile-First Design",
-        "description": "Flawless experience on every device. Over 70% of web traffic is mobile, so I build for it first — ensuring you never lose a single lead."
+        "title": "Looks perfect on phones",
+        "description": "Most of your clients will find you on their smartphones. I make sure your website looks beautiful and functions flawlessly on any screen size."
       },
       {
-        "title": "AI-Ready SEO",
-        "description": "Clean HTML structure and semantic markup optimized for both traditional Google algorithms and AI engines like ChatGPT."
+        "title": "Easy to find on Google",
+        "description": "I handle the invisible technical details so search engines and modern AI assistants can easily recommend you to new clients."
       },
       {
-        "title": "Lead Capture",
-        "description": "Integrated contact forms connected directly to your email or preferred CRM workspace to validate your ideas instantly."
+        "title": "Ready to get clients",
+        "description": "Simple, effective contact forms that send new inquiries straight to your inbox, making it incredibly easy for people to hire you."
       }
     ],
     "finalCta": {
-      "headline": "Ready to build your engine?",
-      "subtitle": "Stop fighting with page builders. Let's launch a premium digital product together.",
+      "headline": "Ready to get your business online?",
+      "subtitle": "Skip the confusing DIY tools. Let me build you a professional website that brings you real results.",
       "buttonText": "Book a call",
       "buttonUrl": "/contact"
     }
