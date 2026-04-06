@@ -46,7 +46,7 @@
   },
   "services": {
     "tagline": "DIENSTLEISTUNGEN & PREISE",
-    "headline": "Wir berechnen nicht nach Stunden. Wir berechnen für Wert, Geschwindigkeit und sauberen Code, der konvertiert. Wähle dein Fundament.",
+    "headline": "Ich berechne nicht nach Stunden. Ich berechne für Wert, Geschwindigkeit und sauberen Code, der konvertiert. Wähle dein Fundament.",
     "headerTitle": "Dienstleistungen",
     "headerCount": "5",
     "items": [
@@ -113,7 +113,7 @@
       "tagline": "DAS STARTER-PAKET",
       "titleBold": "High-Performance Landingpage.",
       "titleLight": "Auf Geschwindigkeit ausgelegt. Perfekt zum Validieren von Ideen.",
-      "subtitle": "Wir bauen blitzschnelle, Mobile-First Single-Page-Websites, die darauf ausgelegt sind, Leads zu generieren und als Top-Quellen in KI-Suchmaschinen zu ranken.",
+      "subtitle": "Ich baue blitzschnelle, Mobile-First Single-Page-Websites, die darauf ausgelegt sind, Leads zu generieren und als Top-Quellen in KI-Suchmaschinen zu ranken.",
       "priceBadge": "Ab 890 €",
       "deliveryBadge": "3-5 Tage Lieferzeit"
     },
@@ -124,7 +124,7 @@
       },
       {
         "title": "Mobile-First Design",
-        "description": "Makelloses Erlebnis auf jedem Gerät. Über 70% des Web-Traffics ist mobil – wir bauen zuerst dafür, damit du keinen einzigen Lead verlierst."
+        "description": "Makelloses Erlebnis auf jedem Gerät. Über 70% des Web-Traffics ist mobil – ich baue zuerst dafür, damit du keinen einzigen Lead verlierst."
       },
       {
         "title": "KI-bereites SEO",
@@ -147,7 +147,7 @@
       "tagline": "DIE SCALE-WEBSITE",
       "titleBold": "Komplettes digitales Fundament.",
       "titleLight": "Multi-Page-Architektur. Headless CMS-basiert.",
-      "subtitle": "Eine robuste, skalierbare Plattform für etablierte Marken. Wir kombinieren dynamisches Content-Management mit fehlerfreier Front-End-Performance, damit du Inhalte einfach bearbeiten kannst, ohne das Design zu zerstören.",
+      "subtitle": "Eine robuste, skalierbare Plattform für etablierte Marken. Ich kombiniere dynamisches Content-Management mit fehlerfreier Front-End-Performance, damit du Inhalte einfach bearbeiten kannst, ohne das Design zu zerstören.",
       "priceBadge": "Ab 3.800 €",
       "deliveryBadge": "3-5 Wochen Lieferzeit"
     },
@@ -158,7 +158,7 @@
       },
       {
         "title": "Multi-Page Architektur",
-        "description": "Komplexe Sitemaps, dynamisches Routing und perfekt strukturierte interne Verlinkung. Wir bauen ein vernetztes Ökosystem, das für Enterprise-Level SEO-Skalierung entwickelt wurde."
+        "description": "Komplexe Sitemaps, dynamisches Routing und perfekt strukturierte interne Verlinkung. Ich baue ein vernetztes Ökosystem, das für Enterprise-Level SEO-Skalierung entwickelt wurde."
       },
       {
         "title": "Fortgeschrittene Interaktionen",
@@ -181,14 +181,14 @@
       "tagline": "DAS GROWTH-PAKET",
       "titleBold": "Hochkonvertierender digitaler Motor.",
       "titleLight": "Auf Skalierung ausgelegt. Gebaut für ROI.",
-      "subtitle": "Eine strategische Landingpage, entwickelt für wachsende Unternehmen mit Werbekampagnen. Wir mischen CRO-Techniken mit tiefgreifenden Integrationen, um Klicks in Umsatz zu verwandeln.",
+      "subtitle": "Eine strategische Landingpage, entwickelt für wachsende Unternehmen mit Werbekampagnen. Ich mische CRO-Techniken mit tiefgreifenden Integrationen, um Klicks in Umsatz zu verwandeln.",
       "priceBadge": "Ab 1.750 €",
       "deliveryBadge": "7-10 Tage Lieferzeit"
     },
     "features": [
       {
         "title": "Conversion-Rate-Optimierung",
-        "description": "Datengetriebenes UX/UI-Design, das sich komplett auf Nutzerpsychologie konzentriert. Wir eliminieren Reibungspunkte, um deine Besucher nahtlos zur Handlung zu führen."
+        "description": "Datengetriebenes UX/UI-Design, das sich komplett auf Nutzerpsychologie konzentriert. Ich eliminiere Reibungspunkte, um deine Besucher nahtlos zur Handlung zu führen."
       },
       {
         "title": "Tiefe Integrationen",
@@ -196,7 +196,7 @@
       },
       {
         "title": "Ad-Ready Architektur",
-        "description": "Optimierte Erlebnisse mit perfekter Botschaftsübereinstimmung für deine Google- und Meta-Ads. Wir stellen sicher, dass deine Ladezeiten keinen einzigen Cent deines Ad-Spends verschwenden."
+        "description": "Optimierte Erlebnisse mit perfekter Botschaftsübereinstimmung für deine Google- und Meta-Ads. Ich stelle sicher, dass deine Ladezeiten keinen einzigen Cent deines Ad-Spends verschwenden."
       },
       {
         "title": "A/B-Testing bereit",
@@ -215,7 +215,7 @@
       "tagline": "KONTINUIERLICHE BETREUUNG",
       "titleBold": "Schütze deine Investition.",
       "titleLight": "Betreuungs- & Optimierungs-Retainer.",
-      "subtitle": "Dein digitales Asset braucht kontinuierliches Tuning, um Höchstleistung zu bringen. Wir kümmern uns um schnelles Edge-Hosting, proaktive Sicherheitsupdates und Performance-Überwachung, damit du dich auf dein Geschäft konzentrieren kannst.",
+      "subtitle": "Dein digitales Asset braucht kontinuierliches Tuning, um Höchstleistung zu bringen. Ich kümmere mich um schnelles Edge-Hosting, proaktive Sicherheitsupdates und Performance-Überwachung, damit du dich auf dein Geschäft konzentrieren kannst.",
       "priceBadge": "Ab 190 €/Monat",
       "deliveryBadge": "Jederzeit kündbar"
     },
@@ -226,11 +226,11 @@
       },
       {
         "title": "Proaktive Sicherheit",
-        "description": "Ständige Dependency-Updates und Bedrohungsüberwachung. Wir patchen Schwachstellen, bevor sie zum Problem werden, und stellen sicher, dass deine Daten und deine Nutzer streng geschützt bleiben."
+        "description": "Ständige Dependency-Updates und Bedrohungsüberwachung. Ich patche Schwachstellen, bevor sie zum Problem werden, und stelle sicher, dass deine Daten und deine Nutzer streng geschützt bleiben."
       },
       {
         "title": "Performance-Überwachung",
-        "description": "Wir tracken deine Core Web Vitals kontinuierlich. Wenn ein neues Inhaltsupdate oder ein Drittanbieter-Skript deinen Lighthouse-Score verschlechtert, erkennen wir das und optimieren es sofort."
+        "description": "Ich tracke deine Core Web Vitals kontinuierlich. Wenn ein neues Inhaltsupdate oder ein Drittanbieter-Skript deinen Lighthouse-Score verschlechtert, erkenne ich das und optimiere es sofort."
       },
       {
         "title": "Priority Support",
@@ -239,7 +239,7 @@
     ],
     "finalCta": {
       "headline": "Halte deinen Motor auf 100%",
-      "subtitle": "Lass dein digitales Asset nicht mit der Zeit veralten. Arbeite mit uns zusammen für ein sicheres Gefühl.",
+      "subtitle": "Lass dein digitales Asset nicht mit der Zeit veralten. Arbeite mit mir zusammen für ein sicheres Gefühl.",
       "buttonText": "Retainer starten",
       "buttonUrl": "/de/contact?tier=care"
     }
@@ -253,20 +253,20 @@
   "aboutPage": {
     "hero": {
       "tagline": "ÜBER UNS",
-      "headline": "Wir machen Marken zukunftssicher für die KI-Suchära mit hochleistungsfähigen digitalen Architekturen.",
+      "headline": "Ich mache Marken zukunftssicher für die KI-Suchära mit hochleistungsfähigen digitalen Architekturen.",
       "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
     },
     "approach": {
-      "tagline": "UNSERE METHODE",
+      "tagline": "MEINE METHODE",
       "items": [
         {
           "title": "Die Strategie",
-          "description": "Die Suche hat sich weiterentwickelt. Wir planen deine Sichtbarkeit nicht nur für Google, sondern für KI-Engines wie ChatGPT und Perplexity. Wir konzentrieren uns auf Entitätsoptimierung, um sicherzustellen, dass deine Marke zu einer zitierten Autorität wird.",
+          "description": "Die Suche hat sich weiterentwickelt. Ich plane deine Sichtbarkeit nicht nur für Google, sondern für KI-Engines wie ChatGPT und Perplexity. Ich konzentriere mich auf Entitätsoptimierung, um sicherzustellen, dass deine Marke zu einer zitierten Autorität wird.",
           "image": "/src/assets/images/about-page/strategy.png"
         },
         {
           "title": "Die Umsetzung",
-          "description": "Wir bauen blitzschnelle, Mobile-First Plattformen. Jeder Pixel ist auf Konversionen optimiert, und jede Codezeile ist mit Schema-Markup strukturiert, damit KI-Crawler deine Daten einfach extrahieren und zitieren können.",
+          "description": "Ich baue blitzschnelle, Mobile-First Plattformen. Jeder Pixel ist auf Konversionen optimiert, und jede Codezeile ist mit Schema-Markup strukturiert, damit KI-Crawler deine Daten einfach extrahieren und zitieren können.",
           "image": "/src/assets/images/about-page/execution.png"
         },
         {
@@ -279,20 +279,20 @@
     "values": [
       {
         "number": "01",
-        "title": "Wir entwickeln für KI-Abruf",
-        "description": "Wenn ein KI-Crawler deine Seite nicht lesen kann, existierst du im neuen Web nicht. Wir liefern saubere Architektur, strukturierte Daten und ultraschnelle Ladezeiten, damit du immer die primäre Quelle bist.",
+        "title": "Ich entwickle für KI-Abruf",
+        "description": "Wenn ein KI-Crawler deine Seite nicht lesen kann, existierst du im neuen Web nicht. Ich liefere saubere Architektur, strukturierte Daten und ultraschnelle Ladezeiten, damit du immer die primäre Quelle bist.",
         "image": "/src/assets/images/about-page/retrieval.png"
       },
       {
         "number": "02",
-        "title": "Wir designen Conversion-Funnels",
-        "description": "Da KI mehr Fragen direkt beantwortet, ist der Traffic, der deine Seite erreicht, hochqualifiziert. Wir bauen reibungslose Nutzererlebnisse, die diese Besucher mit hoher Kaufabsicht direkt zum Checkout oder Kontakt leiten.",
+        "title": "Ich designe Conversion-Funnels",
+        "description": "Da KI mehr Fragen direkt beantwortet, ist der Traffic, der deine Seite erreicht, hochqualifiziert. Ich baue reibungslose Nutzererlebnisse, die diese Besucher mit hoher Kaufabsicht direkt zum Checkout oder Kontakt leiten.",
         "image": "/src/assets/images/about-page/funnels.png"
       },
       {
         "number": "03",
-        "title": "Wir bauen belastbare Partnerschaften",
-        "description": "Die digitale Landschaft ändert sich täglich. Ob es um die Anpassung an neue LLM-Algorithmen, die Optimierung für AI Overviews oder den Start einer neuen Kampagne geht – wir agieren langfristig als dein engagiertes technisches Growth-Team.",
+        "title": "Ich baue belastbare Partnerschaften",
+        "description": "Die digitale Landschaft ändert sich täglich. Ob es um die Anpassung an neue LLM-Algorithmen, die Optimierung für AI Overviews oder den Start einer neuen Kampagne geht – ich agiere langfristig als dein engagierter technischer Growth-Partner.",
         "image": "/src/assets/images/about-page/resilient.png"
       }
     ],
@@ -323,11 +323,11 @@
         "Kontinuierliche Betreuung (ab €190/Monat)",
         "Andere / Individuelle Anfrage"
       ],
-      "messagePlaceholder": "Erzähl uns von deinem Projekt und deinen Zielen",
+      "messagePlaceholder": "Erzähl mir von deinem Projekt und deinen Zielen",
       "budgetLabel": "Geschätztes Budget",
       "submitText": "Nachricht senden",
       "growth": {
-        "sectionLabel": "Hilf uns, dein Performance-Audit vorzubereiten",
+        "sectionLabel": "Hilf mir, dein Performance-Audit vorzubereiten",
         "websitePlaceholder": "URL deiner aktuellen Website",
         "adSpendLabel": "Monatliche Werbeinvestition",
         "adSpendOptions": [
@@ -353,7 +353,7 @@
         "timelineOptions": ["In 3-5 Wochen", "1-2 Monate", "2-3 Monate", "Flexibel / Kein Zeitdruck"]
       },
       "partnership": {
-        "sectionLabel": "Erzähl uns von deiner Designpraxis",
+        "sectionLabel": "Erzähl mir von deiner Designpraxis",
         "portfolioPlaceholder": "Portfolio- oder Behance-URL",
         "designToolLabel": "Primäres Design-Tool",
         "designToolOptions": ["Figma", "Sketch", "Adobe XD", "Andere"],
@@ -362,7 +362,7 @@
         "figmaSamplePlaceholder": "Figma-Datei-Link (optional)"
       },
       "care": {
-        "sectionLabel": "Hilf uns, den Zustand deiner Website zu bewerten",
+        "sectionLabel": "Hilf mir, den Zustand deiner Website zu bewerten",
         "websitePlaceholder": "URL deiner aktuellen Website",
         "platformLabel": "Aktuelle Plattform / Stack",
         "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Andere"],

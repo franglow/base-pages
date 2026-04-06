@@ -323,11 +323,11 @@
         "Continuous Care (from €190/mo)",
         "Other / Custom inquiry"
       ],
-      "messagePlaceholder": "Tell us about your project and goals",
+      "messagePlaceholder": "Tell me about your project and goals",
       "budgetLabel": "Estimated budget",
       "submitText": "Send message",
       "growth": {
-        "sectionLabel": "Help us prepare your performance audit",
+        "sectionLabel": "Help me prepare your performance audit",
         "websitePlaceholder": "Your current website URL",
         "adSpendLabel": "Monthly ad investment",
         "adSpendOptions": [
@@ -353,7 +353,7 @@
         "timelineOptions": ["Within 3-5 weeks", "1-2 months", "2-3 months", "Flexible / No rush"]
       },
       "partnership": {
-        "sectionLabel": "Tell us about your design practice",
+        "sectionLabel": "Tell me about your design practice",
         "portfolioPlaceholder": "Portfolio or Behance URL",
         "designToolLabel": "Primary design tool",
         "designToolOptions": ["Figma", "Sketch", "Adobe XD", "Other"],
@@ -362,13 +362,13 @@
         "figmaSamplePlaceholder": "Figma file link (optional)"
       },
       "care": {
-        "sectionLabel": "Help us assess your site's health",
+        "sectionLabel": "Help me assess your site's health",
         "websitePlaceholder": "Your current website URL",
         "platformLabel": "Current platform / stack",
         "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Other"],
         "priorityLabel": "Main priority",
         "priorityOptions": ["Performance / Speed", "Security & Backups", "Regular Content Updates", "Ongoing Technical Support"],
-        "originLabel": "Did we build your current site?",
+        "originLabel": "Did I build your current site?",
         "originOptions": ["Yes — base-pages built it", "No — built by another team"]
       }
     }
