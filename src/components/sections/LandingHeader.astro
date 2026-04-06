@@ -295,6 +295,27 @@ const { navData } = Astro.props;
 
     window.removeEventListener('scroll', handleScroll); // Limpieza de seguridad
     window.addEventListener('scroll', handleScroll);
+
+    // 4. CONTEXT-AWARE HEADER CTA
+    const headerCta = document.querySelector('.header-cta') as HTMLAnchorElement | null;
+    if (headerCta) {
+      const path = window.location.pathname.replace(/\/$/, '');
+      // Strip lang prefix (e.g. /es/services/starter → /services/starter)
+      const stripped = path.replace(/^\/(es|de)/, '');
+      const tierMap: Record<string, string> = {
+        '/services/starter': 'starter',
+        '/services/growth': 'growth',
+        '/services/scale': 'scale',
+        '/services/care': 'care',
+      };
+      const tier = tierMap[stripped];
+      // Detect lang prefix from path
+      const langMatch = path.match(/^\/(es|de)/);
+      const langPrefix = langMatch ? `/${langMatch[1]}` : '';
+      headerCta.href = tier
+        ? `${langPrefix}/contact?tier=${tier}`
+        : `${langPrefix}/contact`;
+    }
   }
 
   // Inicializar al cargar
