@@ -351,9 +351,10 @@ const care = contactPage.form.care;
     // Auto-select tier from ?tier= query param
     const urlParams = new URLSearchParams(window.location.search);
     const tierParam = urlParams.get('tier');
-    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care') {
+    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care' || tierParam === 'starter') {
       // Keywords to match localized option values per tier
       const tierKeywords: Record<string, string[]> = {
+        starter: ['starter'],
         growth: ['growth'],
         scale: ['scale'],
         partnership: ['partnership', 'white-label', 'marca blanca', 'partnerschaft'],

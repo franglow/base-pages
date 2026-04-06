@@ -356,8 +356,9 @@ const care = (contactPage as any).form.care;
 
     const urlParams = new URLSearchParams(window.location.search);
     const tierParam = urlParams.get('tier');
-    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care') {
+    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care' || tierParam === 'starter') {
       const tierKeywords: Record<string, string[]> = {
+        starter: ['starter'],
         growth: ['growth'],
         scale: ['scale'],
         partnership: ['partnership', 'white-label', 'marca blanca', 'partnerschaft'],

@@ -139,7 +139,7 @@
       "headline": "Ready to get your business online?",
       "subtitle": "Skip the confusing DIY tools. Let me build you a professional website that brings you real results.",
       "buttonText": "Book a call",
-      "buttonUrl": "/contact"
+      "buttonUrl": "/contact?tier=starter"
     }
   },
   "scalePage": {
