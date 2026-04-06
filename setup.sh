@@ -65,7 +65,7 @@ cat <<EOF > src/styles/theme.css
   --font-heading: "Inter", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 
-  /* --- PALETTE (Noura Spec) --- */
+  /* --- PALETTE (base-pages.com Spec) --- */
   --color-bg: #F9F9F7;
   --color-surface: #FFFFFF;
   --color-text: #111111;
@@ -133,7 +133,7 @@ const variants = {
 EOF
 
 # 5. Secciones (Header, Hero, Footer)
-# Nota: Mantenemos la visual "Noura" por ahora como pediste para la réplica exacta,
+# Nota: Mantenemos la visual "base-pages.com" por ahora como pediste para la réplica exacta,
 # pero el proyecto estructuralmente ya es "base-pages".
 
 cat <<EOF > src/components/sections/Header.astro
@@ -148,7 +148,7 @@ const { navData } = Astro.props;
 <header class="fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] flex items-center px-4 md:px-8 bg-[var(--color-bg)]/80 backdrop-blur-md">
   <div class="w-full max-w-[var(--container-max)] mx-auto flex justify-between items-center">
     <a href="/" class="flex items-center gap-2 font-bold text-xl tracking-tight">
-      <span>Noura™</span>
+      <span>base-pages.com™</span>
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
@@ -273,7 +273,7 @@ const { data } = Astro.props;
 
     <div class="mt-8 md:-mb-12 text-center md:text-left">
       <span class="text-[18vw] leading-[0.8] font-bold tracking-tighter block select-none pointer-events-none">
-        Noura™
+        base-pages.com™
       </span>
     </div>
   </div>
@@ -320,7 +320,7 @@ cat <<EOF > src/content/i18n/en.json
         ]
       }
     ],
-    "copyright": "© 2025 Noura",
+    "copyright": "© 2025 base-pages.com",
     "credits": "Powered by Webflow · Created by Template Supply"
   }
 }
@@ -364,7 +364,7 @@ cat <<EOF > src/content/i18n/de.json
         ]
       }
     ],
-    "copyright": "© 2025 Noura",
+    "copyright": "© 2025 base-pages.com",
     "credits": "Powered by Webflow · Erstellt von Template Supply"
   }
 }

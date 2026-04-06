@@ -9,7 +9,7 @@ import { generateHreflangLinks } from '../../i18n/hreflang';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
 const { footer, nav, starterPage } = enData;
-const hreflangLinks = generateHreflangLinks('/services/starter', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/services/starter', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
@@ -30,7 +30,7 @@ const jsonLd = [
 <LandingLayout
   title="The Starter Package | base-pages — Professional One-Page Website"
   description={starterPage.hero.titleLight}
-  canonicalUrl="https://basepages.dev/services/starter"
+  canonicalUrl="https://base-pages.com/services/starter"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}

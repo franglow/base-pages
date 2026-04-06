@@ -10,7 +10,7 @@ import { getOrganizationSchema, getBreadcrumbSchema } from '../../utils/schema';
 
 const { aboutPage, footer, nav } = enData;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
-const hreflangLinks = generateHreflangLinks('/about', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/about', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
@@ -23,7 +23,7 @@ const jsonLd = [
 <Layout
   title="About | base-pages — Boutique Web Studio"
   description="Meet the expert behind base-pages. A solo developer building ultra-fast, conversion-optimized websites with direct accountability and senior expertise."
-  canonicalUrl="https://basepages.dev/about"
+  canonicalUrl="https://base-pages.com/about"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}

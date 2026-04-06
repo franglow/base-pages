@@ -9,7 +9,7 @@ import { generateHreflangLinks } from '../../i18n/hreflang';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
 const { footer, nav, carePage } = enData;
-const hreflangLinks = generateHreflangLinks('/services/care', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/services/care', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
@@ -29,7 +29,7 @@ const jsonLd = [
 <LandingLayout
   title="Continuous Care | base-pages — Website Maintenance & Security"
   description={carePage.hero.titleLight}
-  canonicalUrl="https://basepages.dev/services/care"
+  canonicalUrl="https://base-pages.com/services/care"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}

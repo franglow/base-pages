@@ -12,7 +12,7 @@ import { getOrganizationSchema, getBreadcrumbSchema } from '../../utils/schema';
 export const prerender = false;
 
 const { nav, footer, contactPage } = enData;
-const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/contact', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
@@ -34,7 +34,7 @@ const care = contactPage.form.care;
 <Layout
   title="Contact | base-pages — Let's Build Your Engine"
   description="Ready to launch your high-performance website? Get in touch for a free consultation. Expert Astro development with premium design."
-  canonicalUrl="https://basepages.dev/contact"
+  canonicalUrl="https://base-pages.com/contact"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}

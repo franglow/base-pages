@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 import type { Language } from '../i18n/config';
 
 // ─── Configuration ──────────────────────────────────────────────────
-const FROM_ADDRESS = 'Base Pages <hello@basepages.dev>';
+const FROM_ADDRESS = 'Base Pages <hello@base-pages.com>';
 const INTERNAL_TO = 'elfrancortez@gmail.com';
 
 function getResendClient(): Resend | null {
@@ -28,7 +28,7 @@ function wrapInLayout(content: string): string {
       ${content}
     </div>
     <div style="padding:24px 32px;background:#f9fafb;border-top:1px solid #f3f4f6;text-align:center;">
-      <p style="margin:0;font-size:13px;color:#9ca3af;">Base Pages · basepages.dev</p>
+      <p style="margin:0;font-size:13px;color:#9ca3af;">Base Pages · base-pages.com</p>
     </div>
   </div>
 </body>
@@ -49,19 +49,19 @@ const CLIENT_TEMPLATES: Record<Language, (d: ClientData) => string> = {
   en: (d) => wrapInLayout(`
     <h2 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#111827;">Hi ${d.name}!</h2>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#374151;">We've received your message and will get back to you within 24 hours.</p>
-    <p style="margin:0;font-size:16px;line-height:1.6;color:#374151;">In the meantime, feel free to check out our latest work at <a href="https://basepages.dev/works" style="color:#111827;font-weight:500;">basepages.dev/works</a>.</p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#374151;">In the meantime, feel free to check out our latest work at <a href="https://base-pages.com/works" style="color:#111827;font-weight:500;">base-pages.com/works</a>.</p>
     <p style="margin:24px 0 0;font-size:16px;color:#374151;">— The Base Pages Team</p>
   `),
   de: (d) => wrapInLayout(`
     <h2 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#111827;">Hallo ${d.name}!</h2>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#374151;">Wir haben Ihre Nachricht erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
-    <p style="margin:0;font-size:16px;line-height:1.6;color:#374151;">Schauen Sie sich in der Zwischenzeit unsere neuesten Arbeiten an: <a href="https://basepages.dev/de/works" style="color:#111827;font-weight:500;">basepages.dev/de/works</a>.</p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#374151;">Schauen Sie sich in der Zwischenzeit unsere neuesten Arbeiten an: <a href="https://base-pages.com/de/works" style="color:#111827;font-weight:500;">base-pages.com/de/works</a>.</p>
     <p style="margin:24px 0 0;font-size:16px;color:#374151;">— Das Base Pages Team</p>
   `),
   es: (d) => wrapInLayout(`
     <h2 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#111827;">¡Hola ${d.name}!</h2>
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#374151;">Hemos recibido tu mensaje y te responderemos en un plazo de 24 horas.</p>
-    <p style="margin:0;font-size:16px;line-height:1.6;color:#374151;">Mientras tanto, echá un vistazo a nuestros últimos proyectos en <a href="https://basepages.dev/es/works" style="color:#111827;font-weight:500;">basepages.dev/es/works</a>.</p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#374151;">Mientras tanto, echá un vistazo a nuestros últimos proyectos en <a href="https://base-pages.com/es/works" style="color:#111827;font-weight:500;">base-pages.com/es/works</a>.</p>
     <p style="margin:24px 0 0;font-size:16px;color:#374151;">— El equipo de Base Pages</p>
   `),
 };

@@ -21,7 +21,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Language };
 const data = getI18n(lang);
 const { nav, footer, contactPage } = data;
-const hreflangLinks = generateHreflangLinks('/contact', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/contact', 'https://base-pages.com');
 
 const result = Astro.getActionResult(actions.submitContact);
 const inputErrors = result?.error?.fields;
@@ -35,7 +35,7 @@ const care = (contactPage as any).form.care;
 
 <Layout title="Contact | Base Pages" lang={lang}>
   <Fragment slot="head">
-    <link rel="canonical" href={`https://basepages.dev/${lang}/contact`} />
+    <link rel="canonical" href={`https://base-pages.com/${lang}/contact`} />
     {hreflangLinks.map((link) => (
       <link rel="alternate" hreflang={link.lang} href={link.href} />
     ))}

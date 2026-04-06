@@ -18,12 +18,12 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Language };
 const data = getI18n(lang);
-const hreflangLinks = generateHreflangLinks('/works', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/works', 'https://base-pages.com');
 ---
 
 <Layout title="Our Work" lang={lang}>
   <Fragment slot="head">
-    <link rel="canonical" href={`https://basepages.dev/${lang}/works`} />
+    <link rel="canonical" href={`https://base-pages.com/${lang}/works`} />
     {hreflangLinks.map((link) => (
       <link rel="alternate" hreflang={link.lang} href={link.href} />
     ))}

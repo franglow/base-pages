@@ -9,7 +9,7 @@ import { generateHreflangLinks } from '../../i18n/hreflang';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
 
 const { footer, nav, scalePage } = enData;
-const hreflangLinks = generateHreflangLinks('/services/scale', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/services/scale', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
@@ -30,7 +30,7 @@ const jsonLd = [
 <LandingLayout
   title="The Scale Website | base-pages — Enterprise Performance Architecture"
   description={scalePage.hero.titleLight}
-  canonicalUrl="https://basepages.dev/services/scale"
+  canonicalUrl="https://base-pages.com/services/scale"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}

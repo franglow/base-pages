@@ -12,14 +12,14 @@ import enData from '../i18n/en.json';
 import { generateHreflangLinks } from '../i18n/hreflang';
 import { getOrganizationSchema, getWebSiteSchema } from '../utils/schema';
 
-const hreflangLinks = generateHreflangLinks('/', 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks('/', 'https://base-pages.com');
 const jsonLd = [getOrganizationSchema(), getWebSiteSchema()];
 ---
 
 <Layout
   title="base-pages — High-Performance Websites & Landing Pages"
   description="Boutique web studio building ultra-fast, conversion-optimized websites. Expert-crafted Astro sites with premium design and white-glove service."
-  canonicalUrl="https://basepages.dev/"
+  canonicalUrl="https://base-pages.com/"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}

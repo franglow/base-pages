@@ -65,13 +65,13 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Language; id: string };
 const { project } = Astro.props as { project: any };
 const data = getI18n(lang);
-const hreflangLinks = generateHreflangLinks(`/works/${project.id}`, 'https://basepages.dev');
+const hreflangLinks = generateHreflangLinks(`/works/${project.id}`, 'https://base-pages.com');
 const nextCaseHref = localizeHref(lang, `/works/${project.nextId}`);
 ---
 
 <Layout title={`${project.title} - base-pages`} lang={lang}>
   <Fragment slot="head">
-    <link rel="canonical" href={`https://basepages.dev/${lang}/works/${project.id}`} />
+    <link rel="canonical" href={`https://base-pages.com/${lang}/works/${project.id}`} />
     {hreflangLinks.map((link) => (
       <link rel="alternate" hreflang={link.lang} href={link.href} />
     ))}

@@ -4,7 +4,7 @@ import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://basepages.dev',
+  site: 'https://base-pages.com',
   adapter: vercel(),
   integrations: [
     sitemap({

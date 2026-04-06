@@ -13,17 +13,17 @@ interface HreflangLink {
  * Option B: English pages have no prefix, other languages get /{lang} prefix.
  *
  * @param basePath - The path WITHOUT a language prefix (e.g., '/about', '/services/starter')
- * @param siteUrl  - The full site URL with protocol (e.g., 'https://basepages.dev')
+ * @param siteUrl  - The full site URL with protocol (e.g., 'https://base-pages.com')
  * @returns Array of { lang, href } objects for use in <link rel="alternate"> tags
  *
  * @example
- * generateHreflangLinks('/about', 'https://basepages.dev')
+ * generateHreflangLinks('/about', 'https://base-pages.com')
  * // Returns:
  * // [
- * //   { lang: 'en',      href: 'https://basepages.dev/about' },
- * //   { lang: 'de',      href: 'https://basepages.dev/de/about' },
- * //   { lang: 'es',      href: 'https://basepages.dev/es/about' },
- * //   { lang: 'x-default', href: 'https://basepages.dev/about' },
+ * //   { lang: 'en',      href: 'https://base-pages.com/about' },
+ * //   { lang: 'de',      href: 'https://base-pages.com/de/about' },
+ * //   { lang: 'es',      href: 'https://base-pages.com/es/about' },
+ * //   { lang: 'x-default', href: 'https://base-pages.com/about' },
  * // ]
  */
 export function generateHreflangLinks(basePath: string, siteUrl: string): HreflangLink[] {

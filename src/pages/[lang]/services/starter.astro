@@ -19,8 +19,8 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Language };
 const data = getI18n(lang);
 const { footer, nav, starterPage } = data;
-const hreflangLinks = generateHreflangLinks('/services/starter', 'https://basepages.dev');
-const canonicalUrl = `https://basepages.dev/${lang}/services/starter`;
+const hreflangLinks = generateHreflangLinks('/services/starter', 'https://base-pages.com');
+const canonicalUrl = `https://base-pages.com/${lang}/services/starter`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([

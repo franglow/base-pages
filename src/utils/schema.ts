@@ -1,6 +1,6 @@
 // src/utils/schema.ts — JSON-LD Structured Data generators for base-pages
 
-const SITE_URL = 'https://basepages.dev';
+const SITE_URL = 'https://base-pages.com';
 const SITE_NAME = 'base-pages';
 const LOGO_URL = `${SITE_URL}/images/og-default.jpg`;
 
@@ -62,7 +62,7 @@ export function getServiceSchema(params: {
   deliveryTime?: string;
 }) {
   const { name, description, price, currency = 'EUR', url, deliveryTime } = params;
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
