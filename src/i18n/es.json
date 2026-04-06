@@ -104,7 +104,7 @@
       ],
       "cta": {
         "buttonText": "Hagamos equipo",
-        "buttonUrl": "/es/contact"
+        "buttonUrl": "/es/contact?tier=partnership"
       }
     }
   },
@@ -350,6 +350,15 @@
         "features": ["Animaciones Avanzadas (GSAP)", "Soporte Multilingüe", "Blog / Motor CMS", "Integraciones con APIs", "E-commerce", "Autenticación de Usuarios"],
         "timelineLabel": "Plazo de lanzamiento deseado",
         "timelineOptions": ["En 3-5 semanas", "1-2 meses", "2-3 meses", "Flexible / Sin apuro"]
+      },
+      "partnership": {
+        "sectionLabel": "Contanos sobre tu práctica de diseño",
+        "portfolioPlaceholder": "URL de tu portfolio o Behance",
+        "designToolLabel": "Herramienta de diseño principal",
+        "designToolOptions": ["Figma", "Sketch", "Adobe XD", "Otra"],
+        "projectVolumeLabel": "Diseños de sitios web por mes",
+        "projectVolumeOptions": ["1-2 proyectos", "3-5 proyectos", "5+ proyectos"],
+        "figmaSamplePlaceholder": "Enlace a archivo Figma (opcional)"
       }
     }
   },

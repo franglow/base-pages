@@ -23,6 +23,11 @@ export const server = {
       pageScope: z.string().optional(),
       scaleFeatures: z.string().optional(),
       launchTimeline: z.string().optional(),
+      // Partnership vetting fields (optional — only present when Partnership is selected)
+      portfolioUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
+      designTool: z.string().optional(),
+      projectVolume: z.string().optional(),
+      figmaSample: z.string().optional(),
     }),
     handler: async (input) => {
       const lang = input.lang as Language;
@@ -37,6 +42,7 @@ export const server = {
       const interestLower = input.interest.toLowerCase();
       const isGrowthLead = interestLower.includes('growth');
       const isScaleLead = interestLower.includes('scale');
+      const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('white-label');
 
       // Fire-and-forget: internal lead notification
       sendInternalNotification({
@@ -60,9 +66,16 @@ export const server = {
           scaleFeatures: input.scaleFeatures,
           launchTimeline: input.launchTimeline,
         }),
+        // Partnership-specific fields (only included when present)
+        ...(isPartnershipLead && {
+          portfolioUrl: input.portfolioUrl,
+          designTool: input.designTool,
+          projectVolume: input.projectVolume,
+          figmaSample: input.figmaSample,
+        }),
       });
 
-      return { success: true, isScale: isScaleLead };
+      return { success: true, isScale: isScaleLead, isPartnership: isPartnershipLead };
     },
   }),
 };

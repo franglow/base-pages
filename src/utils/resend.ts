@@ -134,11 +134,14 @@ async function _sendInternalNotification(data: Record<string, string | undefined
   const interestLower = data.interest?.toLowerCase() || '';
   const isGrowth = interestLower.includes('growth');
   const isScale = interestLower.includes('scale');
-  const subject = isScale
-    ? `🏗️ Scale Lead: ${data.name || 'Contact Form'}`
-    : isGrowth
-      ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
-      : `📩 New Lead: ${data.interest || 'Contact Form'}`;
+  const isPartnership = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca');
+  const subject = isPartnership
+    ? `🤝 Partnership Lead: ${data.name || 'Contact Form'}`
+    : isScale
+      ? `🏗️ Scale Lead: ${data.name || 'Contact Form'}`
+      : isGrowth
+        ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
+        : `📩 New Lead: ${data.interest || 'Contact Form'}`;
   const html = buildInternalHtml(data);
 
   const resend = getResendClient();

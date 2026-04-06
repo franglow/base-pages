@@ -104,7 +104,7 @@
       ],
       "cta": {
         "buttonText": "Let's team up",
-        "buttonUrl": "/contact"
+        "buttonUrl": "/contact?tier=partnership"
       }
     }
   },
@@ -350,6 +350,15 @@
         "features": ["Advanced Animations (GSAP)", "Multilingual Support", "Blog / CMS Engine", "Third-party API Integrations", "E-commerce", "User Authentication"],
         "timelineLabel": "Desired launch timeline",
         "timelineOptions": ["Within 3-5 weeks", "1-2 months", "2-3 months", "Flexible / No rush"]
+      },
+      "partnership": {
+        "sectionLabel": "Tell us about your design practice",
+        "portfolioPlaceholder": "Portfolio or Behance URL",
+        "designToolLabel": "Primary design tool",
+        "designToolOptions": ["Figma", "Sketch", "Adobe XD", "Other"],
+        "projectVolumeLabel": "Website designs per month",
+        "projectVolumeOptions": ["1-2 projects", "3-5 projects", "5+ projects"],
+        "figmaSamplePlaceholder": "Figma file link (optional)"
       }
     }
   },
