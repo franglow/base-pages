@@ -1,0 +1,91 @@
+---
+/**
+ * GTM DataLayer Events for Service Pages
+ * Tracks: scroll_depth, cta_click, time_on_page, service_engagement
+ * All events fire via dataLayer.push() which Partytown forwards to GTM.
+ */
+interface Props {
+  tier: 'starter' | 'growth' | 'scale' | 'care';
+}
+
+const { tier } = Astro.props;
+---
+
+<script define:vars={{ tier }}>
+  (function() {
+    const dl = window.dataLayer = window.dataLayer || [];
+    let startTime = Date.now();
+    let maxScroll = 0;
+    let ctaSent = {};
+
+    // --- Scroll Depth Tracking (25%, 50%, 75%, 100%) ---
+    function getScrollPercent() {
+      const h = document.documentElement;
+      const st = window.scrollY || h.scrollTop;
+      const sh = h.scrollHeight - h.clientHeight;
+      return sh > 0 ? Math.round((st / sh) * 100) : 0;
+    }
+
+    const thresholds = [25, 50, 75, 100];
+    let firedThresholds = {};
+
+    window.addEventListener('scroll', function() {
+      const pct = getScrollPercent();
+      if (pct > maxScroll) maxScroll = pct;
+
+      thresholds.forEach(function(t) {
+        if (pct >= t && !firedThresholds[t]) {
+          firedThresholds[t] = true;
+          dl.push({
+            event: 'scroll_depth',
+            tier: tier,
+            depth: t + '%',
+            page_path: location.pathname,
+          });
+        }
+      });
+    }, { passive: true });
+
+    // --- CTA Click Tracking ---
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a[href*="contact"], button[type="submit"]');
+      if (!link) return;
+
+      const section = link.closest('section');
+      const sectionId = section ? (section.id || section.className.split(' ')[0] || 'unknown') : 'unknown';
+
+      if (ctaSent[sectionId]) return;
+      ctaSent[sectionId] = true;
+
+      dl.push({
+        event: 'cta_click',
+        tier: tier,
+        source_section: sectionId,
+        cta_text: link.textContent?.trim().substring(0, 50),
+        page_language: document.documentElement.lang,
+        page_path: location.pathname,
+      });
+    });
+
+    // --- Time on Page + Engagement (on page leave) ---
+    function sendEngagement() {
+      const elapsed = Math.round((Date.now() - startTime) / 1000);
+      dl.push({
+        event: 'service_engagement',
+        tier: tier,
+        time_on_page: elapsed,
+        max_scroll_depth: maxScroll + '%',
+        page_language: document.documentElement.lang,
+        page_path: location.pathname,
+      });
+    }
+
+    // Use visibilitychange (more reliable than beforeunload)
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') sendEngagement();
+    });
+
+    // Fallback for page unload
+    window.addEventListener('pagehide', sendEngagement, { once: true });
+  })();
+</script>

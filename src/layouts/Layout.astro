@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SEOHead from '../components/seo/SEOHead.astro';
+import ConsentBanner from '../components/seo/ConsentBanner.astro';
 
 interface Props {
   title: string;
@@ -88,5 +89,7 @@ const {
         ...(isMobile && { autoRefreshEvents: "DOMContentLoaded,load" })
       });
     </script>
+
+    <ConsentBanner />
   </body>
 </html>

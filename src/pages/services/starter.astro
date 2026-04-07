@@ -7,6 +7,7 @@ import Button from '../../components/ui/Button.astro';
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
+import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, starterPage } = enData;
 const hreflangLinks = generateHreflangLinks('/services/starter', 'https://base-pages.com');
@@ -36,6 +37,7 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   
+  <ServiceAnalytics tier="starter" />
   <LandingHeader navData={nav} />
 
   <main class="starter-page">

@@ -1,0 +1,175 @@
+---
+/**
+ * Lightweight GDPR Consent Banner (< 2kB JS)
+ * Uses native <dialog> element — no JS library.
+ * Renders as an Astro island with client:idle so it loads after page is interactive.
+ * GTM only fires after user grants consent via __bp_consent cookie.
+ */
+---
+
+<dialog id="consent-banner" class="consent-banner" aria-labelledby="consent-title" aria-describedby="consent-desc">
+  <div class="consent-inner">
+    <div class="consent-text">
+      <p id="consent-title" class="consent-title">We value your privacy</p>
+      <p id="consent-desc" class="consent-desc">
+        We use cookies for analytics to understand how you interact with our site. No personal data is sold or shared with third parties.
+      </p>
+    </div>
+    <div class="consent-actions">
+      <button id="consent-reject" class="consent-btn consent-btn-secondary" type="button">
+        Decline
+      </button>
+      <button id="consent-accept" class="consent-btn consent-btn-primary" type="button">
+        Accept
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  function initConsent() {
+    const banner = document.getElementById('consent-banner') as HTMLDialogElement | null;
+    const acceptBtn = document.getElementById('consent-accept');
+    const rejectBtn = document.getElementById('consent-reject');
+    
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    // Check if consent was already given
+    const existing = document.cookie.split(';').find(c => c.trim().startsWith('__bp_consent='));
+    if (existing) return; // Don't show banner — consent already recorded
+
+    // Show the banner (non-modal so page remains interactive)
+    banner.show();
+
+    acceptBtn.addEventListener('click', () => {
+      document.cookie = '__bp_consent=analytics; max-age=31536000; path=/; SameSite=Lax; Secure';
+      banner.close();
+
+      // Signal GTM that consent was granted
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: 'consent_granted',
+          consent_type: 'analytics',
+        });
+      }
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      document.cookie = '__bp_consent=denied; max-age=31536000; path=/; SameSite=Lax; Secure';
+      banner.close();
+    });
+  }
+
+  // Run on initial load and Astro page transitions
+  document.addEventListener('DOMContentLoaded', initConsent);
+  document.addEventListener('astro:page-load', initConsent);
+</script>
+
+<style>
+  .consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .consent-banner::backdrop {
+    display: none;
+  }
+
+  .consent-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 20px 28px;
+    background: #111827;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .consent-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .consent-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: white;
+  }
+
+  .consent-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #9ca3af;
+    margin: 0;
+  }
+
+  .consent-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .consent-btn {
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .consent-btn:hover {
+    transform: scale(1.03);
+  }
+
+  .consent-btn-primary {
+    background: white;
+    color: #111827;
+  }
+
+  .consent-btn-secondary {
+    background: transparent;
+    color: #9ca3af;
+    border: 1px solid #374151;
+  }
+
+  .consent-btn-secondary:hover {
+    color: white;
+    border-color: #6b7280;
+  }
+
+  @media (max-width: 640px) {
+    .consent-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+      margin-left: 16px;
+      margin-right: 16px;
+      padding: 20px;
+    }
+
+    .consent-actions {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

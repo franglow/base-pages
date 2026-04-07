@@ -7,23 +7,26 @@ import Footer from '../../components/sections/Footer.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
-import { getOrganizationSchema, getBreadcrumbSchema, getServiceListSchema } from '../../utils/schema';
+import { getOrganizationSchema, getBreadcrumbSchema, getServiceListSchema, getOfferCatalogSchema } from '../../utils/schema';
 
 const { services, footer, nav, designerBanner } = enData;
 const hreflangLinks = generateHreflangLinks('/services', 'https://base-pages.com');
+
+const serviceItems = services.items.map((item: any) => ({
+  name: item.title,
+  url: item.url,
+  description: item.subtitle || item.description,
+  price: item.price?.replace(/[^0-9]/g, '') || '0',
+}));
+
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Services', url: '/services' },
   ]),
-  getServiceListSchema(
-    services.items.map((item: any) => ({
-      name: item.title,
-      url: item.url,
-      description: item.subtitle || item.description,
-    }))
-  ),
+  getServiceListSchema(serviceItems),
+  getOfferCatalogSchema(serviceItems),
 ];
 ---
 
