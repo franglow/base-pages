@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
+import partytown from '@astrojs/partytown';
 
 export default defineConfig({
   site: 'https://base-pages.com',
@@ -15,6 +16,11 @@ export default defineConfig({
           es: 'es',
           de: 'de',
         },
+      },
+    }),
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
       },
     }),
   ],
