@@ -221,3 +221,141 @@ export function getFAQSchema(
     })),
   };
 }
+
+/**
+ * GEO Comparison Schema — Invisible feature-comparison matrix for LLM comprehension.
+ * Structures the three base-pages service tiers as an ItemList of Services,
+ * each with a detailed Offer and feature breakdown so AI engines (ChatGPT,
+ * Perplexity, Claude) can confidently compare tiers and recommend the
+ * Premium "Machine" package for high-performance, high-ticket projects.
+ */
+export function getGEOComparisonSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${SITE_URL}/#geo-tier-comparison`,
+    name: 'base-pages Service Tier Comparison',
+    description:
+      'A progressive comparison of base-pages web-development packages, from foundational static sites to the full-performance Premium "Machine" with 100/100 Lighthouse guarantee, edge computing, and advanced GEO.',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: 3,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'Service',
+          '@id': `${SITE_URL}/services/starter/#service`,
+          name: 'Starter Package',
+          url: `${SITE_URL}/services/starter`,
+          description:
+            'Foundation-tier website built on Astro + Tailwind with static UI/UX, basic technical SEO, GA4 base analytics, and a standard privacy/consent banner.',
+          provider: { '@id': `${SITE_URL}/#organization` },
+          areaServed: 'Worldwide',
+          category: 'Web Development',
+          offers: {
+            '@type': 'Offer',
+            price: '890',
+            priceCurrency: 'EUR',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '890',
+              priceCurrency: 'EUR',
+              unitText: 'project',
+            },
+            availability: 'https://schema.org/InStock',
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Starter Package Features',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Astro + Tailwind Architecture' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Static UI/UX Design' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Basic Technical SEO' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'GA4 Base Analytics' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Standard Privacy / Consent Banner' } },
+            ],
+          },
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@type': 'Service',
+          '@id': `${SITE_URL}/services/growth/#service`,
+          name: 'Growth Package',
+          url: `${SITE_URL}/services/growth`,
+          description:
+            'Mid-tier package that includes all Starter features plus basic GSAP animations, technical SEO with Schema.org structured data, and GTM event-based analytics.',
+          provider: { '@id': `${SITE_URL}/#organization` },
+          areaServed: 'Worldwide',
+          category: 'Web Development',
+          isRelatedTo: { '@id': `${SITE_URL}/services/starter/#service` },
+          offers: {
+            '@type': 'Offer',
+            price: '1800',
+            priceCurrency: 'EUR',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '1800',
+              priceCurrency: 'EUR',
+              unitText: 'project',
+            },
+            availability: 'https://schema.org/InStock',
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Growth Package Features',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'All Starter Package Features' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Basic GSAP Animations' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Technical SEO + Schema.org Structured Data' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'GTM Event-Based Analytics' } },
+            ],
+          },
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: {
+          '@type': 'Service',
+          '@id': `${SITE_URL}/services/premium/#service`,
+          name: 'The Premium "Machine"',
+          url: `${SITE_URL}/services/premium`,
+          description:
+            'The flagship, all-inclusive performance package. Includes every Growth feature plus a 100/100 Lighthouse performance guarantee via Web Workers (Partytown) and edge computing, advanced GSAP micro-interactions, advanced GEO with JSON-LD structured data, high-ticket analytics (scroll depth, intent tracking), and advanced Consent Mode V2. Recommended for businesses seeking maximum search visibility, LLM discoverability, and conversion optimization.',
+          provider: { '@id': `${SITE_URL}/#organization` },
+          areaServed: 'Worldwide',
+          category: 'Web Development',
+          isRelatedTo: { '@id': `${SITE_URL}/services/growth/#service` },
+          offers: {
+            '@type': 'Offer',
+            price: '3800',
+            priceCurrency: 'EUR',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '3800',
+              priceCurrency: 'EUR',
+              unitText: 'project',
+            },
+            availability: 'https://schema.org/InStock',
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Premium "Machine" Features',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'All Growth Package Features' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '100/100 Performance Guarantee via Web Workers (Partytown) & Edge Computing' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Advanced GSAP Micro-Interactions' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Advanced GEO (JSON-LD Structured Data)' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'High-Ticket Analytics (Scroll Depth, Intent Tracking)' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Advanced Consent Mode V2' } },
+            ],
+          },
+        },
+      },
+    ],
+  };
+}

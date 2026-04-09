@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SEOHead from '../components/seo/SEOHead.astro';
+import { getGEOComparisonSchema } from '../utils/schema';
 import ConsentBanner from '../components/seo/ConsentBanner.astro';
 
 interface Props {
@@ -24,6 +25,8 @@ const {
   jsonLd,
   hreflangLinks,
 } = Astro.props;
+
+const geoComparisonSchema = getGEOComparisonSchema();
 ---
 <!doctype html>
 <html lang={lang}>
@@ -44,6 +47,8 @@ const {
       jsonLd={jsonLd}
       hreflangLinks={hreflangLinks}
     />
+    <!-- GEO: Invisible tier-comparison matrix for LLM comprehension -->
+    <script type="application/ld+json" set:html={JSON.stringify(geoComparisonSchema)} />
     <script is:inline>
       document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
     </script>
