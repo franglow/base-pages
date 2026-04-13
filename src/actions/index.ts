@@ -43,14 +43,15 @@ export const server = {
         email: input.email,
       });
 
-      // Determine lead tier
+      // ── Lead Radar: Tier detection ──────────────────────────────────
       const interestLower = input.interest.toLowerCase();
+      const isPremium = interestLower.includes('scale') || interestLower.includes('premium');
       const isGrowthLead = interestLower.includes('growth');
-      const isScaleLead = interestLower.includes('scale');
-      const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca');
+      const isStarterLead = interestLower.includes('starter');
+      const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('partnerschaft');
       const isCareLead = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
 
-      // Fire-and-forget: internal lead notification
+      // Fire-and-forget: internal Lead Radar notification
       sendInternalNotification({
         name: input.name,
         email: input.email,
@@ -65,8 +66,8 @@ export const server = {
           channels: input.channels,
           conversionGoal: input.conversionGoal,
         }),
-        // Scale-specific fields (only included when present)
-        ...(isScaleLead && {
+        // Premium/Scale-specific fields (only included when present)
+        ...(isPremium && {
           cmsPreference: input.cmsPreference,
           pageScope: input.pageScope,
           scaleFeatures: input.scaleFeatures,
@@ -88,7 +89,15 @@ export const server = {
         }),
       });
 
-      return { success: true, isScale: isScaleLead, isPartnership: isPartnershipLead, isCare: isCareLead };
+      return {
+        success: true,
+        tier: isPremium ? 'premium'
+            : isGrowthLead ? 'growth'
+            : isStarterLead ? 'starter'
+            : isPartnershipLead ? 'partnership'
+            : isCareLead ? 'care'
+            : 'general',
+      };
     },
   }),
 };

@@ -5,7 +5,8 @@ import type { Language } from '../i18n/config';
 
 // ─── Configuration ──────────────────────────────────────────────────
 const FROM_ADDRESS = 'Base Pages <hello@base-pages.com>';
-const INTERNAL_TO = 'elfrancortez@gmail.com';
+const LEAD_RADAR_FROM = 'Base-Pages Lead Radar <hello@base-pages.com>';
+const INTERNAL_TO = 'fran+leads@base-pages.com';
 
 function getResendClient(): Resend | null {
   const apiKey = import.meta.env.RESEND_API_KEY;
@@ -131,20 +132,8 @@ export function sendInternalNotification(data: Record<string, string | undefined
 }
 
 async function _sendInternalNotification(data: Record<string, string | undefined>): Promise<void> {
-  const interestLower = data.interest?.toLowerCase() || '';
-  const isGrowth = interestLower.includes('growth');
-  const isScale = interestLower.includes('scale');
-  const isPartnership = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca');
-  const isCare = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
-  const subject = isCare
-    ? `🛡️ Care Lead: ${data.name || 'Contact Form'}`
-    : isPartnership
-      ? `🤝 Partnership Lead: ${data.name || 'Contact Form'}`
-      : isScale
-        ? `🏗️ Scale Lead: ${data.name || 'Contact Form'}`
-        : isGrowth
-          ? `🚀 Growth Lead: ${data.name || 'Contact Form'}`
-          : `📩 New Lead: ${data.interest || 'Contact Form'}`;
+  const leadName = data.name || 'Unknown';
+  const subject = getLeadRadarSubject(data.interest, leadName);
   const html = buildInternalHtml(data);
 
   const resend = getResendClient();
@@ -155,8 +144,9 @@ async function _sendInternalNotification(data: Record<string, string | undefined
   }
 
   const { error } = await resend.emails.send({
-    from: FROM_ADDRESS,
+    from: LEAD_RADAR_FROM,
     to: INTERNAL_TO,
+    replyTo: data.email,
     subject,
     html,
   });
@@ -165,5 +155,35 @@ async function _sendInternalNotification(data: Record<string, string | undefined
     throw new Error(`Resend API error: ${JSON.stringify(error)}`);
   }
 
-  console.log(`[RESEND] ✓ Internal notification sent`);
+  console.log(`[RESEND] ✓ Lead Radar notification sent → ${subject}`);
+}
+
+// ─── Lead Radar: Dynamic Subject Line Formula ──────────────────────
+// Maps the incoming "interest" (package/tier) to an instantly
+// identifiable subject line in the founder's inbox.
+function getLeadRadarSubject(interest: string | undefined, name: string): string {
+  const val = (interest || '').toLowerCase();
+
+  // Premium "Machine" — the €3,800 flagship (matches "scale" or "premium")
+  if (val.includes('scale') || val.includes('premium'))
+    return `[🔥 PREMIUM - €3,800] New Lead: ${name}`;
+
+  // Growth Package
+  if (val.includes('growth'))
+    return `[⚡ GROWTH] New Lead: ${name}`;
+
+  // Starter Package
+  if (val.includes('starter'))
+    return `[🌱 STARTER] New Lead: ${name}`;
+
+  // Continuous Care retainer
+  if (val.includes('care') || val.includes('cuidado') || val.includes('betreuung'))
+    return `[🛠️ CARE] New Lead: ${name}`;
+
+  // Partnership / White-label
+  if (val.includes('partnership') || val.includes('white-label') || val.includes('marca blanca') || val.includes('partnerschaft'))
+    return `[🤝 PARTNERSHIP] New Lead: ${name}`;
+
+  // Catch-all: General inquiry
+  return `[📩 GENERAL] New Lead: ${name}`;
 }
