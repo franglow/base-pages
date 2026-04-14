@@ -14,7 +14,7 @@ export const server = {
       message: z.string().min(10, 'Message must be at least 10 characters'),
       lang: z.enum(['en', 'de', 'es']).default('en'),
       // Growth Package qualification fields (optional — only present when Growth is selected)
-      websiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
+      websiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
       adSpend: z.string().optional(),
       channels: z.string().optional(),
       conversionGoal: z.string().optional(),
@@ -24,12 +24,12 @@ export const server = {
       scaleFeatures: z.string().optional(),
       launchTimeline: z.string().optional(),
       // Partnership vetting fields (optional — only present when Partnership is selected)
-      portfolioUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
+      portfolioUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
       designTool: z.string().optional(),
       projectVolume: z.string().optional(),
       figmaSample: z.string().optional(),
       // Continuous Care fields (optional — only present when Care is selected)
-      careWebsiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')),
+      careWebsiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
       carePlatform: z.string().optional(),
       carePriority: z.string().optional(),
       careOrigin: z.string().optional(),
