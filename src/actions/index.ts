@@ -1,4 +1,4 @@
-import { defineAction } from 'astro:actions';
+import { defineAction, ActionError } from 'astro:actions';
 import { z } from 'astro:schema';
 import { sendClientEmail, sendInternalNotification } from '../utils/resend';
 import type { Language } from '../i18n/config';
@@ -35,13 +35,14 @@ export const server = {
       careOrigin: z.string().optional(),
     }),
     handler: async (input) => {
-      const lang = input.lang as Language;
-
-      // Fire-and-forget: client auto-responder (localized)
-      sendClientEmail(lang, {
+      console.log('[ACTION] ✦ submitContact triggered', JSON.stringify({
         name: input.name,
         email: input.email,
-      });
+        interest: input.interest,
+        lang: input.lang,
+      }));
+
+      const lang = input.lang as Language;
 
       // ── Lead Radar: Tier detection ──────────────────────────────────
       const interestLower = input.interest.toLowerCase();
@@ -51,53 +52,75 @@ export const server = {
       const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('partnerschaft');
       const isCareLead = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
 
-      // Fire-and-forget: internal Lead Radar notification
-      sendInternalNotification({
-        name: input.name,
-        email: input.email,
-        interest: input.interest,
-        budget: input.budget,
-        message: input.message,
-        lang,
-        // Growth-specific fields (only included when present)
-        ...(isGrowthLead && {
-          websiteUrl: input.websiteUrl,
-          adSpend: input.adSpend,
-          channels: input.channels,
-          conversionGoal: input.conversionGoal,
-        }),
-        // Premium/Scale-specific fields (only included when present)
-        ...(isPremium && {
-          cmsPreference: input.cmsPreference,
-          pageScope: input.pageScope,
-          scaleFeatures: input.scaleFeatures,
-          launchTimeline: input.launchTimeline,
-        }),
-        // Partnership-specific fields (only included when present)
-        ...(isPartnershipLead && {
-          portfolioUrl: input.portfolioUrl,
-          designTool: input.designTool,
-          projectVolume: input.projectVolume,
-          figmaSample: input.figmaSample,
-        }),
-        // Care-specific fields (only included when present)
-        ...(isCareLead && {
-          careWebsiteUrl: input.careWebsiteUrl,
-          carePlatform: input.carePlatform,
-          carePriority: input.carePriority,
-          careOrigin: input.careOrigin,
-        }),
-      });
+      const tier = isPremium ? 'premium'
+          : isGrowthLead ? 'growth'
+          : isStarterLead ? 'starter'
+          : isPartnershipLead ? 'partnership'
+          : isCareLead ? 'care'
+          : 'general';
 
-      return {
-        success: true,
-        tier: isPremium ? 'premium'
-            : isGrowthLead ? 'growth'
-            : isStarterLead ? 'starter'
-            : isPartnershipLead ? 'partnership'
-            : isCareLead ? 'care'
-            : 'general',
-      };
+      // ── Send emails — AWAITED, errors surface ─────────────────────
+      try {
+        // Send client auto-responder (localized)
+        await sendClientEmail(lang, {
+          name: input.name,
+          email: input.email,
+        });
+        console.log('[ACTION] ✓ Client auto-responder sent');
+      } catch (err) {
+        console.error('[ACTION] ❌ Client auto-responder failed:', err);
+        throw new ActionError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Failed to send confirmation email: ${err instanceof Error ? err.message : String(err)}`,
+        });
+      }
+
+      try {
+        // Send internal Lead Radar notification
+        await sendInternalNotification({
+          name: input.name,
+          email: input.email,
+          interest: input.interest,
+          budget: input.budget,
+          message: input.message,
+          lang,
+          // Growth-specific fields (only included when present)
+          ...(isGrowthLead && {
+            websiteUrl: input.websiteUrl,
+            adSpend: input.adSpend,
+            channels: input.channels,
+            conversionGoal: input.conversionGoal,
+          }),
+          // Premium/Scale-specific fields (only included when present)
+          ...(isPremium && {
+            cmsPreference: input.cmsPreference,
+            pageScope: input.pageScope,
+            scaleFeatures: input.scaleFeatures,
+            launchTimeline: input.launchTimeline,
+          }),
+          // Partnership-specific fields (only included when present)
+          ...(isPartnershipLead && {
+            portfolioUrl: input.portfolioUrl,
+            designTool: input.designTool,
+            projectVolume: input.projectVolume,
+            figmaSample: input.figmaSample,
+          }),
+          // Care-specific fields (only included when present)
+          ...(isCareLead && {
+            careWebsiteUrl: input.careWebsiteUrl,
+            carePlatform: input.carePlatform,
+            carePriority: input.carePriority,
+            careOrigin: input.careOrigin,
+          }),
+        });
+        console.log('[ACTION] ✓ Internal Lead Radar notification sent');
+      } catch (err) {
+        // Internal notification failure is non-critical — log but don't block
+        console.error('[ACTION] ⚠ Internal notification failed (non-blocking):', err);
+      }
+
+      console.log(`[ACTION] ✓ submitContact complete — tier=${tier}`);
+      return { success: true, tier };
     },
   }),
 };

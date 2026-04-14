@@ -23,7 +23,19 @@ const jsonLd = [
 
 const result = Astro.getActionResult(actions.submitContact);
 const inputErrors = result?.error?.fields;
-const success = result?.data?.success;
+
+// On success, redirect so the user gets a clean URL (PRG pattern)
+if (result?.data?.success) {
+  return Astro.redirect('/contact?success=1');
+}
+
+// Check for success via query param (after redirect)
+const success = Astro.url.searchParams.get('success') === '1';
+
+// Capture action-level errors (non-field errors like Resend failures)
+const actionError = result?.error && !inputErrors
+  ? result.error.message || 'Something went wrong. Please try again.'
+  : null;
 
 const growth = contactPage.form.growth;
 const scale = contactPage.form.scale;
@@ -55,6 +67,13 @@ const care = contactPage.form.care;
           <h1 class="text-[48px] md:text-[64px] font-medium text-gray-900 mb-12 tracking-tight">
             {contactPage.title}
           </h1>
+
+          {actionError && (
+            <div class="error-banner" role="alert">
+              <p class="error-banner-title">⚠ Submission failed</p>
+              <p class="error-banner-message">{actionError}</p>
+            </div>
+          )}
 
           <form method="POST" action={actions.submitContact} class="flex flex-col gap-8">
             <input type="hidden" name="lang" value="en" />
@@ -432,6 +451,19 @@ const care = contactPage.form.care;
   .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 25px 45px -10px rgba(0,0,0,0.5); }
 
   .error-text { color: #dc2626; font-size: 14px; margin-top: 4px; }
+
+  /* ── Error Banner (action-level errors) ─────────────────────────── */
+  .error-banner {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px;
+    padding: 16px 20px; margin-bottom: 24px;
+  }
+  .error-banner-title {
+    margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #991b1b;
+  }
+  .error-banner-message {
+    margin: 0; font-size: 14px; color: #b91c1c; line-height: 1.5;
+    word-break: break-word;
+  }
 
   /* ── Tier Progressive Disclosure (shared) ─────────────────────────── */
   .tier-fields {

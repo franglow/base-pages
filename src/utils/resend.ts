@@ -8,12 +8,22 @@ const FROM_ADDRESS = 'Base Pages <hello@base-pages.com>';
 const LEAD_RADAR_FROM = 'Base-Pages Lead Radar <hello@base-pages.com>';
 const INTERNAL_TO = 'fran+leads@base-pages.com';
 
-function getResendClient(): Resend | null {
-  const apiKey = import.meta.env.RESEND_API_KEY;
+function getResendClient(): Resend {
+  // Vercel injects env vars into process.env at runtime.
+  // import.meta.env works at Vite build-time but can be empty in
+  // Vercel's Node serverless functions. Try both, prefer process.env.
+  const apiKey =
+    (typeof process !== 'undefined' && process.env?.RESEND_API_KEY) ||
+    import.meta.env.RESEND_API_KEY;
+
   if (!apiKey || apiKey === 're_PASTE_YOUR_KEY_HERE') {
-    console.warn('[RESEND] No API key found — emails will be logged to console only.');
-    return null;
+    const msg = '[RESEND] ❌ RESEND_API_KEY is missing or placeholder. '
+      + 'Set it in .env (local) or Vercel Environment Variables (production).';
+    console.error(msg);
+    throw new Error(msg);
   }
+
+  console.log(`[RESEND] ✓ API key loaded (${apiKey.substring(0, 6)}…)`);
   return new Resend(apiKey);
 }
 
@@ -88,26 +98,16 @@ function buildInternalHtml(data: Record<string, string | undefined>): string {
 
 /**
  * Send a localized auto-responder email to the client.
- * Fire-and-forget: errors are caught and logged, never block the redirect.
+ * Now AWAITED — errors propagate to the action handler.
  */
-export function sendClientEmail(lang: Language, data: ClientData): void {
-  _sendClientEmail(lang, data).catch((err) => {
-    console.error(`[RESEND] Failed to send client email to ${data.email}:`, err);
-  });
-}
-
-async function _sendClientEmail(lang: Language, data: ClientData): Promise<void> {
+export async function sendClientEmail(lang: Language, data: ClientData): Promise<void> {
   const subject = SUBJECT_LINES[lang];
   const html = CLIENT_TEMPLATES[lang](data);
 
   const resend = getResendClient();
-  if (!resend) {
-    console.log(`[EMAIL STUB] To: ${data.email}, Subject: ${subject}`);
-    console.log(`[EMAIL STUB] Body preview: ${html.substring(0, 200)}...`);
-    return;
-  }
 
-  const { error } = await resend.emails.send({
+  console.log(`[RESEND] Sending auto-responder to ${data.email} (${lang})…`);
+  const { data: result, error } = await resend.emails.send({
     from: FROM_ADDRESS,
     to: data.email,
     subject,
@@ -115,35 +115,26 @@ async function _sendClientEmail(lang: Language, data: ClientData): Promise<void>
   });
 
   if (error) {
-    throw new Error(`Resend API error: ${JSON.stringify(error)}`);
+    console.error(`[RESEND] ❌ Client email failed:`, JSON.stringify(error));
+    throw new Error(`Resend API error (client email): ${JSON.stringify(error)}`);
   }
 
-  console.log(`[RESEND] ✓ Sent auto-responder to ${data.email} (${lang})`);
+  console.log(`[RESEND] ✓ Sent auto-responder to ${data.email} (${lang}), id=${result?.id}`);
 }
 
 /**
  * Send an internal notification email with all lead data.
- * Fire-and-forget: errors are caught and logged, never block the redirect.
+ * Now AWAITED — errors propagate to the action handler.
  */
-export function sendInternalNotification(data: Record<string, string | undefined>): void {
-  _sendInternalNotification(data).catch((err) => {
-    console.error('[RESEND] Failed to send internal notification:', err);
-  });
-}
-
-async function _sendInternalNotification(data: Record<string, string | undefined>): Promise<void> {
+export async function sendInternalNotification(data: Record<string, string | undefined>): Promise<void> {
   const leadName = data.name || 'Unknown';
   const subject = getLeadRadarSubject(data.interest, leadName);
   const html = buildInternalHtml(data);
 
   const resend = getResendClient();
-  if (!resend) {
-    console.log(`[INTERNAL STUB] Subject: ${subject}`);
-    console.log(`[INTERNAL STUB] Data:`, JSON.stringify(data));
-    return;
-  }
 
-  const { error } = await resend.emails.send({
+  console.log(`[RESEND] Sending Lead Radar notification: ${subject}…`);
+  const { data: result, error } = await resend.emails.send({
     from: LEAD_RADAR_FROM,
     to: INTERNAL_TO,
     replyTo: data.email,
@@ -152,10 +143,11 @@ async function _sendInternalNotification(data: Record<string, string | undefined
   });
 
   if (error) {
-    throw new Error(`Resend API error: ${JSON.stringify(error)}`);
+    console.error(`[RESEND] ❌ Internal notification failed:`, JSON.stringify(error));
+    throw new Error(`Resend API error (internal notification): ${JSON.stringify(error)}`);
   }
 
-  console.log(`[RESEND] ✓ Lead Radar notification sent → ${subject}`);
+  console.log(`[RESEND] ✓ Lead Radar notification sent → ${subject}, id=${result?.id}`);
 }
 
 // ─── Lead Radar: Dynamic Subject Line Formula ──────────────────────
