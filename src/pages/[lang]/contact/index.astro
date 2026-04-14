@@ -105,7 +105,7 @@ const care = (contactPage as any).form.care;
                   <legend class="chips-legend">{growth.channelsLabel}</legend>
                   <div class="chips-grid">
                     {growth.channels.map((ch: string) => (
-                      <label class="chip"><input type="checkbox" name="channelOption" value={ch} class="chip-checkbox channel-checkbox" /><span class="chip-label">{ch}</span></label>
+                      <label class="chip"><input type="checkbox" value={ch} class="chip-checkbox channel-checkbox" /><span class="chip-label">{ch}</span></label>
                     ))}
                   </div>
                 </fieldset>
@@ -147,7 +147,7 @@ const care = (contactPage as any).form.care;
                   <legend class="chips-legend">{scale.featuresLabel}</legend>
                   <div class="chips-grid">
                     {scale.features.map((f: string) => (
-                      <label class="chip"><input type="checkbox" name="scaleFeatureOption" value={f} class="chip-checkbox scale-feature-checkbox" /><span class="chip-label">{f}</span></label>
+                      <label class="chip"><input type="checkbox" value={f} class="chip-checkbox scale-feature-checkbox" /><span class="chip-label">{f}</span></label>
                     ))}
                   </div>
                 </fieldset>
@@ -189,7 +189,7 @@ const care = (contactPage as any).form.care;
                   </div>
                 </div>
                 <div class="input-group">
-                  <input type="url" id="figmaSample" name="figmaSample" placeholder={partnership.figmaSamplePlaceholder} class="minimal-input" />
+                  <input type="text" id="figmaSample" name="figmaSample" placeholder={partnership.figmaSamplePlaceholder} class="minimal-input" />
                 </div>
               </div>
             </div>
@@ -389,11 +389,9 @@ const care = (contactPage as any).form.care;
       form.addEventListener('submit', () => {
         const checkedCh = growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox:checked');
         hiddenChannels.value = Array.from(checkedCh).map(cb => cb.value).join(', ');
-        growthFields!.querySelectorAll<HTMLInputElement>('.channel-checkbox').forEach(cb => cb.removeAttribute('name'));
 
         const checkedFt = scaleFields!.querySelectorAll<HTMLInputElement>('.scale-feature-checkbox:checked');
         hiddenScaleFeatures.value = Array.from(checkedFt).map(cb => cb.value).join(', ');
-        scaleFields!.querySelectorAll<HTMLInputElement>('.scale-feature-checkbox').forEach(cb => cb.removeAttribute('name'));
       });
     }
   });
