@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import SEOHead from '../components/seo/SEOHead.astro';
-import ConsentBanner from '../components/seo/ConsentBanner.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -65,6 +65,6 @@ const {
 
     <slot />
 
-    <ConsentBanner />
+    <CookieConsent />
   </body>
 </html>
