@@ -1,0 +1,24 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+
+const { nav, footer, impressumPage } = enData;
+const hreflangLinks = generateHreflangLinks('/impressum', 'https://base-pages.com');
+---
+
+<LegalLayout
+  title={impressumPage.title}
+  sections={impressumPage.sections}
+  lang="en"
+  navData={nav}
+  footerData={footer}
+  canonicalUrl="https://base-pages.com/impressum"
+  description="Impressum (Legal Notice) for base-pages.com. Company information, contact details, and legal disclosures."
+>
+  <Fragment slot="head">
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+</LegalLayout>

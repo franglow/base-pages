@@ -1,0 +1,33 @@
+---
+import LegalLayout from '../../../layouts/LegalLayout.astro';
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { nav, footer, impressumPage } = data as any;
+const hreflangLinks = generateHreflangLinks('/impressum', 'https://base-pages.com');
+---
+
+<LegalLayout
+  title={impressumPage.title}
+  sections={impressumPage.sections}
+  lang={lang}
+  navData={nav}
+  footerData={footer}
+  canonicalUrl={`https://base-pages.com/${lang}/impressum`}
+>
+  <Fragment slot="head">
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+</LegalLayout>

@@ -1,0 +1,25 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import enData from '../../i18n/en.json';
+import { generateHreflangLinks } from '../../i18n/hreflang';
+
+const { nav, footer, privacyPage } = enData;
+const hreflangLinks = generateHreflangLinks('/privacy', 'https://base-pages.com');
+---
+
+<LegalLayout
+  title={privacyPage.title}
+  lastUpdated={privacyPage.lastUpdated}
+  sections={privacyPage.sections}
+  lang="en"
+  navData={nav}
+  footerData={footer}
+  canonicalUrl="https://base-pages.com/privacy"
+  description="Privacy Policy for base-pages.com. Learn how we collect, use, and protect your data."
+>
+  <Fragment slot="head">
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.lang} href={link.href} />
+    ))}
+  </Fragment>
+</LegalLayout>

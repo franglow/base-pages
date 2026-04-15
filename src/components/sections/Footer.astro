@@ -44,5 +44,17 @@ const copyrightText = data.copyright.replace('{year}', currentYear);
       <span>{data.credits}</span>
     </div>
 
+    {data.legal && (
+      <div class="flex gap-4 text-xs text-[var(--color-text-muted)] mt-2 relative z-10">
+        <a href={data.legal.privacy.href} class="hover:text-[var(--color-text)] transition-colors">
+          {data.legal.privacy.label}
+        </a>
+        <span class="text-gray-300">·</span>
+        <a href={data.legal.impressum.href} class="hover:text-[var(--color-text)] transition-colors">
+          {data.legal.impressum.label}
+        </a>
+      </div>
+    )}
+
   </div>
 </footer>

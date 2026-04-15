@@ -1,0 +1,78 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/sections/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+
+interface Section {
+  heading: string;
+  body: string;
+}
+
+interface Props {
+  title: string;
+  lastUpdated?: string;
+  sections: Section[];
+  lang: string;
+  navData: any;
+  footerData: any;
+  canonicalUrl?: string;
+  description?: string;
+}
+
+const {
+  title,
+  lastUpdated,
+  sections,
+  lang,
+  navData,
+  footerData,
+  canonicalUrl,
+  description = `${title} — base-pages.com`,
+} = Astro.props;
+---
+
+<Layout
+  title={`${title} | base-pages`}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  lang={lang}
+>
+  <Header navData={navData} />
+
+  <main class="legal-page bg-[#f8f7f5] min-h-screen">
+    <div class="w-full max-w-3xl mx-auto px-6 pt-40 pb-32">
+
+      <!-- Page title -->
+      <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-4 tracking-tight leading-tight">
+        {title}
+      </h1>
+
+      {lastUpdated && (
+        <p class="text-sm text-gray-400 mb-12 font-medium tracking-wide uppercase">
+          Last updated: {lastUpdated}
+        </p>
+      )}
+
+      <!-- Prose content container -->
+      <div class="prose prose-gray max-w-none
+        prose-headings:text-gray-900 prose-headings:font-semibold prose-headings:tracking-tight
+        prose-h2:text-xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-t prose-h2:border-gray-200 prose-h2:pt-8
+        prose-p:text-gray-600 prose-p:leading-relaxed
+        prose-a:text-gray-900 prose-a:underline prose-a:decoration-gray-300 hover:prose-a:decoration-gray-900 prose-a:transition-colors
+        prose-li:text-gray-600 prose-li:leading-relaxed
+        prose-strong:text-gray-900 prose-strong:font-semibold
+        prose-ul:list-disc prose-ul:pl-5"
+      >
+        {sections.map((section: Section) => (
+          <section>
+            <h2>{section.heading}</h2>
+            <Fragment set:html={section.body} />
+          </section>
+        ))}
+      </div>
+
+    </div>
+  </main>
+
+  <Footer data={footerData} />
+</Layout>

@@ -337,39 +337,94 @@
           "15.000+ €/Monat"
         ],
         "channelsLabel": "Aktive Marketing-Kanäle",
-        "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Sonstige"],
+        "channels": [
+          "Google Ads",
+          "Meta Ads",
+          "TikTok Ads",
+          "LinkedIn Ads",
+          "Sonstige"
+        ],
         "goalLabel": "Primäres Conversion-Ziel",
-        "goals": ["Lead-Generierung", "E-Commerce-Verkäufe", "Markenbekanntheit"]
+        "goals": [
+          "Lead-Generierung",
+          "E-Commerce-Verkäufe",
+          "Markenbekanntheit"
+        ]
       },
       "scale": {
         "sectionLabel": "Projekt-Briefing für dein Strategiegespräch",
         "cmsLabel": "CMS-Präferenz",
-        "cmsOptions": ["Sanity", "Storyblok", "Ich brauche Beratung"],
+        "cmsOptions": [
+          "Sanity",
+          "Storyblok",
+          "Ich brauche Beratung"
+        ],
         "pageScopeLabel": "Geschätzte Seitenanzahl",
-        "pageScopeOptions": ["1-5 Seiten", "5-10 Seiten", "10-20 Seiten", "20+ Seiten"],
+        "pageScopeOptions": [
+          "1-5 Seiten",
+          "5-10 Seiten",
+          "10-20 Seiten",
+          "20+ Seiten"
+        ],
         "featuresLabel": "Benötigte Kernfunktionen",
-        "features": ["Erweiterte Animationen (GSAP)", "Mehrsprachigkeit", "Blog / CMS-Engine", "Drittanbieter-API-Integrationen", "E-Commerce", "Benutzerauthentifizierung"],
+        "features": [
+          "Erweiterte Animationen (GSAP)",
+          "Mehrsprachigkeit",
+          "Blog / CMS-Engine",
+          "Drittanbieter-API-Integrationen",
+          "E-Commerce",
+          "Benutzerauthentifizierung"
+        ],
         "timelineLabel": "Gewünschter Startzeitpunkt",
-        "timelineOptions": ["In 3-5 Wochen", "1-2 Monate", "2-3 Monate", "Flexibel / Kein Zeitdruck"]
+        "timelineOptions": [
+          "In 3-5 Wochen",
+          "1-2 Monate",
+          "2-3 Monate",
+          "Flexibel / Kein Zeitdruck"
+        ]
       },
       "partnership": {
         "sectionLabel": "Erzähl mir von deiner Designpraxis",
         "portfolioPlaceholder": "Portfolio- oder Behance-URL",
         "designToolLabel": "Primäres Design-Tool",
-        "designToolOptions": ["Figma", "Sketch", "Adobe XD", "Andere"],
+        "designToolOptions": [
+          "Figma",
+          "Sketch",
+          "Adobe XD",
+          "Andere"
+        ],
         "projectVolumeLabel": "Website-Designs pro Monat",
-        "projectVolumeOptions": ["1-2 Projekte", "3-5 Projekte", "5+ Projekte"],
+        "projectVolumeOptions": [
+          "1-2 Projekte",
+          "3-5 Projekte",
+          "5+ Projekte"
+        ],
         "figmaSamplePlaceholder": "Figma-Datei-Link (optional)"
       },
       "care": {
         "sectionLabel": "Hilf mir, den Zustand deiner Website zu bewerten",
         "websitePlaceholder": "URL deiner aktuellen Website",
         "platformLabel": "Aktuelle Plattform / Stack",
-        "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Andere"],
+        "platformOptions": [
+          "Astro",
+          "Next.js",
+          "WordPress",
+          "Shopify",
+          "Webflow",
+          "Andere"
+        ],
         "priorityLabel": "Hauptpriorität",
-        "priorityOptions": ["Leistung / Geschwindigkeit", "Sicherheit & Backups", "Regelmäßige Inhaltsupdates", "Laufender Technischer Support"],
+        "priorityOptions": [
+          "Leistung / Geschwindigkeit",
+          "Sicherheit & Backups",
+          "Regelmäßige Inhaltsupdates",
+          "Laufender Technischer Support"
+        ],
         "originLabel": "Haben wir deine aktuelle Website erstellt?",
-        "originOptions": ["Ja — base-pages hat sie gebaut", "Nein — ein anderes Team hat sie gebaut"]
+        "originOptions": [
+          "Ja — base-pages hat sie gebaut",
+          "Nein — ein anderes Team hat sie gebaut"
+        ]
       }
     }
   },
@@ -411,7 +466,17 @@
       }
     ],
     "copyright": "© {year} base-pages.com",
-    "credits": "Powered by base-pages.com ·"
+    "credits": "Powered by base-pages.com ·",
+    "legal": {
+      "privacy": {
+        "label": "Datenschutz",
+        "href": "/de/privacy"
+      },
+      "impressum": {
+        "label": "Impressum",
+        "href": "/de/impressum"
+      }
+    }
   },
   "portfolio": {
     "projects": [
@@ -430,6 +495,73 @@
         "image": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
         "badge": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
         "url": "/de/works/cornelia-jaeger"
+      }
+    ]
+  },
+  "privacyPage": {
+    "title": "Datenschutzerklärung & Impressum",
+    "lastUpdated": "15. April 2026",
+    "sections": [
+      {
+        "heading": "1. Datenschutz auf einen Blick",
+        "body": "<p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber.</p>"
+      },
+      {
+        "heading": "2. Hosting und Infrastruktur",
+        "body": "<p><strong>Vercel:</strong> Wir hosten unsere Website bei Vercel (Vercel Inc., USA). Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO zur Gewährleistung der Betriebssicherheit. Wir haben einen Vertrag über Auftragsverarbeitung abgeschlossen.</p><p><strong>Cloudflare:</strong> Zur Absicherung und Optimierung der Ladezeiten nutzen wir das CDN von Cloudflare (Cloudflare Inc., USA). Dies dient unserem berechtigten Interesse an einer stabilen Website (Art. 6 Abs. 1 lit. f DSGVO).</p>"
+      },
+      {
+        "heading": "3. Verantwortliche Stelle",
+        "body": "<p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p><p>Jose Francisco Cortez Moreno<br>Klarastr. 8<br>12459 Berlin<br>Deutschland</p><ul><li>E-Mail: <a href='mailto:legal@base-pages.com'>legal@base-pages.com</a></li><li>Telefon: +491756975657</li></ul>"
+      },
+      {
+        "heading": "4. Ihre Rechte (DSGVO)",
+        "body": "<p>Sie haben jederzeit das Recht:</p><ul><li>Auskunft über Ihre gespeicherten Daten zu erhalten.</li><li>Die Berichtigung oder Löschung Ihrer Daten zu verlangen.</li><li>Eine erteilte Einwilligung jederzeit zu widerrufen.</li><li>Sich bei der zuständigen Aufsichtsbehörde zu beschweren.</li><li>Die Datenübertragbarkeit in einem gängigen Format zu verlangen.</li></ul>"
+      },
+      {
+        "heading": "5. Analyse-Tools und Marketing",
+        "body": "<p>Wir nutzen Analyse-Tools nur nach Ihrer ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO):</p><ul><li><strong>Google Analytics & Tag Manager:</strong> Zur Analyse des Nutzerverhaltens (Google Ireland Ltd.).</li><li><strong>Meta-Pixel:</strong> Zur Analyse von Werbekonversionen (Meta Platforms Ireland Ltd.).</li><li><strong>TikTok Pixel:</strong> Zur Messung der Werbeeffektivität (TikTok Technology Ltd.).</li></ul>"
+      },
+      {
+        "heading": "6. Kommunikation und Dienste Dritter",
+        "body": "<p><strong>Cal.com:</strong> Zur Terminbuchung verarbeiten wir Ihre Daten gemäß Art. 6 Abs. 1 lit. b DSGVO zur Vertragserfüllung.</p><p><strong>Resend:</strong> Zum Versand von System-E-Mails (z.B. Formularbestätigungen) nutzen wir Resend Labs Inc.</p><p><strong>Zoom:</strong> Für Video-Konferenzen nutzen wir Zoom (Zoom Video Communications, Inc.).</p>"
+      },
+      {
+        "heading": "7. Impressum",
+        "body": "<p><strong>Angaben gemäß § 5 TMG:</strong></p><p>Jose Francisco Cortez Moreno<br>Klarastr. 8<br>12459 Berlin</p><p><strong>Redaktionell verantwortlich gemäß § 18 MStV:</strong><br>Jose Francisco Cortez Moreno</p><p><strong>EU-Streitschlichtung:</strong> Die Europäische Kommission bietet eine Plattform zur Online-Streitbeilegung (OS) an: <a href='https://ec.europa.eu/consumers/odr/'>https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsprozessen teilzunehmen.</p>"
+      },
+      {
+        "heading": "8. Quellenangabe",
+        "body": "<p>Quelle: <a href='https://www.e-recht24.de' target='_blank' rel='noopener'>https://www.e-recht24.de</a></p>"
+      }
+    ]
+  },
+  "impressumPage": {
+    "title": "Impressum",
+    "sections": [
+      {
+        "heading": "Angaben gemäß § 5 TMG",
+        "body": "<p>Jose Francisco Cortez Moreno [cite: 305, 326]<br>Klarastr. 8 [cite: 306, 327]<br>12459 Berlin [cite: 307, 328]<br>Deutschland</p>"
+      },
+      {
+        "heading": "Kontakt",
+        "body": "<p>E-Mail: <a href='mailto:legal@base-pages.com'>legal@base-pages.com</a> <br>Telefon: +491756975657 [cite: 309, 330]<br>Website: <a href='https://base-pages.com'>base-pages.com</a></p>"
+      },
+      {
+        "heading": "Verantwortlich für den Inhalt",
+        "body": "<p>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV:<br>Jose Francisco Cortez Moreno [cite: 312, 333]<br>Klarastr. 8 [cite: 313, 334]<br>12459 Berlin [cite: 314, 335]</p>"
+      },
+      {
+        "heading": "Streitschlichtung",
+        "body": "<p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener noreferrer'>https://ec.europa.eu/consumers/odr</a>.</p><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen[cite: 316, 337].</p>"
+      },
+      {
+        "heading": "Haftung für Inhalte",
+        "body": "<p>Als Dienstanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>"
+      },
+      {
+        "heading": "Quelle",
+        "body": "<p>Quelle: <a href='https://www.e-recht24.de' target='_blank' rel='noopener noreferrer'>e-recht24.de</a> </p>"
       }
     ]
   }

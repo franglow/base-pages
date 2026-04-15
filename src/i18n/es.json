@@ -337,39 +337,94 @@
           "€15.000+/mes"
         ],
         "channelsLabel": "Canales de marketing activos",
-        "channels": ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Otro"],
+        "channels": [
+          "Google Ads",
+          "Meta Ads",
+          "TikTok Ads",
+          "LinkedIn Ads",
+          "Otro"
+        ],
         "goalLabel": "Objetivo principal de conversión",
-        "goals": ["Generación de Leads", "Ventas E-commerce", "Reconocimiento de Marca"]
+        "goals": [
+          "Generación de Leads",
+          "Ventas E-commerce",
+          "Reconocimiento de Marca"
+        ]
       },
       "scale": {
         "sectionLabel": "Briefing del proyecto para tu llamada de estrategia",
         "cmsLabel": "Preferencia de CMS",
-        "cmsOptions": ["Sanity", "Storyblok", "Necesito asesoramiento"],
+        "cmsOptions": [
+          "Sanity",
+          "Storyblok",
+          "Necesito asesoramiento"
+        ],
         "pageScopeLabel": "Cantidad estimada de páginas",
-        "pageScopeOptions": ["1-5 páginas", "5-10 páginas", "10-20 páginas", "20+ páginas"],
+        "pageScopeOptions": [
+          "1-5 páginas",
+          "5-10 páginas",
+          "10-20 páginas",
+          "20+ páginas"
+        ],
         "featuresLabel": "Funcionalidades principales necesarias",
-        "features": ["Animaciones Avanzadas (GSAP)", "Soporte Multilingüe", "Blog / Motor CMS", "Integraciones con APIs", "E-commerce", "Autenticación de Usuarios"],
+        "features": [
+          "Animaciones Avanzadas (GSAP)",
+          "Soporte Multilingüe",
+          "Blog / Motor CMS",
+          "Integraciones con APIs",
+          "E-commerce",
+          "Autenticación de Usuarios"
+        ],
         "timelineLabel": "Plazo de lanzamiento deseado",
-        "timelineOptions": ["En 3-5 semanas", "1-2 meses", "2-3 meses", "Flexible / Sin apuro"]
+        "timelineOptions": [
+          "En 3-5 semanas",
+          "1-2 meses",
+          "2-3 meses",
+          "Flexible / Sin apuro"
+        ]
       },
       "partnership": {
         "sectionLabel": "Contame sobre tu práctica de diseño",
         "portfolioPlaceholder": "URL de tu portfolio o Behance",
         "designToolLabel": "Herramienta de diseño principal",
-        "designToolOptions": ["Figma", "Sketch", "Adobe XD", "Otra"],
+        "designToolOptions": [
+          "Figma",
+          "Sketch",
+          "Adobe XD",
+          "Otra"
+        ],
         "projectVolumeLabel": "Diseños de sitios web por mes",
-        "projectVolumeOptions": ["1-2 proyectos", "3-5 proyectos", "5+ proyectos"],
+        "projectVolumeOptions": [
+          "1-2 proyectos",
+          "3-5 proyectos",
+          "5+ proyectos"
+        ],
         "figmaSamplePlaceholder": "Enlace a archivo Figma (opcional)"
       },
       "care": {
         "sectionLabel": "Ayudame a evaluar la salud de tu sitio",
         "websitePlaceholder": "URL de tu sitio web actual",
         "platformLabel": "Plataforma / stack actual",
-        "platformOptions": ["Astro", "Next.js", "WordPress", "Shopify", "Webflow", "Otro"],
+        "platformOptions": [
+          "Astro",
+          "Next.js",
+          "WordPress",
+          "Shopify",
+          "Webflow",
+          "Otro"
+        ],
         "priorityLabel": "Prioridad principal",
-        "priorityOptions": ["Rendimiento / Velocidad", "Seguridad y Backups", "Actualizaciones de Contenido", "Soporte Técnico Continuo"],
+        "priorityOptions": [
+          "Rendimiento / Velocidad",
+          "Seguridad y Backups",
+          "Actualizaciones de Contenido",
+          "Soporte Técnico Continuo"
+        ],
         "originLabel": "¿Construí yo tu sitio actual?",
-        "originOptions": ["Sí — base-pages lo construyó", "No — lo construyó otro equipo"]
+        "originOptions": [
+          "Sí — base-pages lo construyó",
+          "No — lo construyó otro equipo"
+        ]
       }
     }
   },
@@ -411,7 +466,17 @@
       }
     ],
     "copyright": "© {year} base-pages.com",
-    "credits": "Powered by base-pages.com ·"
+    "credits": "Powered by base-pages.com ·",
+    "legal": {
+      "privacy": {
+        "label": "Política de Privacidad",
+        "href": "/es/privacy"
+      },
+      "impressum": {
+        "label": "Aviso Legal",
+        "href": "/es/impressum"
+      }
+    }
   },
   "portfolio": {
     "projects": [
@@ -430,6 +495,73 @@
         "image": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
         "badge": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
         "url": "/es/works/cornelia-jaeger"
+      }
+    ]
+  },
+  "privacyPage": {
+    "title": "Política de Privacidad y Aviso Legal",
+    "lastUpdated": "15 de abril de 2026",
+    "sections": [
+      {
+        "heading": "1. La protección de datos de un vistazo",
+        "body": "<p>La siguiente información ofrece una visión general sencilla de lo que ocurre con sus datos personales cuando visita este sitio web. Los datos personales son todos aquellos con los que se le puede identificar personalmente[cite: 23]. El tratamiento de datos en este sitio web lo realiza el operador del mismo[cite: 27].</p>"
+      },
+      {
+        "heading": "2. Alojamiento e infraestructura",
+        "body": "<p><strong>Vercel:</strong> Nuestro sitio web está alojado en Vercel (Vercel Inc., EE. UU.)[cite: 62]. El procesamiento de datos se basa en el Art. 6(1)(f) del RGPD para garantizar una prestación segura y eficiente de nuestros servicios[cite: 54]. Hemos suscrito un contrato de procesamiento de datos (DPA) con el proveedor[cite: 64].</p><p><strong>Cloudflare:</strong> Para asegurar y optimizar las velocidades de carga, utilizamos la Red de Entrega de Contenidos (CDN) proporcionada por Cloudflare Inc. Esto responde a nuestro interés legítimo en un rendimiento del sitio web estable y seguro según el Art. 6(1)(f) del RGPD.</p>"
+      },
+      {
+        "heading": "3. Responsable del tratamiento",
+        "body": "<p>El responsable del tratamiento de datos en este sitio web es[cite: 77]:</p><p>Jose Francisco Cortez Moreno<br>Klarastr. 8<br>12459 Berlín<br>Alemania [cite: 78-81]</p><ul><li>Correo electrónico: <a href='mailto:legal@base-pages.com'>legal@base-pages.com</a></li><li>Teléfono: +491756975657 [cite: 82]</li></ul>"
+      },
+      {
+        "heading": "4. Sus derechos (RGPD)",
+        "body": "<p>Como usuario, tiene los siguientes derechos en cualquier momento [cite: 39]:</p><ul><li>Derecho a obtener información sobre sus datos almacenados [cite: 40].</li><li>Derecho a exigir la corrección o eliminación de sus datos [cite: 41].</li><li>Derecho a revocar cualquier consentimiento otorgado previamente [cite: 42].</li><li>Derecho a presentar una reclamación ante la autoridad de control competente [cite: 44].</li><li>Derecho a la portabilidad de los datos en un formato estándar[cite: 126].</li></ul>"
+      },
+      {
+        "heading": "5. Herramientas de análisis y marketing",
+        "body": "<p>Utilizamos herramientas de análisis y seguimiento solo tras recibir su consentimiento expreso (Art. 6(1)(a) del RGPD) [cite: 11, 12]:</p><ul><li><strong>Google Analytics y Tag Manager:</strong> Se utilizan para analizar el comportamiento de los usuarios (Google Ireland Ltd.) [cite: 47].</li><li><strong>Píxel de Meta:</strong> Se utiliza para rastrear las conversiones de anuncios y para fines de retargeting (Meta Platforms Ireland Ltd.)[cite: 207].</li><li><strong>Píxel de TikTok:</strong> Se utiliza para medir la eficacia de las campañas publicitarias (TikTok Technology Ltd.).</li></ul>"
+      },
+      {
+        "heading": "6. Servicios de comunicación de terceros",
+        "body": "<p><strong>Cal.com:</strong> Para la programación de citas, procesamos los datos que usted proporciona con el fin de cumplir el contrato o realizar medidas precontractuales (Art. 6(1)(b) del RGPD).</p><p><strong>Resend:</strong> Para la entrega técnica de correos electrónicos transaccionales (por ejemplo, confirmaciones de formularios), utilizamos Resend Labs Inc.</p><p><strong>Zoom:</strong> Para videoconferencias y reuniones en línea, utilizamos Zoom (Zoom Video Communications, Inc.). Esto se basa en nuestro interés legítimo en una comunicación eficiente (Art. 6(1)(f) del RGPD) o en el cumplimiento del contrato (Art. 6(1)(b) del RGPD).</p>"
+      },
+      {
+        "heading": "7. Aviso Legal (Impressum)",
+        "body": "<p><strong>Información según el § 5 de la TMG:</strong></p><p>Jose Francisco Cortez Moreno<br>Klarastr. 8<br>12459 Berlín [cite: 78-81]</p><p><strong>Responsable del contenido según el § 18 de la MStV:</strong><br>Jose Francisco Cortez Moreno [cite: 84]</p><p><strong>Resolución de litigios de la UE:</strong> La Comisión Europea facilita una plataforma para la resolución de litigios en línea (ODR): <a href='https://ec.europa.eu/consumers/odr/' target='_blank' rel='noopener'>https://ec.europa.eu/consumers/odr/</a>[cite: 224]. No estamos dispuestos ni obligados a participar en procedimientos de resolución de litigios ante una junta de arbitraje de consumo.</p>"
+      },
+      {
+        "heading": "8. Atribución de fuente",
+        "body": "<p>Fuente: <a href='https://www.e-recht24.de' target='_blank' rel='noopener'>https://www.e-recht24.de</a></p>"
+      }
+    ]
+  },
+  "impressumPage": {
+    "title": "Aviso Legal (Impressum)",
+    "sections": [
+      {
+        "heading": "Información conforme a la § 5 de la TMG",
+        "body": "<p>Jose Francisco Cortez Moreno [cite: 12, 33]<br>Klarastr. 8 [cite: 13, 34]<br>12459 Berlín [cite: 14, 35]<br>Alemania</p>"
+      },
+      {
+        "heading": "Contacto",
+        "body": "<p>Correo electrónico: <a href='mailto:legal@base-pages.com'>legal@base-pages.com</a> [cite: 17, 38]<br>Teléfono: +491756975657 [cite: 16, 37]<br>Sitio web: <a href='https://base-pages.com'>base-pages.com</a></p>"
+      },
+      {
+        "heading": "Responsable del contenido según la § 18 apdo. 2 de la MStV",
+        "body": "<p>Jose Francisco Cortez Moreno [cite: 19, 40]<br>Klarastr. 8 [cite: 20, 41]<br>12459 Berlín [cite: 21, 42]</p>"
+      },
+      {
+        "heading": "Resolución de litigios",
+        "body": "<p>La Comisión Europea facilita una plataforma para la resolución de litigios en línea (ODR): <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener noreferrer'>https://ec.europa.eu/consumers/odr</a>.</p><p>No estamos dispuestos ni obligados a participar en procedimientos de resolución de litigios ante una junta de arbitraje de consumo[cite: 23, 44].</p>"
+      },
+      {
+        "heading": "Responsabilidad por los contenidos",
+        "body": "<p>Como proveedores de servicios, somos responsables de nuestros propios contenidos en estas páginas de acuerdo con la § 7 apdo. 1 de la TMG. Sin embargo, según las §§ 8 a 10 de la TMG, no estamos obligados a supervisar la información de terceros transmitida o almacenada.</p>"
+      },
+      {
+        "heading": "Fuente",
+        "body": "<p>Fuente: <a href='https://www.e-recht24.de' target='_blank' rel='noopener noreferrer'>e-recht24.de</a> [cite: 25, 45]</p>"
       }
     ]
   }
