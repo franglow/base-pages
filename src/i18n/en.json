@@ -475,7 +475,8 @@
       "impressum": {
         "label": "Impressum",
         "href": "/impressum"
-      }
+      },
+      "cookieSettings": "Cookie Settings"
     }
   },
   "portfolio": {

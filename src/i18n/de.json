@@ -475,7 +475,8 @@
       "impressum": {
         "label": "Impressum",
         "href": "/de/impressum"
-      }
+      },
+      "cookieSettings": "Cookie-Einstellungen"
     }
   },
   "portfolio": {

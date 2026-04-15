@@ -8,7 +8,7 @@ import '@fontsource/roboto-mono/400.css';
 import '@fontsource/roboto-mono/700.css';
 import SEOHead from '../components/seo/SEOHead.astro';
 import { getGEOComparisonSchema } from '../utils/schema';
-import ConsentBanner from '../components/seo/ConsentBanner.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -99,6 +99,6 @@ const geoComparisonSchema = getGEOComparisonSchema();
       });
     </script>
 
-    <ConsentBanner />
+    <CookieConsent />
   </body>
 </html>

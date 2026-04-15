@@ -475,7 +475,8 @@
       "impressum": {
         "label": "Aviso Legal",
         "href": "/es/impressum"
-      }
+      },
+      "cookieSettings": "Configuración de Cookies"
     }
   },
   "portfolio": {
