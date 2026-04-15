@@ -1,7 +1,8 @@
 :root {
-  /* --- TYPOGRAPHY --- */
+  /* --- TYPOGRAPHY (locally hosted via @fontsource) --- */
   --font-heading: "Inter", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
 
   /* --- PALETTE (base-pages.com Spec) --- */
   --color-bg: #F9F9F7;
