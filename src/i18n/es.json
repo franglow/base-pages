@@ -426,6 +426,22 @@
           "No — lo construyó otro equipo"
         ]
       }
+    },
+    "success": {
+      "badge": "✓ MENSAJE RECIBIDO",
+      "scaleHeading": "Planifiquemos su arquitectura",
+      "scaleSubheading": "Reserve su consulta abajo. Analizaremos su stack y diseñaremos una arquitectura a medida.",
+      "partnershipHeading": "Hablemos de diseño",
+      "partnershipSubheading": "Reserve su llamada de diseño abajo. Revisaremos su portfolio y hablaremos sobre la colaboración.",
+      "defaultHeading": "Mensaje recibido.",
+      "defaultSubheading": "Revisaremos su solicitud y le responderemos en 24 horas.",
+      "bridgeText": "Mientras espera, vea cómo diseñamos arquitecturas web de alto rendimiento.",
+      "viewWorks": "Ver nuestros trabajos",
+      "backHome": "Volver al inicio",
+      "escapeRoute": "¿Aún no está listo para reservar? Sin problema. Le hemos enviado un enlace. Mientras tanto, explore nuestros",
+      "escapeWorks": "Trabajos",
+      "escapeOr": "o vuelva al",
+      "escapeHome": "Inicio"
     }
   },
   "footer": {

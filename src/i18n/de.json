@@ -426,6 +426,22 @@
           "Nein — ein anderes Team hat sie gebaut"
         ]
       }
+    },
+    "success": {
+      "badge": "✓ NACHRICHT ERHALTEN",
+      "scaleHeading": "Planen wir Ihre Architektur",
+      "scaleSubheading": "Buchen Sie unten Ihr Beratungsgespräch. Wir analysieren Ihren Stack und entwerfen eine maßgeschneiderte Architektur.",
+      "partnershipHeading": "Sprechen wir über Design",
+      "partnershipSubheading": "Buchen Sie unten Ihren Designer-Termin. Wir sehen uns Ihr Portfolio an und besprechen die Zusammenarbeit.",
+      "defaultHeading": "Nachricht erhalten.",
+      "defaultSubheading": "Wir prüfen Ihre Anfrage und melden uns innerhalb von 24 Stunden.",
+      "bridgeText": "Sehen Sie sich an, wie wir leistungsstarke Web-Architekturen entwickeln.",
+      "viewWorks": "Unsere Arbeiten",
+      "backHome": "Zurück zur Startseite",
+      "escapeRoute": "Noch nicht bereit für einen Termin? Kein Problem. Wir haben Ihnen einen Link geschickt. Entdecken Sie inzwischen unsere",
+      "escapeWorks": "Arbeiten",
+      "escapeOr": "oder zurück zur",
+      "escapeHome": "Startseite"
     }
   },
   "footer": {

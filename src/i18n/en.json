@@ -426,6 +426,22 @@
           "No — built by another team"
         ]
       }
+    },
+    "success": {
+      "badge": "✓ MESSAGE RECEIVED",
+      "scaleHeading": "Let's plan your architecture",
+      "scaleSubheading": "Book your consultation call below. We'll review your stack and map out a custom architecture.",
+      "partnershipHeading": "Let's talk design",
+      "partnershipSubheading": "Book your designer call below. We'll review your portfolio and discuss collaboration.",
+      "defaultHeading": "Message received.",
+      "defaultSubheading": "We'll review your request and get back to you within 24 hours.",
+      "bridgeText": "While you wait, see how we engineer high-performance web architecture.",
+      "viewWorks": "View our Works",
+      "backHome": "Back to Home",
+      "escapeRoute": "Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our",
+      "escapeWorks": "Works",
+      "escapeOr": "or return",
+      "escapeHome": "Home"
     }
   },
   "footer": {

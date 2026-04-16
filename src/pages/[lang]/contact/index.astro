@@ -70,17 +70,17 @@ const care = (contactPage as any).form.care;
         <div class="text-center" role="status" aria-live="polite">
           <div class="mb-6">
             <span class="font-['Roboto_Mono',_monospace] font-bold tracking-widest uppercase text-[13px] text-emerald-600">
-              ✓ MESSAGE RECEIVED
+              {(contactPage as any).success.badge}
             </span>
           </div>
 
           {calType === 'scale' ? (
             <>
               <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
-                Let's plan your architecture
+                {(contactPage as any).success.scaleHeading}
               </h1>
               <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
-                Book your consultation call below. We'll review your stack and map out a custom architecture.
+                {(contactPage as any).success.scaleSubheading}
               </p>
               <CalEmbed
                 namespace="scale-call"
@@ -90,19 +90,19 @@ const care = (contactPage as any).form.care;
                 fallbackUrl="https://cal.com/base-pages.com/scale-call"
               />
               <p class="text-sm text-neutral-500 text-center mt-8 max-w-sm mx-auto leading-relaxed">
-                Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our{' '}
-                <a href={`/${lang}/works`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Works</a>{' '}
-                or return{' '}
-                <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Home</a>.
+                {(contactPage as any).success.escapeRoute}{' '}
+                <a href={`/${lang}/works`} class="text-neutral-600 hover:text-black hover:underline transition-colors">{(contactPage as any).success.escapeWorks}</a>{' '}
+                {(contactPage as any).success.escapeOr}{' '}
+                <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">{(contactPage as any).success.escapeHome}</a>.
               </p>
             </>
           ) : calType === 'partnership' ? (
             <>
               <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
-                Let's talk design
+                {(contactPage as any).success.partnershipHeading}
               </h1>
               <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
-                Book your designer call below. We'll review your portfolio and discuss collaboration.
+                {(contactPage as any).success.partnershipSubheading}
               </p>
               <CalEmbed
                 namespace="partnership-sync"
@@ -112,37 +112,37 @@ const care = (contactPage as any).form.care;
                 fallbackUrl="https://cal.com/base-pages.com/partnership-sync"
               />
               <p class="text-sm text-neutral-500 text-center mt-8 max-w-sm mx-auto leading-relaxed">
-                Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our{' '}
-                <a href={`/${lang}/works`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Works</a>{' '}
-                or return{' '}
-                <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Home</a>.
+                {(contactPage as any).success.escapeRoute}{' '}
+                <a href={`/${lang}/works`} class="text-neutral-600 hover:text-black hover:underline transition-colors">{(contactPage as any).success.escapeWorks}</a>{' '}
+                {(contactPage as any).success.escapeOr}{' '}
+                <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">{(contactPage as any).success.escapeHome}</a>.
               </p>
             </>
           ) : (
             <div class="py-8">
               <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
-                Message received.
+                {(contactPage as any).success.defaultHeading}
               </h1>
               <p class="text-neutral-500 text-lg max-w-md mx-auto">
-                We'll review your request and get back to you within 24 hours.
+                {(contactPage as any).success.defaultSubheading}
               </p>
 
               <div class="mt-16 mb-2">
                 <p class="text-neutral-500 text-base max-w-md mx-auto mb-8">
-                  While you wait, see how we engineer high-performance web architecture.
+                  {(contactPage as any).success.bridgeText}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <a
                     href={`/${lang}/works`}
                     class="inline-flex items-center justify-center px-8 py-3.5 bg-[#111827] text-white rounded-full text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg"
                   >
-                    View our Works
+                    {(contactPage as any).success.viewWorks}
                   </a>
                   <a
                     href={`/${lang}`}
                     class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#111827] border border-gray-200 rounded-full text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-[#111827]"
                   >
-                    Back to Home
+                    {(contactPage as any).success.backHome}
                   </a>
                 </div>
               </div>
