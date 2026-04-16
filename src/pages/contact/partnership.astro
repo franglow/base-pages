@@ -46,6 +46,12 @@ const leadEmail = result?.data?.leadEmail;
             leadEmail={leadEmail}
             fallbackUrl="https://cal.com/base-pages.com/partnership-sync"
           />
+          <p class="text-sm text-neutral-500 text-center mt-8 max-w-sm mx-auto leading-relaxed">
+            Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our{' '}
+            <a href="/works" class="text-neutral-600 hover:text-black hover:underline transition-colors">Works</a>{' '}
+            or return{' '}
+            <a href="/" class="text-neutral-600 hover:text-black hover:underline transition-colors">Home</a>.
+          </p>
         </div>
       ) : (
         <>

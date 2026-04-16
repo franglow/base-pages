@@ -89,6 +89,12 @@ const care = (contactPage as any).form.care;
                 leadEmail={leadEmail}
                 fallbackUrl="https://cal.com/base-pages.com/scale-call"
               />
+              <p class="text-sm text-neutral-500 text-center mt-8 max-w-sm mx-auto leading-relaxed">
+                Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our{' '}
+                <a href={`/${lang}/works`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Works</a>{' '}
+                or return{' '}
+                <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Home</a>.
+              </p>
             </>
           ) : calType === 'partnership' ? (
             <>
@@ -105,16 +111,42 @@ const care = (contactPage as any).form.care;
                 leadEmail={leadEmail}
                 fallbackUrl="https://cal.com/base-pages.com/partnership-sync"
               />
-            </>
-          ) : (
-            <>
-              <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
-                We're on it
-              </h1>
-              <p class="text-gray-500 text-lg max-w-md mx-auto">
-                We've received your inquiry and will be in touch within 24 hours with a tailored response.
+              <p class="text-sm text-neutral-500 text-center mt-8 max-w-sm mx-auto leading-relaxed">
+                Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our{' '}
+                <a href={`/${lang}/works`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Works</a>{' '}
+                or return{' '}
+                <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">Home</a>.
               </p>
             </>
+          ) : (
+            <div class="py-8">
+              <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
+                Message received.
+              </h1>
+              <p class="text-neutral-500 text-lg max-w-md mx-auto">
+                We'll review your request and get back to you within 24 hours.
+              </p>
+
+              <div class="mt-16 mb-2">
+                <p class="text-neutral-500 text-base max-w-md mx-auto mb-8">
+                  While you wait, see how we engineer high-performance web architecture.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a
+                    href={`/${lang}/works`}
+                    class="inline-flex items-center justify-center px-8 py-3.5 bg-[#111827] text-white rounded-full text-sm font-medium transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  >
+                    View our Works
+                  </a>
+                  <a
+                    href={`/${lang}`}
+                    class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#111827] border border-gray-200 rounded-full text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-[#111827]"
+                  >
+                    Back to Home
+                  </a>
+                </div>
+              </div>
+            </div>
           )}
         </div>
       ) : (
