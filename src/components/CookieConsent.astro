@@ -89,7 +89,17 @@
         }
       },
 
+      onFirstConsent: function () {
+        // Notify other components (e.g. CalEmbed) that consent was granted
+        window.dispatchEvent(new CustomEvent('bp:consent-change'));
+        if (CookieConsent.acceptedCategory('analytics')) {
+          loadGA4();
+        }
+      },
+
       onChange: function (param) {
+        // Notify other components of mid-session consent changes
+        window.dispatchEvent(new CustomEvent('bp:consent-change'));
         if (param.changedCategories.indexOf('analytics') !== -1) {
           if (CookieConsent.acceptedCategory('analytics')) {
             loadGA4();

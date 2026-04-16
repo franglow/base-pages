@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
 import Header from '../../components/sections/Header.astro';
 import Footer from '../../components/sections/Footer.astro';
+import CalEmbed from '../../components/CalEmbed.astro';
 import { actions } from 'astro:actions';
 
 import enData from '../../i18n/en.json';
@@ -38,18 +39,13 @@ const leadEmail = result?.data?.leadEmail;
             Book your consultation call below. We'll review your stack and map out a custom architecture.
           </p>
           
-          <!-- Cal.com Embed Placeholder -->
-          <div class="cal-embed-wrapper bg-white rounded-[20px] p-8 border border-gray-100 shadow-sm" style="min-height: 650px;">
-            <p class="text-gray-400 text-sm mb-4">Loading scheduler...</p>
-            <!-- TODO: Replace with actual Cal.com embed -->
-            <div class="bg-gray-50 rounded-2xl p-12 text-center">
-              <p class="text-gray-600 text-lg font-medium mb-2">📅 Cal.com Integration</p>
-              <p class="text-gray-400 text-sm">
-                Event type: <code>scale-consult</code><br/>
-                Prefill: {leadName} / {leadEmail}
-              </p>
-            </div>
-          </div>
+          <CalEmbed
+            namespace="scale-call"
+            calLink="base-pages.com/scale-call"
+            leadName={leadName}
+            leadEmail={leadEmail}
+            fallbackUrl="https://cal.com/base-pages.com/scale-call"
+          />
         </div>
       ) : (
         <>

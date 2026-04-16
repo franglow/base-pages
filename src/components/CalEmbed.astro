@@ -1,0 +1,254 @@
+---
+/**
+ * CalEmbed.astro — Consent-gated Cal.com inline embed with pre-fill.
+ * Reads the CookieConsent v3 cookie directly to determine analytics consent,
+ * and listens for mid-session consent changes via custom event.
+ */
+interface Props {
+  namespace: string;
+  calLink: string;
+  leadName?: string;
+  leadEmail?: string;
+  fallbackUrl: string;
+}
+
+const { namespace, calLink, leadName, leadEmail, fallbackUrl } = Astro.props;
+const elementId = `my-cal-inline-${namespace}`;
+---
+
+<!-- Cal.com embed container -->
+<div id={`cal-root-${namespace}`} class="cal-root" data-namespace={namespace}>
+
+  <!-- Inline embed target (hidden until consent + loaded) -->
+  <div id={elementId} class="cal-embed"></div>
+
+  <!-- Fallback UI (shown when analytics consent not granted) -->
+  <div id={`cal-fallback-${namespace}`} class="cal-fallback">
+    <div class="cal-fallback-icon">📅</div>
+    <p class="cal-fallback-title">Schedule your consultation</p>
+    <p class="cal-fallback-desc">
+      Accept analytics cookies to book directly, or open our scheduler in a new tab.
+    </p>
+    <div class="cal-fallback-actions">
+      <a href={fallbackUrl} target="_blank" rel="noopener noreferrer" class="cal-btn cal-btn-primary">
+        Open Scheduler →
+      </a>
+      <button type="button" data-cc="show-preferencesModal" class="cal-btn cal-btn-secondary">
+        Cookie Settings
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline
+  define:vars={{ namespace, calLink, leadName, leadEmail, elementId }}>
+  (function () {
+    "use strict";
+
+    var root = document.getElementById('cal-root-' + namespace);
+    var embed = document.getElementById(elementId);
+    var fallback = document.getElementById('cal-fallback-' + namespace);
+    if (!root || !embed || !fallback) return;
+
+    // ── Cookie reader: parse CookieConsent v3's bp_cc cookie ────────
+    function hasAnalyticsConsent() {
+      try {
+        var match = document.cookie.match(/(?:^|;\s*)bp_cc=([^;]*)/);
+        if (!match) return false;
+        var parsed = JSON.parse(decodeURIComponent(match[1]));
+        return parsed.categories && parsed.categories.indexOf('analytics') !== -1;
+      } catch (e) { return false; }
+    }
+
+    var embedLoaded = false;
+
+    // ── Build calLink with pre-fill query params ───────────────────
+    function buildCalLink() {
+      var link = calLink;
+      var params = [];
+      if (leadName) params.push('name=' + encodeURIComponent(leadName));
+      if (leadEmail) params.push('email=' + encodeURIComponent(leadEmail));
+      return params.length > 0 ? link + '?' + params.join('&') : link;
+    }
+
+    // ── Load Cal.com embed ──────────────────────────────────────────
+    function loadCalEmbed() {
+      if (embedLoaded) return;
+      embedLoaded = true;
+
+      embed.style.display = 'block';
+      fallback.style.display = 'none';
+
+      // Cal.com loader (verbatim from official embed code)
+      (function (C, A, L) {
+        var p = function (a, ar) { a.q.push(ar); };
+        var d = C.document;
+        C.Cal = C.Cal || function () {
+          var cal = C.Cal;
+          var ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            var api = function () { p(api, arguments); };
+            var ns = ar[1];
+            api.q = api.q || [];
+            if (typeof ns === "string") {
+              cal.ns[ns] = cal.ns[ns] || api;
+              p(cal.ns[ns], ar);
+              p(cal, ["initNamespace", ns]);
+            } else {
+              p(cal, ar);
+            }
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+
+      Cal("init", namespace, { origin: "https://app.cal.com" });
+
+      Cal.ns[namespace]("inline", {
+        elementOrSelector: "#" + elementId,
+        config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
+        calLink: buildCalLink(),
+      });
+
+      Cal.ns[namespace]("ui", {
+        "hideEventTypeDetails": false,
+        "layout": "month_view",
+      });
+    }
+
+    // ── Show fallback ───────────────────────────────────────────────
+    function showFallback() {
+      embed.style.display = 'none';
+      fallback.style.display = 'flex';
+    }
+
+    // ── Initial state ───────────────────────────────────────────────
+    if (hasAnalyticsConsent()) {
+      loadCalEmbed();
+    } else {
+      showFallback();
+    }
+
+    // ── React to mid-session consent changes ────────────────────────
+    // Dispatched by our CookieConsent component's onChange handler
+    window.addEventListener('bp:consent-change', function () {
+      if (!embedLoaded && hasAnalyticsConsent()) {
+        loadCalEmbed();
+      }
+    });
+  })();
+</script>
+
+<style>
+  .cal-root {
+    width: 100%;
+    min-height: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .cal-embed {
+    width: 100%;
+    min-height: 650px;
+    overflow-y: auto;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #f1f5f9;
+  }
+
+  .cal-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 48px 32px;
+    background: #fff;
+    border: 1px solid #f1f5f9;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .cal-fallback-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .cal-fallback-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 8px;
+  }
+
+  .cal-fallback-desc {
+    font-size: 14px;
+    color: #6b7280;
+    max-width: 380px;
+    line-height: 1.6;
+    margin: 0 0 28px;
+  }
+
+  .cal-fallback-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .cal-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    border: none;
+    font-family: inherit;
+  }
+
+  .cal-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .cal-btn-primary {
+    background: #111827;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .cal-btn-primary:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .cal-btn-secondary {
+    background: transparent;
+    color: #111827;
+    border: 1px solid #d1d5db;
+  }
+
+  .cal-btn-secondary:hover {
+    border-color: #111827;
+  }
+
+  @media (max-width: 480px) {
+    .cal-fallback-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .cal-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

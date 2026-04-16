@@ -119,8 +119,103 @@ export const server = {
         console.error('[ACTION] ⚠ Internal notification failed (non-blocking):', err);
       }
 
-      console.log(`[ACTION] ✓ submitContact complete — tier=${tier}`);
-      return { success: true, tier };
+      // Map tier to Cal.com embed type (only scale and partnership get embeds)
+      const calType = isPremium ? 'scale' : isPartnershipLead ? 'partnership' : null;
+
+      console.log(`[ACTION] ✓ submitContact complete — tier=${tier}, calType=${calType}`);
+      return { success: true, tier, calType, leadName: input.name, leadEmail: input.email };
+    },
+  }),
+
+  // ── Scale Package: dedicated landing page action ────────────────
+  submitScale: defineAction({
+    accept: 'form',
+    input: z.object({
+      name: z.string().min(2, 'Name must be at least 2 characters'),
+      email: z.string().email('Please enter a valid email'),
+      cmsPreference: z.string().min(1, 'Please select a CMS preference'),
+      integrations: z.string().min(5, 'Please describe your integrations'),
+      timeline: z.string().min(1, 'Please select a timeline'),
+      lang: z.enum(['en', 'de', 'es']).default('en'),
+    }),
+    handler: async (input) => {
+      console.log('[ACTION] ✦ submitScale triggered', JSON.stringify({
+        name: input.name, email: input.email,
+      }));
+
+      const lang = input.lang as Language;
+
+      try {
+        await sendClientEmail(lang, { name: input.name, email: input.email });
+        console.log('[ACTION] ✓ Scale client auto-responder sent');
+      } catch (err) {
+        console.error('[ACTION] ❌ Scale client email failed:', err);
+        throw new ActionError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Failed to send confirmation email: ${err instanceof Error ? err.message : String(err)}`,
+        });
+      }
+
+      try {
+        await sendInternalNotification({
+          name: input.name,
+          email: input.email,
+          interest: 'Scale Package — Landing Page',
+          message: `CMS: ${input.cmsPreference}\nIntegrations: ${input.integrations}\nTimeline: ${input.timeline}`,
+          lang,
+        });
+        console.log('[ACTION] ✓ Scale internal notification sent');
+      } catch (err) {
+        console.error('[ACTION] ⚠ Scale internal notification failed (non-blocking):', err);
+      }
+
+      return { success: true, leadName: input.name, leadEmail: input.email };
+    },
+  }),
+
+  // ── Partnership: dedicated landing page action ──────────────────
+  submitPartnership: defineAction({
+    accept: 'form',
+    input: z.object({
+      name: z.string().min(2, 'Name must be at least 2 characters'),
+      email: z.string().email('Please enter a valid email'),
+      figmaProcess: z.string().min(10, 'Please describe your design workflow'),
+      teamSize: z.string().min(1, 'Please select a team size'),
+      portfolioUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
+      lang: z.enum(['en', 'de', 'es']).default('en'),
+    }),
+    handler: async (input) => {
+      console.log('[ACTION] ✦ submitPartnership triggered', JSON.stringify({
+        name: input.name, email: input.email,
+      }));
+
+      const lang = input.lang as Language;
+
+      try {
+        await sendClientEmail(lang, { name: input.name, email: input.email });
+        console.log('[ACTION] ✓ Partnership client auto-responder sent');
+      } catch (err) {
+        console.error('[ACTION] ❌ Partnership client email failed:', err);
+        throw new ActionError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Failed to send confirmation email: ${err instanceof Error ? err.message : String(err)}`,
+        });
+      }
+
+      try {
+        await sendInternalNotification({
+          name: input.name,
+          email: input.email,
+          interest: 'Partnership — Landing Page',
+          message: `Figma Process: ${input.figmaProcess}\nTeam Size: ${input.teamSize}\nPortfolio: ${input.portfolioUrl || 'Not provided'}`,
+          lang,
+        });
+        console.log('[ACTION] ✓ Partnership internal notification sent');
+      } catch (err) {
+        console.error('[ACTION] ⚠ Partnership internal notification failed (non-blocking):', err);
+      }
+
+      return { success: true, leadName: input.name, leadEmail: input.email };
     },
   }),
 };

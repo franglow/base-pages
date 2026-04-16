@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
 import Header from '../../components/sections/Header.astro';
 import Footer from '../../components/sections/Footer.astro';
+import CalEmbed from '../../components/CalEmbed.astro';
 import { actions } from 'astro:actions';
 
 import enData from '../../i18n/en.json';
@@ -24,13 +25,20 @@ const jsonLd = [
 const result = Astro.getActionResult(actions.submitContact);
 const inputErrors = result?.error?.fields;
 
-// On success, redirect so the user gets a clean URL (PRG pattern)
+// On success, redirect with type + pre-fill params (PRG pattern)
 if (result?.data?.success) {
-  return Astro.redirect('/contact?success=1');
+  const params = new URLSearchParams({ success: '1' });
+  if (result.data.calType) params.set('type', result.data.calType);
+  if (result.data.leadName) params.set('name', result.data.leadName);
+  if (result.data.leadEmail) params.set('email', result.data.leadEmail);
+  return Astro.redirect(`/contact?${params.toString()}`);
 }
 
-// Check for success via query param (after redirect)
+// Read success state + pre-fill data from URL (after redirect)
 const success = Astro.url.searchParams.get('success') === '1';
+const calType = Astro.url.searchParams.get('type'); // 'scale' | 'partnership' | null
+const leadName = Astro.url.searchParams.get('name') || undefined;
+const leadEmail = Astro.url.searchParams.get('email') || undefined;
 
 // Capture action-level errors (non-field errors like Resend failures)
 const actionError = result?.error && !inputErrors
@@ -58,9 +66,55 @@ const care = contactPage.form.care;
     <div class="w-full max-w-2xl mx-auto px-6 pt-40 pb-32">
       
       {success ? (
-        <div class="text-center py-16" role="status" aria-live="polite">
-          <h1 class="text-[48px] md:text-[64px] font-medium text-gray-900 mb-6 tracking-tight">Thank you!</h1>
-          <p class="text-lg text-gray-600 max-w-md mx-auto">We've received your message and will get back to you within 24 hours.</p>
+        <div class="text-center" role="status" aria-live="polite">
+          <div class="mb-6">
+            <span class="font-['Roboto_Mono',_monospace] font-bold tracking-widest uppercase text-[13px] text-emerald-600">
+              ✓ MESSAGE RECEIVED
+            </span>
+          </div>
+
+          {calType === 'scale' ? (
+            <>
+              <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
+                Let's plan your architecture
+              </h1>
+              <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+                Book your consultation call below. We'll review your stack and map out a custom architecture.
+              </p>
+              <CalEmbed
+                namespace="scale-call"
+                calLink="base-pages.com/scale-call"
+                leadName={leadName}
+                leadEmail={leadEmail}
+                fallbackUrl="https://cal.com/base-pages.com/scale-call"
+              />
+            </>
+          ) : calType === 'partnership' ? (
+            <>
+              <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
+                Let's talk design
+              </h1>
+              <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+                Book your designer call below. We'll review your portfolio and discuss collaboration.
+              </p>
+              <CalEmbed
+                namespace="partnership-sync"
+                calLink="base-pages.com/partnership-sync"
+                leadName={leadName}
+                leadEmail={leadEmail}
+                fallbackUrl="https://cal.com/base-pages.com/partnership-sync"
+              />
+            </>
+          ) : (
+            <>
+              <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
+                We're on it
+              </h1>
+              <p class="text-gray-500 text-lg max-w-md mx-auto">
+                We've received your inquiry and will be in touch within 24 hours with a tailored response.
+              </p>
+            </>
+          )}
         </div>
       ) : (
         <>
