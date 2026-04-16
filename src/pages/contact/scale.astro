@@ -64,17 +64,20 @@ const leadEmail = result?.data?.leadEmail;
           <form method="POST" action={actions.submitScale} class="flex flex-col gap-8">
             <input type="hidden" name="lang" value="en" />
             <div class="input-group">
-              <input type="text" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" />
+              <label for="scale-name" class="field-label">Name <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+              <input type="text" id="scale-name" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" />
               {inputErrors?.name && <p class="error-text">{inputErrors.name}</p>}
             </div>
 
             <div class="input-group">
-              <input type="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" />
+              <label for="scale-email" class="field-label">Email <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+              <input type="email" id="scale-email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" />
               {inputErrors?.email && <p class="error-text">{inputErrors.email}</p>}
             </div>
 
             <div class="input-group">
-              <select name="cmsPreference" required class="minimal-input select-input">
+              <label for="scale-cms" class="field-label">Preferred CMS <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+              <select id="scale-cms" name="cmsPreference" required class="minimal-input select-input">
                 <option value="" disabled selected>Preferred CMS</option>
                 <option value="Headless (Contentful, Sanity)">Headless (Contentful, Sanity)</option>
                 <option value="WordPress">WordPress</option>
@@ -86,7 +89,8 @@ const leadEmail = result?.data?.leadEmail;
             </div>
 
             <div class="input-group">
-              <textarea name="integrations" placeholder="Required integrations (CRM, payments, APIs...)" required rows="2" class="minimal-input resize-none"></textarea>
+              <label for="scale-integrations" class="field-label">Integrations <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+              <textarea id="scale-integrations" name="integrations" placeholder="Required integrations (CRM, payments, APIs...)" required rows="2" class="minimal-input resize-none"></textarea>
               {inputErrors?.integrations && <p class="error-text">{inputErrors.integrations}</p>}
             </div>
 
@@ -115,6 +119,10 @@ const leadEmail = result?.data?.leadEmail;
 </Layout>
 
 <style>
+  .field-label {
+    display: block; font-size: 13px; font-weight: 500;
+    color: #6b7280; margin-bottom: 4px; letter-spacing: 0.01em;
+  }
   .minimal-input {
     width: 100%; background: transparent; border: none;
     border-bottom: 1px solid #111827; padding: 16px 0; font-size: 16px;

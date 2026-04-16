@@ -134,16 +134,19 @@ const care = (contactPage as any).form.care;
             <input type="hidden" name="lang" value={lang} />
             
             <div class="input-group">
+              <label for="name" class="field-label">{contactPage.form.namePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
               <input type="text" id="name" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" />
               {inputErrors?.name && <p class="error-text">{inputErrors.name}</p>}
             </div>
 
             <div class="input-group">
+              <label for="email" class="field-label">{contactPage.form.emailPlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
               <input type="email" id="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" />
               {inputErrors?.email && <p class="error-text">{inputErrors.email}</p>}
             </div>
 
             <div class="input-group relative">
+              <label for="interest" class="field-label">{contactPage.form.interestLabel} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
               <select id="interest" name="interest" required class="minimal-input appearance-none bg-transparent cursor-pointer">
                 <option value="" disabled selected hidden>{contactPage.form.interestLabel}</option>
                 {contactPage.form.interests.map((interest: string) => (
@@ -163,7 +166,7 @@ const care = (contactPage as any).form.care;
               <p class="tier-section-label">{growth.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" />
+                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
                 </div>
                 <div class="input-group relative">
                   <select id="adSpend" name="adSpend" class="minimal-input appearance-none bg-transparent cursor-pointer">
@@ -241,7 +244,7 @@ const care = (contactPage as any).form.care;
               <p class="tier-section-label">{partnership.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder={partnership.portfolioPlaceholder} class="minimal-input" />
+                  <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder={partnership.portfolioPlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
                 </div>
                 <div class="input-group relative">
                   <select id="designTool" name="designTool" class="minimal-input appearance-none bg-transparent cursor-pointer">
@@ -272,7 +275,7 @@ const care = (contactPage as any).form.care;
               <p class="tier-section-label">{care.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" />
+                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
                 </div>
                 <div class="input-group relative">
                   <select id="carePlatform" name="carePlatform" class="minimal-input appearance-none bg-transparent cursor-pointer">
@@ -305,10 +308,12 @@ const care = (contactPage as any).form.care;
             </div>
 
             <div class="input-group">
+              <label for="budget" class="field-label">{contactPage.form.budgetLabel} <span class="text-neutral-400 ml-1 text-sm" aria-hidden="true">(optional)</span></label>
               <input type="text" id="budget" name="budget" placeholder={contactPage.form.budgetLabel} class="minimal-input" />
             </div>
 
             <div class="input-group">
+              <label for="message" class="field-label">{contactPage.form.messagePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
               <textarea id="message" name="message" placeholder={contactPage.form.messagePlaceholder} required rows="1" class="minimal-input resize-none"></textarea>
               {inputErrors?.message && <p class="error-text">{inputErrors.message}</p>}
             </div>
@@ -471,6 +476,15 @@ const care = (contactPage as any).form.care;
 </script>
 
 <style>
+  .field-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+
   .minimal-input {
     width: 100%;
     background: transparent;
