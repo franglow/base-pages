@@ -96,7 +96,7 @@ const leadEmail = result?.data?.leadEmail;
 
             <div class="input-group">
               <label for="scale-integrations" class="field-label">Integrations <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <textarea id="scale-integrations" name="integrations" placeholder="Required integrations (CRM, payments, APIs...)" required rows="2" class="minimal-input resize-none"></textarea>
+              <textarea id="scale-integrations" name="integrations" placeholder="Required integrations (CRM, payments, APIs...)" required minlength="10" rows="2" class="minimal-input resize-none"></textarea>
               {inputErrors?.integrations && <p class="error-text">{inputErrors.integrations}</p>}
             </div>
 

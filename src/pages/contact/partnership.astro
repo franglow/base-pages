@@ -83,7 +83,7 @@ const leadEmail = result?.data?.leadEmail;
 
             <div class="input-group">
               <label for="partner-figma" class="field-label">Design workflow <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <textarea id="partner-figma" name="figmaProcess" placeholder="Describe your Figma design workflow and handoff process..." required rows="3" class="minimal-input resize-none"></textarea>
+              <textarea id="partner-figma" name="figmaProcess" placeholder="Describe your Figma design workflow and handoff process..." required minlength="10" rows="3" class="minimal-input resize-none"></textarea>
               {inputErrors?.figmaProcess && <p class="error-text">{inputErrors.figmaProcess}</p>}
             </div>
 

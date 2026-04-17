@@ -74,7 +74,7 @@ if (success) {
         </div>
 
         <div class="input-group">
-          <textarea name="roiGoals" placeholder="Describe your ROI goals and what success looks like..." required rows="3" class="minimal-input resize-none"></textarea>
+          <textarea name="roiGoals" placeholder="Describe your ROI goals and what success looks like..." required minlength="10" rows="3" class="minimal-input resize-none"></textarea>
           {inputErrors?.roiGoals && <p class="error-text">{inputErrors.roiGoals}</p>}
         </div>
 
