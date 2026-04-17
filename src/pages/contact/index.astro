@@ -49,6 +49,8 @@ const growth = contactPage.form.growth;
 const scale = contactPage.form.scale;
 const partnership = contactPage.form.partnership;
 const care = contactPage.form.care;
+
+const formPayload = Astro.locals.formPayload || {};
 ---
 
 <Layout
@@ -166,22 +168,22 @@ const care = contactPage.form.care;
             
             <div class="input-group">
               <label for="name" class="field-label">{contactPage.form.namePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <input type="text" id="name" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" aria-describedby={inputErrors?.name ? 'name-error' : undefined} />
+              <input type="text" id="name" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" aria-describedby={inputErrors?.name ? 'name-error' : undefined} value={formPayload?.name || ''} />
               {inputErrors?.name && <p id="name-error" class="error-text" role="alert">{inputErrors.name}</p>}
             </div>
 
             <div class="input-group">
               <label for="email" class="field-label">{contactPage.form.emailPlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" aria-describedby={inputErrors?.email ? 'email-error' : undefined} />
+              <input type="email" id="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" aria-describedby={inputErrors?.email ? 'email-error' : undefined} value={formPayload?.email || ''} />
               {inputErrors?.email && <p id="email-error" class="error-text" role="alert">{inputErrors.email}</p>}
             </div>
 
             <div class="input-group relative">
               <label for="interest" class="field-label">{contactPage.form.interestLabel} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
               <select id="interest" name="interest" required class="minimal-input appearance-none bg-transparent cursor-pointer" aria-describedby={inputErrors?.interest ? 'interest-error' : undefined}>
-                <option value="" disabled selected hidden>{contactPage.form.interestLabel}</option>
+                <option value="" disabled selected={!formPayload?.interest} hidden>{contactPage.form.interestLabel}</option>
                 {contactPage.form.interests.map((interest: string) => (
-                  <option value={interest} class="text-gray-900">{interest}</option>
+                  <option value={interest} class="text-gray-900" selected={formPayload?.interest === interest}>{interest}</option>
                 ))}
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
@@ -197,12 +199,12 @@ const care = contactPage.form.care;
               <p class="tier-section-label">{growth.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
+                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" value={formPayload?.websiteUrl || ''} />
                 </div>
                 <div class="input-group relative">
                   <select id="adSpend" name="adSpend" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{growth.adSpendLabel}</option>
-                    {growth.adSpendOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.adSpend} hidden>{growth.adSpendLabel}</option>
+                    {growth.adSpendOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.adSpend === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -212,14 +214,14 @@ const care = contactPage.form.care;
                   <legend class="chips-legend">{growth.channelsLabel}</legend>
                   <div class="chips-grid">
                     {growth.channels.map((ch: string) => (
-                      <label class="chip"><input type="checkbox" value={ch} class="chip-checkbox channel-checkbox" /><span class="chip-label">{ch}</span></label>
+                      <label class="chip"><input type="checkbox" value={ch} class="chip-checkbox channel-checkbox" checked={(formPayload?.channels || '').includes(ch)} /><span class="chip-label">{ch}</span></label>
                     ))}
                   </div>
                 </fieldset>
                 <div class="input-group relative">
                   <select id="conversionGoal" name="conversionGoal" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{growth.goalLabel}</option>
-                    {growth.goals.map((g: string) => (<option value={g} class="text-gray-900">{g}</option>))}
+                    <option value="" disabled selected={!formPayload?.conversionGoal} hidden>{growth.goalLabel}</option>
+                    {growth.goals.map((g: string) => (<option value={g} class="text-gray-900" selected={formPayload?.conversionGoal === g}>{g}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -234,8 +236,8 @@ const care = contactPage.form.care;
               <div class="tier-inner">
                 <div class="input-group relative">
                   <select id="cmsPreference" name="cmsPreference" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{scale.cmsLabel}</option>
-                    {scale.cmsOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.cmsPreference} hidden>{scale.cmsLabel}</option>
+                    {scale.cmsOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.cmsPreference === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -243,8 +245,8 @@ const care = contactPage.form.care;
                 </div>
                 <div class="input-group relative">
                   <select id="pageScope" name="pageScope" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{scale.pageScopeLabel}</option>
-                    {scale.pageScopeOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.pageScope} hidden>{scale.pageScopeLabel}</option>
+                    {scale.pageScopeOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.pageScope === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -254,14 +256,14 @@ const care = contactPage.form.care;
                   <legend class="chips-legend">{scale.featuresLabel}</legend>
                   <div class="chips-grid">
                     {scale.features.map((f: string) => (
-                      <label class="chip"><input type="checkbox" value={f} class="chip-checkbox scale-feature-checkbox" /><span class="chip-label">{f}</span></label>
+                      <label class="chip"><input type="checkbox" value={f} class="chip-checkbox scale-feature-checkbox" checked={(formPayload?.scaleFeatures || '').includes(f)} /><span class="chip-label">{f}</span></label>
                     ))}
                   </div>
                 </fieldset>
                 <div class="input-group relative">
                   <select id="launchTimeline" name="launchTimeline" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{scale.timelineLabel}</option>
-                    {scale.timelineOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.launchTimeline} hidden>{scale.timelineLabel}</option>
+                    {scale.timelineOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.launchTimeline === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -275,12 +277,12 @@ const care = contactPage.form.care;
               <p class="tier-section-label">{partnership.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder={partnership.portfolioPlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
+                  <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder={partnership.portfolioPlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" value={formPayload?.portfolioUrl || ''} />
                 </div>
                 <div class="input-group relative">
                   <select id="designTool" name="designTool" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{partnership.designToolLabel}</option>
-                    {partnership.designToolOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.designTool} hidden>{partnership.designToolLabel}</option>
+                    {partnership.designToolOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.designTool === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -288,15 +290,15 @@ const care = contactPage.form.care;
                 </div>
                 <div class="input-group relative">
                   <select id="projectVolume" name="projectVolume" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{partnership.projectVolumeLabel}</option>
-                    {partnership.projectVolumeOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.projectVolume} hidden>{partnership.projectVolumeLabel}</option>
+                    {partnership.projectVolumeOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.projectVolume === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                   </div>
                 </div>
                 <div class="input-group">
-                  <input type="text" id="figmaSample" name="figmaSample" placeholder={partnership.figmaSamplePlaceholder} class="minimal-input" />
+                  <input type="text" id="figmaSample" name="figmaSample" placeholder={partnership.figmaSamplePlaceholder} class="minimal-input" value={formPayload?.figmaSample || ''} />
                 </div>
               </div>
             </div>
@@ -306,12 +308,12 @@ const care = contactPage.form.care;
               <p class="tier-section-label">{care.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
+                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" value={formPayload?.careWebsiteUrl || ''} />
                 </div>
                 <div class="input-group relative">
                   <select id="carePlatform" name="carePlatform" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{care.platformLabel}</option>
-                    {care.platformOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.carePlatform} hidden>{care.platformLabel}</option>
+                    {care.platformOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.carePlatform === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -319,8 +321,8 @@ const care = contactPage.form.care;
                 </div>
                 <div class="input-group relative">
                   <select id="carePriority" name="carePriority" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{care.priorityLabel}</option>
-                    {care.priorityOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.carePriority} hidden>{care.priorityLabel}</option>
+                    {care.priorityOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.carePriority === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -328,8 +330,8 @@ const care = contactPage.form.care;
                 </div>
                 <div class="input-group relative">
                   <select id="careOrigin" name="careOrigin" class="minimal-input appearance-none bg-transparent cursor-pointer">
-                    <option value="" disabled selected hidden>{care.originLabel}</option>
-                    {care.originOptions.map((opt: string) => (<option value={opt} class="text-gray-900">{opt}</option>))}
+                    <option value="" disabled selected={!formPayload?.careOrigin} hidden>{care.originLabel}</option>
+                    {care.originOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.careOrigin === opt}>{opt}</option>))}
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -340,12 +342,12 @@ const care = contactPage.form.care;
 
             <div class="input-group">
               <label for="budget" class="field-label">{contactPage.form.budgetLabel} <span class="text-neutral-400 ml-1 text-sm" aria-hidden="true">(optional)</span></label>
-              <input type="text" id="budget" name="budget" placeholder={contactPage.form.budgetLabel} class="minimal-input" />
+              <input type="text" id="budget" name="budget" placeholder={contactPage.form.budgetLabel} class="minimal-input" value={formPayload?.budget || ''} />
             </div>
 
             <div class="input-group">
               <label for="message" class="field-label">{contactPage.form.messagePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" placeholder={contactPage.form.messagePlaceholder} required rows="1" class="minimal-input resize-none"></textarea>
+              <textarea id="message" name="message" placeholder={contactPage.form.messagePlaceholder} required minlength="10" rows="1" class="minimal-input resize-none">{formPayload?.message || ''}</textarea>
               {inputErrors?.message && <p class="error-text">{inputErrors.message}</p>}
             </div>
 
