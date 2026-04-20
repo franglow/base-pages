@@ -1,1 +1,0 @@
-SUCCESS: parsed payload: {"lang":"en","name":"test","email":"test@test.com","interest":"The Scale Website (€3,800)","websiteUrl":"","cmsPreference":"Storyblok","pageScope":"5-10 pages","launchTimeline":"Within 3-5 weeks","portfolioUrl":"","figmaSample":"","careWebsiteUrl":"","budget":"10k","message":"lskd ndskk k","channels":"","scaleFeatures":"Advanced Animations (GSAP)"}

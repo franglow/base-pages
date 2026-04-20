@@ -100,7 +100,7 @@ const leadEmail = result?.data?.leadEmail;
 
             <div class="input-group">
               <label for="partner-portfolio" class="field-label">Portfolio URL <span class="text-neutral-400 ml-1 text-sm" aria-hidden="true">(optional)</span></label>
-              <input type="url" id="partner-portfolio" name="portfolioUrl" placeholder="Portfolio URL" class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" />
+              <input type="url" id="partner-portfolio" name="portfolioUrl" placeholder="Portfolio URL" class="minimal-input" data-url-prefix />
               {inputErrors?.portfolioUrl && <p class="error-text">{inputErrors.portfolioUrl}</p>}
             </div>
 
@@ -116,6 +116,23 @@ const leadEmail = result?.data?.leadEmail;
 
   <Footer data={footer} />
 </Layout>
+
+<script>
+  // Safe URL prefix normalizer — uses startsWith() instead of a regex literal
+  // so the HTML/JS minifier can never collapse `\/\/` into a `//` line comment.
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll<HTMLInputElement>('input[data-url-prefix]').forEach((el) => {
+      el.addEventListener('blur', () => {
+        const v = el.value.trim();
+        if (!v) return;
+        const lower = v.toLowerCase();
+        if (!lower.startsWith('http://') && !lower.startsWith('https://')) {
+          el.value = 'https://' + v;
+        }
+      });
+    });
+  });
+</script>
 
 <style>
   .field-label {

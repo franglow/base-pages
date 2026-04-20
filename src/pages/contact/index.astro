@@ -195,11 +195,11 @@ const formPayload = Astro.locals.formPayload || {};
             </div>
 
             <!-- Growth Package Qualification Fields -->
-            <div id="growth-fields" class="tier-fields">
+            <div id="growth-fields" class="tier-fields" inert>
               <p class="tier-section-label">{growth.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" value={formPayload?.websiteUrl || ''} />
+                  <input type="url" id="websiteUrl" name="websiteUrl" placeholder={growth.websitePlaceholder} class="minimal-input" data-url-prefix value={formPayload?.websiteUrl || ''} />
                 </div>
                 <div class="input-group relative">
                   <select id="adSpend" name="adSpend" class="minimal-input appearance-none bg-transparent cursor-pointer">
@@ -231,7 +231,7 @@ const formPayload = Astro.locals.formPayload || {};
             </div>
 
             <!-- Scale Package Briefing Fields -->
-            <div id="scale-fields" class="tier-fields">
+            <div id="scale-fields" class="tier-fields" inert>
               <p class="tier-section-label">{scale.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group relative">
@@ -273,11 +273,11 @@ const formPayload = Astro.locals.formPayload || {};
             </div>
 
             <!-- Partnership Vetting Fields -->
-            <div id="partnership-fields" class="tier-fields">
+            <div id="partnership-fields" class="tier-fields" inert>
               <p class="tier-section-label">{partnership.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder={partnership.portfolioPlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" value={formPayload?.portfolioUrl || ''} />
+                  <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder={partnership.portfolioPlaceholder} class="minimal-input" data-url-prefix value={formPayload?.portfolioUrl || ''} />
                 </div>
                 <div class="input-group relative">
                   <select id="designTool" name="designTool" class="minimal-input appearance-none bg-transparent cursor-pointer">
@@ -304,11 +304,11 @@ const formPayload = Astro.locals.formPayload || {};
             </div>
 
             <!-- Continuous Care Fields -->
-            <div id="care-fields" class="tier-fields">
+            <div id="care-fields" class="tier-fields" inert>
               <p class="tier-section-label">{care.sectionLabel}</p>
               <div class="tier-inner">
                 <div class="input-group">
-                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" onblur="if(this.value&&!/^https?:\/\//.test(this.value))this.value='https://'+this.value" value={formPayload?.careWebsiteUrl || ''} />
+                  <input type="url" id="careWebsiteUrl" name="careWebsiteUrl" placeholder={care.websitePlaceholder} class="minimal-input" data-url-prefix value={formPayload?.careWebsiteUrl || ''} />
                 </div>
                 <div class="input-group relative">
                   <select id="carePlatform" name="carePlatform" class="minimal-input appearance-none bg-transparent cursor-pointer">
@@ -383,15 +383,24 @@ const formPayload = Astro.locals.formPayload || {};
       return null;
     }
 
+    // Native `inert` removes the subtree from tab order, AT focus & clicks.
+    // This is the correct replacement for tabindex="-1" hacks on hidden UI.
+    function setInert(el: HTMLElement, on: boolean): void {
+      if (on) el.setAttribute('inert', '');
+      else el.removeAttribute('inert');
+    }
+
     // ── Growth toggle ───────────────────────────────────────────────
     function showGrowth(): void {
       growthFields!.classList.add('tier-visible');
+      setInert(growthFields!, false);
       growthFields!.querySelector<HTMLInputElement>('#websiteUrl')?.setAttribute('required', '');
       growthFields!.querySelector<HTMLSelectElement>('#adSpend')?.setAttribute('required', '');
       growthFields!.querySelector<HTMLSelectElement>('#conversionGoal')?.setAttribute('required', '');
     }
     function hideGrowth(): void {
       growthFields!.classList.remove('tier-visible');
+      setInert(growthFields!, true);
       const wu = growthFields!.querySelector<HTMLInputElement>('#websiteUrl');
       const as = growthFields!.querySelector<HTMLSelectElement>('#adSpend');
       const cg = growthFields!.querySelector<HTMLSelectElement>('#conversionGoal');
@@ -404,12 +413,14 @@ const formPayload = Astro.locals.formPayload || {};
     // ── Scale toggle ────────────────────────────────────────────────
     function showScale(): void {
       scaleFields!.classList.add('tier-visible');
+      setInert(scaleFields!, false);
       scaleFields!.querySelector<HTMLSelectElement>('#cmsPreference')?.setAttribute('required', '');
       scaleFields!.querySelector<HTMLSelectElement>('#pageScope')?.setAttribute('required', '');
       scaleFields!.querySelector<HTMLSelectElement>('#launchTimeline')?.setAttribute('required', '');
     }
     function hideScale(): void {
       scaleFields!.classList.remove('tier-visible');
+      setInert(scaleFields!, true);
       const cms = scaleFields!.querySelector<HTMLSelectElement>('#cmsPreference');
       const ps = scaleFields!.querySelector<HTMLSelectElement>('#pageScope');
       const lt = scaleFields!.querySelector<HTMLSelectElement>('#launchTimeline');
@@ -422,12 +433,14 @@ const formPayload = Astro.locals.formPayload || {};
     // ── Partnership toggle ──────────────────────────────────────────
     function showPartnership(): void {
       partnerFields!.classList.add('tier-visible');
+      setInert(partnerFields!, false);
       partnerFields!.querySelector<HTMLInputElement>('#portfolioUrl')?.setAttribute('required', '');
       partnerFields!.querySelector<HTMLSelectElement>('#designTool')?.setAttribute('required', '');
       partnerFields!.querySelector<HTMLSelectElement>('#projectVolume')?.setAttribute('required', '');
     }
     function hidePartnership(): void {
       partnerFields!.classList.remove('tier-visible');
+      setInert(partnerFields!, true);
       const pu = partnerFields!.querySelector<HTMLInputElement>('#portfolioUrl');
       const dt = partnerFields!.querySelector<HTMLSelectElement>('#designTool');
       const pv = partnerFields!.querySelector<HTMLSelectElement>('#projectVolume');
@@ -441,6 +454,7 @@ const formPayload = Astro.locals.formPayload || {};
     // ── Care toggle ──────────────────────────────────────────────────
     function showCare(): void {
       careFields!.classList.add('tier-visible');
+      setInert(careFields!, false);
       careFields!.querySelector<HTMLInputElement>('#careWebsiteUrl')?.setAttribute('required', '');
       careFields!.querySelector<HTMLSelectElement>('#carePlatform')?.setAttribute('required', '');
       careFields!.querySelector<HTMLSelectElement>('#carePriority')?.setAttribute('required', '');
@@ -448,6 +462,7 @@ const formPayload = Astro.locals.formPayload || {};
     }
     function hideCare(): void {
       careFields!.classList.remove('tier-visible');
+      setInert(careFields!, true);
       const cw = careFields!.querySelector<HTMLInputElement>('#careWebsiteUrl');
       const cp = careFields!.querySelector<HTMLSelectElement>('#carePlatform');
       const cpr = careFields!.querySelector<HTMLSelectElement>('#carePriority');
@@ -468,6 +483,21 @@ const formPayload = Astro.locals.formPayload || {};
     }
 
     interestSelect.addEventListener('change', toggleTierFields);
+
+    // ── URL prefix normalizer (safe replacement for inline onblur regex) ─
+    // Uses .startsWith() instead of a regex literal so production minifiers
+    // can't collapse `\/\/` escapes into a `//` line-comment (which caused
+    // "Uncaught SyntaxError: Unexpected end of input" on tab/blur).
+    document.querySelectorAll<HTMLInputElement>('input[data-url-prefix]').forEach((el) => {
+      el.addEventListener('blur', () => {
+        const v = el.value.trim();
+        if (!v) return;
+        const lower = v.toLowerCase();
+        if (!lower.startsWith('http://') && !lower.startsWith('https://')) {
+          el.value = 'https://' + v;
+        }
+      });
+    });
 
     // Auto-select tier from ?tier= query param
     const urlParams = new URLSearchParams(window.location.search);

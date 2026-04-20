@@ -35,95 +35,99 @@ export const server = {
       careOrigin: z.string().optional(),
     }),
     handler: async (input) => {
-      console.log('[ACTION] ✦ submitContact triggered', JSON.stringify({
-        name: input.name,
-        email: input.email,
-        interest: input.interest,
-        lang: input.lang,
-      }));
-
-      const lang = input.lang as Language;
-
-      // ── Lead Radar: Tier detection ──────────────────────────────────
-      const interestLower = input.interest.toLowerCase();
-      const isPremium = interestLower.includes('scale') || interestLower.includes('premium');
-      const isGrowthLead = interestLower.includes('growth');
-      const isStarterLead = interestLower.includes('starter');
-      const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('partnerschaft');
-      const isCareLead = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
-
-      const tier = isPremium ? 'premium'
-          : isGrowthLead ? 'growth'
-          : isStarterLead ? 'starter'
-          : isPartnershipLead ? 'partnership'
-          : isCareLead ? 'care'
-          : 'general';
-
-      // ── Send emails — AWAITED, errors surface ─────────────────────
       try {
-        // Send client auto-responder (localized)
-        await sendClientEmail(lang, {
-          name: input.name,
-          email: input.email,
-        });
-        console.log('[ACTION] ✓ Client auto-responder sent');
-      } catch (err) {
-        console.error('[ACTION] ❌ Client auto-responder failed:', err);
-        throw new ActionError({
-          code: 'INTERNAL_SERVER_ERROR',
-          message: `Failed to send confirmation email: ${err instanceof Error ? err.message : String(err)}`,
-        });
-      }
-
-      try {
-        // Send internal Lead Radar notification
-        await sendInternalNotification({
+        console.log('[ACTION] ✦ submitContact triggered', JSON.stringify({
           name: input.name,
           email: input.email,
           interest: input.interest,
-          budget: input.budget,
-          message: input.message,
-          lang,
-          // Growth-specific fields (only included when present)
-          ...(isGrowthLead && {
-            websiteUrl: input.websiteUrl,
-            adSpend: input.adSpend,
-            channels: input.channels,
-            conversionGoal: input.conversionGoal,
-          }),
-          // Premium/Scale-specific fields (only included when present)
-          ...(isPremium && {
-            cmsPreference: input.cmsPreference,
-            pageScope: input.pageScope,
-            scaleFeatures: input.scaleFeatures,
-            launchTimeline: input.launchTimeline,
-          }),
-          // Partnership-specific fields (only included when present)
-          ...(isPartnershipLead && {
-            portfolioUrl: input.portfolioUrl,
-            designTool: input.designTool,
-            projectVolume: input.projectVolume,
-            figmaSample: input.figmaSample,
-          }),
-          // Care-specific fields (only included when present)
-          ...(isCareLead && {
-            careWebsiteUrl: input.careWebsiteUrl,
-            carePlatform: input.carePlatform,
-            carePriority: input.carePriority,
-            careOrigin: input.careOrigin,
-          }),
-        });
-        console.log('[ACTION] ✓ Internal Lead Radar notification sent');
+          lang: input.lang,
+        }));
+
+        const lang = input.lang as Language;
+
+        // ── Lead Radar: Tier detection (defensive — Zod validates, but never crash) ─
+        const interestLower = input.interest?.toLowerCase() ?? '';
+        const isPremium = interestLower.includes('scale') || interestLower.includes('premium');
+        const isGrowthLead = interestLower.includes('growth');
+        const isStarterLead = interestLower.includes('starter');
+        const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('partnerschaft');
+        const isCareLead = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
+
+        const tier = isPremium ? 'premium'
+            : isGrowthLead ? 'growth'
+            : isStarterLead ? 'starter'
+            : isPartnershipLead ? 'partnership'
+            : isCareLead ? 'care'
+            : 'general';
+
+        // ── Send client auto-responder (blocking; failure = user-visible error) ─
+        try {
+          await sendClientEmail(lang, {
+            name: input.name,
+            email: input.email,
+          });
+          console.log('[ACTION] ✓ Client auto-responder sent');
+        } catch (err) {
+          console.error('[ACTION] ❌ Client auto-responder failed:', err);
+          throw new ActionError({
+            code: 'INTERNAL_SERVER_ERROR',
+            message: `Failed to send confirmation email: ${err instanceof Error ? err.message : String(err)}`,
+          });
+        }
+
+        // ── Send internal Lead Radar notification (non-blocking) ──────
+        try {
+          await sendInternalNotification({
+            name: input.name,
+            email: input.email,
+            interest: input.interest,
+            budget: input.budget,
+            message: input.message,
+            lang,
+            ...(isGrowthLead && {
+              websiteUrl: input.websiteUrl,
+              adSpend: input.adSpend,
+              channels: input.channels,
+              conversionGoal: input.conversionGoal,
+            }),
+            ...(isPremium && {
+              cmsPreference: input.cmsPreference,
+              pageScope: input.pageScope,
+              scaleFeatures: input.scaleFeatures,
+              launchTimeline: input.launchTimeline,
+            }),
+            ...(isPartnershipLead && {
+              portfolioUrl: input.portfolioUrl,
+              designTool: input.designTool,
+              projectVolume: input.projectVolume,
+              figmaSample: input.figmaSample,
+            }),
+            ...(isCareLead && {
+              careWebsiteUrl: input.careWebsiteUrl,
+              carePlatform: input.carePlatform,
+              carePriority: input.carePriority,
+              careOrigin: input.careOrigin,
+            }),
+          });
+          console.log('[ACTION] ✓ Internal Lead Radar notification sent');
+        } catch (err) {
+          console.error('[ACTION] ⚠ Internal notification failed (non-blocking):', err);
+        }
+
+        const calType = isPremium ? 'scale' : isPartnershipLead ? 'partnership' : null;
+
+        console.log(`[ACTION] ✓ submitContact complete — tier=${tier}, calType=${calType}`);
+        return { success: true, tier, calType, leadName: input.name, leadEmail: input.email };
       } catch (err) {
-        // Internal notification failure is non-critical — log but don't block
-        console.error('[ACTION] ⚠ Internal notification failed (non-blocking):', err);
+        // Re-throw known ActionErrors so Astro surfaces them cleanly to the form.
+        if (err instanceof ActionError) throw err;
+        // Any other runtime throw → graceful ActionError instead of HTTP 500.
+        console.error('[ACTION] ❌ submitContact unexpected failure:', err);
+        throw new ActionError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Something went wrong processing your request. Please try again in a moment.',
+        });
       }
-
-      // Map tier to Cal.com embed type (only scale and partnership get embeds)
-      const calType = isPremium ? 'scale' : isPartnershipLead ? 'partnership' : null;
-
-      console.log(`[ACTION] ✓ submitContact complete — tier=${tier}, calType=${calType}`);
-      return { success: true, tier, calType, leadName: input.name, leadEmail: input.email };
     },
   }),
 
