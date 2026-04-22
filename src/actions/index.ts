@@ -7,6 +7,24 @@ const SITE_URL = 'https://base-pages.com';
 const VALID_TIERS = ['starter', 'growth', 'scale', 'care', 'partnership'] as const;
 type Tier = (typeof VALID_TIERS)[number];
 
+/**
+ * Astro `accept: 'form'` parser returns `null` for empty FormData entries
+ * when the schema field is `z.string().optional()`. We coerce null → '' so
+ * every downstream consumer can safely `.trim()` / template-literal without
+ * a defensive nullish check, and keeps the payload shape consistent between
+ * step-1 (mostly blanks) and step-2 (full qualification) submissions.
+ */
+const optionalFormString = () =>
+  z.string().nullish().transform((v) => v ?? '');
+
+const optionalFormUrl = (msg = 'Please enter a valid URL') =>
+  z
+    .string()
+    .url(msg)
+    .or(z.literal(''))
+    .nullish()
+    .transform((v) => v ?? '');
+
 export const server = {
   submitContact: defineAction({
     accept: 'form',
@@ -18,32 +36,30 @@ export const server = {
       name: z.string().min(2, 'Name must be at least 2 characters'),
       email: z.string().email('Please enter a valid email'),
       interest: z.string().min(1, 'Please select an interest'),
-      budget: z.string().optional(),
-      // Message is optional so step-1-only submissions are valid. When
-      // present we still expect something meaningful; clients that fill
-      // step 2 keep their free-form message intact.
-      message: z.string().optional().default(''),
+      budget: optionalFormString(),
+      // Message is optional so step-1-only submissions are valid.
+      message: optionalFormString(),
       lang: z.enum(['en', 'de', 'es']).default('en'),
-      // Growth Package qualification fields (optional — only present when Growth is selected)
-      websiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
-      adSpend: z.string().optional(),
-      channels: z.string().optional(),
-      conversionGoal: z.string().optional(),
-      // Scale Package briefing fields (optional — only present when Scale is selected)
-      cmsPreference: z.string().optional(),
-      pageScope: z.string().optional(),
-      scaleFeatures: z.string().optional(),
-      launchTimeline: z.string().optional(),
-      // Partnership vetting fields (optional — only present when Partnership is selected)
-      portfolioUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
-      designTool: z.string().optional(),
-      projectVolume: z.string().optional(),
-      figmaSample: z.string().optional(),
-      // Continuous Care fields (optional — only present when Care is selected)
-      careWebsiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
-      carePlatform: z.string().optional(),
-      carePriority: z.string().optional(),
-      careOrigin: z.string().optional(),
+      // Growth Package qualification fields (empty when Growth not selected).
+      websiteUrl: optionalFormUrl(),
+      adSpend: optionalFormString(),
+      channels: optionalFormString(),
+      conversionGoal: optionalFormString(),
+      // Scale Package briefing fields (empty when Scale not selected).
+      cmsPreference: optionalFormString(),
+      pageScope: optionalFormString(),
+      scaleFeatures: optionalFormString(),
+      launchTimeline: optionalFormString(),
+      // Partnership vetting fields (empty when Partnership not selected).
+      portfolioUrl: optionalFormUrl(),
+      designTool: optionalFormString(),
+      projectVolume: optionalFormString(),
+      figmaSample: optionalFormString(),
+      // Continuous Care fields (empty when Care not selected).
+      careWebsiteUrl: optionalFormUrl(),
+      carePlatform: optionalFormString(),
+      carePriority: optionalFormString(),
+      careOrigin: optionalFormString(),
     }),
     handler: async (input) => {
       try {
