@@ -53,7 +53,9 @@ const jsonLd = [
     <section class="hero-section">
       <div class="container hero-inner">
         <div class="tagline">
-          <div class="line"></div> {starterPage.hero.tagline}
+          <div class="line"></div>
+          <span class="tagline-desktop">{starterPage.hero.tagline}</span>
+          <span class="tagline-mobile" aria-hidden="true">{starterPage.hero.taglineMobile}</span>
         </div>
         <h1 class="main-title">
           <span class="title-bold">{starterPage.hero.titleBold}</span>
@@ -148,6 +150,8 @@ const jsonLd = [
   .hero-section { padding: 80px 0 40px 0; }
   .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .tagline { display: flex; align-items: center; gap: 15px; font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 30px; font-weight: 700; }
+  .tagline :global(.tagline-desktop) { display: none !important; }
+  .tagline :global(.tagline-mobile) { display: inline !important; }
   .line { height: 2px; width: 30px; background: var(--text-main); }
   .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
   .pill { background: #ebebeb; color: var(--text-main); padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
@@ -184,6 +188,8 @@ const jsonLd = [
   @media (min-width: 900px) {
     .container { padding: 0 40px; }
     .hero-section { padding: 120px 0 80px 0; }
+    .tagline :global(.tagline-desktop) { display: inline !important; }
+    .tagline :global(.tagline-mobile) { display: none !important; }
     .main-title { gap: 8px; }
     .title-bold { letter-spacing: -2px; }
     .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
