@@ -1,0 +1,255 @@
+---
+import LandingLayout from '../../../layouts/LandingLayout.astro';
+import LandingHeader from '../../../components/sections/LandingHeader.astro';
+import Footer from '../../../components/sections/Footer.astro';
+import Button from '../../../components/ui/Button.astro';
+import FounderSignature from '../../../components/sections/FounderSignature.astro';
+import CaseStudySection from '../../../components/sections/CaseStudySection.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import RiskReversal from '../../../components/sections/RiskReversal.astro';
+import IncludedTable from '../../../components/sections/IncludedTable.astro';
+
+import { getI18n } from '../../../i18n/utils';
+import { generateHreflangLinks } from '../../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
+import type { Language } from '../../../i18n/config';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../../utils/schema';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { footer, nav, partnershipPage } = data;
+const hreflangLinks = generateHreflangLinks('/services/partnership', 'https://base-pages.com');
+const canonicalUrl = `https://base-pages.com/${lang}/services/partnership`;
+const jsonLd = [
+  getOrganizationSchema(),
+  getBreadcrumbSchema([
+    { name: 'Home', url: `/${lang}/` },
+    { name: 'Services', url: `/${lang}/services` },
+    { name: 'Designer Partnership', url: `/${lang}/services/partnership` },
+  ]),
+  getServiceSchema({
+    name: 'Designer Partnership',
+    description: partnershipPage.hero.titleLight,
+    price: '80',
+    url: `/${lang}/services/partnership`,
+  }),
+];
+---
+
+<LandingLayout
+  title="Designer Partnership | base-pages"
+  description={partnershipPage.hero.titleLight}
+  canonicalUrl={canonicalUrl}
+  lang={lang}
+  hreflangLinks={hreflangLinks}
+  jsonLd={jsonLd}
+>
+
+  <LandingHeader navData={nav} />
+
+  <main id="tier-partnership" class="partnership-page">
+    <section class="hero-section">
+      <div class="container hero-inner">
+        <div class="tagline">
+          <div class="line"></div>
+          <span class="tagline-desktop">{partnershipPage.hero.tagline}</span>
+          <span class="tagline-mobile" aria-hidden="true">{partnershipPage.hero.taglineMobile}</span>
+        </div>
+        <h1 class="main-title">
+          <span class="title-bold">{partnershipPage.hero.titleBold}</span>
+          <span class="title-light">{partnershipPage.hero.titleLight}</span>
+        </h1>
+        <p class="hero-subtitle">
+          {partnershipPage.hero.subtitle}
+        </p>
+        <div class="hero-badges">
+          <span class="pill">{partnershipPage.hero.priceBadge}</span>
+          <span class="pill border-pill">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            {partnershipPage.hero.deliveryBadge}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services-section" class="scroll-container">
+
+      <div class="left-col">
+        <div class="handoff-visual" aria-hidden="true">
+          <div class="handoff-card handoff-card-figma">
+            <span class="handoff-label">FIGMA</span>
+            <div class="handoff-grid">
+              <span class="handoff-line handoff-line-lg"></span>
+              <span class="handoff-line handoff-line-md"></span>
+              <span class="handoff-line handoff-line-sm"></span>
+            </div>
+          </div>
+          <svg class="handoff-arrow" viewBox="0 0 48 48" fill="none">
+            <path d="M8 24h30M28 14l10 10-10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="handoff-card handoff-card-code">
+            <span class="handoff-label">ASTRO / NEXT</span>
+            <pre class="handoff-code"><code>&lt;Hero
+  title=&#123;copy.hero&#125;
+  cta=&#123;copy.cta&#125;
+/&gt;</code></pre>
+          </div>
+        </div>
+        <Button href={partnershipPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm mt-6">
+          {partnershipPage.finalCta.buttonText}
+        </Button>
+      </div>
+
+      <div class="right-col">
+        {partnershipPage.features.map((feature: any, index: number) => (
+          <div class="feature-card">
+            <div class="icon-wrapper">
+              {index === 0 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>}
+              {index === 1 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>}
+              {index === 2 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>}
+              {index === 3 && <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>}
+            </div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <IncludedTable
+      sectionTagline={partnershipPage.included.sectionTagline}
+      sectionHeadline={partnershipPage.included.sectionHeadline}
+      columnLabels={partnershipPage.included.columnLabels}
+      included={partnershipPage.included.included}
+      excluded={partnershipPage.included.excluded}
+      optional={partnershipPage.included.optional}
+    />
+
+    <CaseStudySection data={partnershipPage.caseStudy} />
+
+    <ProcessTimeline
+      sectionTagline={partnershipPage.process.sectionTagline}
+      sectionHeadline={partnershipPage.process.sectionHeadline}
+      steps={partnershipPage.process.steps}
+    />
+
+    <RiskReversal
+      title={partnershipPage.riskReversal.title}
+      points={partnershipPage.riskReversal.points}
+    />
+
+    <section class="final-cta-section">
+      <div class="container">
+        <FounderSignature
+          name={partnershipPage.founder.name}
+          role={partnershipPage.founder.role}
+          message={partnershipPage.founder.message}
+          class="mb-6"
+        />
+        <div class="cta-box">
+          <h2>{partnershipPage.finalCta.headline}</h2>
+          <p>{partnershipPage.finalCta.subtitle}</p>
+          <div class="flex justify-center mt-6">
+            <Button
+              href={partnershipPage.finalCta.buttonUrl}
+              class="bg-white text-gray-900 px-8 py-3.5 !rounded-2xl font-medium hover:scale-105 transition-transform shadow-sm"
+            >
+              {partnershipPage.finalCta.buttonText}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer data={footer} />
+
+</LandingLayout>
+
+<style>
+  :root {
+    --text-main: #111827;
+    --text-muted: #9ca3af;
+  }
+
+  .partnership-page { padding-top: 100px; }
+  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  svg { width: 18px; height: 18px; }
+
+  .main-title { margin: 0 0 32px 0; display: flex; flex-direction: column; gap: 4px; }
+  .title-bold { font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -1px; line-height: 1.05; color: var(--text-main); }
+  .title-light { font-size: clamp(22px, 3vw, 36px); font-weight: 400; letter-spacing: -1px; line-height: 1.2; color: var(--text-main); }
+  .hero-subtitle { font-size: 18px; line-height: 1.6; font-weight: 400; color: var(--text-main); max-width: 600px; margin: 0 0 40px 0; }
+
+  .hero-section { padding: 80px 0 40px 0; }
+  .hero-inner { max-width: 800px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .tagline { display: flex; align-items: center; gap: 15px; font-family: 'Roboto Mono', monospace; font-size: 13px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 30px; font-weight: 700; }
+  .tagline :global(.tagline-desktop) { display: none !important; }
+  .tagline :global(.tagline-mobile) { display: inline !important; }
+  .line { height: 2px; width: 30px; background: var(--text-main); }
+  .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .pill { background: #ebebeb; color: var(--text-main); padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .border-pill { background: transparent; border: 1px solid #d1d5db; color: #6b7280; }
+
+  .scroll-container { display: flex; flex-direction: column; gap: 40px; padding: 20px 24px 80px 24px; align-items: flex-start; }
+
+  .left-col { flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; z-index: 10; background: transparent; padding: 0 24px 20px 24px; margin: 0 -24px; width: calc(100% + 48px); }
+
+  .handoff-visual { width: 100%; max-width: 360px; margin: 0 auto; display: flex; flex-direction: column; align-items: stretch; gap: 18px; color: var(--text-main); }
+  .handoff-card { background: white; border: 1px solid rgba(229, 231, 235, 0.8); border-radius: 18px; padding: 18px 20px 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
+  .handoff-label { display: inline-block; font-family: 'Roboto Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: #9ca3af; margin-bottom: 12px; }
+  .handoff-grid { display: flex; flex-direction: column; gap: 8px; }
+  .handoff-line { display: block; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #a8bfaf 0%, #f6d7c8 100%); }
+  .handoff-line-lg { width: 85%; }
+  .handoff-line-md { width: 62%; opacity: 0.75; }
+  .handoff-line-sm { width: 40%; opacity: 0.5; }
+  .handoff-arrow { width: 28px; height: 28px; margin: 0 auto; color: #9ca3af; transform: rotate(90deg); }
+  .handoff-card-code { background: #111827; border-color: #111827; }
+  .handoff-card-code .handoff-label { color: #6b7280; }
+  .handoff-code { margin: 0; font-family: 'Roboto Mono', monospace; font-size: 12px; line-height: 1.5; color: #e5e7eb; white-space: pre-wrap; overflow: hidden; }
+  .handoff-code code { font-family: inherit; color: inherit; background: transparent; padding: 0; }
+
+  .right-col { flex: 1; display: flex; flex-direction: column; gap: 24px; z-index: 1; width: 100%; }
+
+  .feature-card { background: white; padding: 32px 24px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid rgba(229, 231, 235, 0.4); }
+  .icon-wrapper { width: 48px; height: 48px; background: #f8f7f5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--text-main); }
+  .feature-card h3 { font-size: 22px; margin: 0 0 12px 0; font-weight: 600; color: var(--text-main); }
+  .feature-card p { font-size: 15px; line-height: 1.7; font-weight: 400; color: var(--text-main); margin: 0; }
+
+  .final-cta-section { padding: 0 0 80px 0; }
+  .cta-box { background: var(--text-main); border-radius: 20px; padding: 60px 24px; text-align: center; color: white; }
+  .cta-box h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 500; letter-spacing: -1px; margin: 0 0 16px 0; }
+  .cta-box p { color: #9ca3af; font-size: 18px; margin: 0 0 24px 0; }
+
+  @media (min-width: 900px) {
+    .container { padding: 0 40px; }
+    .hero-section { padding: 120px 0 80px 0; }
+    .tagline :global(.tagline-desktop) { display: inline !important; }
+    .tagline :global(.tagline-mobile) { display: none !important; }
+    .main-title { gap: 8px; }
+    .title-bold { letter-spacing: -2px; }
+    .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
+    .left-col {
+      top: 100px;
+      z-index: auto;
+      margin: 0;
+      width: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border: 1px solid rgba(229, 231, 235, 0.4);
+    }
+    .handoff-visual { max-width: none; }
+    .right-col { gap: 40px; width: auto; }
+    .feature-card { padding: 40px; }
+    .final-cta-section { padding: 0 0 120px 0; }
+    .cta-box { padding: 80px 40px; }
+  }
+</style>

@@ -103,8 +103,8 @@
         }
       ],
       "cta": {
-        "buttonText": "Let's team up",
-        "buttonUrl": "/contact?tier=partnership"
+        "buttonText": "See how the partnership works",
+        "buttonUrl": "/services/partnership"
       }
     }
   },
@@ -220,7 +220,7 @@
         "Contact form wired to your inbox",
         "SEO basics + sitemap + schema.org markup",
         "Analytics install (Plausible or GA4)",
-        "1 revision round",
+        "2 revision rounds",
         "30-minute editor training call"
       ],
       "excluded": [
@@ -589,11 +589,137 @@
       "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
     }
   },
+  "partnershipPage": {
+    "hero": {
+      "tagline": "FOR UX/UI DESIGNERS · WHITE-LABEL DEV",
+      "taglineMobile": "WHITE-LABEL DEV",
+      "titleBold": "Your Figma, shipped as code you're proud to show clients.",
+      "titleLight": "A white-label dev partnership for designers who care about pixel fidelity.",
+      "subtitle": "You run the client relationship and the design. I turn your Figma into production-grade Astro or Next.js — fast sites, clean handoffs, no drama. Your clients never know I exist.",
+      "priceBadge": "From €80/hr · or per-project",
+      "deliveryBadge": "1–3 weeks per project · NDA-first"
+    },
+    "features": [
+      {
+        "title": "Pixel-perfect from Figma",
+        "description": "Every spacing, type scale, and micro-interaction preserved. If it's in your file, it's in the build — not an approximation."
+      },
+      {
+        "title": "Modern stack, Core Web Vitals first",
+        "description": "Astro, Next.js, Tailwind, GSAP, ViewTransitions — whichever fits the brief. Accessibility and Lighthouse > 95 are the baseline, not a bonus."
+      },
+      {
+        "title": "White-label by default",
+        "description": "I never show up in client communications. Your studio's name on the invoice, your face in the meetings, your email in the signature."
+      },
+      {
+        "title": "CMS-ready handoffs",
+        "description": "Sanity, Storyblok or Decap configured so your clients can edit content without breaking your design system. You look like a hero."
+      }
+    ],
+    "process": {
+      "sectionTagline": "PROCESS",
+      "sectionHeadline": "From Figma to production in 4 predictable steps",
+      "steps": [
+        {
+          "title": "Brief + NDA",
+          "description": "You share the Figma, client scope and target timeline. I return with a technical plan, flagged risks and a fixed estimate inside 48 hours.",
+          "owner": "You",
+          "ownerTone": "you",
+          "duration": "~1 day"
+        },
+        {
+          "title": "First cut",
+          "description": "Real HTML rendering on a private staging URL — actual copy, real images, production-quality code. No Lorem Ipsum, no mock data.",
+          "owner": "Me",
+          "ownerTone": "me",
+          "duration": "~5–10 days"
+        },
+        {
+          "title": "Design QA",
+          "description": "We walk through the build together on Loom or live. I fix discrepancies down to 1px, you stay focused on the client conversation.",
+          "owner": "Together",
+          "ownerTone": "together",
+          "duration": "~2 days"
+        },
+        {
+          "title": "Handover",
+          "description": "Repo, deploy pipeline, CMS access and a Loom walkthrough — all transferred in your studio's name. I disappear unless you call me back.",
+          "owner": "Me",
+          "ownerTone": "me",
+          "duration": "~1 day"
+        }
+      ]
+    },
+    "finalCta": {
+      "headline": "Want a dev you can actually send to your clients?",
+      "subtitle": "One brief, one Slack channel, pixel-perfect delivery. Let's run a project together.",
+      "buttonText": "Book a partnership call",
+      "buttonUrl": "/contact?tier=partnership"
+    },
+    "riskReversal": {
+      "title": "How I de-risk this for you",
+      "points": [
+        {
+          "label": "White-label NDA, signed before I see the file",
+          "detail": "Standard NDA on request before any Figma access. Your client never knows I'm on the project unless you tell them."
+        },
+        {
+          "label": "Fixed-scope, fixed-price invoices",
+          "detail": "Per-project or per-week billing agreed upfront. No mystery hours, no surprise top-ups when the deadline approaches."
+        },
+        {
+          "label": "Repo is yours from day one",
+          "detail": "GitHub ownership transfers at first commit. If we part ways mid-project, you still have a working, handover-ready build."
+        }
+      ]
+    },
+    "caseStudy": {
+      "sectionTagline": "PROOF",
+      "sectionHeadline": "Real partnerships, real outcomes",
+      "blocks": []
+    },
+    "testimonials": {},
+    "included": {
+      "sectionTagline": "WHAT'S IN IT",
+      "sectionHeadline": "Exactly what you get when we partner — and what you don't",
+      "columnLabels": {
+        "included": "Included",
+        "excluded": "Not included",
+        "optional": "Optional add-ons"
+      },
+      "included": [
+        "Pixel-perfect implementation of your Figma file",
+        "Astro or Next.js build with Tailwind, accessible by default",
+        "Headless CMS integration (Sanity, Storyblok or Decap)",
+        "Core Web Vitals + Lighthouse > 95 on launch",
+        "Clean Git repo with documented components",
+        "Loom walkthrough at handover",
+        "2 weeks of free post-launch bug-fix cover"
+      ],
+      "excluded": [
+        "Client-facing meetings (that's you)",
+        "Design changes mid-build (I flag, you decide)",
+        "Copywriting or photo direction",
+        "Paid ad setup (happy to refer you)"
+      ],
+      "optional": [
+        { "label": "Urgent 1-week sprint", "price": "+35%" },
+        { "label": "Extra language locale", "price": "€350" },
+        { "label": "Handover training session for your team", "price": "€250" }
+      ]
+    },
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Founder · Designer & developer",
+      "message": "I started in design before moving to code, so I know what it feels like when a dev ruins a Figma file. That won't happen here — your file is the spec, full stop."
+    }
+  },
   "designerBanner": {
     "prefix": "For UX/UI Designers:",
     "text": "Let's turn your Figma designs into lightning-fast, pixel-perfect code.",
     "linkText": "See partnership details",
-    "url": "/services#tier-partnership"
+    "url": "/services/partnership"
   },
   "aboutPage": {
     "hero": {
