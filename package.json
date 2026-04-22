@@ -8,14 +8,14 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/partytown": "^2.1.6",
+    "@astrojs/partytown": "^2.1.7",
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/vercel": "^9.0.5",
+    "@astrojs/vercel": "^10.0.4",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/roboto-mono": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.0.0",
-    "astro": "^5.0.0",
+    "astro": "^6.1.8",
     "gsap": "^3.14.2",
     "resend": "^6.9.4",
     "tailwindcss": "^4.0.0",
