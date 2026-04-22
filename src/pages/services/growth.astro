@@ -8,10 +8,12 @@ import CaseStudySection from '../../components/sections/CaseStudySection.astro';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../components/sections/SoftCTA.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
 import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, growthPage } = enData;
@@ -30,6 +32,7 @@ const jsonLd = [
     url: '/services/growth',
     deliveryTime: '10-15 days',
   }),
+  ...(growthPage.faq?.items?.length ? [getFAQPageSchema(growthPage.faq.items)] : []),
 ];
 ---
 
@@ -132,6 +135,28 @@ const jsonLd = [
       title={growthPage.riskReversal.title}
       points={growthPage.riskReversal.points}
     />
+
+    {growthPage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={growthPage.faq.sectionHeadline}
+        items={growthPage.faq.items}
+      />
+    )}
+
+    {growthPage.softCta && (
+      <SoftCTA
+        eyebrow={growthPage.softCta.eyebrow}
+        headline={growthPage.softCta.headline}
+        subtitle={growthPage.softCta.subtitle}
+        emailLabel={growthPage.softCta.emailLabel}
+        emailPlaceholder={growthPage.softCta.emailPlaceholder}
+        buttonText={growthPage.softCta.buttonText}
+        successMessage={growthPage.softCta.successMessage}
+        privacyNote={growthPage.softCta.privacyNote}
+        tier="growth"
+        pdfHref="/one-pagers/growth.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">

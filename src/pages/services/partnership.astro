@@ -8,10 +8,12 @@ import CaseStudySection from '../../components/sections/CaseStudySection.astro';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../components/sections/SoftCTA.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
 import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, partnershipPage } = enData;
@@ -30,6 +32,7 @@ const jsonLd = [
     url: '/services/partnership',
     deliveryTime: '7-21 days',
   }),
+  ...(partnershipPage.faq?.items?.length ? [getFAQPageSchema(partnershipPage.faq.items)] : []),
 ];
 ---
 
@@ -135,6 +138,28 @@ const jsonLd = [
       title={partnershipPage.riskReversal.title}
       points={partnershipPage.riskReversal.points}
     />
+
+    {partnershipPage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={partnershipPage.faq.sectionHeadline}
+        items={partnershipPage.faq.items}
+      />
+    )}
+
+    {partnershipPage.softCta && (
+      <SoftCTA
+        eyebrow={partnershipPage.softCta.eyebrow}
+        headline={partnershipPage.softCta.headline}
+        subtitle={partnershipPage.softCta.subtitle}
+        emailLabel={partnershipPage.softCta.emailLabel}
+        emailPlaceholder={partnershipPage.softCta.emailPlaceholder}
+        buttonText={partnershipPage.softCta.buttonText}
+        successMessage={partnershipPage.softCta.successMessage}
+        privacyNote={partnershipPage.softCta.privacyNote}
+        tier="partnership"
+        pdfHref="/one-pagers/partnership.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">

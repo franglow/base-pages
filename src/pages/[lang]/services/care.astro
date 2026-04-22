@@ -7,12 +7,14 @@ import FounderSignature from '../../../components/sections/FounderSignature.astr
 import CaseStudySection from '../../../components/sections/CaseStudySection.astro';
 import RiskReversal from '../../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../../components/sections/SoftCTA.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -38,6 +40,7 @@ const jsonLd = [
     price: '190',
     url: `/${lang}/services/care`,
   }),
+  ...(carePage.faq?.items?.length ? [getFAQPageSchema(carePage.faq.items)] : []),
 ];
 ---
 
@@ -137,6 +140,28 @@ const jsonLd = [
       title={carePage.riskReversal.title}
       points={carePage.riskReversal.points}
     />
+
+    {carePage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={carePage.faq.sectionHeadline}
+        items={carePage.faq.items}
+      />
+    )}
+
+    {carePage.softCta && (
+      <SoftCTA
+        eyebrow={carePage.softCta.eyebrow}
+        headline={carePage.softCta.headline}
+        subtitle={carePage.softCta.subtitle}
+        emailLabel={carePage.softCta.emailLabel}
+        emailPlaceholder={carePage.softCta.emailPlaceholder}
+        buttonText={carePage.softCta.buttonText}
+        successMessage={carePage.softCta.successMessage}
+        privacyNote={carePage.softCta.privacyNote}
+        tier="care"
+        pdfHref="/one-pagers/care.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">

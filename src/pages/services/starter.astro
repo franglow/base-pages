@@ -8,10 +8,12 @@ import CaseStudySection from '../../components/sections/CaseStudySection.astro';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../components/sections/SoftCTA.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
 import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, starterPage } = enData;
@@ -30,6 +32,7 @@ const jsonLd = [
     url: '/services/starter',
     deliveryTime: '3-5 days',
   }),
+  ...(starterPage.faq?.items?.length ? [getFAQPageSchema(starterPage.faq.items)] : []),
 ];
 ---
 
@@ -121,6 +124,28 @@ const jsonLd = [
       title={starterPage.riskReversal.title}
       points={starterPage.riskReversal.points}
     />
+
+    {starterPage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={starterPage.faq.sectionHeadline}
+        items={starterPage.faq.items}
+      />
+    )}
+
+    {starterPage.softCta && (
+      <SoftCTA
+        eyebrow={starterPage.softCta.eyebrow}
+        headline={starterPage.softCta.headline}
+        subtitle={starterPage.softCta.subtitle}
+        emailLabel={starterPage.softCta.emailLabel}
+        emailPlaceholder={starterPage.softCta.emailPlaceholder}
+        buttonText={starterPage.softCta.buttonText}
+        successMessage={starterPage.softCta.successMessage}
+        privacyNote={starterPage.softCta.privacyNote}
+        tier="starter"
+        pdfHref="/one-pagers/starter.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">
