@@ -280,13 +280,13 @@ const formPayload = Astro.locals.formPayload || {};
                 {inputErrors?.interest && <p class="error-text">{inputErrors.interest}</p>}
               </div>
 
-              <Button
+              <button
                 type="button"
                 id="continue-btn"
-                class="continue-btn submit-btn w-full !px-6 !py-2.5 !rounded-2xl !text-sm mt-2"
+                class="continue-btn submit-btn w-full px-6 py-2.5 rounded-2xl text-sm mt-2 inline-flex items-center justify-center font-medium cursor-pointer transition-colors"
               >
                 {step1Copy?.continueText || 'Continue →'}
-              </Button>
+              </button>
             </div>
 
             <div id="step-2" class="step-section step-2" data-step="2" hidden>
