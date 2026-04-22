@@ -8,12 +8,14 @@ import CaseStudySection from '../../../components/sections/CaseStudySection.astr
 import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../../components/sections/SoftCTA.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -39,6 +41,7 @@ const jsonLd = [
     price: '2490',
     url: `/${lang}/services/growth`,
   }),
+  ...(growthPage.faq?.items?.length ? [getFAQPageSchema(growthPage.faq.items)] : []),
 ];
 ---
 
@@ -140,6 +143,28 @@ const jsonLd = [
       title={growthPage.riskReversal.title}
       points={growthPage.riskReversal.points}
     />
+
+    {growthPage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={growthPage.faq.sectionHeadline}
+        items={growthPage.faq.items}
+      />
+    )}
+
+    {growthPage.softCta && (
+      <SoftCTA
+        eyebrow={growthPage.softCta.eyebrow}
+        headline={growthPage.softCta.headline}
+        subtitle={growthPage.softCta.subtitle}
+        emailLabel={growthPage.softCta.emailLabel}
+        emailPlaceholder={growthPage.softCta.emailPlaceholder}
+        buttonText={growthPage.softCta.buttonText}
+        successMessage={growthPage.softCta.successMessage}
+        privacyNote={growthPage.softCta.privacyNote}
+        tier="growth"
+        pdfHref="/one-pagers/growth.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">

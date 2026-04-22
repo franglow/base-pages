@@ -1,17 +1,28 @@
 import { defineAction, ActionError } from 'astro:actions';
 import { z } from 'astro:schema';
-import { sendClientEmail, sendInternalNotification } from '../utils/resend';
+import { sendClientEmail, sendInternalNotification, sendOnePagerEmail } from '../utils/resend';
 import type { Language } from '../i18n/config';
+
+const SITE_URL = 'https://base-pages.com';
+const VALID_TIERS = ['starter', 'growth', 'scale', 'care', 'partnership'] as const;
+type Tier = (typeof VALID_TIERS)[number];
 
 export const server = {
   submitContact: defineAction({
     accept: 'form',
     input: z.object({
+      // Two-step marker: '1' = lead capture only (name/email/interest),
+      // '2' = full qualification payload including tier-specific fields.
+      // Kept informational for analytics; single-request UX preserved.
+      step: z.enum(['1', '2']).default('2'),
       name: z.string().min(2, 'Name must be at least 2 characters'),
       email: z.string().email('Please enter a valid email'),
       interest: z.string().min(1, 'Please select an interest'),
       budget: z.string().optional(),
-      message: z.string().min(10, 'Message must be at least 10 characters'),
+      // Message is optional so step-1-only submissions are valid. When
+      // present we still expect something meaningful; clients that fill
+      // step 2 keep their free-form message intact.
+      message: z.string().optional().default(''),
       lang: z.enum(['en', 'de', 'es']).default('en'),
       // Growth Package qualification fields (optional — only present when Growth is selected)
       websiteUrl: z.string().url('Please enter a valid URL').optional().or(z.literal('')).nullable().transform(v => v ?? undefined),
@@ -37,6 +48,7 @@ export const server = {
     handler: async (input) => {
       try {
         console.log('[ACTION] ✦ submitContact triggered', JSON.stringify({
+          step: input.step,
           name: input.name,
           email: input.email,
           interest: input.interest,
@@ -76,14 +88,21 @@ export const server = {
         }
 
         // ── Send internal Lead Radar notification (non-blocking) ──────
+        const messageForNotification =
+          input.message?.trim() ||
+          (input.step === '1'
+            ? '[Step 1 lead — qualification not completed. Cal booking expected.]'
+            : '');
+
         try {
           await sendInternalNotification({
             name: input.name,
             email: input.email,
             interest: input.interest,
             budget: input.budget,
-            message: input.message,
+            message: messageForNotification,
             lang,
+            step: input.step,
             ...(isGrowthLead && {
               websiteUrl: input.websiteUrl,
               adSpend: input.adSpend,
@@ -220,6 +239,51 @@ export const server = {
       }
 
       return { success: true, leadName: input.name, leadEmail: input.email };
+    },
+  }),
+
+  // ── Soft CTA: email the tier one-pager PDF ─────────────────────
+  captureEmail: defineAction({
+    accept: 'form',
+    input: z.object({
+      email: z.string().email('Please enter a valid email'),
+      tier: z.enum(VALID_TIERS).default('starter'),
+      lang: z.enum(['en', 'de', 'es']).default('en'),
+    }),
+    handler: async (input) => {
+      console.log('[ACTION] ✦ captureEmail triggered', JSON.stringify({
+        email: input.email, tier: input.tier, lang: input.lang,
+      }));
+
+      const lang = input.lang as Language;
+      const tier = input.tier as Tier;
+      const pdfUrl = `${SITE_URL}/one-pagers/${tier}.pdf`;
+
+      try {
+        await sendOnePagerEmail(lang, { email: input.email, tier, pdfUrl });
+        console.log('[ACTION] ✓ One-pager email sent');
+      } catch (err) {
+        console.error('[ACTION] ❌ One-pager send failed:', err);
+        throw new ActionError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Failed to send the one-pager: ${err instanceof Error ? err.message : String(err)}`,
+        });
+      }
+
+      try {
+        await sendInternalNotification({
+          name: 'PDF download',
+          email: input.email,
+          interest: `${tier} — one-pager requested`,
+          message: `Soft CTA lead — requested ${pdfUrl}`,
+          lang,
+        });
+        console.log('[ACTION] ✓ Soft CTA internal notification sent');
+      } catch (err) {
+        console.error('[ACTION] ⚠ Soft CTA internal notification failed (non-blocking):', err);
+      }
+
+      return { success: true, email: input.email, tier, pdfUrl };
     },
   }),
 };

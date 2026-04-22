@@ -8,10 +8,12 @@ import CaseStudySection from '../../components/sections/CaseStudySection.astro';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../components/sections/SoftCTA.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
 import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, scalePage } = enData;
@@ -30,6 +32,7 @@ const jsonLd = [
     url: '/services/scale',
     deliveryTime: '20-30 days',
   }),
+  ...(scalePage.faq?.items?.length ? [getFAQPageSchema(scalePage.faq.items)] : []),
 ];
 ---
 
@@ -122,6 +125,28 @@ const jsonLd = [
       title={scalePage.riskReversal.title}
       points={scalePage.riskReversal.points}
     />
+
+    {scalePage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={scalePage.faq.sectionHeadline}
+        items={scalePage.faq.items}
+      />
+    )}
+
+    {scalePage.softCta && (
+      <SoftCTA
+        eyebrow={scalePage.softCta.eyebrow}
+        headline={scalePage.softCta.headline}
+        subtitle={scalePage.softCta.subtitle}
+        emailLabel={scalePage.softCta.emailLabel}
+        emailPlaceholder={scalePage.softCta.emailPlaceholder}
+        buttonText={scalePage.softCta.buttonText}
+        successMessage={scalePage.softCta.successMessage}
+        privacyNote={scalePage.softCta.privacyNote}
+        tier="scale"
+        pdfHref="/one-pagers/scale.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">

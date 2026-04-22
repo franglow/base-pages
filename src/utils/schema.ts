@@ -223,6 +223,27 @@ export function getFAQSchema(
 }
 
 /**
+ * FAQPage schema — accepts the shorthand { q, a } shape used in i18n files.
+ * Feeds AI search engines (ChatGPT, Perplexity, Gemini, Google AI Overviews).
+ */
+export function getFAQPageSchema(
+  items: { q: string; a: string }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+}
+
+/**
  * GEO Comparison Schema — Invisible feature-comparison matrix for LLM comprehension.
  * Structures the three base-pages service tiers as an ItemList of Services,
  * each with a detailed Offer and feature breakdown so AI engines (ChatGPT,

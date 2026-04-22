@@ -52,6 +52,8 @@ const growth = contactPage.form.growth;
 const scale = contactPage.form.scale;
 const partnership = contactPage.form.partnership;
 const care = contactPage.form.care;
+const step1Copy = (contactPage.form as any).step1;
+const step2Copy = (contactPage.form as any).step2;
 
 const successData = (contactPage as any).success;
 const founderVideo = successData.founderVideo;
@@ -237,36 +239,74 @@ const formPayload = Astro.locals.formPayload || {};
             </div>
           )}
 
-          <form method="POST" action={actions.submitContact} class="flex flex-col gap-8">
+          <form method="POST" action={actions.submitContact} class="flex flex-col gap-8" data-two-step>
             <input type="hidden" name="lang" value="en" />
-            
-            <div class="input-group">
-              <label for="name" class="field-label">{contactPage.form.namePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <input type="text" id="name" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" aria-describedby={inputErrors?.name ? 'name-error' : undefined} value={formPayload?.name || ''} />
-              {inputErrors?.name && <p id="name-error" class="error-text" role="alert">{inputErrors.name}</p>}
-            </div>
+            <input type="hidden" name="step" value="2" id="step-input" />
 
-            <div class="input-group">
-              <label for="email" class="field-label">{contactPage.form.emailPlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" aria-describedby={inputErrors?.email ? 'email-error' : undefined} value={formPayload?.email || ''} />
-              {inputErrors?.email && <p id="email-error" class="error-text" role="alert">{inputErrors.email}</p>}
-            </div>
+            <div id="step-1" class="step-section" data-step="1">
+              {step1Copy && (
+                <header class="step-header">
+                  <p class="step-eyebrow">{step1Copy.heading}</p>
+                  {step1Copy.description && <p class="step-desc">{step1Copy.description}</p>}
+                </header>
+              )}
 
-            <div class="input-group relative">
-              <label for="interest" class="field-label">{contactPage.form.interestLabel} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <select id="interest" name="interest" required class="minimal-input appearance-none bg-transparent cursor-pointer" aria-describedby={inputErrors?.interest ? 'interest-error' : undefined}>
-                <option value="" disabled selected={!formPayload?.interest} hidden>{contactPage.form.interestLabel}</option>
-                {contactPage.form.interests.map((interest: string) => (
-                  <option value={interest} class="text-gray-900" selected={formPayload?.interest === interest}>{interest}</option>
-                ))}
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                </svg>
+              <div class="input-group">
+                <label for="name" class="field-label">{contactPage.form.namePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder={contactPage.form.namePlaceholder} required class="minimal-input" aria-describedby={inputErrors?.name ? 'name-error' : undefined} value={formPayload?.name || ''} />
+                {inputErrors?.name && <p id="name-error" class="error-text" role="alert">{inputErrors.name}</p>}
               </div>
-              {inputErrors?.interest && <p id="interest-error" class="error-text" role="alert">{inputErrors.interest}</p>}
+
+              <div class="input-group">
+                <label for="email" class="field-label">{contactPage.form.emailPlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder={contactPage.form.emailPlaceholder} required class="minimal-input" aria-describedby={inputErrors?.email ? 'email-error' : undefined} value={formPayload?.email || ''} />
+                {inputErrors?.email && <p id="email-error" class="error-text" role="alert">{inputErrors.email}</p>}
+              </div>
+
+              <div class="input-group relative">
+                <label for="interest" class="field-label">{contactPage.form.interestLabel} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
+                <select id="interest" name="interest" required class="minimal-input appearance-none bg-transparent cursor-pointer" aria-describedby={inputErrors?.interest ? 'interest-error' : undefined}>
+                  <option value="" disabled selected={!formPayload?.interest} hidden>{contactPage.form.interestLabel}</option>
+                  {contactPage.form.interests.map((interest: string) => (
+                    <option value={interest} class="text-gray-900" selected={formPayload?.interest === interest}>{interest}</option>
+                  ))}
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                  </svg>
+                </div>
+                {inputErrors?.interest && <p id="interest-error" class="error-text" role="alert">{inputErrors.interest}</p>}
+              </div>
+
+              <button
+                type="button"
+                id="continue-btn"
+                class="continue-btn submit-btn w-full px-6 py-2.5 rounded-2xl text-sm mt-2 inline-flex items-center justify-center font-medium cursor-pointer transition-colors"
+              >
+                {step1Copy?.continueText || 'Continue →'}
+              </button>
             </div>
+
+            <div
+              id="step-2"
+              class="step-section step-2"
+              data-step="2"
+              hidden
+              data-desc-call={step2Copy?.description || ''}
+              data-desc-quote={(step2Copy as any)?.descriptionQuote || step2Copy?.description || ''}
+              data-skip-call={step2Copy?.skipText || ''}
+              data-skip-quote={(step2Copy as any)?.skipTextQuote || step2Copy?.skipText || ''}
+            >
+              {step2Copy && (
+                <header class="step-header step-2-header">
+                  <p class="step-eyebrow">{step2Copy.heading}</p>
+                  {step2Copy.description && <p class="step-desc" id="step-2-desc">{step2Copy.description}</p>}
+                  <button type="button" id="skip-btn" class="skip-btn">
+                    {step2Copy.skipText || 'Skip — book the call →'}
+                  </button>
+                </header>
+              )}
 
             <!-- Growth Package Qualification Fields -->
             <div id="growth-fields" class="tier-fields" inert>
@@ -420,14 +460,16 @@ const formPayload = Astro.locals.formPayload || {};
             </div>
 
             <div class="input-group">
-              <label for="message" class="field-label">{contactPage.form.messagePlaceholder} <span class="text-neutral-400 ml-1" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" placeholder={contactPage.form.messagePlaceholder} required minlength="10" rows="1" class="minimal-input resize-none">{formPayload?.message || ''}</textarea>
+              <label for="message" class="field-label">{contactPage.form.messagePlaceholder}</label>
+              <textarea id="message" name="message" placeholder={contactPage.form.messagePlaceholder} rows="1" class="minimal-input resize-none">{formPayload?.message || ''}</textarea>
               {inputErrors?.message && <p class="error-text">{inputErrors.message}</p>}
             </div>
 
             <Button type="submit" class="submit-btn w-full !px-6 !py-2.5 !rounded-2xl !text-sm mt-4">
               {contactPage.form.submitText}
             </Button>
+
+            </div><!-- /#step-2 -->
 
           </form>
         </>
@@ -556,7 +598,11 @@ const formPayload = Astro.locals.formPayload || {};
       tier === 'care' ? showCare() : hideCare();
     }
 
-    interestSelect.addEventListener('change', toggleTierFields);
+    interestSelect.addEventListener('change', () => {
+      toggleTierFields();
+      // Keep Step 2 copy in sync if the user changes tier after revealing it.
+      if (step2 && !step2.hasAttribute('hidden')) applyStep2CopyForTier();
+    });
 
     // ── URL prefix normalizer (safe replacement for inline onblur regex) ─
     // Uses .startsWith() instead of a regex literal so production minifiers
@@ -571,6 +617,83 @@ const formPayload = Astro.locals.formPayload || {};
           el.value = 'https://' + v;
         }
       });
+    });
+
+    // ── Two-step progressive disclosure ───────────────────────────
+    const stepInput = document.getElementById('step-input') as HTMLInputElement | null;
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const continueBtn = document.getElementById('continue-btn') as HTMLButtonElement | null;
+    const skipBtn = document.getElementById('skip-btn') as HTMLButtonElement | null;
+    const nameInput = document.getElementById('name') as HTMLInputElement | null;
+    const emailInput = document.getElementById('email') as HTMLInputElement | null;
+    const messageInput = document.getElementById('message') as HTMLTextAreaElement | null;
+
+    // Tiers that actually get a Cal.com booking on /contact?success; the rest
+    // receive an async "message received → quote coming" flow, so the Step 2
+    // copy must not promise a call.
+    const CALL_TIERS = new Set(['scale', 'partnership']);
+
+    function applyStep2CopyForTier(): void {
+      if (!step2) return;
+      const tier = getSelectedTier();
+      const isCallTier = tier !== null && CALL_TIERS.has(tier);
+      const descEl = document.getElementById('step-2-desc');
+      if (descEl) {
+        const next = isCallTier
+          ? step2.getAttribute('data-desc-call') || ''
+          : step2.getAttribute('data-desc-quote') || '';
+        if (next) descEl.textContent = next;
+      }
+      if (skipBtn) {
+        const next = isCallTier
+          ? step2.getAttribute('data-skip-call') || ''
+          : step2.getAttribute('data-skip-quote') || '';
+        if (next) skipBtn.textContent = next;
+      }
+    }
+
+    function revealStep2(): void {
+      if (!step2) return;
+      applyStep2CopyForTier();
+      step2.removeAttribute('hidden');
+      if (continueBtn) continueBtn.setAttribute('hidden', '');
+      if (stepInput) stepInput.value = '2';
+      requestAnimationFrame(() => step2.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+
+    function validateStep1(): boolean {
+      const fieldsToCheck: (HTMLInputElement | HTMLSelectElement | null)[] = [
+        nameInput,
+        emailInput,
+        interestSelect,
+      ];
+      let firstInvalid: HTMLElement | null = null;
+      fieldsToCheck.forEach((f) => {
+        if (!f) return;
+        if (!f.checkValidity()) {
+          f.reportValidity();
+          if (!firstInvalid) firstInvalid = f;
+        }
+      });
+      return !firstInvalid;
+    }
+
+    continueBtn?.addEventListener('click', () => {
+      if (validateStep1()) revealStep2();
+    });
+
+    skipBtn?.addEventListener('click', () => {
+      if (!stepInput) return;
+      stepInput.value = '1';
+      // Strip any tier-fields `required` so browser doesn't block skip submit.
+      document.querySelectorAll<HTMLElement>('.tier-fields [required]').forEach((el) => {
+        el.removeAttribute('required');
+      });
+      // Clear the optional free-form message too.
+      if (messageInput) messageInput.value = '';
+      const nativeForm = skipBtn.closest('form') as HTMLFormElement | null;
+      nativeForm?.submit();
     });
 
     // Auto-select tier from ?tier= query param
@@ -654,6 +777,57 @@ const formPayload = Astro.locals.formPayload || {};
   .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 25px 45px -10px rgba(0,0,0,0.5); }
 
   .error-text { color: #dc2626; font-size: 14px; margin-top: 4px; }
+
+  /* ── Two-step form styling ──────────────────────────────────────── */
+  .step-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .step-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 0 8px;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+  }
+  .step-eyebrow {
+    margin: 0;
+    font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(17, 24, 39, 0.75);
+  }
+  .step-desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(17, 24, 39, 0.55);
+  }
+  .step-2-header {
+    gap: 10px;
+    padding-bottom: 12px;
+  }
+  .skip-btn {
+    align-self: flex-start;
+    margin-top: 4px;
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .skip-btn:hover { color: #111827; }
+  .continue-btn { align-self: stretch; }
 
   /* ── Error Banner (action-level errors) ─────────────────────────── */
   .error-banner {

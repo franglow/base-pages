@@ -230,15 +230,72 @@
         "Ilustraciones o fotografía custom"
       ],
       "optional": [
-        { "label": "Segundo idioma", "price": "€290" },
-        { "label": "Integraciones extra en el formulario", "price": "desde €150" },
-        { "label": "Dirección y selección de fotos", "price": "desde €250" }
+        {
+          "label": "Segundo idioma",
+          "price": "€290"
+        },
+        {
+          "label": "Integraciones extra en el formulario",
+          "price": "desde €150"
+        },
+        {
+          "label": "Dirección y selección de fotos",
+          "price": "desde €250"
+        }
       ]
     },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
       "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    },
+    "faq": {
+      "sectionTagline": "PREGUNTAS",
+      "sectionHeadline": "Lo que suelen preguntarme antes de reservar Starter",
+      "items": [
+        {
+          "q": "¿Cuánto tarda realmente desde el kickoff hasta el live?",
+          "a": "3 a 5 días laborables una vez tengo tu copy, imágenes y lo básico de la marca. Reservo tu slot en el calendario y me comprometo con la fecha — sin desapariciones ni prórrogas sorpresa."
+        },
+        {
+          "q": "¿Qué necesito preparar antes de empezar?",
+          "a": "Tu logo en vectorial (SVG o PDF), los textos de cada sección, 5–10 fotos buenas y un objetivo claro para la página (reserva, consulta, newsletter…). Te paso un checklist simple el mismo día que reservás."
+        },
+        {
+          "q": "¿Soy dueño de la web después del lanzamiento?",
+          "a": "Sí — 100%. El código queda en tu repo de GitHub, el dominio sigue a tu nombre y las credenciales del CMS son tuyas. Si en algún momento dejamos de trabajar juntos, te llevás todo."
+        },
+        {
+          "q": "¿Puedo editar textos e imágenes yo mismo después?",
+          "a": "Sí. Configuro un CMS headless liviano (Decap por defecto) para que actualices copy, imágenes y metadata desde un login normal, sin tocar código. Incluye una llamada de capacitación de 30 minutos."
+        },
+        {
+          "q": "¿Y si necesito más de una página?",
+          "a": "Starter se arma sobre una sola página tipo long-form con hasta 4 secciones. Si necesitás 2–6 páginas, lo ideal es Growth. Más que eso — ya hablamos de Scale."
+        },
+        {
+          "q": "¿Trabajás con WordPress, Webflow o Squarespace?",
+          "a": "Por defecto uso Astro + CMS headless por velocidad y estabilidad a largo plazo. Puedo construir en WordPress, Webflow o Framer a pedido, pero te explico primero con transparencia las concesiones de performance."
+        },
+        {
+          "q": "¿Cuántas rondas de revisión incluye?",
+          "a": "Cada Starter incluye dos rondas de revisión sobre la URL de staging en vivo. Cambios posteriores al lanzamiento pasan por el retainer de Care o una tarifa por hora."
+        },
+        {
+          "q": "¿Qué pasa si algo se rompe después del lanzamiento?",
+          "a": "Tenés 2 semanas gratis de cobertura post-launch para bugs. Después, un plan Care desde €190/mes mantiene el sitio monitoreado, actualizado y parchado — o me llamás ad-hoc."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "¿Todavía no estás listo para una llamada?",
+      "headline": "Llevate el PDF resumen",
+      "subtitle": "El desglose completo del tier — precio, tiempos, entregables, FAQ — en tu inbox en 30 segundos.",
+      "emailLabel": "Tu email",
+      "emailPlaceholder": "vos@empresa.com",
+      "buttonText": "Enviame el resumen",
+      "successMessage": "Enviado. Revisá tu inbox — y el spam por las dudas.",
+      "privacyNote": "Un solo email. Sin newsletter. Sin compartir con nadie. Desuscripción = un clic."
     }
   },
   "scalePage": {
@@ -355,15 +412,72 @@
         "Producción de video"
       ],
       "optional": [
-        { "label": "Idioma adicional", "price": "€450" },
-        { "label": "Dirección de ilustración custom", "price": "desde €800" },
-        { "label": "Migración de contenido de blog (hasta 50 posts)", "price": "€600" }
+        {
+          "label": "Idioma adicional",
+          "price": "€450"
+        },
+        {
+          "label": "Dirección de ilustración custom",
+          "price": "desde €800"
+        },
+        {
+          "label": "Migración de contenido de blog (hasta 50 posts)",
+          "price": "€600"
+        }
       ]
     },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
       "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    },
+    "faq": {
+      "sectionTagline": "PREGUNTAS",
+      "sectionHeadline": "Preguntas antes de arquitectar tu plataforma Scale",
+      "items": [
+        {
+          "q": "¿Qué CMS recomendás — Sanity, Storyblok o Decap?",
+          "a": "Para equipos editoriales y schemas ricos por defecto voy con Sanity. Para editores no técnicos que necesitan una UI visual, Storyblok. Para fundadores solos o equipos chicos ya en GitHub, Decap. Te recomiendo el adecuado después de un briefing de 30 minutos."
+        },
+        {
+          "q": "¿Puede mi equipo editar contenido sin romper el diseño?",
+          "a": "Sí. Modelo el schema alrededor de componentes tipo bloque con validación estricta, así los editores no pueden romper layouts ni meter datos inválidos sin querer. Cada cambio es un draft versionado hasta que se publica."
+        },
+        {
+          "q": "¿Puedo sumar más idiomas después?",
+          "a": "Totalmente. El build es i18n-ready desde el día uno. Sumar un nuevo idioma (fr, it, pt…) es un proyecto acotado, no un rebuild — normalmente 1–2 semanas según el volumen de traducción."
+        },
+        {
+          "q": "¿Cómo manejás SEO avanzado para sitios multi-página?",
+          "a": "Cada ruta sale con JSON-LD schema.org (Organization, Service, BreadcrumbList, FAQPage, Article cuando aplica), links hreflang por idioma y sitemaps XML automáticos. También dejo configurado Search Console y un plan GEO básico para búsqueda por IA."
+        },
+        {
+          "q": "¿Voy a necesitar un dev en retainer para mantenerlo?",
+          "a": "Para contenido no — ese es el punto del CMS headless. Para trabajo a nivel plataforma (nuevas features, integraciones, ajustes de performance) la mayoría de los clientes Scale pasan a un retainer de Care o compran bloques por hora según los vayan necesitando."
+        },
+        {
+          "q": "¿Migrás el contenido desde mi sitio actual?",
+          "a": "Sí. Hago scripts de migración desde WordPress, Webflow, Contentful, Notion o fuentes custom. La migración se cotiza aparte después de una auditoría rápida de contenido — el precio escala con volumen y complejidad estructural."
+        },
+        {
+          "q": "¿Cómo se manejan animaciones y ViewTransitions en rutas dinámicas?",
+          "a": "Las animaciones son a nivel componente (GSAP o View Transitions API nativa), así que se mantienen intactas sin importar cuántos entries publiques. Específicamente pruebo sobre contenido real del CMS para evitar layout shift en páginas de cola larga."
+        },
+        {
+          "q": "¿Cuál es el costo total de pertenencia en el año 1?",
+          "a": "Build desde €3.800. CMS hosting (Sanity / Storyblok planes gratuitos o ~€15–50/mes). Edge hosting (Vercel / Netlify — habitualmente gratis). Retainer Care opcional desde €190/mes. La mayoría de los clientes Scale cae entre €5k y €7k all-in en el primer año."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "¿Todavía no estás listo para una llamada?",
+      "headline": "Llevate el PDF resumen",
+      "subtitle": "El desglose completo del tier — precio, tiempos, entregables, FAQ — en tu inbox en 30 segundos.",
+      "emailLabel": "Tu email",
+      "emailPlaceholder": "vos@empresa.com",
+      "buttonText": "Enviame el resumen",
+      "successMessage": "Enviado. Revisá tu inbox — y el spam por las dudas.",
+      "privacyNote": "Un solo email. Sin newsletter. Sin compartir con nadie. Desuscripción = un clic."
     }
   },
   "growthPage": {
@@ -487,15 +601,72 @@
         "Copywriting desde cero"
       ],
       "optional": [
-        { "label": "Variante localizada adicional", "price": "€350" },
-        { "label": "Retainer de monitoreo extendido", "price": "desde €190/mes" },
-        { "label": "Copy de la landing page", "price": "desde €450" }
+        {
+          "label": "Variante localizada adicional",
+          "price": "€350"
+        },
+        {
+          "label": "Retainer de monitoreo extendido",
+          "price": "desde €190/mes"
+        },
+        {
+          "label": "Copy de la landing page",
+          "price": "desde €450"
+        }
       ]
     },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
       "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    },
+    "faq": {
+      "sectionTagline": "PREGUNTAS",
+      "sectionHeadline": "Preguntas antes de sumar Growth a tu embudo",
+      "items": [
+        {
+          "q": "¿Esta página realmente me va a mejorar el ROAS?",
+          "a": "Una landing más rápida y con CRO bien pensado baja de forma consistente el costo por lead en campañas pagas — cada segundo extra de carga impacta la conversión. No te prometo números que no puedo sostener, pero saca la fricción que suele estar bajando tu ROAS."
+        },
+        {
+          "q": "¿Integra con Meta, Google Ads y mi CRM?",
+          "a": "Sí. Meta Pixel, conversion tags de Google Ads, GA4, GTM y webhooks a CRM (HubSpot, Brevo, Mailchimp, Notion, Zapier) vienen en el build base. Decime qué stack usás."
+        },
+        {
+          "q": "¿Puedo hacer A/B test de titulares y secciones?",
+          "a": "La página se arma en secciones modulares — titular, hero, prueba social, oferta, formulario — para que cambies o testees cualquiera sin rehacer todo. Puedo cablear una herramienta de testing (VWO, Vercel Analytics, Statsig) si ya la usás."
+        },
+        {
+          "q": "¿Qué tan rápido carga la página?",
+          "a": "Objetivo: ≥ 95 en Lighthouse y Core Web Vitals verdes en 3G. En la práctica suele ser menos de 1,5 s de LCP — rápido como para que el clic pago no se muera esperando."
+        },
+        {
+          "q": "¿Puedo correr varias variantes para distintas campañas?",
+          "a": "Sí. Puedo clonar la página como ruta (/berlin, /oferta-otono) con pequeños cambios de copy/creatividad — manualmente o como rutas dinámicas desde un CMS."
+        },
+        {
+          "q": "¿Incluye tracking y Consent Mode v2?",
+          "a": "Sí. Google Consent Mode v2, banner de cookies, analíticas GDPR-friendly (Plausible o GA4 cookieless) y etiquetado de eventos correcto vienen dentro del paquete Growth."
+        },
+        {
+          "q": "¿Y si mi oferta o el objetivo de conversión cambian más adelante?",
+          "a": "Formulario, CTA y titular son editables desde el CMS. Cambios más grandes (nuevas secciones, nuevo tracking, nuevas integraciones) van por retainer de Care o bloques por hora."
+        },
+        {
+          "q": "¿También gestionás la creatividad de los ads o solo la landing?",
+          "a": "Me enfoco en la landing, el tracking y la infraestructura de conversión. La creatividad del ad y la compra de medios se quedan con vos o tu partner de ads — me coordino directamente con ellos sin problema."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "¿Todavía no estás listo para una llamada?",
+      "headline": "Llevate el PDF resumen",
+      "subtitle": "El desglose completo del tier — precio, tiempos, entregables, FAQ — en tu inbox en 30 segundos.",
+      "emailLabel": "Tu email",
+      "emailPlaceholder": "vos@empresa.com",
+      "buttonText": "Enviame el resumen",
+      "successMessage": "Enviado. Revisá tu inbox — y el spam por las dudas.",
+      "privacyNote": "Un solo email. Sin newsletter. Sin compartir con nadie. Desuscripción = un clic."
     }
   },
   "carePage": {
@@ -578,15 +749,72 @@
         "SLA 24/7 de emergencia (ver extras)"
       ],
       "optional": [
-        { "label": "Horas extra de edición de contenido", "price": "€90/h" },
-        { "label": "Revisión trimestral de diseño + recs", "price": "€250" },
-        { "label": "Upgrade a SLA prioritario 24h", "price": "+€90/mes" }
+        {
+          "label": "Horas extra de edición de contenido",
+          "price": "€90/h"
+        },
+        {
+          "label": "Revisión trimestral de diseño + recs",
+          "price": "€250"
+        },
+        {
+          "label": "Upgrade a SLA prioritario 24h",
+          "price": "+€90/mes"
+        }
       ]
     },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
       "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    },
+    "faq": {
+      "sectionTagline": "PREGUNTAS",
+      "sectionHeadline": "Preguntas antes de arrancar tu retainer Care",
+      "items": [
+        {
+          "q": "¿Qué hacés exactamente cada mes?",
+          "a": "Actualizaciones de dependencias y seguridad, monitoreo de Core Web Vitals, chequeo de Lighthouse, uptime monitoring, reporte mensual y un bloque de horas de implementación para cambios chicos (copy, imágenes, sección nueva, ajustes de tracking)."
+        },
+        {
+          "q": "¿Puedo cancelar cuando quiera?",
+          "a": "Sí — Care es mes a mes, sin permanencia. Cancelás con 14 días de aviso y te quedás con cada commit, repo y asset. Nada queda en rehén."
+        },
+        {
+          "q": "¿Cuál es la diferencia entre Care y un hosting web común?",
+          "a": "El hosting sólo sirve los archivos. Care mantiene el sitio rápido, seguro y al día: parchea vulnerabilidades, monitorea performance, resuelve regresiones y te da una línea directa con un dev que ya conoce tu codebase."
+        },
+        {
+          "q": "¿Cubre parches de seguridad y alertas CVE?",
+          "a": "Sí. Actualizaciones automáticas de dependencias, alertas CVE vía GitHub y parches manuales para todo lo que necesite ojo humano. Las vulnerabilidades críticas se resuelven el mismo día."
+        },
+        {
+          "q": "¿Qué tan rápido respondés si el sitio se cae?",
+          "a": "Lun–Vie, 9–18 CET: primera respuesta en menos de 4 horas. El uptime monitoring me avisa automáticamente antes que la mayoría de los clientes lo noten. Cobertura de emergencia / fuera de horario disponible como add-on opcional."
+        },
+        {
+          "q": "¿Tengo prioridad sobre los clientes de builds nuevos?",
+          "a": "Sí. Los clientes Care pasan al frente de la fila para arreglos rápidos y tareas chicas. Los builds nuevos se agendan alrededor de la carga existente de Care, no al revés."
+        },
+        {
+          "q": "¿Las horas de implementación no usadas se acumulan?",
+          "a": "Las horas incluidas se acumulan un mes. Más allá de eso, expiran — mantiene el retainer honesto para los dos y evita acaparar. Horas extra están siempre disponibles a tarifa reducida."
+        },
+        {
+          "q": "¿Qué pasa si en el futuro quiero rediseñar?",
+          "a": "Care es separado del build. Cuando estés listo para un rediseño lo armamos como proyecto nuevo (Starter / Growth / Scale), y el retainer sigue cubriendo el sitio actual hasta que salga el nuevo."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "¿Todavía no estás listo para una llamada?",
+      "headline": "Llevate el PDF resumen",
+      "subtitle": "El desglose completo del tier — precio, tiempos, entregables, FAQ — en tu inbox en 30 segundos.",
+      "emailLabel": "Tu email",
+      "emailPlaceholder": "vos@empresa.com",
+      "buttonText": "Enviame el resumen",
+      "successMessage": "Enviado. Revisá tu inbox — y el spam por las dudas.",
+      "privacyNote": "Un solo email. Sin newsletter. Sin compartir con nadie. Desuscripción = un clic."
     }
   },
   "partnershipPage": {
@@ -704,15 +932,72 @@
         "Setup de campañas de ads (te recomiendo gente)"
       ],
       "optional": [
-        { "label": "Sprint urgente de 1 semana", "price": "+35%" },
-        { "label": "Idioma adicional", "price": "€350" },
-        { "label": "Sesión de capacitación para tu equipo", "price": "€250" }
+        {
+          "label": "Sprint urgente de 1 semana",
+          "price": "+35%"
+        },
+        {
+          "label": "Idioma adicional",
+          "price": "€350"
+        },
+        {
+          "label": "Sesión de capacitación para tu equipo",
+          "price": "€250"
+        }
       ]
     },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Founder · Designer & developer",
       "message": "Empecé en diseño antes de moverme a código, así que sé lo que se siente cuando un dev te arruina el archivo. Eso acá no pasa — tu Figma es la especificación, punto."
+    },
+    "faq": {
+      "sectionTagline": "PREGUNTAS",
+      "sectionHeadline": "Preguntas de diseñadores antes de arrancar una partnership",
+      "items": [
+        {
+          "q": "¿Realmente te quedás white-label — mi cliente nunca se entera de vos?",
+          "a": "Correcto. No aparezco en comunicaciones al cliente, facturas ni créditos a menos que vos me presentes explícitamente. Repos, cuentas de deploy y accesos al CMS van todos a nombre de tu estudio."
+        },
+        {
+          "q": "¿Cómo manejamos el NDA?",
+          "a": "Firmo tu NDA (o uno mutuo estándar) antes de abrir el Figma. Sin excepciones. Nada se comparte, se subcontrata ni se sube a un portfolio público sin permiso por escrito."
+        },
+        {
+          "q": "¿Qué pasa si cortamos el proyecto a mitad?",
+          "a": "El repo es tuyo desde el primer commit, así que te quedás con un build funcional y documentado pase lo que pase. Solo facturo hasta el último milestone entregado — sin fees de salida, sin rehenes."
+        },
+        {
+          "q": "¿En qué stacks construís?",
+          "a": "Mis defaults son Astro y Next.js con Tailwind. También construyo en SvelteKit, HTML/CSS/JS vanilla y me conecto a CMS headless (Sanity, Storyblok, Decap, Prismic). Te aviso con honestidad si tu stack objetivo queda fuera de mi zona."
+        },
+        {
+          "q": "¿Hacés Figma a Webflow o Framer también?",
+          "a": "Sí, a pedido. Mi fuerte son los builds a código — pero entregué proyectos en Webflow y Framer para diseñadores que necesitan un handover no-code. Precios y tiempos cambian; te paso las dos opciones tras el brief."
+        },
+        {
+          "q": "¿Cómo cobrás — por hora o por proyecto?",
+          "a": "Vos decidís. Tarifa fija por proyecto para handoffs de Figma acotados, tarifa semanal para engagements largos o €80/hora para trabajo ad-hoc. Las facturas salen desde mi estudio; tu cliente nunca las ve."
+        },
+        {
+          "q": "¿Podés meter un sprint de 1 semana?",
+          "a": "Sí, con un +35% de tarifa de urgencia. Dejo capacidad para emergencias pero necesito al menos 48 horas de aviso para reacomodar sin romper el timeline de otro cliente."
+        },
+        {
+          "q": "¿Hacés la capacitación del CMS para mis clientes?",
+          "a": "Sí. Grabo un Loom walkthrough del CMS con el branding de tu estudio y, opcional, hago una capacitación en vivo de 45 minutos con tu cliente (add-on de €250). Vos decidís si estoy presente o lo reenviás por tu cuenta."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "¿Todavía no estás listo para una llamada?",
+      "headline": "Llevate el PDF resumen",
+      "subtitle": "El desglose completo del tier — precio, tiempos, entregables, FAQ — en tu inbox en 30 segundos.",
+      "emailLabel": "Tu email",
+      "emailPlaceholder": "vos@empresa.com",
+      "buttonText": "Enviame el resumen",
+      "successMessage": "Enviado. Revisá tu inbox — y el spam por las dudas.",
+      "privacyNote": "Un solo email. Sin newsletter. Sin compartir con nadie. Desuscripción = un clic."
     }
   },
   "designerBanner": {
@@ -896,6 +1181,18 @@
           "Sí — base-pages lo construyó",
           "No — lo construyó otro equipo"
         ]
+      },
+      "step1": {
+        "heading": "Paso 1 · Lo básico",
+        "description": "30 segundos. Nombre, email y qué buscás.",
+        "continueText": "Continuar →"
+      },
+      "step2": {
+        "heading": "Paso 2 · Opcional — me ayuda a prepararme",
+        "description": "Preguntas específicas del paquete para afinar la preparación antes de la llamada. Toma ~60 segundos. Podés saltearlo.",
+        "descriptionQuote": "Preguntas específicas del paquete para enviarte una cotización precisa y sin sorpresas. Toma ~60 segundos. Podés saltearlo.",
+        "skipText": "Saltear — reservar la llamada ahora →",
+        "skipTextQuote": "Saltear — enviar mi consulta →"
       }
     },
     "success": {

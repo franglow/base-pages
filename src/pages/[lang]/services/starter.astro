@@ -8,12 +8,14 @@ import CaseStudySection from '../../../components/sections/CaseStudySection.astr
 import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../../components/sections/IncludedTable.astro';
+import FAQBlock from '../../../components/sections/FAQBlock.astro';
+import SoftCTA from '../../../components/sections/SoftCTA.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
-import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema } from '../../../utils/schema';
+import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -39,6 +41,7 @@ const jsonLd = [
     price: '890',
     url: `/${lang}/services/starter`,
   }),
+  ...(starterPage.faq?.items?.length ? [getFAQPageSchema(starterPage.faq.items)] : []),
 ];
 ---
 
@@ -129,6 +132,28 @@ const jsonLd = [
       title={starterPage.riskReversal.title}
       points={starterPage.riskReversal.points}
     />
+
+    {starterPage.faq?.items?.length > 0 && (
+      <FAQBlock
+        title={starterPage.faq.sectionHeadline}
+        items={starterPage.faq.items}
+      />
+    )}
+
+    {starterPage.softCta && (
+      <SoftCTA
+        eyebrow={starterPage.softCta.eyebrow}
+        headline={starterPage.softCta.headline}
+        subtitle={starterPage.softCta.subtitle}
+        emailLabel={starterPage.softCta.emailLabel}
+        emailPlaceholder={starterPage.softCta.emailPlaceholder}
+        buttonText={starterPage.softCta.buttonText}
+        successMessage={starterPage.softCta.successMessage}
+        privacyNote={starterPage.softCta.privacyNote}
+        tier="starter"
+        pdfHref="/one-pagers/starter.pdf"
+      />
+    )}
 
     <section class="final-cta-section">
       <div class="container">

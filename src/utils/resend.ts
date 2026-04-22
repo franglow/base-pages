@@ -150,6 +150,65 @@ export async function sendInternalNotification(data: Record<string, string | und
   console.log(`[RESEND] ✓ Lead Radar notification sent → ${subject}, id=${result?.id}`);
 }
 
+// ─── One-Pager PDF Delivery ────────────────────────────────────────
+type OnePagerData = { email: string; tier: string; pdfUrl: string };
+
+const ONEPAGER_SUBJECTS: Record<Language, (tier: string) => string> = {
+  en: (tier) => `Your ${tier} one-pager — Base Pages`,
+  de: (tier) => `Ihr ${tier}-One-Pager — Base Pages`,
+  es: (tier) => `Tu resumen del paquete ${tier} — Base Pages`,
+};
+
+const ONEPAGER_TEMPLATES: Record<Language, (d: OnePagerData) => string> = {
+  en: (d) => wrapInLayout(`
+    <h2 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#111827;">Your ${d.tier} one-pager</h2>
+    <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">Here's the full breakdown — price, timeline, deliverables and FAQ — in a single PDF you can share with your team.</p>
+    <p style="margin:0 0 32px;"><a href="${d.pdfUrl}" style="display:inline-block;background:#111827;color:#ffffff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:500;">Download the PDF →</a></p>
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#6b7280;">When you're ready for a call, just reply to this email with a couple of time windows that work — I'll take it from there.</p>
+    <p style="margin:24px 0 0;font-size:16px;color:#374151;">— Francisco, Base Pages</p>
+  `),
+  de: (d) => wrapInLayout(`
+    <h2 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#111827;">Ihr ${d.tier}-One-Pager</h2>
+    <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">Hier die volle Übersicht — Preis, Timeline, Leistungen und FAQ — in einem einzelnen PDF, das Sie mit Ihrem Team teilen können.</p>
+    <p style="margin:0 0 32px;"><a href="${d.pdfUrl}" style="display:inline-block;background:#111827;color:#ffffff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:500;">PDF herunterladen →</a></p>
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#6b7280;">Wenn Sie bereit für ein Gespräch sind, antworten Sie einfach auf diese E-Mail mit zwei Terminfenstern — den Rest übernehme ich.</p>
+    <p style="margin:24px 0 0;font-size:16px;color:#374151;">— Francisco, Base Pages</p>
+  `),
+  es: (d) => wrapInLayout(`
+    <h2 style="margin:0 0 16px;font-size:24px;font-weight:600;color:#111827;">Tu resumen del paquete ${d.tier}</h2>
+    <p style="margin:0 0 24px;font-size:16px;line-height:1.6;color:#374151;">Acá va el desglose completo — precio, tiempos, entregables y FAQ — en un único PDF que podés compartir con tu equipo.</p>
+    <p style="margin:0 0 32px;"><a href="${d.pdfUrl}" style="display:inline-block;background:#111827;color:#ffffff;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:500;">Descargar el PDF →</a></p>
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#6b7280;">Cuando estés listo para una llamada, respondé a este email con un par de horarios y me encargo del resto.</p>
+    <p style="margin:24px 0 0;font-size:16px;color:#374151;">— Francisco, Base Pages</p>
+  `),
+};
+
+/**
+ * Send a one-pager PDF link to a lead (soft CTA funnel).
+ */
+export async function sendOnePagerEmail(lang: Language, data: OnePagerData): Promise<void> {
+  const tierLabel = data.tier.charAt(0).toUpperCase() + data.tier.slice(1);
+  const subject = ONEPAGER_SUBJECTS[lang](tierLabel);
+  const html = ONEPAGER_TEMPLATES[lang]({ ...data, tier: tierLabel });
+
+  const resend = getResendClient();
+
+  console.log(`[RESEND] Sending one-pager (${data.tier}) to ${data.email} (${lang})…`);
+  const { data: result, error } = await resend.emails.send({
+    from: FROM_ADDRESS,
+    to: data.email,
+    subject,
+    html,
+  });
+
+  if (error) {
+    console.error(`[RESEND] ❌ One-pager email failed:`, JSON.stringify(error));
+    throw new Error(`Resend API error (one-pager): ${JSON.stringify(error)}`);
+  }
+
+  console.log(`[RESEND] ✓ One-pager sent to ${data.email} (${data.tier}/${lang}), id=${result?.id}`);
+}
+
 // ─── Lead Radar: Dynamic Subject Line Formula ──────────────────────
 // Maps the incoming "interest" (package/tier) to an instantly
 // identifiable subject line in the founder's inbox.
