@@ -142,7 +142,25 @@
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=starter"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PROOF",
+      "sectionHeadline": "Real clients, real outcomes",
+      "blocks": [
+        {
+          "clientName": "Cornelia Jaeger",
+          "industry": "Occupational Therapy",
+          "headlineMetric": {
+            "value": "5 days",
+            "label": "brief to live · 4 pages"
+          },
+          "challenge": "No web presence. Parents couldn't find her coaching offer or learn about it before reaching out — trust had to be built from zero.",
+          "outcome": "A calm, 4-page German-language site with a clear 'book an appointment' path. Warm, professional, and easy for her to maintain.",
+          "quote": "[Quote pending — requested from client]",
+          "quoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
+          "projectUrl": "/works/cornelia-jaeger"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -184,7 +202,11 @@
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=scale"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PROOF",
+      "sectionHeadline": "Real clients, real outcomes",
+      "blocks": []
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -226,7 +248,25 @@
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=growth"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PROOF",
+      "sectionHeadline": "Real clients, real outcomes",
+      "blocks": [
+        {
+          "clientName": "Carma Retreats",
+          "industry": "Yoga Retreats · Berlin",
+          "headlineMetric": {
+            "value": "Sold out",
+            "label": "first retreat, via the new booking funnel"
+          },
+          "challenge": "Bookings happened in Instagram DMs. No inquiry funnel, no tracking, no way to scale paid campaigns or measure what was working — every lost DM was a lost retreat booking.",
+          "outcome": "A German-language landing page on Astro with inquiry form, Meta pixel + conversion events, and SEO set up from day one. When the site went live, the first retreat sold out.",
+          "quote": "[Quote pending — requested from client]",
+          "quoteAttribution": "Carmen & Mareen · Carma Retreats",
+          "projectUrl": "/works/carma-retreats"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -268,7 +308,11 @@
       "buttonText": "Start your retainer",
       "buttonUrl": "/contact?tier=care"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PROOF",
+      "sectionHeadline": "Real clients, real outcomes",
+      "blocks": []
+    },
     "testimonials": {},
     "included": {},
     "founder": {
