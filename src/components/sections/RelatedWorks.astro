@@ -1,4 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+);
+
 interface WorkItem {
   title: string;
   href: string;
@@ -24,6 +30,17 @@ const {
 } = Astro.props;
 
 const hasWorks = Array.isArray(works) && works.length > 0;
+const workCount = hasWorks ? works.length : 0;
+const layoutClass =
+  workCount === 1 ? 'rw-one' : workCount === 2 ? 'rw-two' : 'rw-many';
+
+const isLocalAsset = (p: string | undefined) =>
+  typeof p === 'string' && p.startsWith('/src/assets/');
+
+const resolvedWorks = (works || []).map((w) => ({
+  ...w,
+  _localLoader: isLocalAsset(w.thumbnail) ? localImages[w.thumbnail] : null,
+}));
 ---
 
 {hasWorks && (
@@ -31,6 +48,7 @@ const hasWorks = Array.isArray(works) && works.length > 0;
     class:list={['related-works', className]}
     aria-labelledby="related-works-title"
     data-tier={tier}
+    data-count={workCount}
   >
     {(tagline || heading) && (
       <header class="rw-header">
@@ -43,20 +61,32 @@ const hasWorks = Array.isArray(works) && works.length > 0;
       </header>
     )}
 
-    <ul class="rw-grid">
-      {works.map((work) => (
+    <ul class:list={['rw-grid', layoutClass]}>
+      {resolvedWorks.map((work) => (
         <li class="rw-item">
           <a href={work.href} class="rw-card">
             <figure class="rw-figure">
-              <img
-                src={work.thumbnail}
-                alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
-                width="480"
-                height="320"
-                loading="lazy"
-                decoding="async"
-                class="rw-img"
-              />
+              {work._localLoader ? (
+                <Image
+                  src={work._localLoader()}
+                  alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
+                  widths={[320, 480, 640]}
+                  sizes="(min-width: 720px) 33vw, 100vw"
+                  loading="lazy"
+                  decoding="async"
+                  class="rw-img"
+                />
+              ) : (
+                <img
+                  src={work.thumbnail}
+                  alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
+                  width="480"
+                  height="320"
+                  loading="lazy"
+                  decoding="async"
+                  class="rw-img"
+                />
+              )}
             </figure>
             <div class="rw-meta">
               {work.industry && <p class="rw-industry">{work.industry}</p>}
@@ -198,9 +228,22 @@ const hasWorks = Array.isArray(works) && works.length > 0;
       padding: 56px 32px 72px;
     }
 
-    .rw-grid {
+    .rw-grid.rw-many {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    .rw-grid.rw-two {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .rw-grid.rw-one {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin: 0 auto;
     }
 
     .rw-title {

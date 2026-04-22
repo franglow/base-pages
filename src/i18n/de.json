@@ -518,7 +518,85 @@
       "escapeRoute": "Noch nicht bereit für einen Termin? Kein Problem. Wir haben Ihnen einen Link geschickt. Entdecken Sie inzwischen unsere",
       "escapeWorks": "Arbeiten",
       "escapeOr": "oder zurück zur",
-      "escapeHome": "Startseite"
+      "escapeHome": "Startseite",
+      "founderVideo": {
+        "title": "30 Sekunden vom Gründer",
+        "caption": "Eine kurze Vorstellung, damit Sie wissen, wer ans Telefon geht.",
+        "placeholderLabel": "Intro-Video kommt bald"
+      },
+      "prepChecklist": {
+        "scale": {
+          "title": "3 Dinge, die Sie zum Call mitbringen",
+          "items": [
+            {
+              "label": "Eine Website, die Sie bewundern — und eine, die Sie nicht mögen",
+              "detail": "URLs reichen. Ich nutze sie, um Geschmack und Anti-Patterns abzugleichen."
+            },
+            {
+              "label": "Ihre zwei wichtigsten Wettbewerber im Google-Ranking",
+              "detail": "Die echten Konkurrenten, nicht die offensichtlichen Branchen-Riesen."
+            },
+            {
+              "label": "Eine Kennzahl, die Sie in 90 Tagen bewegen wollen",
+              "detail": "Qualifizierte Leads, Demo-Buchungen, organischer Traffic — eine reicht."
+            }
+          ]
+        },
+        "partnership": {
+          "title": "3 Dinge, die Sie zum Call mitbringen",
+          "items": [
+            {
+              "label": "Eine Beispiel-Figma-Datei (Leseberechtigung genügt)",
+              "detail": "Ein aktuelles Projekt zeigt mir Grid, Komponenten und Ihren Übergabestil."
+            },
+            {
+              "label": "Ein anstehendes Projekt, das wir gemeinsam launchen würden",
+              "detail": "Grober Scope reicht, um realistische Kadenz und Preise einzuschätzen."
+            },
+            {
+              "label": "Ihren bevorzugten Übergabe-Rhythmus",
+              "detail": "Wöchentlicher Sync? Asynchrones Loom? Ich passe mich an — vorab spart eine Runde."
+            }
+          ]
+        },
+        "default": {
+          "title": "3 Dinge, die Sie zum Call mitbringen",
+          "items": [
+            {
+              "label": "Eine funktionierende Domain (oder eine, die Sie kaufen wollen)",
+              "detail": "Wenn noch nicht vorhanden, bringen Sie 2–3 Optionen zum Gegenchecken mit."
+            },
+            {
+              "label": "Ihr Logo + 4–8 Fotos in einem Ordner",
+              "detail": "Drive, Dropbox, iCloud — irgendwo, von wo Sie einen Link teilen können."
+            },
+            {
+              "label": "Einen Satz, der Ihren idealen Kunden beschreibt",
+              "detail": "Wen Sie anziehen wollen, nicht wer bereits durch die Tür kommt."
+            }
+          ]
+        }
+      },
+      "relatedWorks": {
+        "tagline": "AKTUELLE ARBEITEN",
+        "heading": "Projekte, die live sind",
+        "works": [
+          {
+            "title": "Carma Retreats",
+            "industry": "Yoga-Retreats · Berlin",
+            "href": "/works/carma-retreats",
+            "thumbnail": "/src/assets/images/portfolio-grid/carma-main.jpg",
+            "thumbnailAlt": "Carma Retreats Landingpage"
+          },
+          {
+            "title": "Cornelia Jaeger",
+            "industry": "Ergotherapie",
+            "href": "/works/cornelia-jaeger",
+            "thumbnail": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
+            "thumbnailAlt": "Cornelia Jaeger Website"
+          }
+        ]
+      }
     }
   },
   "footer": {

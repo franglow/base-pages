@@ -518,7 +518,85 @@
       "escapeRoute": "Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our",
       "escapeWorks": "Works",
       "escapeOr": "or return",
-      "escapeHome": "Home"
+      "escapeHome": "Home",
+      "founderVideo": {
+        "title": "30 seconds from your founder",
+        "caption": "A quick hello so you know who's picking up the call.",
+        "placeholderLabel": "Intro video coming soon"
+      },
+      "prepChecklist": {
+        "scale": {
+          "title": "3 things to bring to the call",
+          "items": [
+            {
+              "label": "One site you admire, one you don't",
+              "detail": "URLs are enough. I'll use them to calibrate taste + anti-patterns."
+            },
+            {
+              "label": "Your two top-ranking competitors",
+              "detail": "The ones you actually want to outrank, not the obvious giants."
+            },
+            {
+              "label": "One metric you want to move in 90 days",
+              "detail": "Qualified leads, demo bookings, organic traffic — pick one."
+            }
+          ]
+        },
+        "partnership": {
+          "title": "3 things to bring to the call",
+          "items": [
+            {
+              "label": "A sample Figma file (view access is fine)",
+              "detail": "Any recent project shows me your grid, components and handoff style."
+            },
+            {
+              "label": "One upcoming project you'd want to ship together",
+              "detail": "Even rough scope helps me estimate realistic cadence + pricing."
+            },
+            {
+              "label": "Your ideal handoff rhythm",
+              "detail": "Weekly sync? Async Loom? I adapt — knowing upfront saves a round."
+            }
+          ]
+        },
+        "default": {
+          "title": "3 things to bring to the call",
+          "items": [
+            {
+              "label": "A working domain name (or one you're about to buy)",
+              "detail": "If you don't have one yet, bring 2–3 options we can sanity-check."
+            },
+            {
+              "label": "Your logo + 4–8 photos in one folder",
+              "detail": "Drive, Dropbox, iCloud — anywhere you can share a link from."
+            },
+            {
+              "label": "One sentence describing your ideal client",
+              "detail": "Who you want walking through your door, not who already does."
+            }
+          ]
+        }
+      },
+      "relatedWorks": {
+        "tagline": "RECENT WORK",
+        "heading": "Projects I've shipped",
+        "works": [
+          {
+            "title": "Carma Retreats",
+            "industry": "Yoga Retreats · Berlin",
+            "href": "/works/carma-retreats",
+            "thumbnail": "/src/assets/images/portfolio-grid/carma-main.jpg",
+            "thumbnailAlt": "Carma Retreats landing page"
+          },
+          {
+            "title": "Cornelia Jaeger",
+            "industry": "Occupational Therapy",
+            "href": "/works/cornelia-jaeger",
+            "thumbnail": "/src/assets/images/portfolio-grid/cornelia-main.jpg",
+            "thumbnailAlt": "Cornelia Jaeger website"
+          }
+        ]
+      }
     }
   },
   "footer": {

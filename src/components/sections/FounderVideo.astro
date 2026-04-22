@@ -1,0 +1,145 @@
+---
+interface Props {
+  videoSrc?: string;
+  posterSrc?: string;
+  posterAlt?: string;
+  caption?: string;
+  placeholderLabel?: string;
+  class?: string;
+}
+
+const {
+  videoSrc,
+  posterSrc,
+  posterAlt,
+  caption,
+  placeholderLabel = 'Intro video coming soon',
+  class: className,
+} = Astro.props;
+
+const hasVideo = typeof videoSrc === 'string' && videoSrc.length > 0;
+const resolvedPosterAlt =
+  posterAlt ?? 'Founder introduction video poster';
+---
+
+<figure
+  class:list={['founder-video', className]}
+  data-has-video={hasVideo ? 'true' : 'false'}
+>
+  <div class="fv-frame">
+    {hasVideo ? (
+      <video
+        class="fv-media"
+        controls
+        playsinline
+        preload="metadata"
+        poster={posterSrc}
+        aria-label={resolvedPosterAlt}
+      >
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+    ) : posterSrc ? (
+      <img
+        class="fv-media"
+        src={posterSrc}
+        alt={resolvedPosterAlt}
+        loading="lazy"
+        decoding="async"
+        width="960"
+        height="540"
+      />
+    ) : (
+      <div class="fv-placeholder" role="img" aria-label={resolvedPosterAlt}>
+        <span class="fv-placeholder-mark" aria-hidden="true">BP</span>
+      </div>
+    )}
+
+    {!hasVideo && (
+      <span class="fv-placeholder-tag">{placeholderLabel}</span>
+    )}
+  </div>
+
+  {caption && (
+    <figcaption class="fv-caption">{caption}</figcaption>
+  )}
+</figure>
+
+<style>
+  .founder-video {
+    margin: 0 auto;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .fv-frame {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0f0f10;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 14px 40px -16px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .fv-media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fv-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      #1f1d1b 0%,
+      #2b2724 45%,
+      #3a322c 100%
+    );
+    color: #e8e3d9;
+  }
+
+  .fv-placeholder-mark {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 42px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    opacity: 0.82;
+  }
+
+  .fv-placeholder-tag {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #111827;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+  }
+
+  .fv-caption {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 768px) {
+    .fv-placeholder-mark {
+      font-size: 52px;
+    }
+  }
+</style>
