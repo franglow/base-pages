@@ -145,7 +145,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Gründer · Designer & Entwickler",
+      "message": "Keine Agentur-Ebenen, keine Juniors, keine Übergaben — du arbeitest direkt mit der Person, die deine Seite baut. Vom ersten Call bis zum Launch, und den Jahren danach."
+    }
   },
   "scalePage": {
     "hero": {
@@ -183,7 +187,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Gründer · Designer & Entwickler",
+      "message": "Keine Agentur-Ebenen, keine Juniors, keine Übergaben — du arbeitest direkt mit der Person, die deine Seite baut. Vom ersten Call bis zum Launch, und den Jahren danach."
+    }
   },
   "growthPage": {
     "hero": {
@@ -221,7 +229,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Gründer · Designer & Entwickler",
+      "message": "Keine Agentur-Ebenen, keine Juniors, keine Übergaben — du arbeitest direkt mit der Person, die deine Seite baut. Vom ersten Call bis zum Launch, und den Jahren danach."
+    }
   },
   "carePage": {
     "hero": {
@@ -259,7 +271,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Gründer · Designer & Entwickler",
+      "message": "Keine Agentur-Ebenen, keine Juniors, keine Übergaben — du arbeitest direkt mit der Person, die deine Seite baut. Vom ersten Call bis zum Launch, und den Jahren danach."
+    }
   },
   "designerBanner": {
     "prefix": "Für UX/UI-Designer:",

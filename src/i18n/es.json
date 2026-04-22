@@ -145,7 +145,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Fundador · Diseñador y desarrollador",
+      "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    }
   },
   "scalePage": {
     "hero": {
@@ -183,7 +187,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Fundador · Diseñador y desarrollador",
+      "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    }
   },
   "growthPage": {
     "hero": {
@@ -221,7 +229,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Fundador · Diseñador y desarrollador",
+      "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    }
   },
   "carePage": {
     "hero": {
@@ -259,7 +271,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Fundador · Diseñador y desarrollador",
+      "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+    }
   },
   "designerBanner": {
     "prefix": "Para Diseñadores UX/UI:",
