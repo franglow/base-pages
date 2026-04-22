@@ -213,12 +213,12 @@
   },
   "carePage": {
     "hero": {
-      "tagline": "CONTINUOUS CARE",
-      "titleBold": "Protect your investment.",
-      "titleLight": "Care & Optimization retainer.",
-      "subtitle": "Your digital asset needs continuous tuning to perform at its peak. I handle fast edge hosting, proactive security updates, and performance monitoring so you can focus on your business.",
-      "priceBadge": "Starting at €190/mo",
-      "deliveryBadge": "Cancel anytime"
+      "tagline": "LOOKED AFTER, NOT LEFT ALONE",
+      "titleBold": "Your site, taken care of — by the person who built it.",
+      "titleLight": "Updates, fixes, and small improvements, handled for you.",
+      "subtitle": "You don't need another tool to learn or a support ticket to write. Send me a WhatsApp or an email and the change is live — usually the same day. I keep your site fast, safe and up to date, so you stay focused on the work that actually pays the bills.",
+      "priceBadge": "From €190/mo",
+      "deliveryBadge": "Cancel anytime · 48h response window"
     },
     "features": [
       {
