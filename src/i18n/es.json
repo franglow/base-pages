@@ -142,7 +142,25 @@
       "buttonText": "Hablemos",
       "buttonUrl": "/es/contact?tier=starter"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PRUEBAS",
+      "sectionHeadline": "Clientes reales, resultados reales",
+      "blocks": [
+        {
+          "clientName": "Cornelia Jaeger",
+          "industry": "Terapia ocupacional",
+          "headlineMetric": {
+            "value": "5 días",
+            "label": "del briefing al lanzamiento · 4 páginas"
+          },
+          "challenge": "Sin presencia web. Los padres no podían encontrar su propuesta de coaching ni informarse antes de contactarla — la confianza tenía que construirse desde cero.",
+          "outcome": "Un sitio en alemán de 4 páginas, calmo y claro, con un camino directo para reservar turno. Cálido, profesional y fácil de mantener.",
+          "quote": "[Cita pendiente — solicitada al cliente]",
+          "quoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
+          "projectUrl": "/works/cornelia-jaeger"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -184,7 +202,11 @@
       "buttonText": "Agendar llamada de descubrimiento",
       "buttonUrl": "/es/contact?tier=scale"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PRUEBAS",
+      "sectionHeadline": "Clientes reales, resultados reales",
+      "blocks": []
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -226,7 +248,25 @@
       "buttonText": "Agendar llamada de estrategia",
       "buttonUrl": "/es/contact?tier=growth"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PRUEBAS",
+      "sectionHeadline": "Clientes reales, resultados reales",
+      "blocks": [
+        {
+          "clientName": "Carma Retreats",
+          "industry": "Yoga Retreats · Berlín",
+          "headlineMetric": {
+            "value": "Agotado",
+            "label": "primer retiro, a través del nuevo embudo de reservas"
+          },
+          "challenge": "Las reservas llegaban por DMs de Instagram. Sin embudo de contacto, sin tracking, sin forma de escalar campañas pagas ni medir qué funcionaba — cada DM perdido era un lugar perdido en el retiro.",
+          "outcome": "Una landing page en alemán sobre Astro, con formulario de contacto, píxel de Meta + eventos de conversión y SEO configurado desde el día uno. Cuando el sitio salió al aire, el primer retiro se agotó.",
+          "quote": "[Cita pendiente — solicitada al cliente]",
+          "quoteAttribution": "Carmen & Mareen · Carma Retreats",
+          "projectUrl": "/works/carma-retreats"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -268,7 +308,11 @@
       "buttonText": "Iniciar plan",
       "buttonUrl": "/es/contact?tier=care"
     },
-    "caseStudy": {},
+    "caseStudy": {
+      "sectionTagline": "PRUEBAS",
+      "sectionHeadline": "Clientes reales, resultados reales",
+      "blocks": []
+    },
     "testimonials": {},
     "included": {},
     "founder": {
