@@ -3,6 +3,7 @@ import LandingLayout from '../../../layouts/LandingLayout.astro';
 import LandingHeader from '../../../components/sections/LandingHeader.astro'; 
 import Footer from '../../../components/sections/Footer.astro'; 
 import Button from '../../../components/ui/Button.astro';
+import FounderSignature from '../../../components/sections/FounderSignature.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
@@ -116,6 +117,12 @@ const jsonLd = [
 
     <section class="final-cta-section">
       <div class="container">
+        <FounderSignature
+          name={growthPage.founder.name}
+          role={growthPage.founder.role}
+          message={growthPage.founder.message}
+          class="mb-6"
+        />
         <div class="cta-box">
           <h2>{growthPage.finalCta.headline}</h2>
           <p>{growthPage.finalCta.subtitle}</p>
