@@ -207,6 +207,40 @@
       "sectionHeadline": "Clientes reales, resultados reales",
       "blocks": []
     },
+    "process": {
+      "sectionTagline": "PROCESO",
+      "sectionHeadline": "Del briefing al sitio en vivo, en 4 pasos",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Nos pasás tus materiales de marca, dos sitios que te gusten y la métrica que querés mover. En 48 horas te devuelvo sitemap y presupuesto.",
+          "owner": "Vos",
+          "ownerTone": "you",
+          "duration": "~1 día"
+        },
+        {
+          "title": "Primera versión",
+          "description": "Armo la arquitectura de información, conecto el CMS headless y entrego la primera versión de cada página — con copy real, imágenes reales y código listo para producción.",
+          "owner": "Yo",
+          "ownerTone": "me",
+          "duration": "~10 días"
+        },
+        {
+          "title": "Revisiones",
+          "description": "Dos rondas estructuradas sobre una URL de staging. Vos dejás comentarios, yo itero. Copy, visuales, interacciones — todo entra.",
+          "owner": "Juntos",
+          "ownerTone": "together",
+          "duration": "~5 días"
+        },
+        {
+          "title": "Lanzamiento",
+          "description": "Deploy a producción, cambio de DNS, analítica y Core Web Vitals verificados en vivo. Te doy credenciales de editor y un walkthrough de 30 minutos.",
+          "owner": "Yo",
+          "ownerTone": "me",
+          "duration": "~2 días"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {

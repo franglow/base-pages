@@ -207,6 +207,40 @@
       "sectionHeadline": "Real clients, real outcomes",
       "blocks": []
     },
+    "process": {
+      "sectionTagline": "PROCESS",
+      "sectionHeadline": "From brief to launched in 4 steps",
+      "steps": [
+        {
+          "title": "Brief",
+          "description": "You share brand assets, two reference sites and the one metric you want to move. I come back with a sitemap + estimate inside 48 hours.",
+          "owner": "You",
+          "ownerTone": "you",
+          "duration": "~1 day"
+        },
+        {
+          "title": "First cut",
+          "description": "I architect the information, wire the headless CMS and ship the first version of every page — real copy, real images, production-quality code.",
+          "owner": "Me",
+          "ownerTone": "me",
+          "duration": "~10 days"
+        },
+        {
+          "title": "Revisions",
+          "description": "Two structured review rounds on a live staging URL. You leave comments, I iterate. Copy, visuals, interactions — all in scope.",
+          "owner": "Together",
+          "ownerTone": "together",
+          "duration": "~5 days"
+        },
+        {
+          "title": "Launch",
+          "description": "Production deploy, DNS cutover, analytics and Core Web Vitals verified. You get editor logins and a 30-minute walkthrough.",
+          "owner": "Me",
+          "ownerTone": "me",
+          "duration": "~2 days"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {

@@ -207,6 +207,40 @@
       "sectionHeadline": "Echte Kunden, echte Ergebnisse",
       "blocks": []
     },
+    "process": {
+      "sectionTagline": "ABLAUF",
+      "sectionHeadline": "Vom Briefing zum Go-Live in 4 Schritten",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Sie schicken Brand-Assets, zwei Referenzseiten und die eine Kennzahl, die Sie bewegen wollen. Innerhalb von 48 Stunden bekommen Sie Sitemap und Angebot zurück.",
+          "owner": "Sie",
+          "ownerTone": "you",
+          "duration": "~1 Tag"
+        },
+        {
+          "title": "Erste Version",
+          "description": "Ich strukturiere die Inhalte, binde das Headless-CMS an und liefere eine erste Version jeder Seite — mit echtem Text, echten Bildern und produktionsreifem Code.",
+          "owner": "Ich",
+          "ownerTone": "me",
+          "duration": "~10 Tage"
+        },
+        {
+          "title": "Revisionen",
+          "description": "Zwei strukturierte Review-Runden auf einer Staging-URL. Sie kommentieren, ich iteriere. Text, Visuals, Interaktionen — alles ist im Scope.",
+          "owner": "Gemeinsam",
+          "ownerTone": "together",
+          "duration": "~5 Tage"
+        },
+        {
+          "title": "Go-Live",
+          "description": "Produktions-Deploy, DNS-Umstellung, Analytics und Core Web Vitals live verifiziert. Sie erhalten Editor-Zugang und ein 30-minütiges Walkthrough.",
+          "owner": "Ich",
+          "ownerTone": "me",
+          "duration": "~2 Tage"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
