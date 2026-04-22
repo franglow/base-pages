@@ -141,7 +141,11 @@
       "subtitle": "Dejá de pelear con herramientas difíciles. Dejame armarte una web profesional que te traiga resultados de verdad.",
       "buttonText": "Hablemos",
       "buttonUrl": "/es/contact?tier=starter"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "scalePage": {
     "hero": {
@@ -175,7 +179,11 @@
       "subtitle": "Diseñemos una experiencia digital premium que establezca el estándar de la industria.",
       "buttonText": "Agendar llamada de descubrimiento",
       "buttonUrl": "/es/contact?tier=scale"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "growthPage": {
     "hero": {
@@ -209,7 +217,11 @@
       "subtitle": "Dejá de desperdiciar dinero en páginas lentas y confusas. Construyamos una máquina que convierta.",
       "buttonText": "Agendar llamada de estrategia",
       "buttonUrl": "/es/contact?tier=growth"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "carePage": {
     "hero": {
@@ -243,7 +255,11 @@
       "subtitle": "No dejes que tu activo digital se deteriore con el tiempo. Asociate con nosotros para tener total tranquilidad.",
       "buttonText": "Iniciar plan",
       "buttonUrl": "/es/contact?tier=care"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "designerBanner": {
     "prefix": "Para Diseñadores UX/UI:",
