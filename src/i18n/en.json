@@ -145,7 +145,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Founder · Designer & developer",
+      "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
+    }
   },
   "scalePage": {
     "hero": {
@@ -183,7 +187,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Founder · Designer & developer",
+      "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
+    }
   },
   "growthPage": {
     "hero": {
@@ -221,7 +229,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Founder · Designer & developer",
+      "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
+    }
   },
   "carePage": {
     "hero": {
@@ -259,7 +271,11 @@
     "caseStudy": {},
     "testimonials": {},
     "included": {},
-    "founder": {}
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Founder · Designer & developer",
+      "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
+    }
   },
   "designerBanner": {
     "prefix": "For UX/UI Designers:",
