@@ -6,6 +6,8 @@ import Button from '../../../components/ui/Button.astro';
 import FounderSignature from '../../../components/sections/FounderSignature.astro';
 import CaseStudySection from '../../../components/sections/CaseStudySection.astro';
 import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import RiskReversal from '../../../components/sections/RiskReversal.astro';
+import IncludedTable from '../../../components/sections/IncludedTable.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
@@ -106,12 +108,26 @@ const jsonLd = [
       </div>
     </section>
 
+    <IncludedTable
+      sectionTagline={starterPage.included.sectionTagline}
+      sectionHeadline={starterPage.included.sectionHeadline}
+      columnLabels={starterPage.included.columnLabels}
+      included={starterPage.included.included}
+      excluded={starterPage.included.excluded}
+      optional={starterPage.included.optional}
+    />
+
     <CaseStudySection data={starterPage.caseStudy} />
 
     <ProcessTimeline
       sectionTagline={starterPage.process.sectionTagline}
       sectionHeadline={starterPage.process.sectionHeadline}
       steps={starterPage.process.steps}
+    />
+
+    <RiskReversal
+      title={starterPage.riskReversal.title}
+      points={starterPage.riskReversal.points}
     />
 
     <section class="final-cta-section">

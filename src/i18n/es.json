@@ -142,6 +142,23 @@
       "buttonText": "Hablemos",
       "buttonUrl": "/es/contact?tier=starter"
     },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Primera versión, sin compromiso",
+          "detail": "Vas a ver la primera versión en una URL privada antes de que se mueva una factura. Si no da con el brief, iteramos o nos separamos limpio."
+        },
+        {
+          "label": "2 rondas de revisión incluidas",
+          "detail": "No 'un retoquecito' — dos rondas completas de lo que quieras cambiar. Copy, imágenes, secciones, layout."
+        },
+        {
+          "label": "El código es tuyo, para siempre",
+          "detail": "Entrega total desde el día uno. Tu repo, tu dominio, tus accesos al CMS. Cero dependencia conmigo."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
       "sectionHeadline": "Clientes reales, resultados reales",
@@ -189,7 +206,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €890 — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "1 landing page, hasta 4 secciones",
+        "Diseño mobile-first y responsive",
+        "Formulario de contacto conectado a tu inbox",
+        "SEO básico + sitemap + marcado schema.org",
+        "Instalación de analítica (Plausible o GA4)",
+        "1 ronda de revisiones",
+        "Llamada de 30 min para capacitarte como editor"
+      ],
+      "excluded": [
+        "Sitemap multi-página (ver Scale)",
+        "Tracking de ads + integración con CRM (ver Growth)",
+        "Sistema de blog o notas",
+        "Ilustraciones o fotografía custom"
+      ],
+      "optional": [
+        { "label": "Segundo idioma", "price": "€290" },
+        { "label": "Integraciones extra en el formulario", "price": "desde €150" },
+        { "label": "Dirección y selección de fotos", "price": "desde €250" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
@@ -228,6 +273,23 @@
       "subtitle": "Diseñemos una experiencia digital premium que establezca el estándar de la industria.",
       "buttonText": "Agendar llamada de descubrimiento",
       "buttonUrl": "/es/contact?tier=scale"
+    },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Pago en tres hitos",
+          "detail": "25% al brief, 50% en la primera versión, 25% al lanzamiento. Nunca pagás por algo que todavía no viste."
+        },
+        {
+          "label": "Cláusula de reembolso",
+          "detail": "Si la primera versión no da con el brief, reembolso total menos costos razonables. Nunca la activé — está para que vos no te preocupes."
+        },
+        {
+          "label": "Slack directo, sin intermediarios",
+          "detail": "Canal compartido desde el día uno. Sin account managers, sin tickets, sin colas de escalamiento."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
@@ -269,7 +331,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €3.800 — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "Hasta 10 páginas (home, about, servicios, casos, contacto, blog index, legales)",
+        "CMS headless configurado (Sanity o Storyblok)",
+        "Sistema de componentes custom en Astro + Tailwind",
+        "Estructura multi-idioma (hasta 3 locales)",
+        "SEO de base + JSON-LD schema",
+        "2 rondas de revisión sobre staging",
+        "Red de seguridad de 90 días post-lanzamiento"
+      ],
+      "excluded": [
+        "Actualizaciones de contenido continuas (ver Care)",
+        "Tracking de ads + CRO (ver Growth)",
+        "Checkout e-commerce (presupuesto aparte)",
+        "Producción de video"
+      ],
+      "optional": [
+        { "label": "Idioma adicional", "price": "€450" },
+        { "label": "Dirección de ilustración custom", "price": "desde €800" },
+        { "label": "Migración de contenido de blog (hasta 50 posts)", "price": "€600" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
@@ -308,6 +398,23 @@
       "subtitle": "Dejá de desperdiciar dinero en páginas lentas y confusas. Construyamos una máquina que convierta.",
       "buttonText": "Agendar llamada de estrategia",
       "buttonUrl": "/es/contact?tier=growth"
+    },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Primera versión, sin compromiso",
+          "detail": "Vas a ver la primera versión en una URL privada antes de que se mueva una factura. Si no convence, iteramos o nos separamos limpio."
+        },
+        {
+          "label": "2 rondas de revisión incluidas",
+          "detail": "No 'un retoquecito' — dos rondas completas de lo que quieras cambiar. Headline, oferta, secciones, visuales."
+        },
+        {
+          "label": "El código es tuyo, para siempre",
+          "detail": "Entrega total desde el día uno. Tu repo, tus pixels, tus keys del CRM. Cero dependencia conmigo."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
@@ -356,7 +463,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €1.750 — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "1 landing page, una oferta focalizada",
+        "Coherencia con tus creativos de ads",
+        "Setup de píxeles Meta + Google, eventos de conversión",
+        "Integración con CRM y herramienta de email",
+        "Secciones modulares listas para tests A/B",
+        "2 rondas de revisión sobre staging",
+        "2 semanas gratis de monitoreo post-lanzamiento"
+      ],
+      "excluded": [
+        "Producción de creativos para ads (te recomiendo gente)",
+        "Arquitectura multi-página (ver Scale)",
+        "Ejecución continua de tests A/B (ver Care)",
+        "Copywriting desde cero"
+      ],
+      "optional": [
+        { "label": "Variante localizada adicional", "price": "€350" },
+        { "label": "Retainer de monitoreo extendido", "price": "desde €190/mes" },
+        { "label": "Copy de la landing page", "price": "desde €450" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
@@ -396,13 +531,58 @@
       "buttonText": "Iniciar plan",
       "buttonUrl": "/es/contact?tier=care"
     },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Cancelás cuando quieras",
+          "detail": "Facturación mes a mes. Avisás con 5 días y se termina — entrega limpia, sin culpa."
+        },
+        {
+          "label": "Respuesta en 48 horas",
+          "detail": "Cualquier ticket tiene respuesta real en dos días hábiles. Urgencias, mismo día."
+        },
+        {
+          "label": "Meses parciales prorrateados",
+          "detail": "Arrancás o parás a mitad de mes y prorrateo por día. Pagás sólo lo que usaste."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
       "sectionHeadline": "Clientes reales, resultados reales",
       "blocks": []
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €190/mes — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "Hosting edge rápido en Vercel o equivalente",
+        "Parches semanales de dependencias + seguridad",
+        "Monitoreo de Core Web Vitals",
+        "Informe mensual de Lighthouse por email",
+        "Hasta 2 horas mensuales de ediciones de contenido",
+        "Respuesta en 48 horas a cualquier ticket",
+        "Mes a mes, cancelás cuando quieras"
+      ],
+      "excluded": [
+        "Desarrollo de nuevas features (se presupuesta aparte)",
+        "Rediseños (ver Scale)",
+        "Gestión de campañas de ads",
+        "SLA 24/7 de emergencia (ver extras)"
+      ],
+      "optional": [
+        { "label": "Horas extra de edición de contenido", "price": "€90/h" },
+        { "label": "Revisión trimestral de diseño + recs", "price": "€250" },
+        { "label": "Upgrade a SLA prioritario 24h", "price": "+€90/mes" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",

@@ -1,0 +1,311 @@
+---
+interface OptionalItem {
+  label: string;
+  price: string;
+}
+
+interface ColumnLabels {
+  included: string;
+  excluded: string;
+  optional: string;
+}
+
+interface Props {
+  sectionTagline?: string;
+  sectionHeadline?: string;
+  columnLabels: ColumnLabels;
+  included: string[];
+  excluded: string[];
+  optional: OptionalItem[];
+  class?: string;
+}
+
+const {
+  sectionTagline,
+  sectionHeadline,
+  columnLabels,
+  included,
+  excluded,
+  optional,
+  class: className,
+} = Astro.props;
+
+const hasAny =
+  (Array.isArray(included) && included.length > 0) ||
+  (Array.isArray(excluded) && excluded.length > 0) ||
+  (Array.isArray(optional) && optional.length > 0);
+---
+
+{hasAny && (
+  <section
+    class:list={['included-table', className]}
+    aria-labelledby={sectionHeadline ? 'included-table-title' : undefined}
+  >
+    <div class="it-container">
+      {(sectionTagline || sectionHeadline) && (
+        <header class="it-header">
+          {sectionTagline && <p class="it-tagline">{sectionTagline}</p>}
+          {sectionHeadline && (
+            <h2 id="included-table-title" class="it-headline">
+              {sectionHeadline}
+            </h2>
+          )}
+        </header>
+      )}
+
+      <div class="it-grid" role="list">
+        <article class="it-col it-col-included" role="listitem">
+          <h3 class="it-col-title">
+            <span class="it-dot it-dot-in" aria-hidden="true" />
+            {columnLabels.included}
+          </h3>
+          <ul class="it-list">
+            {included.map((item) => (
+              <li class="it-row">
+                <svg
+                  class="it-icon it-icon-check"
+                  aria-hidden="true"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="it-col it-col-excluded" role="listitem">
+          <h3 class="it-col-title">
+            <span class="it-dot it-dot-ex" aria-hidden="true" />
+            {columnLabels.excluded}
+          </h3>
+          <ul class="it-list">
+            {excluded.map((item) => (
+              <li class="it-row it-row-muted">
+                <svg
+                  class="it-icon it-icon-x"
+                  aria-hidden="true"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="it-col it-col-optional" role="listitem">
+          <h3 class="it-col-title">
+            <span class="it-dot it-dot-opt" aria-hidden="true" />
+            {columnLabels.optional}
+          </h3>
+          <ul class="it-list">
+            {optional.map((item) => (
+              <li class="it-row it-row-opt">
+                <span class="it-opt-label">{item.label}</span>
+                <span class="it-opt-price">{item.price}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .included-table {
+    padding: 32px 24px 56px;
+    background: #f8f7f5;
+  }
+
+  .it-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .it-header {
+    text-align: center;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .it-tagline {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #9ca3af;
+    text-transform: uppercase;
+  }
+
+  .it-headline {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    color: #111827;
+    line-height: 1.2;
+    max-width: 640px;
+  }
+
+  .it-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .it-col {
+    background: #ffffff;
+    border: 1px solid #e8e3d9;
+    border-radius: 14px;
+    padding: 22px 22px 24px;
+  }
+
+  .it-col-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    color: #111827;
+  }
+
+  .it-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .it-dot-in {
+    background: #065f46;
+  }
+
+  .it-dot-ex {
+    background: #9ca3af;
+  }
+
+  .it-dot-opt {
+    background: #1e40af;
+  }
+
+  .it-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .it-row {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    align-items: start;
+    font-size: 14px;
+    color: #1f2937;
+    line-height: 1.5;
+  }
+
+  .it-row-muted {
+    color: #9ca3af;
+  }
+
+  .it-icon {
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .it-icon-check {
+    color: #065f46;
+  }
+
+  .it-icon-x {
+    color: #9ca3af;
+  }
+
+  .it-row-opt {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #f4f1ea;
+    border-radius: 10px;
+    align-items: center;
+  }
+
+  .it-opt-label {
+    font-size: 13px;
+    color: #1f2937;
+    line-height: 1.4;
+  }
+
+  .it-opt-price {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e40af;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 900px) {
+    .included-table {
+      padding: 56px 40px 80px;
+    }
+
+    .it-header {
+      margin-bottom: 40px;
+      gap: 14px;
+    }
+
+    .it-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .it-col {
+      padding: 28px 28px 32px;
+    }
+
+    .it-col-title {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .it-list {
+      gap: 12px;
+    }
+
+    .it-row,
+    .it-opt-label {
+      font-size: 14px;
+    }
+  }
+</style>
