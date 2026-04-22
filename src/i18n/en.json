@@ -141,7 +141,11 @@
       "subtitle": "Skip the confusing DIY tools. Let me build you a professional website that brings you real results.",
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=starter"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "scalePage": {
     "hero": {
@@ -175,7 +179,11 @@
       "subtitle": "Let's architect a premium digital experience that sets the industry standard.",
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=scale"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "growthPage": {
     "hero": {
@@ -209,7 +217,11 @@
       "subtitle": "Stop wasting ad spend on slow, confusing pages. Let's build a machine that converts.",
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=growth"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "carePage": {
     "hero": {
@@ -243,7 +255,11 @@
       "subtitle": "Don't let your digital asset degrade over time. Partner with me for peace of mind.",
       "buttonText": "Start your retainer",
       "buttonUrl": "/contact?tier=care"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "designerBanner": {
     "prefix": "For UX/UI Designers:",
