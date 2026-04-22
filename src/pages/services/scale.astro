@@ -4,6 +4,7 @@ import LandingHeader from '../../components/sections/LandingHeader.astro';
 import Footer from '../../components/sections/Footer.astro'; 
 import Button from '../../components/ui/Button.astro';
 import FounderSignature from '../../components/sections/FounderSignature.astro';
+import CaseStudySection from '../../components/sections/CaseStudySection.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
@@ -96,6 +97,8 @@ const jsonLd = [
         ))}
       </div>
     </section>
+
+    <CaseStudySection data={scalePage.caseStudy} />
 
     <section class="final-cta-section">
       <div class="container">

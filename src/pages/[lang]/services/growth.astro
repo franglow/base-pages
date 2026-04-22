@@ -4,6 +4,7 @@ import LandingHeader from '../../../components/sections/LandingHeader.astro';
 import Footer from '../../../components/sections/Footer.astro'; 
 import Button from '../../../components/ui/Button.astro';
 import FounderSignature from '../../../components/sections/FounderSignature.astro';
+import CaseStudySection from '../../../components/sections/CaseStudySection.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
@@ -114,6 +115,8 @@ const jsonLd = [
         ))}
       </div>
     </section>
+
+    <CaseStudySection data={growthPage.caseStudy} />
 
     <section class="final-cta-section">
       <div class="container">
