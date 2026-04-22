@@ -145,12 +145,12 @@
   },
   "scalePage": {
     "hero": {
-      "tagline": "EL SITIO SCALE",
-      "titleBold": "Base Digital Completa.",
-      "titleLight": "Arquitectura multipágina. Potenciada por Headless CMS.",
-      "subtitle": "Una plataforma robusta y escalable diseñada para marcas consolidadas. Combino la gestión de contenido dinámico con un rendimiento front-end impecable para que edites fácilmente sin romper el diseño.",
+      "tagline": "PARA MARCAS CONSOLIDADAS",
+      "titleBold": "Una web que tu equipo puede manejar — sin depender de un programador.",
+      "titleLight": "Multipágina, multilenguaje, editable por tu equipo con unos pocos clics.",
+      "subtitle": "Pensada para estudios, retiros y negocios creativos que ya quedaron chicos con una web de una sola página. Tenés un editor en serio (Sanity o Storyblok), cada página diseñada como parte de un sistema, y un canal directo conmigo cuando la web necesite crecer con vos.",
       "priceBadge": "Desde €3.800",
-      "deliveryBadge": "Entrega en 3-5 semanas"
+      "deliveryBadge": "Lanzamiento en 4 semanas · Pago en 3 hitos"
     },
     "features": [
       {
