@@ -24,6 +24,9 @@ const {
 } = Astro.props;
 
 const hasWorks = Array.isArray(works) && works.length > 0;
+const workCount = hasWorks ? works.length : 0;
+const layoutClass =
+  workCount === 1 ? 'rw-one' : workCount === 2 ? 'rw-two' : 'rw-many';
 ---
 
 {hasWorks && (
@@ -31,6 +34,7 @@ const hasWorks = Array.isArray(works) && works.length > 0;
     class:list={['related-works', className]}
     aria-labelledby="related-works-title"
     data-tier={tier}
+    data-count={workCount}
   >
     {(tagline || heading) && (
       <header class="rw-header">
@@ -43,7 +47,7 @@ const hasWorks = Array.isArray(works) && works.length > 0;
       </header>
     )}
 
-    <ul class="rw-grid">
+    <ul class:list={['rw-grid', layoutClass]}>
       {works.map((work) => (
         <li class="rw-item">
           <a href={work.href} class="rw-card">
@@ -198,9 +202,22 @@ const hasWorks = Array.isArray(works) && works.length > 0;
       padding: 56px 32px 72px;
     }
 
-    .rw-grid {
+    .rw-grid.rw-many {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    .rw-grid.rw-two {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .rw-grid.rw-one {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin: 0 auto;
     }
 
     .rw-title {
