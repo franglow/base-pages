@@ -1,4 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+);
+
 interface WorkItem {
   title: string;
   href: string;
@@ -27,6 +33,14 @@ const hasWorks = Array.isArray(works) && works.length > 0;
 const workCount = hasWorks ? works.length : 0;
 const layoutClass =
   workCount === 1 ? 'rw-one' : workCount === 2 ? 'rw-two' : 'rw-many';
+
+const isLocalAsset = (p: string | undefined) =>
+  typeof p === 'string' && p.startsWith('/src/assets/');
+
+const resolvedWorks = (works || []).map((w) => ({
+  ...w,
+  _localLoader: isLocalAsset(w.thumbnail) ? localImages[w.thumbnail] : null,
+}));
 ---
 
 {hasWorks && (
@@ -48,19 +62,31 @@ const layoutClass =
     )}
 
     <ul class:list={['rw-grid', layoutClass]}>
-      {works.map((work) => (
+      {resolvedWorks.map((work) => (
         <li class="rw-item">
           <a href={work.href} class="rw-card">
             <figure class="rw-figure">
-              <img
-                src={work.thumbnail}
-                alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
-                width="480"
-                height="320"
-                loading="lazy"
-                decoding="async"
-                class="rw-img"
-              />
+              {work._localLoader ? (
+                <Image
+                  src={work._localLoader()}
+                  alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
+                  widths={[320, 480, 640]}
+                  sizes="(min-width: 720px) 33vw, 100vw"
+                  loading="lazy"
+                  decoding="async"
+                  class="rw-img"
+                />
+              ) : (
+                <img
+                  src={work.thumbnail}
+                  alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
+                  width="480"
+                  height="320"
+                  loading="lazy"
+                  decoding="async"
+                  class="rw-img"
+                />
+              )}
             </figure>
             <div class="rw-meta">
               {work.industry && <p class="rw-industry">{work.industry}</p>}

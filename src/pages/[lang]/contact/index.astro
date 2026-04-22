@@ -4,6 +4,9 @@ import Button from '../../../components/ui/Button.astro';
 import Header from '../../../components/sections/Header.astro';
 import Footer from '../../../components/sections/Footer.astro';
 import CalEmbed from '../../../components/CalEmbed.astro';
+import FounderVideo from '../../../components/sections/FounderVideo.astro';
+import PrepChecklist from '../../../components/sections/PrepChecklist.astro';
+import RelatedWorks from '../../../components/sections/RelatedWorks.astro';
 import { actions } from 'astro:actions';
 
 import { getI18n } from '../../../i18n/utils';
@@ -52,6 +55,13 @@ const scale = (contactPage as any).form.scale;
 const partnership = (contactPage as any).form.partnership;
 const care = (contactPage as any).form.care;
 
+const successData = (contactPage as any).success;
+const founderVideo = successData.founderVideo;
+const prepChecklistScale = successData.prepChecklist?.scale;
+const prepChecklistPartnership = successData.prepChecklist?.partnership;
+const prepChecklistDefault = successData.prepChecklist?.default;
+const relatedWorks = successData.relatedWorks;
+
 const formPayload = Astro.locals.formPayload || {};
 ---
 
@@ -81,9 +91,28 @@ const formPayload = Astro.locals.formPayload || {};
               <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
                 {(contactPage as any).success.scaleHeading}
               </h1>
-              <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+              <p class="text-gray-500 text-lg mb-10 max-w-md mx-auto">
                 {(contactPage as any).success.scaleSubheading}
               </p>
+
+              {founderVideo && (
+                <div class="mb-8">
+                  <FounderVideo
+                    caption={founderVideo.caption}
+                    placeholderLabel={founderVideo.placeholderLabel}
+                  />
+                </div>
+              )}
+
+              {prepChecklistScale && (
+                <div class="mb-10">
+                  <PrepChecklist
+                    title={prepChecklistScale.title}
+                    items={prepChecklistScale.items}
+                  />
+                </div>
+              )}
+
               <CalEmbed
                 namespace="scale-call"
                 calLink="base-pages.com/scale-call"
@@ -97,15 +126,43 @@ const formPayload = Astro.locals.formPayload || {};
                 {(contactPage as any).success.escapeOr}{' '}
                 <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">{(contactPage as any).success.escapeHome}</a>.
               </p>
+
+              {relatedWorks && (
+                <RelatedWorks
+                  tagline={relatedWorks.tagline}
+                  heading={relatedWorks.heading}
+                  tier="scale"
+                  works={relatedWorks.works}
+                />
+              )}
             </>
           ) : calType === 'partnership' ? (
             <>
               <h1 class="text-[40px] md:text-[56px] font-medium text-gray-900 mb-6 tracking-tight leading-tight">
                 {(contactPage as any).success.partnershipHeading}
               </h1>
-              <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
+              <p class="text-gray-500 text-lg mb-10 max-w-md mx-auto">
                 {(contactPage as any).success.partnershipSubheading}
               </p>
+
+              {founderVideo && (
+                <div class="mb-8">
+                  <FounderVideo
+                    caption={founderVideo.caption}
+                    placeholderLabel={founderVideo.placeholderLabel}
+                  />
+                </div>
+              )}
+
+              {prepChecklistPartnership && (
+                <div class="mb-10">
+                  <PrepChecklist
+                    title={prepChecklistPartnership.title}
+                    items={prepChecklistPartnership.items}
+                  />
+                </div>
+              )}
+
               <CalEmbed
                 namespace="partnership-sync"
                 calLink="base-pages.com/partnership-sync"
@@ -119,6 +176,15 @@ const formPayload = Astro.locals.formPayload || {};
                 {(contactPage as any).success.escapeOr}{' '}
                 <a href={`/${lang}`} class="text-neutral-600 hover:text-black hover:underline transition-colors">{(contactPage as any).success.escapeHome}</a>.
               </p>
+
+              {relatedWorks && (
+                <RelatedWorks
+                  tagline={relatedWorks.tagline}
+                  heading={relatedWorks.heading}
+                  tier="partnership"
+                  works={relatedWorks.works}
+                />
+              )}
             </>
           ) : (
             <div class="py-8">
@@ -148,6 +214,24 @@ const formPayload = Astro.locals.formPayload || {};
                   </a>
                 </div>
               </div>
+
+              {prepChecklistDefault && (
+                <div class="mt-16">
+                  <PrepChecklist
+                    title={prepChecklistDefault.title}
+                    items={prepChecklistDefault.items}
+                  />
+                </div>
+              )}
+
+              {relatedWorks && (
+                <RelatedWorks
+                  tagline={relatedWorks.tagline}
+                  heading={relatedWorks.heading}
+                  tier="default"
+                  works={relatedWorks.works}
+                />
+              )}
             </div>
           )}
         </div>
