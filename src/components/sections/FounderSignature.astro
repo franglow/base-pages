@@ -1,0 +1,60 @@
+---
+import founderPlaceholder from '../../assets/team/francisco.svg';
+
+interface Props {
+  name: string;
+  role: string;
+  message: string;
+  avatarUrl?: string;
+  avatarAlt?: string;
+  class?: string;
+}
+
+const {
+  name,
+  role,
+  message,
+  avatarUrl,
+  avatarAlt,
+  class: className,
+} = Astro.props;
+
+const resolvedAvatar = avatarUrl ?? founderPlaceholder.src;
+const resolvedAlt = avatarAlt ?? `Portrait of ${name}, ${role}`;
+---
+
+<figure
+  class:list={[
+    'founder-signature',
+    'flex items-start gap-4',
+    'max-w-xl mx-auto',
+    'rounded-2xl',
+    'border border-gray-200/50',
+    'bg-white',
+    'p-5 md:p-6',
+    'shadow-[0_4px_20px_rgba(0,0,0,0.03)]',
+    className,
+  ]}
+>
+  <img
+    src={resolvedAvatar}
+    alt={resolvedAlt}
+    width="56"
+    height="56"
+    loading="lazy"
+    decoding="async"
+    class="h-14 w-14 shrink-0 rounded-full object-cover ring-1 ring-gray-200/60"
+  />
+  <figcaption class="flex min-w-0 flex-col gap-1">
+    <p class="text-sm font-semibold leading-tight text-gray-900">
+      <span>{name}</span>
+      <span class="ml-1 font-normal text-gray-500">· {role}</span>
+    </p>
+    <blockquote
+      cite={`#founder-${name.replace(/\s+/g, '-').toLowerCase()}`}
+      class="font-serif text-[15px] italic leading-relaxed text-gray-700"
+    >
+      “{message}”
+    </blockquote>
+  </figcaption>
+</figure>
