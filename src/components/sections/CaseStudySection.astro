@@ -1,0 +1,122 @@
+---
+import CaseStudyBlock from './CaseStudyBlock.astro';
+
+interface HeadlineMetric {
+  value: string;
+  label: string;
+}
+
+interface BlockData {
+  clientName: string;
+  industry: string;
+  headlineMetric: HeadlineMetric;
+  challenge: string;
+  outcome: string;
+  quote?: string;
+  quoteAttribution?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  projectUrl?: string;
+}
+
+interface CaseStudyData {
+  sectionTagline: string;
+  sectionHeadline: string;
+  blocks: BlockData[];
+}
+
+interface Props {
+  data: CaseStudyData | undefined;
+}
+
+const { data } = Astro.props;
+const hasBlocks =
+  !!data && Array.isArray(data.blocks) && data.blocks.length > 0;
+---
+
+{hasBlocks && (
+  <section class="case-study-section" aria-labelledby="case-study-section-title">
+    <div class="cs-container">
+      <header class="cs-header">
+        <p class="cs-tagline">{data!.sectionTagline}</p>
+        <h2 id="case-study-section-title" class="cs-headline">
+          {data!.sectionHeadline}
+        </h2>
+      </header>
+      <div class="cs-blocks">
+        {data!.blocks.map((block) => (
+          <CaseStudyBlock
+            clientName={block.clientName}
+            industry={block.industry}
+            headlineMetric={block.headlineMetric}
+            challenge={block.challenge}
+            outcome={block.outcome}
+            quote={block.quote}
+            quoteAttribution={block.quoteAttribution}
+            imageUrl={block.imageUrl}
+            imageAlt={block.imageAlt}
+            projectUrl={block.projectUrl}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .case-study-section {
+    padding: 40px 24px 80px;
+    background: #f8f7f5;
+  }
+
+  .cs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cs-header {
+    text-align: center;
+    margin: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .cs-tagline {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #9ca3af;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .cs-headline {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #111827;
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.2;
+  }
+
+  .cs-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 900px) {
+    .case-study-section {
+      padding: 80px 40px 120px;
+    }
+
+    .cs-header {
+      margin-bottom: 56px;
+      gap: 16px;
+    }
+  }
+</style>
