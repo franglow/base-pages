@@ -206,7 +206,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €890 — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "1 landing page, hasta 4 secciones",
+        "Diseño mobile-first y responsive",
+        "Formulario de contacto conectado a tu inbox",
+        "SEO básico + sitemap + marcado schema.org",
+        "Instalación de analítica (Plausible o GA4)",
+        "1 ronda de revisiones",
+        "Llamada de 30 min para capacitarte como editor"
+      ],
+      "excluded": [
+        "Sitemap multi-página (ver Scale)",
+        "Tracking de ads + integración con CRM (ver Growth)",
+        "Sistema de blog o notas",
+        "Ilustraciones o fotografía custom"
+      ],
+      "optional": [
+        { "label": "Segundo idioma", "price": "€290" },
+        { "label": "Integraciones extra en el formulario", "price": "desde €150" },
+        { "label": "Dirección y selección de fotos", "price": "desde €250" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
@@ -303,7 +331,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €3.800 — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "Hasta 10 páginas (home, about, servicios, casos, contacto, blog index, legales)",
+        "CMS headless configurado (Sanity o Storyblok)",
+        "Sistema de componentes custom en Astro + Tailwind",
+        "Estructura multi-idioma (hasta 3 locales)",
+        "SEO de base + JSON-LD schema",
+        "2 rondas de revisión sobre staging",
+        "Red de seguridad de 90 días post-lanzamiento"
+      ],
+      "excluded": [
+        "Actualizaciones de contenido continuas (ver Care)",
+        "Tracking de ads + CRO (ver Growth)",
+        "Checkout e-commerce (presupuesto aparte)",
+        "Producción de video"
+      ],
+      "optional": [
+        { "label": "Idioma adicional", "price": "€450" },
+        { "label": "Dirección de ilustración custom", "price": "desde €800" },
+        { "label": "Migración de contenido de blog (hasta 50 posts)", "price": "€600" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
@@ -407,7 +463,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €1.750 — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "1 landing page, una oferta focalizada",
+        "Coherencia con tus creativos de ads",
+        "Setup de píxeles Meta + Google, eventos de conversión",
+        "Integración con CRM y herramienta de email",
+        "Secciones modulares listas para tests A/B",
+        "2 rondas de revisión sobre staging",
+        "2 semanas gratis de monitoreo post-lanzamiento"
+      ],
+      "excluded": [
+        "Producción de creativos para ads (te recomiendo gente)",
+        "Arquitectura multi-página (ver Scale)",
+        "Ejecución continua de tests A/B (ver Care)",
+        "Copywriting desde cero"
+      ],
+      "optional": [
+        { "label": "Variante localizada adicional", "price": "€350" },
+        { "label": "Retainer de monitoreo extendido", "price": "desde €190/mes" },
+        { "label": "Copy de la landing page", "price": "desde €450" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
@@ -470,7 +554,35 @@
       "blocks": []
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué te llevás por €190/mes — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Extras opcionales"
+      },
+      "included": [
+        "Hosting edge rápido en Vercel o equivalente",
+        "Parches semanales de dependencias + seguridad",
+        "Monitoreo de Core Web Vitals",
+        "Informe mensual de Lighthouse por email",
+        "Hasta 2 horas mensuales de ediciones de contenido",
+        "Respuesta en 48 horas a cualquier ticket",
+        "Mes a mes, cancelás cuando quieras"
+      ],
+      "excluded": [
+        "Desarrollo de nuevas features (se presupuesta aparte)",
+        "Rediseños (ver Scale)",
+        "Gestión de campañas de ads",
+        "SLA 24/7 de emergencia (ver extras)"
+      ],
+      "optional": [
+        { "label": "Horas extra de edición de contenido", "price": "€90/h" },
+        { "label": "Revisión trimestral de diseño + recs", "price": "€250" },
+        { "label": "Upgrade a SLA prioritario 24h", "price": "+€90/mes" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",

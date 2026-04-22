@@ -206,7 +206,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "WAS DRIN IST",
+      "sectionHeadline": "Genau das bekommen Sie für €890 — und das nicht",
+      "columnLabels": {
+        "included": "Enthalten",
+        "excluded": "Nicht enthalten",
+        "optional": "Optionale Extras"
+      },
+      "included": [
+        "1 Landingpage mit bis zu 4 Sektionen",
+        "Mobile-First Responsive Design",
+        "Kontaktformular direkt an Ihren Posteingang",
+        "SEO-Basis + Sitemap + schema.org Markup",
+        "Analytics-Installation (Plausible oder GA4)",
+        "1 Revisionsrunde",
+        "30-minütige Editor-Schulung"
+      ],
+      "excluded": [
+        "Mehrseitige Sitemap (siehe Scale)",
+        "Ad-Tracking + CRM-Integration (siehe Growth)",
+        "Blog- oder Artikelsystem",
+        "Individuelle Illustrationen oder Fotografie"
+      ],
+      "optional": [
+        { "label": "Zweite Sprachversion", "price": "€290" },
+        { "label": "Zusätzliche Formular-Integrationen", "price": "ab €150" },
+        { "label": "Bildauswahl + Direction", "price": "ab €250" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Gründer · Designer & Entwickler",
@@ -303,7 +331,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "WAS DRIN IST",
+      "sectionHeadline": "Genau das bekommen Sie für €3.800 — und das nicht",
+      "columnLabels": {
+        "included": "Enthalten",
+        "excluded": "Nicht enthalten",
+        "optional": "Optionale Extras"
+      },
+      "included": [
+        "Bis zu 10 Seiten (Home, About, Services, Cases, Kontakt, Blog-Index, Rechtliches)",
+        "Headless-CMS-Setup (Sanity oder Storyblok)",
+        "Individuelles Komponentensystem in Astro + Tailwind",
+        "Mehrsprachiges Scaffolding (bis zu 3 Sprachen)",
+        "SEO-Grundlagen + JSON-LD Schema",
+        "2 Review-Runden auf Staging",
+        "90-Tage Launch-Sicherheitsnetz"
+      ],
+      "excluded": [
+        "Laufende Content-Pflege (siehe Care)",
+        "Ad-Tracking + CRO (siehe Growth)",
+        "E-Commerce-Checkout (separates Angebot)",
+        "Videoproduktion"
+      ],
+      "optional": [
+        { "label": "Weitere Sprachversion", "price": "€450" },
+        { "label": "Individuelle Illustration / Direction", "price": "ab €800" },
+        { "label": "Blog-Content-Migration (bis zu 50 Posts)", "price": "€600" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Gründer · Designer & Entwickler",
@@ -407,7 +463,35 @@
       ]
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "WAS DRIN IST",
+      "sectionHeadline": "Genau das bekommen Sie für €1.750 — und das nicht",
+      "columnLabels": {
+        "included": "Enthalten",
+        "excluded": "Nicht enthalten",
+        "optional": "Optionale Extras"
+      },
+      "included": [
+        "1 Landingpage, ein fokussiertes Angebot",
+        "Message Match zu Ihren Ad-Creatives",
+        "Meta- + Google-Pixel-Setup, Conversion-Events",
+        "CRM- und E-Mail-Tool-Anbindung",
+        "Modulare Sektionen, A/B-Test-ready",
+        "2 Review-Runden auf Staging",
+        "2 Wochen kostenloses Post-Launch-Monitoring"
+      ],
+      "excluded": [
+        "Ad-Creative-Produktion (gerne Empfehlungen)",
+        "Mehrseitige Architektur (siehe Scale)",
+        "Laufende A/B-Test-Durchführung (siehe Care)",
+        "Copywriting von Grund auf"
+      ],
+      "optional": [
+        { "label": "Zusätzliche lokalisierte Variante", "price": "€350" },
+        { "label": "Erweiterter Monitoring-Retainer", "price": "ab €190/Mo" },
+        { "label": "Landingpage-Copywriting", "price": "ab €450" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Gründer · Designer & Entwickler",
@@ -470,7 +554,35 @@
       "blocks": []
     },
     "testimonials": {},
-    "included": {},
+    "included": {
+      "sectionTagline": "WAS DRIN IST",
+      "sectionHeadline": "Genau das bekommen Sie für €190/Monat — und das nicht",
+      "columnLabels": {
+        "included": "Enthalten",
+        "excluded": "Nicht enthalten",
+        "optional": "Optionale Extras"
+      },
+      "included": [
+        "Schnelles Edge-Hosting auf Vercel o. ä.",
+        "Wöchentliche Dependency- + Security-Patches",
+        "Core Web Vitals Monitoring",
+        "Monatlicher Lighthouse-Report per E-Mail",
+        "Bis zu 2 Stunden Content-Edits pro Monat",
+        "48-Stunden-Reaktionszeit auf Tickets",
+        "Monatlich kündbar, ohne Bindung"
+      ],
+      "excluded": [
+        "Neue Feature-Entwicklung (separates Angebot)",
+        "Redesigns (siehe Scale)",
+        "Ad-Kampagnen-Management",
+        "Notfall-SLA 24/7 (siehe Extras)"
+      ],
+      "optional": [
+        { "label": "Zusätzliche Content-Edit-Stunden", "price": "€90/Std" },
+        { "label": "Quartals-Design-Review + Empfehlungen", "price": "€250" },
+        { "label": "Upgrade auf 24-Stunden-Priority-SLA", "price": "+€90/Mo" }
+      ]
+    },
     "founder": {
       "name": "Francisco Cortez",
       "role": "Gründer · Designer & Entwickler",

@@ -6,6 +6,7 @@ import Button from '../../components/ui/Button.astro';
 import FounderSignature from '../../components/sections/FounderSignature.astro';
 import CaseStudySection from '../../components/sections/CaseStudySection.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
+import IncludedTable from '../../components/sections/IncludedTable.astro';
 
 import enData from '../../i18n/en.json';
 import { generateHreflangLinks } from '../../i18n/hreflang';
@@ -111,6 +112,15 @@ const jsonLd = [
         ))}
       </div>
     </section>
+
+    <IncludedTable
+      sectionTagline={carePage.included.sectionTagline}
+      sectionHeadline={carePage.included.sectionHeadline}
+      columnLabels={carePage.included.columnLabels}
+      included={carePage.included.included}
+      excluded={carePage.included.excluded}
+      optional={carePage.included.optional}
+    />
 
     <CaseStudySection data={carePage.caseStudy} />
 
