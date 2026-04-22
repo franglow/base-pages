@@ -5,6 +5,7 @@ import Footer from '../../../components/sections/Footer.astro';
 import Button from '../../../components/ui/Button.astro';
 import FounderSignature from '../../../components/sections/FounderSignature.astro';
 import CaseStudySection from '../../../components/sections/CaseStudySection.astro';
+import RiskReversal from '../../../components/sections/RiskReversal.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
@@ -121,6 +122,11 @@ const jsonLd = [
     </section>
 
     <CaseStudySection data={carePage.caseStudy} />
+
+    <RiskReversal
+      title={carePage.riskReversal.title}
+      points={carePage.riskReversal.points}
+    />
 
     <section class="final-cta-section">
       <div class="container">

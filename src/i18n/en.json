@@ -142,6 +142,23 @@
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=starter"
     },
+    "riskReversal": {
+      "title": "How I de-risk this for you",
+      "points": [
+        {
+          "label": "First-draft satisfaction",
+          "detail": "See the first cut on a private staging URL before a single invoice moves. If it misses the brief, we iterate or part ways clean."
+        },
+        {
+          "label": "2 revision rounds, built in",
+          "detail": "Not 'one minor tweak' — two rounds of whatever you want to change. Copy, images, sections, layout."
+        },
+        {
+          "label": "You own the code forever",
+          "detail": "Full handover on day one. Your repository, your domain, your CMS logins. No vendor lock-in, ever."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PROOF",
       "sectionHeadline": "Real clients, real outcomes",
@@ -229,6 +246,23 @@
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=scale"
     },
+    "riskReversal": {
+      "title": "How I de-risk this for you",
+      "points": [
+        {
+          "label": "Three milestone payments",
+          "detail": "25% at brief, 50% at first cut, 25% at launch. You never pay for something you haven't reviewed."
+        },
+        {
+          "label": "First-cut refund clause",
+          "detail": "If the first production-quality cut misses the brief, full refund minus reasonable costs. I've never used this clause — it exists so you don't worry."
+        },
+        {
+          "label": "Direct Slack, no gatekeepers",
+          "detail": "Shared Slack channel from day one. No account managers, no ticketing systems, no escalation queues."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PROOF",
       "sectionHeadline": "Real clients, real outcomes",
@@ -308,6 +342,23 @@
       "subtitle": "Stop wasting ad spend on slow, confusing pages. Let's build a machine that converts.",
       "buttonText": "Book a call",
       "buttonUrl": "/contact?tier=growth"
+    },
+    "riskReversal": {
+      "title": "How I de-risk this for you",
+      "points": [
+        {
+          "label": "First-draft satisfaction",
+          "detail": "See the first cut on a private staging URL before a single invoice moves. If it misses, we iterate or part ways clean."
+        },
+        {
+          "label": "2 revision rounds, built in",
+          "detail": "Not 'one minor tweak' — two rounds of whatever you want to change. Headline, offer, sections, visuals."
+        },
+        {
+          "label": "You own the code forever",
+          "detail": "Full handover on day one. Your repository, your pixels, your CRM keys. No vendor lock-in, ever."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PROOF",
@@ -395,6 +446,23 @@
       "subtitle": "Don't let your digital asset degrade over time. Partner with me for peace of mind.",
       "buttonText": "Start your retainer",
       "buttonUrl": "/contact?tier=care"
+    },
+    "riskReversal": {
+      "title": "How I de-risk this for you",
+      "points": [
+        {
+          "label": "Cancel any month",
+          "detail": "Month-by-month billing. Give 5 days notice and you're out — clean handover, no guilt trips."
+        },
+        {
+          "label": "48-hour response window",
+          "detail": "Any ticket gets a real reply within two business days. Urgent issues get same-day attention."
+        },
+        {
+          "label": "Pro-rated partial months",
+          "detail": "Start or stop mid-month and I pro-rate to the day. You only pay for what you actually use."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PROOF",

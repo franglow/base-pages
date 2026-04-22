@@ -142,6 +142,23 @@
       "buttonText": "Hablemos",
       "buttonUrl": "/es/contact?tier=starter"
     },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Primera versión, sin compromiso",
+          "detail": "Vas a ver la primera versión en una URL privada antes de que se mueva una factura. Si no da con el brief, iteramos o nos separamos limpio."
+        },
+        {
+          "label": "2 rondas de revisión incluidas",
+          "detail": "No 'un retoquecito' — dos rondas completas de lo que quieras cambiar. Copy, imágenes, secciones, layout."
+        },
+        {
+          "label": "El código es tuyo, para siempre",
+          "detail": "Entrega total desde el día uno. Tu repo, tu dominio, tus accesos al CMS. Cero dependencia conmigo."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
       "sectionHeadline": "Clientes reales, resultados reales",
@@ -229,6 +246,23 @@
       "buttonText": "Agendar llamada de descubrimiento",
       "buttonUrl": "/es/contact?tier=scale"
     },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Pago en tres hitos",
+          "detail": "25% al brief, 50% en la primera versión, 25% al lanzamiento. Nunca pagás por algo que todavía no viste."
+        },
+        {
+          "label": "Cláusula de reembolso",
+          "detail": "Si la primera versión no da con el brief, reembolso total menos costos razonables. Nunca la activé — está para que vos no te preocupes."
+        },
+        {
+          "label": "Slack directo, sin intermediarios",
+          "detail": "Canal compartido desde el día uno. Sin account managers, sin tickets, sin colas de escalamiento."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
       "sectionHeadline": "Clientes reales, resultados reales",
@@ -308,6 +342,23 @@
       "subtitle": "Dejá de desperdiciar dinero en páginas lentas y confusas. Construyamos una máquina que convierta.",
       "buttonText": "Agendar llamada de estrategia",
       "buttonUrl": "/es/contact?tier=growth"
+    },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Primera versión, sin compromiso",
+          "detail": "Vas a ver la primera versión en una URL privada antes de que se mueva una factura. Si no convence, iteramos o nos separamos limpio."
+        },
+        {
+          "label": "2 rondas de revisión incluidas",
+          "detail": "No 'un retoquecito' — dos rondas completas de lo que quieras cambiar. Headline, oferta, secciones, visuales."
+        },
+        {
+          "label": "El código es tuyo, para siempre",
+          "detail": "Entrega total desde el día uno. Tu repo, tus pixels, tus keys del CRM. Cero dependencia conmigo."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",
@@ -395,6 +446,23 @@
       "subtitle": "No dejes que tu activo digital se deteriore con el tiempo. Asociate con nosotros para tener total tranquilidad.",
       "buttonText": "Iniciar plan",
       "buttonUrl": "/es/contact?tier=care"
+    },
+    "riskReversal": {
+      "title": "Cómo te saco el riesgo de encima",
+      "points": [
+        {
+          "label": "Cancelás cuando quieras",
+          "detail": "Facturación mes a mes. Avisás con 5 días y se termina — entrega limpia, sin culpa."
+        },
+        {
+          "label": "Respuesta en 48 horas",
+          "detail": "Cualquier ticket tiene respuesta real en dos días hábiles. Urgencias, mismo día."
+        },
+        {
+          "label": "Meses parciales prorrateados",
+          "detail": "Arrancás o parás a mitad de mes y prorrateo por día. Pagás sólo lo que usaste."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PRUEBAS",

@@ -142,6 +142,23 @@
       "buttonText": "Lass uns reden",
       "buttonUrl": "/de/contact?tier=starter"
     },
+    "riskReversal": {
+      "title": "So nehme ich Ihnen das Risiko ab",
+      "points": [
+        {
+          "label": "Erste Version ohne Verpflichtung",
+          "detail": "Sie sehen die erste Version auf einer privaten Staging-URL, bevor eine einzige Rechnung gestellt wird. Passt sie nicht, iterieren wir oder trennen uns sauber."
+        },
+        {
+          "label": "2 Revisionsrunden inklusive",
+          "detail": "Nicht „ein kleiner Feinschliff" — zwei komplette Runden für alles, was Sie ändern möchten. Copy, Bilder, Sektionen, Layout."
+        },
+        {
+          "label": "Der Code gehört Ihnen, für immer",
+          "detail": "Vollständige Übergabe ab Tag eins. Ihr Repository, Ihre Domain, Ihre CMS-Logins. Keinerlei Anbieterabhängigkeit."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PROOF",
       "sectionHeadline": "Echte Kunden, echte Ergebnisse",
@@ -229,6 +246,23 @@
       "buttonText": "Discovery-Call buchen",
       "buttonUrl": "/de/contact?tier=scale"
     },
+    "riskReversal": {
+      "title": "So nehme ich Ihnen das Risiko ab",
+      "points": [
+        {
+          "label": "Zahlung in drei Meilensteinen",
+          "detail": "25 % beim Briefing, 50 % bei der ersten Version, 25 % beim Launch. Sie zahlen nie für etwas, das Sie nicht gesehen haben."
+        },
+        {
+          "label": "Rückerstattungsklausel für die erste Version",
+          "detail": "Trifft die erste Produktionsversion das Briefing nicht, volle Rückerstattung abzüglich angemessener Kosten. Noch nie genutzt — sie existiert, damit Sie sich keine Sorgen machen müssen."
+        },
+        {
+          "label": "Direkter Slack-Kanal, keine Gatekeeper",
+          "detail": "Gemeinsamer Slack-Kanal ab Tag eins. Keine Account Manager, keine Ticketsysteme, keine Eskalationsschleifen."
+        }
+      ]
+    },
     "caseStudy": {
       "sectionTagline": "PROOF",
       "sectionHeadline": "Echte Kunden, echte Ergebnisse",
@@ -308,6 +342,23 @@
       "subtitle": "Verschwende dein Ad-Budget nicht länger an langsame, verwirrende Seiten. Lass uns eine Maschine bauen, die konvertiert.",
       "buttonText": "Strategie-Call buchen",
       "buttonUrl": "/de/contact?tier=growth"
+    },
+    "riskReversal": {
+      "title": "So nehme ich Ihnen das Risiko ab",
+      "points": [
+        {
+          "label": "Erste Version ohne Verpflichtung",
+          "detail": "Sie sehen die erste Version auf einer privaten Staging-URL, bevor eine Rechnung gestellt wird. Überzeugt sie nicht, iterieren wir oder trennen uns sauber."
+        },
+        {
+          "label": "2 Revisionsrunden inklusive",
+          "detail": "Nicht „ein kleiner Feinschliff" — zwei komplette Runden für alles, was Sie ändern möchten. Headline, Angebot, Sektionen, Visuals."
+        },
+        {
+          "label": "Der Code gehört Ihnen, für immer",
+          "detail": "Vollständige Übergabe ab Tag eins. Ihr Repository, Ihre Pixel, Ihre CRM-Keys. Keinerlei Anbieterabhängigkeit."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PROOF",
@@ -395,6 +446,23 @@
       "subtitle": "Lass dein digitales Asset nicht mit der Zeit veralten. Arbeite mit mir zusammen für ein sicheres Gefühl.",
       "buttonText": "Retainer starten",
       "buttonUrl": "/de/contact?tier=care"
+    },
+    "riskReversal": {
+      "title": "So nehme ich Ihnen das Risiko ab",
+      "points": [
+        {
+          "label": "Monatlich kündbar",
+          "detail": "Monatliche Abrechnung. 5 Tage Vorlauf — saubere Übergabe, keine Diskussionen."
+        },
+        {
+          "label": "48-Stunden-Reaktionszeit",
+          "detail": "Jedes Ticket erhält innerhalb von zwei Werktagen eine echte Antwort. Dringende Fälle noch am selben Tag."
+        },
+        {
+          "label": "Anteilige Teilmonate",
+          "detail": "Start oder Stopp mitten im Monat wird tagesgenau abgerechnet. Sie zahlen nur für das, was Sie nutzen."
+        }
+      ]
     },
     "caseStudy": {
       "sectionTagline": "PROOF",
