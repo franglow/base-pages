@@ -5,6 +5,7 @@ import Footer from '../../../components/sections/Footer.astro';
 import Button from '../../../components/ui/Button.astro';
 import FounderSignature from '../../../components/sections/FounderSignature.astro';
 import CaseStudySection from '../../../components/sections/CaseStudySection.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
 
 import { getI18n } from '../../../i18n/utils';
 import { generateHreflangLinks } from '../../../i18n/hreflang';
@@ -117,6 +118,12 @@ const jsonLd = [
     </section>
 
     <CaseStudySection data={growthPage.caseStudy} />
+
+    <ProcessTimeline
+      sectionTagline={growthPage.process.sectionTagline}
+      sectionHeadline={growthPage.process.sectionHeadline}
+      steps={growthPage.process.steps}
+    />
 
     <section class="final-cta-section">
       <div class="container">

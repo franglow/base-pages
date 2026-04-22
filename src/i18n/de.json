@@ -161,6 +161,33 @@
         }
       ]
     },
+    "process": {
+      "sectionTagline": "ABLAUF",
+      "sectionHeadline": "3 Schritte, eine Woche, eine Seite die wirklich konvertiert",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Logo, 4–8 Fotos und ein Satz, der Ihren Wunschkunden beschreibt — in einem geteilten Ordner. Noch keine Domain? Wir suchen zusammen eine aus.",
+          "owner": "Sie",
+          "ownerTone": "you",
+          "duration": "~1 Tag"
+        },
+        {
+          "title": "Entwicklung",
+          "description": "Mobile-first Landingpage mit Ihren echten Texten und Fotos. Kontaktformular, SEO-Grundlagen und Analytics — alles installiert und getestet, bevor Sie es sehen.",
+          "owner": "Ich",
+          "ownerTone": "me",
+          "duration": "~3 Tage"
+        },
+        {
+          "title": "Go-Live",
+          "description": "20-minütiges Walkthrough, damit Sie Texte und Bilder selbst bearbeiten können. DNS-Umstellung. Sie sind live — und können die Seite souverän pflegen.",
+          "owner": "Gemeinsam",
+          "ownerTone": "together",
+          "duration": "~1 Tag"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -298,6 +325,33 @@
           "quote": "[Zitat ausstehend — beim Kunden angefragt]",
           "quoteAttribution": "Carmen & Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
+        }
+      ]
+    },
+    "process": {
+      "sectionTagline": "ABLAUF",
+      "sectionHeadline": "Von Ad-Budget zu gebuchten Calls in 3 Schritten",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Sie teilen Ad-Creatives, ein Conversion-Ziel und aktuelle Traffic-Zahlen — plus Meta- und Google-Zugang, damit ich Pixel sauber einbinden kann.",
+          "owner": "Sie",
+          "ownerTone": "you",
+          "duration": "~1 Tag"
+        },
+        {
+          "title": "Entwicklung + Tracking",
+          "description": "Conversion-fokussierte Landingpage, CRM angebunden, Meta- und Google-Pixel feuern bei jedem relevanten Event, Sektionen modular für A/B-Tests.",
+          "owner": "Ich",
+          "ownerTone": "me",
+          "duration": "~6–7 Tage"
+        },
+        {
+          "title": "Go-Live + QA",
+          "description": "Wir prüfen jedes Tracking-Event gemeinsam im Live-Test, dann DNS-Umstellung. Danach bleibe ich 2 Wochen kostenlos im Monitoring.",
+          "owner": "Gemeinsam",
+          "ownerTone": "together",
+          "duration": "~2 Tage"
         }
       ]
     },

@@ -161,6 +161,33 @@
         }
       ]
     },
+    "process": {
+      "sectionTagline": "PROCESS",
+      "sectionHeadline": "3 steps, one week, a site that actually converts",
+      "steps": [
+        {
+          "title": "Brief",
+          "description": "Drop your logo, 4–8 photos and one sentence describing your ideal client in a shared folder. No domain yet? We pick one together.",
+          "owner": "You",
+          "ownerTone": "you",
+          "duration": "~1 day"
+        },
+        {
+          "title": "Build",
+          "description": "Mobile-first landing page wired with your real copy and real photos. Contact form, SEO basics, analytics — all installed and tested before you see it.",
+          "owner": "Me",
+          "ownerTone": "me",
+          "duration": "~3 days"
+        },
+        {
+          "title": "Launch",
+          "description": "A 20-minute walkthrough so you can edit text and swap images yourself. DNS cutover. You're live and confident you can maintain it.",
+          "owner": "Together",
+          "ownerTone": "together",
+          "duration": "~1 day"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -298,6 +325,33 @@
           "quote": "[Quote pending — requested from client]",
           "quoteAttribution": "Carmen & Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
+        }
+      ]
+    },
+    "process": {
+      "sectionTagline": "PROCESS",
+      "sectionHeadline": "From ad spend to booked calls in 3 steps",
+      "steps": [
+        {
+          "title": "Brief",
+          "description": "You share ad creatives, one conversion goal and current traffic numbers — plus Meta + Google account access so I can wire pixels cleanly.",
+          "owner": "You",
+          "ownerTone": "you",
+          "duration": "~1 day"
+        },
+        {
+          "title": "Build + tracking",
+          "description": "Conversion-focused landing page, CRM connected, Meta + Google pixels firing on every meaningful event, and sections split into modules ready for A/B tests.",
+          "owner": "Me",
+          "ownerTone": "me",
+          "duration": "~6–7 days"
+        },
+        {
+          "title": "Launch + QA",
+          "description": "We run a QA pass on every tracking event with you watching, then cut over DNS. I stay on for 2 weeks of free post-launch monitoring.",
+          "owner": "Together",
+          "ownerTone": "together",
+          "duration": "~2 days"
         }
       ]
     },
