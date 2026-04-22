@@ -110,12 +110,13 @@
   },
   "starterPage": {
     "hero": {
-      "tagline": "THE STARTER PACKAGE",
-      "titleBold": "Launch quickly. Look amazing.",
-      "titleLight": "Skip the DIY tools. Get a professional site that actually works.",
-      "subtitle": "I build simple, incredibly fast websites that turn your visitors into real inquiries. No tech headaches or confusing setups—just a premium digital presence that works from day one.",
+      "tagline": "ONE-PAGE SITE · LIVE IN A WEEK",
+      "taglineMobile": "ONE-PAGE SITE",
+      "titleBold": "Turn visitors into booked clients — without touching code.",
+      "titleLight": "A custom one-page site, handed to you in 5 days, that you can edit yourself.",
+      "subtitle": "Designed for yoga studios, retreats and solo founders tired of Wix templates who want something that looks like their brand — not everyone else's. You update the words, I protect the design.",
       "priceBadge": "From €890",
-      "deliveryBadge": "3-5 days delivery"
+      "deliveryBadge": "5-day delivery · 2 revision rounds"
     },
     "features": [
       {

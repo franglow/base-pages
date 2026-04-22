@@ -110,12 +110,13 @@
   },
   "starterPage": {
     "hero": {
-      "tagline": "EL PAQUETE STARTER",
-      "titleBold": "Lanzá rápido. Destacate del resto.",
-      "titleLight": "Olvidate de las herramientas complicadas. Tené una web profesional de verdad.",
-      "subtitle": "Armo webs simples e increíblemente rápidas que convierten visitas en consultas reales. Sin dolores de cabeza técnicos ni vueltas: solo una presencia digital premium que funciona desde el primer día.",
+      "tagline": "WEB DE UNA PÁGINA · LISTA EN UNA SEMANA",
+      "taglineMobile": "WEB DE UNA PÁGINA",
+      "titleBold": "Convertí visitas en clientes reservados — sin tocar una línea de código.",
+      "titleLight": "Una web de una página hecha a tu medida, en 5 días, que podés editar vos.",
+      "subtitle": "Pensada para estudios de yoga, retiros y fundadoras independientes cansadas de las plantillas genéricas, que quieren algo que hable de su marca — no de todas las demás. Vos actualizás los textos, yo cuido el diseño.",
       "priceBadge": "Desde €890",
-      "deliveryBadge": "Entrega en 3-5 días"
+      "deliveryBadge": "Entrega en 5 días · 2 rondas de revisión"
     },
     "features": [
       {
