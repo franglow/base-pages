@@ -110,12 +110,13 @@
   },
   "starterPage": {
     "hero": {
-      "tagline": "DAS STARTER-PAKET",
-      "titleBold": "Schnell starten. Beeindruckend aussehen.",
-      "titleLight": "Schluss mit komplizierten Baukästen. Hol dir eine echte Profi-Website.",
-      "subtitle": "Ich baue einfache, unglaublich schnelle Websites, die Besucher in echte Anfragen verwandeln. Keine Technik-Kopfschmerzen – nur eine erstklassige digitale Präsenz, die vom ersten Tag an funktioniert.",
+      "tagline": "ONE-PAGE-WEBSITE · IN EINER WOCHE LIVE",
+      "taglineMobile": "ONE-PAGE-WEBSITE",
+      "titleBold": "Aus Besuchern werden echte Buchungen — ganz ohne Code.",
+      "titleLight": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen fertig, die du selbst bearbeitest.",
+      "subtitle": "Gedacht für Yoga-Studios, Retreats und Solo-Gründer:innen, die keine Lust mehr auf Baukasten-Vorlagen haben und etwas wollen, das nach ihrer Marke aussieht – nicht nach jeder anderen. Du aktualisierst die Texte, ich sorge dafür, dass das Design hält.",
       "priceBadge": "Ab 890 €",
-      "deliveryBadge": "3-5 Tage Lieferzeit"
+      "deliveryBadge": "Lieferung in 5 Tagen · 2 Überarbeitungsrunden"
     },
     "features": [
       {
