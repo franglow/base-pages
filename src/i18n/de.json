@@ -141,7 +141,11 @@
       "subtitle": "Vergiss komplizierte Baukästen. Lass mich dir eine professionelle Website bauen, die dir echte Ergebnisse bringt.",
       "buttonText": "Lass uns reden",
       "buttonUrl": "/de/contact?tier=starter"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "scalePage": {
     "hero": {
@@ -175,7 +179,11 @@
       "subtitle": "Lass uns ein erstklassiges digitales Erlebnis entwerfen, das den Branchenstandard setzt.",
       "buttonText": "Discovery-Call buchen",
       "buttonUrl": "/de/contact?tier=scale"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "growthPage": {
     "hero": {
@@ -209,7 +217,11 @@
       "subtitle": "Verschwende dein Ad-Budget nicht länger an langsame, verwirrende Seiten. Lass uns eine Maschine bauen, die konvertiert.",
       "buttonText": "Strategie-Call buchen",
       "buttonUrl": "/de/contact?tier=growth"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "carePage": {
     "hero": {
@@ -243,7 +255,11 @@
       "subtitle": "Lass dein digitales Asset nicht mit der Zeit veralten. Arbeite mit mir zusammen für ein sicheres Gefühl.",
       "buttonText": "Retainer starten",
       "buttonUrl": "/de/contact?tier=care"
-    }
+    },
+    "caseStudy": {},
+    "testimonials": {},
+    "included": {},
+    "founder": {}
   },
   "designerBanner": {
     "prefix": "Für UX/UI-Designer:",
