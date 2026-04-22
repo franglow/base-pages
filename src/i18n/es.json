@@ -213,12 +213,12 @@
   },
   "carePage": {
     "hero": {
-      "tagline": "CUIDADO CONTINUO",
-      "titleBold": "Protegé tu inversión.",
-      "titleLight": "Plan de Mantenimiento y Optimización.",
-      "subtitle": "Tu activo digital necesita ajustes continuos para rendir al máximo. Me encargo del hosting rápido, las actualizaciones proactivas de seguridad y el monitoreo del rendimiento para que te enfoques en tu negocio.",
+      "tagline": "CUIDADO, NO ABANDONADO",
+      "titleBold": "Tu sitio, en buenas manos — las de quien lo construyó.",
+      "titleLight": "Actualizaciones, ajustes y mejoras pequeñas, resueltos por mí.",
+      "subtitle": "No necesitás aprender otra herramienta ni abrir un ticket de soporte. Escribime por WhatsApp o mail y el cambio queda hecho — normalmente el mismo día. Yo mantengo tu sitio rápido, seguro y al día, así vos seguís enfocado en lo que de verdad paga las cuentas.",
       "priceBadge": "Desde €190/mes",
-      "deliveryBadge": "Cancelá cuando quieras"
+      "deliveryBadge": "Cancelás cuando quieras · Respondo en 48h"
     },
     "features": [
       {
