@@ -161,6 +161,33 @@
         }
       ]
     },
+    "process": {
+      "sectionTagline": "PROCESO",
+      "sectionHeadline": "3 pasos, una semana, un sitio que convierte",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Dejás tu logo, 4 a 8 fotos y una frase describiendo a tu cliente ideal en una carpeta compartida. ¿No tenés dominio? Lo elegimos juntos.",
+          "owner": "Vos",
+          "ownerTone": "you",
+          "duration": "~1 día"
+        },
+        {
+          "title": "Desarrollo",
+          "description": "Landing mobile-first con tu copy y tus fotos reales. Formulario de contacto, SEO básico y analítica — todo instalado y probado antes de mostrártelo.",
+          "owner": "Yo",
+          "ownerTone": "me",
+          "duration": "~3 días"
+        },
+        {
+          "title": "Lanzamiento",
+          "description": "Walkthrough de 20 minutos para que puedas editar textos y cambiar imágenes vos mismo. Cambio de DNS. Salís al aire y te quedás tranquilo manteniéndolo.",
+          "owner": "Juntos",
+          "ownerTone": "together",
+          "duration": "~1 día"
+        }
+      ]
+    },
     "testimonials": {},
     "included": {},
     "founder": {
@@ -206,6 +233,40 @@
       "sectionTagline": "PRUEBAS",
       "sectionHeadline": "Clientes reales, resultados reales",
       "blocks": []
+    },
+    "process": {
+      "sectionTagline": "PROCESO",
+      "sectionHeadline": "Del briefing al sitio en vivo, en 4 pasos",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Nos pasás tus materiales de marca, dos sitios que te gusten y la métrica que querés mover. En 48 horas te devuelvo sitemap y presupuesto.",
+          "owner": "Vos",
+          "ownerTone": "you",
+          "duration": "~1 día"
+        },
+        {
+          "title": "Primera versión",
+          "description": "Armo la arquitectura de información, conecto el CMS headless y entrego la primera versión de cada página — con copy real, imágenes reales y código listo para producción.",
+          "owner": "Yo",
+          "ownerTone": "me",
+          "duration": "~10 días"
+        },
+        {
+          "title": "Revisiones",
+          "description": "Dos rondas estructuradas sobre una URL de staging. Vos dejás comentarios, yo itero. Copy, visuales, interacciones — todo entra.",
+          "owner": "Juntos",
+          "ownerTone": "together",
+          "duration": "~5 días"
+        },
+        {
+          "title": "Lanzamiento",
+          "description": "Deploy a producción, cambio de DNS, analítica y Core Web Vitals verificados en vivo. Te doy credenciales de editor y un walkthrough de 30 minutos.",
+          "owner": "Yo",
+          "ownerTone": "me",
+          "duration": "~2 días"
+        }
+      ]
     },
     "testimonials": {},
     "included": {},
@@ -264,6 +325,33 @@
           "quote": "[Cita pendiente — solicitada al cliente]",
           "quoteAttribution": "Carmen & Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
+        }
+      ]
+    },
+    "process": {
+      "sectionTagline": "PROCESO",
+      "sectionHeadline": "De gastar en ads a agendar reales en 3 pasos",
+      "steps": [
+        {
+          "title": "Briefing",
+          "description": "Compartís creatividades, un objetivo de conversión y números actuales de tráfico — más acceso a Meta y Google Ads para que conecte los píxeles prolijos.",
+          "owner": "Vos",
+          "ownerTone": "you",
+          "duration": "~1 día"
+        },
+        {
+          "title": "Desarrollo + tracking",
+          "description": "Landing orientada a conversión, CRM conectado, píxeles de Meta y Google disparando en cada evento importante, y secciones modulares listas para tests A/B.",
+          "owner": "Yo",
+          "ownerTone": "me",
+          "duration": "~6–7 días"
+        },
+        {
+          "title": "Lanzamiento + QA",
+          "description": "Revisamos juntos cada evento de tracking con vos mirando, después cambiamos DNS. Me quedo 2 semanas gratis monitoreando después del lanzamiento.",
+          "owner": "Juntos",
+          "ownerTone": "together",
+          "duration": "~2 días"
         }
       ]
     },
