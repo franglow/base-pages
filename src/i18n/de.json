@@ -145,12 +145,12 @@
   },
   "scalePage": {
     "hero": {
-      "tagline": "DIE SCALE-WEBSITE",
-      "titleBold": "Komplettes digitales Fundament.",
-      "titleLight": "Multi-Page-Architektur. Headless CMS-basiert.",
-      "subtitle": "Eine robuste, skalierbare Plattform für etablierte Marken. Ich kombiniere dynamisches Content-Management mit fehlerfreier Front-End-Performance, damit du Inhalte einfach bearbeiten kannst, ohne das Design zu zerstören.",
+      "tagline": "FÜR ETABLIERTE MARKEN",
+      "titleBold": "Eine Website, die dein Team selbst pflegt — ohne Entwickler auf Abruf.",
+      "titleLight": "Mehrseitig, mehrsprachig, von deinem Team mit wenigen Klicks bearbeitbar.",
+      "subtitle": "Gebaut für Studios, Retreats und Kreativunternehmen, die aus einer One-Page-Website herausgewachsen sind. Du bekommst einen richtigen Editor (Sanity oder Storyblok), jede Seite als Teil eines Designsystems gedacht, und einen direkten Draht zu mir, wann immer die Website mit dir mitwachsen soll.",
       "priceBadge": "Ab 3.800 €",
-      "deliveryBadge": "3-5 Wochen Lieferzeit"
+      "deliveryBadge": "Launch in 4 Wochen · Zahlbar in 3 Meilensteinen"
     },
     "features": [
       {
