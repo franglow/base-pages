@@ -1190,7 +1190,9 @@
       "step2": {
         "heading": "Schritt 2 · Optional — hilft mir bei der Vorbereitung",
         "description": "Paketspezifische Fragen, damit meine Vorbereitung vor unserem Call schärfer ist. Dauert ~60 Sekunden. Sie können auch überspringen.",
-        "skipText": "Überspringen — jetzt Call buchen →"
+        "descriptionQuote": "Paketspezifische Fragen, damit ich Ihnen ein präzises Angebot ohne Überraschungen zusenden kann. Dauert ~60 Sekunden. Sie können auch überspringen.",
+        "skipText": "Überspringen — jetzt Call buchen →",
+        "skipTextQuote": "Überspringen — Anfrage senden →"
       }
     },
     "success": {

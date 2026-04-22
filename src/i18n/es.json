@@ -1190,7 +1190,9 @@
       "step2": {
         "heading": "Paso 2 · Opcional — me ayuda a prepararme",
         "description": "Preguntas específicas del paquete para afinar la preparación antes de la llamada. Toma ~60 segundos. Podés saltearlo.",
-        "skipText": "Saltear — reservar la llamada ahora →"
+        "descriptionQuote": "Preguntas específicas del paquete para enviarte una cotización precisa y sin sorpresas. Toma ~60 segundos. Podés saltearlo.",
+        "skipText": "Saltear — reservar la llamada ahora →",
+        "skipTextQuote": "Saltear — enviar mi consulta →"
       }
     },
     "success": {

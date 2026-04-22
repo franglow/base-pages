@@ -1190,7 +1190,9 @@
       "step2": {
         "heading": "Step 2 · Optional — helps me prep",
         "description": "Tier-specific questions so my prep work is sharper before our call. Takes ~60 seconds. You can skip.",
-        "skipText": "Skip this — just book the call →"
+        "descriptionQuote": "Tier-specific questions so I can send an accurate, no-surprises quote. Takes ~60 seconds. You can skip.",
+        "skipText": "Skip this — just book the call →",
+        "skipTextQuote": "Skip this — just send my request →"
       }
     },
     "success": {

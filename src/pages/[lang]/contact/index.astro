@@ -289,11 +289,20 @@ const formPayload = Astro.locals.formPayload || {};
               </button>
             </div>
 
-            <div id="step-2" class="step-section step-2" data-step="2" hidden>
+            <div
+              id="step-2"
+              class="step-section step-2"
+              data-step="2"
+              hidden
+              data-desc-call={step2Copy?.description || ''}
+              data-desc-quote={(step2Copy as any)?.descriptionQuote || step2Copy?.description || ''}
+              data-skip-call={step2Copy?.skipText || ''}
+              data-skip-quote={(step2Copy as any)?.skipTextQuote || step2Copy?.skipText || ''}
+            >
               {step2Copy && (
                 <header class="step-header step-2-header">
                   <p class="step-eyebrow">{step2Copy.heading}</p>
-                  {step2Copy.description && <p class="step-desc">{step2Copy.description}</p>}
+                  {step2Copy.description && <p class="step-desc" id="step-2-desc">{step2Copy.description}</p>}
                   <button type="button" id="skip-btn" class="skip-btn">
                     {step2Copy.skipText || 'Skip — book the call →'}
                   </button>
@@ -585,7 +594,11 @@ const formPayload = Astro.locals.formPayload || {};
       tier === 'care' ? showCare() : hideCare();
     }
 
-    interestSelect.addEventListener('change', toggleTierFields);
+    interestSelect.addEventListener('change', () => {
+      toggleTierFields();
+      const s2 = document.getElementById('step-2');
+      if (s2 && !s2.hasAttribute('hidden')) applyStep2CopyForTier();
+    });
 
     // Safe URL prefix normalizer — uses startsWith() instead of a regex literal
     // so the HTML/JS minifier can never collapse `\/\/` into a `//` comment.
@@ -610,8 +623,33 @@ const formPayload = Astro.locals.formPayload || {};
     const emailInput = document.getElementById('email') as HTMLInputElement | null;
     const messageInput = document.getElementById('message') as HTMLTextAreaElement | null;
 
+    // Tiers that actually get a Cal.com booking on /contact?success; the rest
+    // receive an async "message received → quote coming" flow, so the Step 2
+    // copy must not promise a call.
+    const CALL_TIERS = new Set(['scale', 'partnership']);
+
+    function applyStep2CopyForTier(): void {
+      if (!step2El) return;
+      const tier = getSelectedTier();
+      const isCallTier = tier !== null && CALL_TIERS.has(tier);
+      const descEl = document.getElementById('step-2-desc');
+      if (descEl) {
+        const next = isCallTier
+          ? step2El.getAttribute('data-desc-call') || ''
+          : step2El.getAttribute('data-desc-quote') || '';
+        if (next) descEl.textContent = next;
+      }
+      if (skipBtn) {
+        const next = isCallTier
+          ? step2El.getAttribute('data-skip-call') || ''
+          : step2El.getAttribute('data-skip-quote') || '';
+        if (next) skipBtn.textContent = next;
+      }
+    }
+
     function revealStep2(): void {
       if (!step2El) return;
+      applyStep2CopyForTier();
       step2El.removeAttribute('hidden');
       if (continueBtn) continueBtn.setAttribute('hidden', '');
       if (stepInput) stepInput.value = '2';
