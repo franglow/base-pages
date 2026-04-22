@@ -103,8 +103,8 @@
         }
       ],
       "cta": {
-        "buttonText": "Lass uns zusammenarbeiten",
-        "buttonUrl": "/de/contact?tier=partnership"
+        "buttonText": "So funktioniert die Partnership",
+        "buttonUrl": "/de/services/partnership"
       }
     }
   },
@@ -220,7 +220,7 @@
         "Kontaktformular direkt an Ihren Posteingang",
         "SEO-Basis + Sitemap + schema.org Markup",
         "Analytics-Installation (Plausible oder GA4)",
-        "1 Revisionsrunde",
+        "2 Revisionsrunden",
         "30-minütige Editor-Schulung"
       ],
       "excluded": [

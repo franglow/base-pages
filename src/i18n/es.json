@@ -103,8 +103,8 @@
         }
       ],
       "cta": {
-        "buttonText": "Hagamos equipo",
-        "buttonUrl": "/es/contact?tier=partnership"
+        "buttonText": "Ver cómo funciona la partnership",
+        "buttonUrl": "/es/services/partnership"
       }
     }
   },
@@ -220,7 +220,7 @@
         "Formulario de contacto conectado a tu inbox",
         "SEO básico + sitemap + marcado schema.org",
         "Instalación de analítica (Plausible o GA4)",
-        "1 ronda de revisiones",
+        "2 rondas de revisiones",
         "Llamada de 30 min para capacitarte como editor"
       ],
       "excluded": [

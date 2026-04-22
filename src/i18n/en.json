@@ -103,8 +103,8 @@
         }
       ],
       "cta": {
-        "buttonText": "Let's team up",
-        "buttonUrl": "/contact?tier=partnership"
+        "buttonText": "See how the partnership works",
+        "buttonUrl": "/services/partnership"
       }
     }
   },
@@ -220,7 +220,7 @@
         "Contact form wired to your inbox",
         "SEO basics + sitemap + schema.org markup",
         "Analytics install (Plausible or GA4)",
-        "1 revision round",
+        "2 revision rounds",
         "30-minute editor training call"
       ],
       "excluded": [
