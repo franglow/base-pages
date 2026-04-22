@@ -1,0 +1,210 @@
+---
+interface WorkItem {
+  title: string;
+  href: string;
+  thumbnail: string;
+  thumbnailAlt?: string;
+  industry?: string;
+}
+
+interface Props {
+  heading?: string;
+  tagline?: string;
+  tier?: string;
+  works: WorkItem[];
+  class?: string;
+}
+
+const {
+  heading,
+  tagline,
+  tier,
+  works,
+  class: className,
+} = Astro.props;
+
+const hasWorks = Array.isArray(works) && works.length > 0;
+---
+
+{hasWorks && (
+  <section
+    class:list={['related-works', className]}
+    aria-labelledby="related-works-title"
+    data-tier={tier}
+  >
+    {(tagline || heading) && (
+      <header class="rw-header">
+        {tagline && <p class="rw-tagline">{tagline}</p>}
+        {heading && (
+          <h2 id="related-works-title" class="rw-heading">
+            {heading}
+          </h2>
+        )}
+      </header>
+    )}
+
+    <ul class="rw-grid">
+      {works.map((work) => (
+        <li class="rw-item">
+          <a href={work.href} class="rw-card">
+            <figure class="rw-figure">
+              <img
+                src={work.thumbnail}
+                alt={work.thumbnailAlt ?? `${work.title} — project thumbnail`}
+                width="480"
+                height="320"
+                loading="lazy"
+                decoding="async"
+                class="rw-img"
+              />
+            </figure>
+            <div class="rw-meta">
+              {work.industry && <p class="rw-industry">{work.industry}</p>}
+              <p class="rw-title">{work.title}</p>
+              <span class="rw-link" aria-hidden="true">See project →</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .related-works {
+    padding: 40px 24px 56px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .rw-header {
+    text-align: center;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .rw-tagline {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    color: #9ca3af;
+    text-transform: uppercase;
+  }
+
+  .rw-heading {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    color: #111827;
+    line-height: 1.2;
+    max-width: 520px;
+  }
+
+  .rw-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .rw-item {
+    margin: 0;
+  }
+
+  .rw-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+    transition: transform 160ms ease, box-shadow 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .rw-card:hover,
+  .rw-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.14);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  }
+
+  .rw-card:focus-visible {
+    outline: 2px solid #111827;
+    outline-offset: 3px;
+  }
+
+  .rw-figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f4f1ea;
+    aspect-ratio: 3 / 2;
+  }
+
+  .rw-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rw-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px 6px 8px;
+  }
+
+  .rw-industry {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: #9ca3af;
+    text-transform: uppercase;
+  }
+
+  .rw-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    letter-spacing: -0.2px;
+    line-height: 1.35;
+  }
+
+  .rw-link {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #6b7280;
+    letter-spacing: 0.2px;
+  }
+
+  @media (min-width: 720px) {
+    .related-works {
+      padding: 56px 32px 72px;
+    }
+
+    .rw-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .rw-title {
+      font-size: 16px;
+    }
+  }
+</style>
