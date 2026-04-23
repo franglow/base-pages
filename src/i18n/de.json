@@ -52,25 +52,25 @@
     "items": [
       {
         "title": "Das Starter-Paket",
-        "subtitle": "Deine professionelle digitale Visitenkarte. Eine schnelle, hochwertige One-Page-Website, um dein Business zu starten und Kunden zu gewinnen.",
+        "subtitle": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen fertig, die du selbst bearbeitest.",
         "price": "Ab 890 €",
-        "delivery": "3-5 Tage",
+        "delivery": "Lieferung in 5 Tagen",
         "image": "/src/assets/images/services/pkg-01.webp",
         "url": "/de/services/starter"
       },
       {
         "title": "Das Growth-Paket",
-        "subtitle": "Auf Konversion ausgelegt. Ideal für wachsende Unternehmen mit Werbekampagnen. Inklusive CRO und Integrationen.",
+        "subtitle": "Eine fokussierte Landingpage, die deinen Meta- oder Google-Traffic in echte Buchungen verwandelt.",
         "price": "Ab 1.750 €",
-        "delivery": "7-10 Tage",
+        "delivery": "Launch in 10 Tagen",
         "image": "/src/assets/images/services/pkg-02.webp",
         "url": "/de/services/growth"
       },
       {
         "title": "Die Scale-Website",
-        "subtitle": "Ein komplettes digitales Fundament. Multi-Page-Websites mit Headless CMS für einfache Inhaltsbearbeitung.",
+        "subtitle": "Mehrseitig, mehrsprachig, von deinem Team mit wenigen Klicks bearbeitbar.",
         "price": "Ab 3.800 €",
-        "delivery": "3-5 Wochen",
+        "delivery": "Launch in 4 Wochen",
         "image": "/src/assets/images/services/pkg-03.webp",
         "url": "/de/services/scale"
       }
@@ -90,16 +90,16 @@
       "description": "Schluss mit Page-Buildern und technischen Grenzen. Du konzentrierst dich auf atemberaubende Designs in Figma und ich übersetze sie in blitzschnellen, hochkonvertierenden Code. Lass uns gemeinsam erstklassige digitale Produkte liefern.",
       "pillars": [
         {
-          "title": "Pixel-Perfect Entwicklung",
-          "description": "Deine Figma-Datei ist mein Bauplan. Jeder Abstand, jede Typografie und jede Animation wird respektiert."
+          "title": "Pixelgenau aus Figma",
+          "description": "Jeder Abstand, jede Typo-Skala und jede Mikro-Interaktion erhalten. Was in Ihrer Datei steht, steht im Build — nicht nur eine Annäherung."
         },
         {
-          "title": "Keine Technik-Kopfschmerzen",
-          "description": "Ich kümmere mich um moderne Frameworks (Astro/Next.js), Core Web Vitals, technisches SEO und fehlerfreies responsives Verhalten."
+          "title": "Moderner Stack, Core Web Vitals zuerst",
+          "description": "Astro, Next.js, Tailwind, GSAP, ViewTransitions — was am besten zum Brief passt. Barrierefreiheit und Lighthouse > 95 sind die Basis, kein Bonus."
         },
         {
-          "title": "White-Label-Lieferung",
-          "description": "Ich arbeite als dein technischer Partner im Hintergrund. Du behältst die Kundenbeziehung, ich sorge dafür, dass der Code makellos ist."
+          "title": "White-Label von Anfang an",
+          "description": "Ich tauche nie in der Kundenkommunikation auf. Ihr Studioname auf der Rechnung, Ihr Gesicht in den Meetings, Ihre E-Mail in der Signatur."
         }
       ],
       "cta": {

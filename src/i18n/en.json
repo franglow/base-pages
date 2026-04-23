@@ -52,25 +52,25 @@
     "items": [
       {
         "title": "The Starter Package",
-        "subtitle": "Your professional digital storefront. A fast, premium one-page website to launch your business and start getting clients.",
+        "subtitle": "A custom one-page site, handed to you in 5 days, that you can edit yourself.",
         "price": "From €890",
-        "delivery": "3-5 days",
+        "delivery": "5-day delivery",
         "image": "/src/assets/images/services/pkg-01.webp",
         "url": "/services/starter"
       },
       {
         "title": "The Growth Package",
-        "subtitle": "Designed to convert. Ideal for growing businesses running ad campaigns. Includes CRO and integrations.",
+        "subtitle": "A focused landing page that turns your Meta or Google traffic into real bookings.",
         "price": "From €1,750",
-        "delivery": "7-10 days",
+        "delivery": "10-day launch",
         "image": "/src/assets/images/services/pkg-02.webp",
         "url": "/services/growth"
       },
       {
         "title": "The Scale Website",
-        "subtitle": "A complete digital foundation. Multi-page websites with Headless CMS so you can edit content easily.",
+        "subtitle": "Multi-page, multilingual, editable by your team in a few clicks.",
         "price": "From €3,800",
-        "delivery": "3-5 weeks",
+        "delivery": "4-week launch",
         "image": "/src/assets/images/services/pkg-03.webp",
         "url": "/services/scale"
       }
@@ -90,16 +90,16 @@
       "description": "Stop fighting with page builders and technical limits. You focus on creating stunning designs in Figma, and I will translate them into lightning-fast, high-converting code. Let's deliver premium digital products together.",
       "pillars": [
         {
-          "title": "Pixel-Perfect Development",
-          "description": "Your Figma file is my blueprint. Every margin, typography, and animation is respected."
+          "title": "Pixel-perfect from Figma",
+          "description": "Every spacing, type scale, and micro-interaction preserved. If it's in your file, it's in the build — not an approximation."
         },
         {
-          "title": "Zero Tech Headaches",
-          "description": "I handle modern frameworks (Astro/Next.js), Core Web Vitals, technical SEO, and flawless responsive behavior."
+          "title": "Modern stack, Core Web Vitals first",
+          "description": "Astro, Next.js, Tailwind, GSAP, ViewTransitions — whichever fits the brief. Accessibility and Lighthouse > 95 are the baseline, not a bonus."
         },
         {
-          "title": "White-Label Delivery",
-          "description": "I work as your technical partner in the shadows. You own the client relationship, I make sure the code is flawless."
+          "title": "White-label by default",
+          "description": "I never show up in client communications. Your studio's name on the invoice, your face in the meetings, your email in the signature."
         }
       ],
       "cta": {

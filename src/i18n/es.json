@@ -52,25 +52,25 @@
     "items": [
       {
         "title": "El Paquete Starter",
-        "subtitle": "Tu vidriera digital profesional. Una web rápida y premium de una sola página para lanzar tu negocio y empezar a conseguir clientes.",
+        "subtitle": "Una web de una página hecha a tu medida, en 5 días, que podés editar vos.",
         "price": "Desde €890",
-        "delivery": "3-5 días",
+        "delivery": "Entrega en 5 días",
         "image": "/src/assets/images/services/pkg-01.webp",
         "url": "/es/services/starter"
       },
       {
         "title": "El Paquete Growth",
-        "subtitle": "Diseñada para convertir. Ideal para empresas en crecimiento que corren campañas de ads. Incluye CRO e integraciones.",
+        "subtitle": "Una landing page enfocada que convierte tu tráfico de Meta o Google en reservas reales.",
         "price": "Desde €1.750",
-        "delivery": "7-10 días",
+        "delivery": "Lanzamiento en 10 días",
         "image": "/src/assets/images/services/pkg-02.webp",
         "url": "/es/services/growth"
       },
       {
         "title": "El Sitio Scale",
-        "subtitle": "Una base digital completa. Sitios web multipágina con Headless CMS para que puedas editar el contenido fácilmente.",
+        "subtitle": "Multipágina, multilenguaje, editable por tu equipo con unos pocos clics.",
         "price": "Desde €3.800",
-        "delivery": "3-5 semanas",
+        "delivery": "Lanzamiento en 4 semanas",
         "image": "/src/assets/images/services/pkg-03.webp",
         "url": "/es/services/scale"
       }
@@ -90,16 +90,16 @@
       "description": "Dejá de pelear con constructores visuales y límites técnicos. Vos te enfocás en crear diseños increíbles en Figma, y yo los traduzco en código ultrarrápido y de alta conversión. Entreguemos juntos productos digitales premium.",
       "pillars": [
         {
-          "title": "Desarrollo Pixel-Perfect",
-          "description": "Tu archivo de Figma es mi plano. Cada margen, tipografía y animación se respeta al máximo."
+          "title": "Pixel-perfect desde Figma",
+          "description": "Cada spacing, cada tipografía, cada micro-interacción respetados. Si está en el archivo, está en el build — no una aproximación."
         },
         {
-          "title": "Cero Dolores de Cabeza Técnicos",
-          "description": "Me encargo de los frameworks modernos (Astro/Next.js), Core Web Vitals, SEO técnico y un comportamiento responsive impecable."
+          "title": "Stack moderno, Core Web Vitals primero",
+          "description": "Astro, Next.js, Tailwind, GSAP, ViewTransitions — lo que mejor encaje con el brief. Accesibilidad y Lighthouse > 95 son la base, no un bonus."
         },
         {
-          "title": "Entrega Marca Blanca",
-          "description": "Trabajo como tu socio técnico en las sombras. Vos sos el dueño de la relación con el cliente, yo me aseguro de que el código sea perfecto."
+          "title": "White-label por defecto",
+          "description": "Nunca aparezco en las comunicaciones con el cliente. El nombre de tu estudio en la factura, tu cara en las reuniones, tu email en la firma."
         }
       ],
       "cta": {
