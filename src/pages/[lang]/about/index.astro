@@ -21,7 +21,7 @@ const data = getI18n(lang);
 const { aboutPage, footer, nav } = data;
 const hreflangLinks = generateHreflangLinks('/about', 'https://base-pages.com');
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
+const images = import.meta.glob<{ default: ImageMetadata }>(['/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}', '/src/assets/team/*.{jpeg,jpg,png,gif,webp}']);
 ---
 
 <Layout title="About Us - base-pages" lang={lang}>
