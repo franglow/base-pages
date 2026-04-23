@@ -5,6 +5,7 @@ import Footer from '../../components/sections/Footer.astro';
 import Button from '../../components/ui/Button.astro';
 import FounderSignature from '../../components/sections/FounderSignature.astro';
 import CaseStudySection from '../../components/sections/CaseStudySection.astro';
+import corneliaDesktop from '../../assets/case-studies/cornelia-01-desktop.webp';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../components/sections/IncludedTable.astro';
@@ -17,6 +18,19 @@ import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPag
 import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, starterPage } = enData;
+
+// Inject Astro-optimised image into the JSON-driven case study block
+const caseStudyData = {
+  ...starterPage.caseStudy,
+  blocks: starterPage.caseStudy.blocks.map((block: any, i: number) => ({
+    ...block,
+    ...(i === 0 && {
+      imageUrl: corneliaDesktop.src,
+      imageAlt: 'Cornelia Jaeger Ergotherapie website shown on laptop',
+    }),
+  })),
+};
+
 const hreflangLinks = generateHreflangLinks('/services/starter', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
@@ -112,7 +126,7 @@ const jsonLd = [
       optional={starterPage.included.optional}
     />
 
-    <CaseStudySection data={starterPage.caseStudy} />
+    <CaseStudySection data={caseStudyData} />
 
     <ProcessTimeline
       sectionTagline={starterPage.process.sectionTagline}

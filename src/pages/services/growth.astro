@@ -5,6 +5,7 @@ import Footer from '../../components/sections/Footer.astro';
 import Button from '../../components/ui/Button.astro';
 import FounderSignature from '../../components/sections/FounderSignature.astro';
 import CaseStudySection from '../../components/sections/CaseStudySection.astro';
+import carmaDesktop from '../../assets/case-studies/carma-01-desktop.webp';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import RiskReversal from '../../components/sections/RiskReversal.astro';
 import IncludedTable from '../../components/sections/IncludedTable.astro';
@@ -17,6 +18,19 @@ import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPag
 import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 const { footer, nav, growthPage } = enData;
+
+// Inject Astro-optimised image into the JSON-driven case study block
+const caseStudyData = {
+  ...growthPage.caseStudy,
+  blocks: growthPage.caseStudy.blocks.map((block: any, i: number) => ({
+    ...block,
+    ...(i === 0 && {
+      imageUrl: carmaDesktop.src,
+      imageAlt: 'Carma Retreats landing page shown on laptop',
+    }),
+  })),
+};
+
 const hreflangLinks = generateHreflangLinks('/services/growth', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
@@ -123,7 +137,7 @@ const jsonLd = [
       optional={growthPage.included.optional}
     />
 
-    <CaseStudySection data={growthPage.caseStudy} />
+    <CaseStudySection data={caseStudyData} />
 
     <ProcessTimeline
       sectionTagline={growthPage.process.sectionTagline}
