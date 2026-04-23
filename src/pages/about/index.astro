@@ -9,7 +9,7 @@ import { generateHreflangLinks } from '../../i18n/hreflang';
 import { getOrganizationSchema, getBreadcrumbSchema, getFounderSchema } from '../../utils/schema';
 
 const { aboutPage, footer, nav } = enData;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
+const images = import.meta.glob<{ default: ImageMetadata }>(['/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}', '/src/assets/team/*.{jpeg,jpg,png,gif,webp}']);
 const hreflangLinks = generateHreflangLinks('/about', 'https://base-pages.com');
 const jsonLd = [
   getOrganizationSchema(),
