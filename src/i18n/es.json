@@ -172,8 +172,8 @@
           },
           "challenge": "Sin presencia web. Los padres no podían encontrar su propuesta de coaching ni informarse antes de contactarla — la confianza tenía que construirse desde cero.",
           "outcome": "Un sitio en alemán de 4 páginas, calmo y claro, con un camino directo para reservar turno. Cálido, profesional y fácil de mantener.",
-          "quote": "[Cita pendiente — solicitada al cliente]",
-          "quoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
+          "_pendingQuote": "[Cita pendiente — solicitada al cliente]",
+          "_pendingQuoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
           "projectUrl": "/works/cornelia-jaeger"
         }
       ]
@@ -543,8 +543,8 @@
           },
           "challenge": "Las reservas llegaban por DMs de Instagram. Sin embudo de contacto, sin tracking, sin forma de escalar campañas pagas ni medir qué funcionaba — cada DM perdido era un lugar perdido en el retiro.",
           "outcome": "Una landing page en alemán sobre Astro, con formulario de contacto, píxel de Meta + eventos de conversión y SEO configurado desde el día uno. Cuando el sitio salió al aire, el primer retiro se agotó.",
-          "quote": "[Cita pendiente — solicitada al cliente]",
-          "quoteAttribution": "Carmen & Mareen · Carma Retreats",
+          "_pendingQuote": "[Cita pendiente — solicitada al cliente]",
+          "_pendingQuoteAttribution": "Carmen & Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
         }
       ]

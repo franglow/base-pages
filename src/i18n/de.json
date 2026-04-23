@@ -172,8 +172,8 @@
           },
           "challenge": "Keine Webpräsenz. Eltern konnten ihr Coaching-Angebot nicht finden oder sich darüber informieren, bevor sie Kontakt aufnahmen — Vertrauen musste bei null beginnen.",
           "outcome": "Eine ruhige, 4-seitige deutschsprachige Website mit klarem Weg zur Terminvereinbarung. Warm, professionell und leicht zu pflegen.",
-          "quote": "[Zitat ausstehend — beim Kunden angefragt]",
-          "quoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
+          "_pendingQuote": "[Zitat ausstehend — beim Kunden angefragt]",
+          "_pendingQuoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
           "projectUrl": "/works/cornelia-jaeger"
         }
       ]
@@ -543,8 +543,8 @@
           },
           "challenge": "Buchungen liefen über Instagram-DMs. Kein Anfragefunnel, kein Tracking, keine Möglichkeit, bezahlte Kampagnen zu skalieren oder zu messen, was funktionierte — jede verlorene DM war ein verlorener Retreat-Platz.",
           "outcome": "Eine deutschsprachige Landing Page auf Astro mit Anfrageformular, Meta-Pixel + Conversion-Events und SEO-Setup ab dem ersten Tag. Als die Seite live ging, war das erste Retreat ausverkauft.",
-          "quote": "[Zitat ausstehend — beim Kunden angefragt]",
-          "quoteAttribution": "Carmen & Mareen · Carma Retreats",
+          "_pendingQuote": "[Zitat ausstehend — beim Kunden angefragt]",
+          "_pendingQuoteAttribution": "Carmen & Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
         }
       ]
