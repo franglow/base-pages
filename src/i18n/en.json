@@ -172,8 +172,8 @@
           },
           "challenge": "No web presence. Parents couldn't find her coaching offer or learn about it before reaching out — trust had to be built from zero.",
           "outcome": "A calm, 4-page German-language site with a clear 'book an appointment' path. Warm, professional, and easy for her to maintain.",
-          "quote": "[Quote pending — requested from client]",
-          "quoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
+          "_pendingQuote": "[Quote pending — requested from client]",
+          "_pendingQuoteAttribution": "Cornelia Jaeger · Ergotherapie & Coaching",
           "projectUrl": "/works/cornelia-jaeger"
         }
       ]
@@ -429,8 +429,8 @@
           },
           "challenge": "Bookings happened in Instagram DMs. No inquiry funnel, no tracking, no way to scale paid campaigns or measure what was working — every lost DM was a lost retreat booking.",
           "outcome": "A German-language landing page on Astro with inquiry form, Meta pixel + conversion events, and SEO set up from day one. When the site went live, the first retreat sold out.",
-          "quote": "[Quote pending — requested from client]",
-          "quoteAttribution": "Carmen & Mareen · Carma Retreats",
+          "_pendingQuote": "[Quote pending — requested from client]",
+          "_pendingQuoteAttribution": "Carmen & Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
         }
       ]
