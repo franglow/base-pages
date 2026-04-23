@@ -96,7 +96,15 @@ const jsonLd = [
 /&gt;</code></pre>
           </div>
         </div>
-        <Button href={partnershipPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm mt-6">
+        <!-- CTA lives inside left-col only on desktop (sticky left panel) -->
+        <Button href={partnershipPage.finalCta.buttonUrl} class="desktop-cta bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm mt-6">
+          {partnershipPage.finalCta.buttonText}
+        </Button>
+      </div>
+
+      <!-- Mobile-only sticky CTA that mirrors starter/growth/scale behavior -->
+      <div class="sticky-cta-mobile">
+        <Button href={partnershipPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
           {partnershipPage.finalCta.buttonText}
         </Button>
       </div>
@@ -216,7 +224,20 @@ const jsonLd = [
 
   .scroll-container { display: flex; flex-direction: column; gap: 40px; padding: 20px 24px 80px 24px; align-items: flex-start; }
 
-  .left-col { flex: 1; display: flex; flex-direction: column; position: sticky; top: 80px; z-index: 10; background: transparent; padding: 0 24px 20px 24px; margin: 0 -24px; width: calc(100% + 48px); }
+  .left-col { flex: 1; display: flex; flex-direction: column; background: transparent; padding: 0 24px 20px 24px; margin: 0 -24px; width: calc(100% + 48px); }
+
+  /* Mobile-only sticky CTA — mirrors starter/growth/scale */
+  .sticky-cta-mobile {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    padding: 0 24px 20px 24px;
+    margin: 0 -24px;
+    width: calc(100% + 48px);
+  }
+
+  /* Desktop CTA lives inside left-col; mobile CTA is the separate sticky wrapper */
+  .left-col :global(.desktop-cta) { display: none; }
 
   .handoff-visual {
     width: 100%;
@@ -298,6 +319,7 @@ const jsonLd = [
 
     .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
     .left-col {
+      position: sticky;
       top: 100px;
       z-index: auto;
       margin: 0;
@@ -308,6 +330,8 @@ const jsonLd = [
       box-shadow: 0 4px 20px rgba(0,0,0,0.02);
       border: 1px solid rgba(229, 231, 235, 0.4);
     }
+    .left-col :global(.desktop-cta) { display: inline-flex; }
+    .sticky-cta-mobile { display: none; }
     .handoff-visual { max-width: none; }
     .handoff-arrow { transform: rotate(90deg); }
     .right-col { gap: 40px; width: auto; }
