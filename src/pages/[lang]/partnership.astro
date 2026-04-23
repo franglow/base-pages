@@ -11,41 +11,49 @@ import IncludedTable from '../../components/sections/IncludedTable.astro';
 import FAQBlock from '../../components/sections/FAQBlock.astro';
 import SoftCTA from '../../components/sections/SoftCTA.astro';
 
-import enData from '../../i18n/en.json';
+import { getI18n } from '../../i18n/utils';
 import { generateHreflangLinks } from '../../i18n/hreflang';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
+import type { Language } from '../../i18n/config';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
-import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
-const { footer, nav, partnershipPage } = enData;
-const hreflangLinks = generateHreflangLinks('/services/partnership', 'https://base-pages.com');
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const data = getI18n(lang);
+const { footer, nav, partnershipPage } = data;
+const hreflangLinks = generateHreflangLinks('/partnership', 'https://base-pages.com');
+const canonicalUrl = `https://base-pages.com/${lang}/partnership`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: '/' },
-    { name: 'Services', url: '/services' },
-    { name: 'Designer Partnership', url: '/services/partnership' },
+    { name: 'Home', url: `/${lang}/` },
+    { name: 'Services', url: `/${lang}/services` },
+    { name: 'Designer Partnership', url: `/${lang}/partnership` },
   ]),
   getServiceSchema({
     name: 'Designer Partnership',
     description: partnershipPage.hero.titleLight,
     price: '80',
-    url: '/services/partnership',
-    deliveryTime: '7-21 days',
+    url: `/${lang}/partnership`,
   }),
   ...(partnershipPage.faq?.items?.length ? [getFAQPageSchema(partnershipPage.faq.items)] : []),
 ];
 ---
 
 <LandingLayout
-  title="Designer Partnership | base-pages — White-label dev for UX/UI designers"
+  title="Designer Partnership | base-pages"
   description={partnershipPage.hero.titleLight}
-  canonicalUrl="https://base-pages.com/services/partnership"
-  lang="en"
+  canonicalUrl={canonicalUrl}
+  lang={lang}
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
 >
 
-  <ServiceAnalytics tier="partnership" />
   <LandingHeader navData={nav} />
 
   <main id="tier-partnership" class="partnership-page">
@@ -96,13 +104,11 @@ const jsonLd = [
 /&gt;</code></pre>
           </div>
         </div>
-        <!-- CTA lives inside left-col only on desktop (sticky left panel) -->
         <Button href={partnershipPage.finalCta.buttonUrl} class="desktop-cta bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm mt-6">
           {partnershipPage.finalCta.buttonText}
         </Button>
       </div>
 
-      <!-- Mobile-only sticky CTA that mirrors starter/growth/scale behavior -->
       <div class="sticky-cta-mobile">
         <Button href={partnershipPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center px-6 py-2.5 !rounded-2xl text-sm font-medium hover:scale-105 transition-transform shadow-sm">
           {partnershipPage.finalCta.buttonText}
@@ -226,7 +232,6 @@ const jsonLd = [
 
   .left-col { flex: 1; display: flex; flex-direction: column; background: transparent; padding: 0 24px 20px 24px; margin: 0 -24px; width: calc(100% + 48px); }
 
-  /* Mobile-only sticky CTA — mirrors starter/growth/scale */
   .sticky-cta-mobile {
     position: sticky;
     top: 80px;
@@ -236,65 +241,20 @@ const jsonLd = [
     width: calc(100% + 48px);
   }
 
-  /* Desktop CTA lives inside left-col; mobile CTA is the separate sticky wrapper */
   .left-col :global(.desktop-cta) { display: none; }
 
-  .handoff-visual {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
-    color: var(--text-main);
-  }
-
-  .handoff-card {
-    background: white;
-    border: 1px solid rgba(229, 231, 235, 0.8);
-    border-radius: 18px;
-    padding: 18px 20px 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  }
-
-  .handoff-label {
-    display: inline-block;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #9ca3af;
-    margin-bottom: 12px;
-  }
-
+  .handoff-visual { width: 100%; max-width: 360px; margin: 0 auto; display: flex; flex-direction: column; align-items: stretch; gap: 18px; color: var(--text-main); }
+  .handoff-card { background: white; border: 1px solid rgba(229, 231, 235, 0.8); border-radius: 18px; padding: 18px 20px 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
+  .handoff-label { display: inline-block; font-family: 'Roboto Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 2px; color: #9ca3af; margin-bottom: 12px; }
   .handoff-grid { display: flex; flex-direction: column; gap: 8px; }
   .handoff-line { display: block; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #a8bfaf 0%, #f6d7c8 100%); }
   .handoff-line-lg { width: 85%; }
   .handoff-line-md { width: 62%; opacity: 0.75; }
   .handoff-line-sm { width: 40%; opacity: 0.5; }
-
-  .handoff-arrow {
-    width: 28px;
-    height: 28px;
-    margin: 0 auto;
-    color: #9ca3af;
-    transform: rotate(90deg);
-  }
-
+  .handoff-arrow { width: 28px; height: 28px; margin: 0 auto; color: #9ca3af; transform: rotate(90deg); }
   .handoff-card-code { background: #111827; border-color: #111827; }
   .handoff-card-code .handoff-label { color: #6b7280; }
-
-  .handoff-code {
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 12px;
-    line-height: 1.5;
-    color: #e5e7eb;
-    white-space: pre-wrap;
-    overflow: hidden;
-  }
-
+  .handoff-code { margin: 0; font-family: 'Roboto Mono', monospace; font-size: 12px; line-height: 1.5; color: #e5e7eb; white-space: pre-wrap; overflow: hidden; }
   .handoff-code code { font-family: inherit; color: inherit; background: transparent; padding: 0; }
 
   .right-col { flex: 1; display: flex; flex-direction: column; gap: 24px; z-index: 1; width: 100%; }
@@ -316,7 +276,6 @@ const jsonLd = [
     .tagline :global(.tagline-mobile) { display: none !important; }
     .main-title { gap: 8px; }
     .title-bold { letter-spacing: -2px; }
-
     .scroll-container { flex-direction: row; gap: 80px; padding: 40px 40px 120px 40px; }
     .left-col {
       position: sticky;
@@ -333,10 +292,8 @@ const jsonLd = [
     .left-col :global(.desktop-cta) { display: inline-flex; }
     .sticky-cta-mobile { display: none; }
     .handoff-visual { max-width: none; }
-    .handoff-arrow { transform: rotate(90deg); }
     .right-col { gap: 40px; width: auto; }
     .feature-card { padding: 40px; }
-
     .final-cta-section { padding: 0 0 120px 0; }
     .cta-box { padding: 80px 40px; }
   }

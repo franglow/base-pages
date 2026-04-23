@@ -104,7 +104,7 @@
       ],
       "cta": {
         "buttonText": "So funktioniert die Partnership",
-        "buttonUrl": "/de/services/partnership"
+        "buttonUrl": "/de/partnership"
       }
     }
   },
@@ -1004,7 +1004,7 @@
     "prefix": "Für UX/UI-Designer:",
     "text": "Lass uns deine Figma-Designs in blitzschnellen, pixelgenauen Code verwandeln.",
     "linkText": "Partnerschaftsdetails ansehen",
-    "url": "/de/services/partnership"
+    "url": "/de/partnership"
   },
   "aboutPage": {
     "hero": {
