@@ -51,12 +51,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="The Starter Package | base-pages — Professional One-Page Website"
-  description={starterPage.hero.titleLight}
+  title={starterPage.meta.ogTitle}
+  description={starterPage.meta.ogDescription}
   canonicalUrl="https://base-pages.com/services/starter"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-starter.png"
 >
   
   <ServiceAnalytics tier="starter" />

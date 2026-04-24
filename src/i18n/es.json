@@ -109,6 +109,10 @@
     }
   },
   "starterPage": {
+    "meta": {
+      "ogTitle": "El Paquete Starter | base-pages — Sitio Web Profesional de Una Página",
+      "ogDescription": "Un sitio one-page a medida, listo en 5 días, que podés editar vos mismo. Desde €890."
+    },
     "hero": {
       "tagline": "WEB DE UNA PÁGINA · LISTA EN UNA SEMANA",
       "taglineMobile": "WEB DE UNA PÁGINA",
@@ -299,6 +303,10 @@
     }
   },
   "scalePage": {
+    "meta": {
+      "ogTitle": "El Sitio Scale | base-pages — Plataforma Headless CMS",
+      "ogDescription": "Arquitectura multi-página en Astro con headless CMS, i18n y SEO avanzado. Desde €3.800."
+    },
     "hero": {
       "tagline": "PARA MARCAS CONSOLIDADAS",
       "titleBold": "Una web que tu equipo puede manejar — sin depender de un programador.",
@@ -481,6 +489,10 @@
     }
   },
   "growthPage": {
+    "meta": {
+      "ogTitle": "El Paquete Growth | base-pages — Landing Page de Alta Conversión",
+      "ogDescription": "Landing page con CRO, Meta/Google Ads, GA4, GTM y A/B testing integrados. Desde €1.750."
+    },
     "hero": {
       "tagline": "PARA EMPRENDEDORES QUE HACEN ADS",
       "titleBold": "Dejá de pagar clics que no van a ningún lado.",
@@ -670,6 +682,10 @@
     }
   },
   "carePage": {
+    "meta": {
+      "ogTitle": "Cuidado Continuo | base-pages — Mantenimiento y Seguridad Web",
+      "ogDescription": "Tu sitio monitoreado, parcheado y mejorando. Actualizaciones, uptime y soporte prioritario. Desde €190/mes."
+    },
     "hero": {
       "tagline": "CUIDADO, NO ABANDONADO",
       "titleBold": "Tu sitio, en buenas manos — las de quien lo construyó.",
@@ -818,6 +834,10 @@
     }
   },
   "partnershipPage": {
+    "meta": {
+      "ogTitle": "Partnership para Diseñadores | base-pages — Desarrollo White-Label para UX/UI",
+      "ogDescription": "Tu Figma, llevado a Astro o Next.js de producción. White-label, NDA primero. Desde €80/h."
+    },
     "hero": {
       "tagline": "PARA DISEÑADORES UX/UI · DEV WHITE-LABEL",
       "taglineMobile": "DEV WHITE-LABEL",

@@ -37,12 +37,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="The Scale Website | base-pages — Enterprise Performance Architecture"
-  description={scalePage.hero.titleLight}
+  title={scalePage.meta.ogTitle}
+  description={scalePage.meta.ogDescription}
   canonicalUrl="https://base-pages.com/services/scale"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-scale.png"
 >
   
   <ServiceAnalytics tier="scale" />
