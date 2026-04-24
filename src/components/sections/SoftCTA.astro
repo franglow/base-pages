@@ -74,7 +74,7 @@ const formId = `soft-cta-${tier}`;
         {privacyNote && (
           <p class="soft-cta-privacy">
             {privacyNote} ·{' '}
-            <a href={pdfHref} class="soft-cta-direct" download>Or just download it →</a>
+            <a href={pdfHref} class="soft-cta-direct" download={pdfHref.split('/').pop()}>Or just download it →</a>
           </p>
         )}
       </form>
