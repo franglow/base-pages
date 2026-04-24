@@ -51,12 +51,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="The Growth Package | base-pages — Multi-Page Business Website"
-  description={growthPage.hero.titleLight}
+  title={growthPage.meta.ogTitle}
+  description={growthPage.meta.ogDescription}
   canonicalUrl="https://base-pages.com/services/growth"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-growth.png"
 >
   
   <ServiceAnalytics tier="growth" />

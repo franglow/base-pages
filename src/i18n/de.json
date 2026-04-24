@@ -109,6 +109,10 @@
     }
   },
   "starterPage": {
+    "meta": {
+      "ogTitle": "Das Starter-Paket | base-pages — Professionelle One-Page-Website",
+      "ogDescription": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen fertig, die Sie selbst bearbeiten können. Ab 890 €."
+    },
     "hero": {
       "tagline": "ONE-PAGE-WEBSITE · IN EINER WOCHE LIVE",
       "taglineMobile": "ONE-PAGE-WEBSITE",
@@ -299,6 +303,10 @@
     }
   },
   "scalePage": {
+    "meta": {
+      "ogTitle": "Die Scale-Website | base-pages — Headless-CMS-Plattform",
+      "ogDescription": "Multi-Page-Astro-Architektur mit Headless CMS, i18n und erweitertem SEO. Ab 3.800 €."
+    },
     "hero": {
       "tagline": "FÜR ETABLIERTE MARKEN",
       "titleBold": "Eine Website, die dein Team selbst pflegt — ohne Entwickler auf Abruf.",
@@ -481,6 +489,10 @@
     }
   },
   "growthPage": {
+    "meta": {
+      "ogTitle": "Das Growth-Paket | base-pages — Hochkonvertierende Landingpage",
+      "ogDescription": "CRO-optimierte Landingpage mit Meta/Google Ads, GA4, GTM und A/B-Testing. Ab 1.750 €."
+    },
     "hero": {
       "tagline": "FÜR GRÜNDER:INNEN, DIE ADS SCHALTEN",
       "titleBold": "Hör auf, für Klicks zu zahlen, die nirgendwohin führen.",
@@ -670,6 +682,10 @@
     }
   },
   "carePage": {
+    "meta": {
+      "ogTitle": "Kontinuierliche Betreuung | base-pages — Website-Wartung & Sicherheit",
+      "ogDescription": "Ihre Website, überwacht, gepatcht und verbessert. Updates, Uptime-Monitoring und Prioritäts-Support. Ab 190 €/Monat."
+    },
     "hero": {
       "tagline": "BETREUT, NICHT ALLEINGELASSEN",
       "titleBold": "Deine Website, gepflegt — von der Person, die sie gebaut hat.",
@@ -818,6 +834,10 @@
     }
   },
   "partnershipPage": {
+    "meta": {
+      "ogTitle": "Designer-Partnerschaft | base-pages — White-Label-Entwicklung für UX/UI-Designer",
+      "ogDescription": "Ihr Figma, als produktionsreifes Astro oder Next.js geliefert. White-Label, NDA-first. Ab 80 €/Std."
+    },
     "hero": {
       "tagline": "FÜR UX/UI-DESIGNER · WHITE-LABEL DEV",
       "taglineMobile": "WHITE-LABEL DEV",

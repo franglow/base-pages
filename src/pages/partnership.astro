@@ -37,12 +37,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="Designer Partnership | base-pages — White-label dev for UX/UI designers"
-  description={partnershipPage.hero.titleLight}
+  title={partnershipPage.meta.ogTitle}
+  description={partnershipPage.meta.ogDescription}
   canonicalUrl="https://base-pages.com/partnership"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-partnership.png"
 >
 
   <ServiceAnalytics tier="partnership" />

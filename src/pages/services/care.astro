@@ -35,12 +35,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="Continuous Care | base-pages — Website Maintenance & Security"
-  description={carePage.hero.titleLight}
+  title={carePage.meta.ogTitle}
+  description={carePage.meta.ogDescription}
   canonicalUrl="https://base-pages.com/services/care"
   lang="en"
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-care.png"
 >
   
   <ServiceAnalytics tier="care" />

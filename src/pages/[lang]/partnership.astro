@@ -46,12 +46,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="Designer Partnership | base-pages"
-  description={partnershipPage.hero.titleLight}
+  title={partnershipPage.meta.ogTitle}
+  description={partnershipPage.meta.ogDescription}
   canonicalUrl={canonicalUrl}
   lang={lang}
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-partnership.png"
 >
 
   <LandingHeader navData={nav} />

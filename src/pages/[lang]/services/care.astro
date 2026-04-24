@@ -45,12 +45,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="Continuous Care | base-pages"
-  description={carePage.hero.titleLight}
+  title={carePage.meta.ogTitle}
+  description={carePage.meta.ogDescription}
   canonicalUrl={canonicalUrl}
   lang={lang}
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-care.png"
 >
   
   <LandingHeader navData={nav} />

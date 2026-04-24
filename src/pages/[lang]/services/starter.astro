@@ -60,12 +60,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="The Starter Package | base-pages"
-  description={starterPage.hero.titleLight}
+  title={starterPage.meta.ogTitle}
+  description={starterPage.meta.ogDescription}
   canonicalUrl={canonicalUrl}
   lang={lang}
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-starter.png"
 >
   
   <LandingHeader navData={nav} />

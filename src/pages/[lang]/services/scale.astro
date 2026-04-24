@@ -46,12 +46,13 @@ const jsonLd = [
 ---
 
 <LandingLayout
-  title="The Scale Website | base-pages"
-  description={scalePage.hero.titleLight}
+  title={scalePage.meta.ogTitle}
+  description={scalePage.meta.ogDescription}
   canonicalUrl={canonicalUrl}
   lang={lang}
   hreflangLinks={hreflangLinks}
   jsonLd={jsonLd}
+  ogImage="https://base-pages.com/images/og/og-scale.png"
 >
   
   <LandingHeader navData={nav} />
