@@ -109,11 +109,12 @@ const jsonLd = [
           </svg>
         </div>
         <Button href={growthPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center py-3.5 !rounded-2xl text-[15px] font-medium hover:scale-105 transition-transform">
-          Start your scaling
+          {growthPage.finalCta.buttonText}
         </Button>
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{growthPage.featuresSectionHeading}</h2>
         {growthPage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

@@ -10,10 +10,10 @@ import Footer from '../components/sections/Footer.astro';
 import enData from '../i18n/en.json';
 
 import { generateHreflangLinks } from '../i18n/hreflang';
-import { getOrganizationSchema, getWebSiteSchema } from '../utils/schema';
+import { getOrganizationSchema, getWebSiteSchema, getGEOComparisonSchema } from '../utils/schema';
 
 const hreflangLinks = generateHreflangLinks('/', 'https://base-pages.com');
-const jsonLd = [getOrganizationSchema(), getWebSiteSchema()];
+const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSchema()];
 ---
 
 <Layout

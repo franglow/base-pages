@@ -122,6 +122,7 @@
       "priceBadge": "From €890",
       "deliveryBadge": "5-day delivery · 2 revision rounds"
     },
+    "featuresSectionHeading": "Features",
     "features": [
       {
         "title": "Loads in the blink of an eye",
@@ -300,6 +301,11 @@
       "buttonText": "Send me the one-pager",
       "successMessage": "Sent. Check your inbox — including spam, just in case.",
       "privacyNote": "One email. No newsletter. No sharing. Unsubscribe = one click."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "services": "Services",
+      "current": "Starter Package"
     }
   },
   "scalePage": {
@@ -315,6 +321,7 @@
       "priceBadge": "From €3,800",
       "deliveryBadge": "4-week launch · Payable in 3 milestones"
     },
+    "featuresSectionHeading": "Features",
     "features": [
       {
         "title": "Headless CMS Integration",
@@ -486,6 +493,11 @@
       "buttonText": "Send me the one-pager",
       "successMessage": "Sent. Check your inbox — including spam, just in case.",
       "privacyNote": "One email. No newsletter. No sharing. Unsubscribe = one click."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "services": "Services",
+      "current": "Scale Package"
     }
   },
   "growthPage": {
@@ -501,6 +513,7 @@
       "priceBadge": "From €1,750",
       "deliveryBadge": "10-day launch · Tracking & pixel setup included"
     },
+    "featuresSectionHeading": "Features",
     "features": [
       {
         "title": "Conversion Rate Optimization",
@@ -679,6 +692,11 @@
       "buttonText": "Send me the one-pager",
       "successMessage": "Sent. Check your inbox — including spam, just in case.",
       "privacyNote": "One email. No newsletter. No sharing. Unsubscribe = one click."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "services": "Services",
+      "current": "Growth Package"
     }
   },
   "carePage": {
@@ -694,6 +712,7 @@
       "priceBadge": "From €190/mo",
       "deliveryBadge": "Cancel anytime · 48h response window"
     },
+    "featuresSectionHeading": "Features",
     "features": [
       {
         "title": "Fast Edge Hosting",
@@ -831,6 +850,11 @@
       "buttonText": "Send me the one-pager",
       "successMessage": "Sent. Check your inbox — including spam, just in case.",
       "privacyNote": "One email. No newsletter. No sharing. Unsubscribe = one click."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "services": "Services",
+      "current": "Care"
     }
   },
   "partnershipPage": {
@@ -847,6 +871,7 @@
       "priceBadge": "From €80/hr · or per-project",
       "deliveryBadge": "1–3 weeks per project · NDA-first"
     },
+    "featuresSectionHeading": "Features",
     "features": [
       {
         "title": "Pixel-perfect from Figma",
@@ -968,8 +993,8 @@
     },
     "founder": {
       "name": "Francisco Cortez",
-      "role": "Founder · Designer & developer",
-      "message": "I started in design before moving to code, so I know what it feels like when a dev ruins a Figma file. That won't happen here — your file is the spec, full stop."
+      "role": "Founder · Senior Frontend Engineer",
+      "message": "With 10+ years engineering frontends for brands like Disney and LATAM, I know exactly how frustrating it is when developers compromise a great design. I built this partnership to end that friction — your Figma is the spec, full stop."
     },
     "faq": {
       "sectionTagline": "QUESTIONS",

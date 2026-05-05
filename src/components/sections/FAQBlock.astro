@@ -19,16 +19,13 @@ const { title, items, class: className = '' } = Astro.props;
       {title && (
         <h2 id="faq-heading" class="faq-title">{title}</h2>
       )}
-      <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-list">
         {items.map((item) => (
           <details
             class="faq-item"
-            itemscope
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
           >
             <summary class="faq-question">
-              <span class="faq-q-text" itemprop="name">{item.q}</span>
+              <span class="faq-q-text">{item.q}</span>
               <svg
                 class="faq-chevron"
                 viewBox="0 0 24 24"
@@ -44,11 +41,8 @@ const { title, items, class: className = '' } = Astro.props;
             </summary>
             <div
               class="faq-answer"
-              itemscope
-              itemprop="acceptedAnswer"
-              itemtype="https://schema.org/Answer"
             >
-              <p itemprop="text">{item.a}</p>
+              <p>{item.a}</p>
             </div>
           </details>
         ))}

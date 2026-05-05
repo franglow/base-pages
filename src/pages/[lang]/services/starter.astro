@@ -17,6 +17,7 @@ import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
+import ServiceAnalytics from '../../../components/seo/ServiceAnalytics.astro';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -45,15 +46,16 @@ const canonicalUrl = `https://base-pages.com/${lang}/services/starter`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: `/${lang}/` },
-    { name: 'Services', url: `/${lang}/services` },
-    { name: 'Starter Package', url: `/${lang}/services/starter` },
+    { name: starterPage.breadcrumb?.home ?? 'Home', url: `/${lang}/` },
+    { name: starterPage.breadcrumb?.services ?? 'Services', url: `/${lang}/services` },
+    { name: starterPage.breadcrumb?.current ?? starterPage.hero.titleBold, url: `/${lang}/services/starter` },
   ]),
   getServiceSchema({
-    name: 'The Starter Package',
+    name: starterPage.hero.titleBold,
     description: starterPage.hero.titleLight,
     price: '890',
     url: `/${lang}/services/starter`,
+    deliveryTime: '3-5 days',
   }),
   ...(starterPage.faq?.items?.length ? [getFAQPageSchema(starterPage.faq.items)] : []),
 ];
@@ -69,6 +71,7 @@ const jsonLd = [
   ogImage="https://base-pages.com/images/og/og-starter.png"
 >
   
+  <ServiceAnalytics tier="starter" />
   <LandingHeader navData={nav} />
 
   <main id="tier-starter" class="starter-page">
@@ -111,6 +114,7 @@ const jsonLd = [
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{starterPage.featuresSectionHeading}</h2>
         {starterPage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

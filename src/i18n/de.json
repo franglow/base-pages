@@ -44,6 +44,12 @@
       }
     ]
   },
+  "home": {
+    "meta": {
+      "ogTitle": "base-pages — Hochleistungs-Websites & Landing Pages",
+      "ogDescription": "Boutique-Webstudio für ultraschnelle, konversionsoptimierte Websites. Professionell erstellte Astro-Seiten mit Premium-Design."
+    }
+  },
   "services": {
     "tagline": "DIENSTLEISTUNGEN & PREISE",
     "headline": "Ich berechne nicht nach Stunden. Ich berechne für Wert, Geschwindigkeit und sauberen Code, der konvertiert. Wähle dein Fundament.",
@@ -122,6 +128,7 @@
       "priceBadge": "Ab 890 €",
       "deliveryBadge": "Lieferung in 5 Tagen · 2 Überarbeitungsrunden"
     },
+    "featuresSectionHeading": "Leistungen",
     "features": [
       {
         "title": "Lädt im Handumdrehen",
@@ -315,6 +322,7 @@
       "priceBadge": "Ab 3.800 €",
       "deliveryBadge": "Launch in 4 Wochen · Zahlbar in 3 Meilensteinen"
     },
+    "featuresSectionHeading": "Leistungen",
     "features": [
       {
         "title": "Headless CMS Integration",
@@ -501,6 +509,7 @@
       "priceBadge": "Ab 1.750 €",
       "deliveryBadge": "Launch in 10 Tagen · Tracking & Pixel-Setup inklusive"
     },
+    "featuresSectionHeading": "Leistungen",
     "features": [
       {
         "title": "Conversion-Rate-Optimierung",
@@ -694,6 +703,7 @@
       "priceBadge": "Ab 190 €/Monat",
       "deliveryBadge": "Jederzeit kündbar · Antwort in 48h"
     },
+    "featuresSectionHeading": "Leistungen",
     "features": [
       {
         "title": "Schnelles Edge-Hosting",
@@ -847,6 +857,7 @@
       "priceBadge": "Ab €80/Std · oder pro Projekt",
       "deliveryBadge": "1–3 Wochen pro Projekt · NDA zuerst"
     },
+    "featuresSectionHeading": "Leistungen",
     "features": [
       {
         "title": "Pixelgenau aus Figma",
@@ -968,8 +979,8 @@
     },
     "founder": {
       "name": "Francisco Cortez",
-      "role": "Founder · Designer & developer",
-      "message": "Ich komme aus dem Design und bin erst danach zum Code gekommen. Ich weiß, wie es sich anfühlt, wenn ein Entwickler die Datei ruiniert. Hier passiert das nicht — Ihr Figma ist die Spec, Punkt."
+      "role": "Founder · Senior Frontend Engineer",
+      "message": "Mit mehr als 10 Jahren Erfahrung im Frontend-Engineering für Marken wie Disney und LATAM weiß ich genau, wie frustrierend es ist, wenn Entwickler ein großartiges Design verwässern. Ich habe diese Partnerschaft ins Leben gerufen, um diese Reibung zu beenden: Dein Figma ist die Spezifikation, Punkt."
     },
     "faq": {
       "sectionTagline": "FRAGEN",

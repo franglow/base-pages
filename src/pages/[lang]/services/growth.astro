@@ -17,6 +17,7 @@ import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
+import ServiceAnalytics from '../../../components/seo/ServiceAnalytics.astro';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -45,15 +46,16 @@ const canonicalUrl = `https://base-pages.com/${lang}/services/growth`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: `/${lang}/` },
-    { name: 'Services', url: `/${lang}/services` },
-    { name: 'Growth Package', url: `/${lang}/services/growth` },
+    { name: growthPage.breadcrumb?.home ?? 'Home', url: `/${lang}/` },
+    { name: growthPage.breadcrumb?.services ?? 'Services', url: `/${lang}/services` },
+    { name: growthPage.breadcrumb?.current ?? growthPage.hero.titleBold, url: `/${lang}/services/growth` },
   ]),
   getServiceSchema({
-    name: 'The Growth Package',
+    name: growthPage.hero.titleBold,
     description: growthPage.hero.titleLight,
     price: '1750',
     url: `/${lang}/services/growth`,
+    deliveryTime: '10-15 days',
   }),
   ...(growthPage.faq?.items?.length ? [getFAQPageSchema(growthPage.faq.items)] : []),
 ];
@@ -69,6 +71,7 @@ const jsonLd = [
   ogImage="https://base-pages.com/images/og/og-growth.png"
 >
   
+  <ServiceAnalytics tier="growth" />
   <LandingHeader navData={nav} />
 
   <main id="tier-growth" class="growth-page">
@@ -117,11 +120,12 @@ const jsonLd = [
           </svg>
         </div>
         <Button href={growthPage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center py-3.5 !rounded-2xl text-[15px] font-medium hover:scale-105 transition-transform">
-          Start your scaling
+          {growthPage.finalCta.buttonText}
         </Button>
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{growthPage.featuresSectionHeading}</h2>
         {growthPage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

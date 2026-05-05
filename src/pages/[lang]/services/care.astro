@@ -15,6 +15,7 @@ import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
+import ServiceAnalytics from '../../../components/seo/ServiceAnalytics.astro';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -30,12 +31,12 @@ const canonicalUrl = `https://base-pages.com/${lang}/services/care`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: `/${lang}/` },
-    { name: 'Services', url: `/${lang}/services` },
-    { name: 'Continuous Care', url: `/${lang}/services/care` },
+    { name: carePage.breadcrumb?.home ?? 'Home', url: `/${lang}/` },
+    { name: carePage.breadcrumb?.services ?? 'Services', url: `/${lang}/services` },
+    { name: carePage.breadcrumb?.current ?? carePage.hero.titleBold, url: `/${lang}/services/care` },
   ]),
   getServiceSchema({
-    name: 'Continuous Care',
+    name: carePage.hero.titleBold,
     description: carePage.hero.titleLight,
     price: '190',
     url: `/${lang}/services/care`,
@@ -54,6 +55,7 @@ const jsonLd = [
   ogImage="https://base-pages.com/images/og/og-care.png"
 >
   
+  <ServiceAnalytics tier="care" />
   <LandingHeader navData={nav} />
 
   <main id="tier-care" class="care-page">
@@ -106,11 +108,12 @@ const jsonLd = [
           </svg>
         </div>
         <Button href={carePage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center py-3.5 !rounded-2xl text-[15px] font-medium hover:scale-105 transition-transform">
-          Secure your site
+          {carePage.finalCta.buttonText}
         </Button>
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{carePage.featuresSectionHeading}</h2>
         {carePage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

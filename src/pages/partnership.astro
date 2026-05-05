@@ -21,9 +21,8 @@ const hreflangLinks = generateHreflangLinks('/partnership', 'https://base-pages.
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: '/' },
-    { name: 'Services', url: '/services' },
-    { name: 'Designer Partnership', url: '/partnership' },
+    { name: nav.items[0].label, url: '/' },
+    { name: partnershipPage.meta.ogTitle.split('|')[0].trim(), url: '/partnership' },
   ]),
   getServiceSchema({
     name: 'Designer Partnership',
@@ -111,6 +110,7 @@ const jsonLd = [
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{partnershipPage.featuresSectionHeading}</h2>
         {partnershipPage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

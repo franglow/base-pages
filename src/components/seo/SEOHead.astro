@@ -8,6 +8,10 @@ interface Props {
   locale?: string;
   jsonLd?: object | object[];
   hreflangLinks?: { lang: string; href: string }[];
+  /** X/Twitter handle with or without leading @; omit to skip twitter:site */
+  twitterSite?: string;
+  /** X/Twitter handle with or without leading @; omit to skip twitter:creator */
+  twitterCreator?: string;
 }
 
 const SITE_NAME = 'base-pages';
@@ -23,15 +27,21 @@ const {
   locale = 'en',
   jsonLd,
   hreflangLinks = [],
+  twitterSite,
+  twitterCreator,
 } = Astro.props;
 
 // Map short locale codes to full OG locale format
 const ogLocaleMap: Record<string, string> = {
   en: 'en_US',
-  es: 'es_AR',
+  es: 'es_ES',
   de: 'de_DE',
 };
 const ogLocale = ogLocaleMap[locale] || 'en_US';
+
+const ogLocaleAlternateTags = hreflangLinks.filter(
+  (link) => link.lang !== 'x-default' && link.lang !== locale
+);
 
 // Serialize JSON-LD — support single object or array
 const jsonLdScripts = jsonLd
@@ -60,12 +70,28 @@ const jsonLdScripts = jsonLd
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content={ogLocale} />
+{ogLocaleAlternateTags.map((link) => {
+  const code = ogLocaleMap[link.lang];
+  return code ? <meta property="og:locale:alternate" content={code} /> : null;
+})}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+{twitterSite && (
+  <meta
+    name="twitter:site"
+    content={twitterSite.startsWith('@') ? twitterSite : `@${twitterSite}`}
+  />
+)}
+{twitterCreator && (
+  <meta
+    name="twitter:creator"
+    content={twitterCreator.startsWith('@') ? twitterCreator : `@${twitterCreator}`}
+  />
+)}
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

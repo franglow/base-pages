@@ -16,6 +16,7 @@ import { generateHreflangLinks } from '../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
 import type { Language } from '../../i18n/config';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../utils/schema';
+import ServiceAnalytics from '../../components/seo/ServiceAnalytics.astro';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -31,15 +32,15 @@ const canonicalUrl = `https://base-pages.com/${lang}/partnership`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: `/${lang}/` },
-    { name: 'Services', url: `/${lang}/services` },
-    { name: 'Designer Partnership', url: `/${lang}/partnership` },
+    { name: nav.items[0].label, url: `/${lang}/` },
+    { name: partnershipPage.meta.ogTitle.split('|')[0].trim(), url: `/${lang}/partnership` },
   ]),
   getServiceSchema({
     name: 'Designer Partnership',
     description: partnershipPage.hero.titleLight,
     price: '80',
     url: `/${lang}/partnership`,
+    deliveryTime: '7-21 days',
   }),
   ...(partnershipPage.faq?.items?.length ? [getFAQPageSchema(partnershipPage.faq.items)] : []),
 ];
@@ -55,6 +56,7 @@ const jsonLd = [
   ogImage="https://base-pages.com/images/og/og-partnership.png"
 >
 
+  <ServiceAnalytics tier="partnership" />
   <LandingHeader navData={nav} />
 
   <main id="tier-partnership" class="partnership-page">
@@ -117,6 +119,7 @@ const jsonLd = [
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{partnershipPage.featuresSectionHeading}</h2>
         {partnershipPage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

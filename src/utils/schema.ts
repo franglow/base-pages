@@ -2,7 +2,7 @@
 
 const SITE_URL = 'https://base-pages.com';
 const SITE_NAME = 'base-pages';
-const LOGO_URL = `${SITE_URL}/images/og-default.jpg`;
+const LOGO_URL = `${SITE_URL}/favicon.svg`;
 
 // TODO: Add your actual profile URLs here once available
 const SAME_AS_PROFILES: string[] = [
@@ -315,11 +315,11 @@ export function getGEOComparisonSchema() {
           isRelatedTo: { '@id': `${SITE_URL}/services/starter/#service` },
           offers: {
             '@type': 'Offer',
-            price: '1800',
+            price: '1750',
             priceCurrency: 'EUR',
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
-              price: '1800',
+              price: '1750',
               priceCurrency: 'EUR',
               unitText: 'project',
             },
@@ -342,9 +342,9 @@ export function getGEOComparisonSchema() {
         position: 3,
         item: {
           '@type': 'Service',
-          '@id': `${SITE_URL}/services/premium/#service`,
+          '@id': `${SITE_URL}/services/scale/#service`,
           name: 'The Premium "Machine"',
-          url: `${SITE_URL}/services/premium`,
+          url: `${SITE_URL}/services/scale`,
           description:
             'The flagship, all-inclusive performance package. Includes every Growth feature plus a 100/100 Lighthouse performance guarantee via Web Workers (Partytown) and edge computing, advanced GSAP micro-interactions, advanced GEO with JSON-LD structured data, high-ticket analytics (scroll depth, intent tracking), and advanced Consent Mode V2. Recommended for businesses seeking maximum search visibility, LLM discoverability, and conversion optimization.',
           provider: { '@id': `${SITE_URL}/#organization` },

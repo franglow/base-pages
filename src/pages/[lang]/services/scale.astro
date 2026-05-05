@@ -16,6 +16,7 @@ import { generateHreflangLinks } from '../../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../../i18n/config';
 import type { Language } from '../../../i18n/config';
 import { getOrganizationSchema, getServiceSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../utils/schema';
+import ServiceAnalytics from '../../../components/seo/ServiceAnalytics.astro';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -31,15 +32,16 @@ const canonicalUrl = `https://base-pages.com/${lang}/services/scale`;
 const jsonLd = [
   getOrganizationSchema(),
   getBreadcrumbSchema([
-    { name: 'Home', url: `/${lang}/` },
-    { name: 'Services', url: `/${lang}/services` },
-    { name: 'Scale Website', url: `/${lang}/services/scale` },
+    { name: scalePage.breadcrumb?.home ?? 'Home', url: `/${lang}/` },
+    { name: scalePage.breadcrumb?.services ?? 'Services', url: `/${lang}/services` },
+    { name: scalePage.breadcrumb?.current ?? scalePage.hero.titleBold, url: `/${lang}/services/scale` },
   ]),
   getServiceSchema({
-    name: 'The Scale Website',
+    name: scalePage.hero.titleBold,
     description: scalePage.hero.titleLight,
     price: '3800',
     url: `/${lang}/services/scale`,
+    deliveryTime: '20-30 days',
   }),
   ...(scalePage.faq?.items?.length ? [getFAQPageSchema(scalePage.faq.items)] : []),
 ];
@@ -55,6 +57,7 @@ const jsonLd = [
   ogImage="https://base-pages.com/images/og/og-scale.png"
 >
   
+  <ServiceAnalytics tier="scale" />
   <LandingHeader navData={nav} />
 
   <main id="tier-premium" class="scale-page">
@@ -93,11 +96,12 @@ const jsonLd = [
           </svg>
         </div>
         <Button href={scalePage.finalCta.buttonUrl} class="bg-black text-white w-full justify-center py-3.5 !rounded-2xl text-[15px] font-medium hover:scale-105 transition-transform">
-          Start your architecture
+          {scalePage.finalCta.buttonText}
         </Button>
       </div>
 
       <div class="right-col">
+        <h2 class="sr-only">{scalePage.featuresSectionHeading}</h2>
         {scalePage.features.map((feature: any, index: number) => (
           <div class="feature-card">
             <div class="icon-wrapper">

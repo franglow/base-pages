@@ -12,7 +12,7 @@ import { getI18n } from '../../i18n/utils';
 import { generateHreflangLinks } from '../../i18n/hreflang';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../i18n/config';
 import type { Language } from '../../i18n/config';
-import { getOrganizationSchema, getWebSiteSchema } from '../../utils/schema';
+import { getOrganizationSchema, getWebSiteSchema, getGEOComparisonSchema } from '../../utils/schema';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -24,12 +24,12 @@ const { lang } = Astro.params as { lang: Language };
 const data = getI18n(lang);
 const hreflangLinks = generateHreflangLinks('/', 'https://base-pages.com');
 const canonicalUrl = `https://base-pages.com/${lang}/`;
-const jsonLd = [getOrganizationSchema(), getWebSiteSchema()];
+const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSchema()];
 ---
 
 <Layout
-  title="base-pages — High-Performance Websites & Landing Pages"
-  description={data.hero.subtitle}
+  title={data.home?.meta?.ogTitle ?? data.hero.subtitle}
+  description={data.home?.meta?.ogDescription ?? data.hero.subtitle}
   canonicalUrl={canonicalUrl}
   lang={lang}
   hreflangLinks={hreflangLinks}
