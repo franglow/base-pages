@@ -27,7 +27,14 @@ export function getStaticPaths() {
       mainImgDesk: '/src/assets/images/portfolio-grid/carma-main.jpg',
       secImgDesk: '/src/assets/images/works/carma/carma-01-desktop.png',
       tertiaryImgDesk: '/src/assets/images/works/carma/carma-02-desktop.png',
-      nextImg: '/src/assets/images/portfolio-grid/cornelia-main.jpg'
+      nextImg: '/src/assets/images/portfolio-grid/cornelia-main.jpg',
+      credits: [
+        {
+          role: 'Brand Identity',
+          name: 'studio sesenta',
+          url: 'https://www.studiosesenta.com/'  // ← get this from her
+        }
+      ]
     },
     {
       id: 'cornelia-jaeger',
@@ -43,7 +50,8 @@ export function getStaticPaths() {
       mainImgDesk: '/src/assets/images/portfolio-grid/cornelia-main.jpg',
       secImgDesk: '/src/assets/images/works/cornelia/cornelia-01-desktop.png',
       tertiaryImgDesk: '/src/assets/images/works/cornelia/cornelia-02-desktop.png',
-      nextImg: '/src/assets/images/portfolio-grid/carma-main.jpg'
+      nextImg: '/src/assets/images/portfolio-grid/carma-main.jpg',
+      credits: [] 
     }
   ];
 
@@ -86,6 +94,18 @@ const nextCaseHref = localizeHref(lang, `/works/${project.nextId}`);
         <span class="subtitle">{project.subtitle}</span>
       </div>
       <h1>{project.headline}</h1>
+      {project.credits && project.credits.length > 0 && (
+      <div class="project-credits">
+        {project.credits.map((credit) => (
+          <span class="credit-item">
+            © {credit.role}:{' '}
+            <a href={credit.url} target="_blank" rel="noopener noreferrer">
+              {credit.name}
+            </a>
+          </span>
+        ))}
+      </div>
+      )}
     </section>
 
     <div class="main-image-wrapper container-base">
@@ -227,5 +247,29 @@ const nextCaseHref = localizeHref(lang, `/works/${project.nextId}`);
       height: 288px; 
       object-fit: cover; 
     }
+  }
+  .project-credits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-top: 32px;
+  }
+
+  .credit-item {
+    font-size: 13px;
+    color: #888;
+    font-weight: 400;
+  }
+
+  .credit-item a {
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: opacity 0.2s ease;
+  }
+
+  .credit-item a:hover {
+    opacity: 0.6;
   }
 </style>
