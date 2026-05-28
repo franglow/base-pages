@@ -58,7 +58,7 @@
     "items": [
       {
         "title": "Das Starter-Paket",
-        "subtitle": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen fertig, die du selbst bearbeitest.",
+        "subtitle": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen live, die du selbst pflegst.",
         "price": "Ab 890 €",
         "delivery": "Lieferung in 5 Tagen",
         "image": "/src/assets/images/services/pkg-01.webp",
@@ -66,7 +66,7 @@
       },
       {
         "title": "Das Growth-Paket",
-        "subtitle": "Eine fokussierte Landingpage, die deinen Meta- oder Google-Traffic in echte Buchungen verwandelt.",
+        "subtitle": "Von DMs zu ausverkauft — die Landingpage, die deine Retreats füllt.",
         "price": "Ab 1.750 €",
         "delivery": "Launch in 10 Tagen",
         "image": "/src/assets/images/services/pkg-02.webp",
@@ -74,8 +74,8 @@
       },
       {
         "title": "Die Scale-Website",
-        "subtitle": "Mehrseitig, mehrsprachig, von deinem Team mit wenigen Klicks bearbeitbar.",
-        "price": "Ab 3.800 €",
+        "subtitle": "Mehrseitig, headless, editierbar. Vom Senior-Engineer hinter Disney und LATAM Airlines.",
+        "price": "Ab 5.800 €",
         "delivery": "Launch in 4 Wochen",
         "image": "/src/assets/images/services/pkg-03.webp",
         "url": "/de/services/scale"
@@ -122,11 +122,11 @@
     "hero": {
       "tagline": "ONE-PAGE-WEBSITE · IN EINER WOCHE LIVE",
       "taglineMobile": "ONE-PAGE-WEBSITE",
-      "titleBold": "Aus Besuchern werden echte Buchungen — ganz ohne Code.",
-      "titleLight": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen fertig, die du selbst bearbeitest.",
-      "subtitle": "Gedacht für Yoga-Studios, Retreats und Solo-Gründer:innen, die keine Lust mehr auf Baukasten-Vorlagen haben und etwas wollen, das nach ihrer Marke aussieht – nicht nach jeder anderen. Du aktualisierst die Texte, ich sorge dafür, dass das Design hält.",
+      "titleBold": "Deine ersten Kund:innen, gebucht über eine Website, die wirklich dir gehört.",
+      "titleLight": "Eine maßgeschneiderte One-Page-Website, in 5 Tagen live, die du selbst pflegst.",
+      "subtitle": "Für Yoga-Studios, Retreats und Solo-Gründer:innen, die endlich eine ernsthafte Online-Präsenz brauchen — schnell. Das gleiche Studio, das hinter dem ausverkauften Launch von Carma Retreats steht. Du aktualisierst die Texte, ich sorge dafür, dass das Design hält.",
       "priceBadge": "Ab 890 €",
-      "deliveryBadge": "Lieferung in 5 Tagen · 2 Überarbeitungsrunden"
+      "deliveryBadge": "Lieferung in 5 Tagen · Lighthouse ≥ 95 garantiert"
     },
     "featuresSectionHeading": "Leistungen",
     "features": [
@@ -156,6 +156,10 @@
     "riskReversal": {
       "title": "So nehme ich Ihnen das Risiko ab",
       "points": [
+        {
+          "label": "Lighthouse ≥ 95 Garantie — oder ich baue sie gratis nach",
+          "detail": "Jede gelaunchte Website kommt mit grünen Core Web Vitals und einem Lighthouse-Score von 95+ in Performance, Accessibility, SEO und Best Practices. Wenn das am Launch-Tag nicht erreicht ist, überarbeite ich sie auf eigene Kosten, bis es so weit ist. Mit einem Klick im Browser überprüfbar."
+        },
         {
           "label": "Erste Version ohne Verpflichtung",
           "detail": "Sie sehen die erste Version auf einer privaten Staging-URL, bevor eine einzige Rechnung gestellt wird. Passt sie nicht, iterieren wir oder trennen uns sauber."
@@ -312,15 +316,15 @@
   "scalePage": {
     "meta": {
       "ogTitle": "Die Scale-Website | base-pages — Headless-CMS-Plattform",
-      "ogDescription": "Multi-Page-Astro-Architektur mit Headless CMS, i18n und erweitertem SEO. Ab 3.800 €."
+      "ogDescription": "Multi-Page-Astro-Architektur mit Headless CMS, i18n und erweitertem SEO. Ab 5.800 €."
     },
     "hero": {
       "tagline": "FÜR ETABLIERTE MARKEN",
-      "titleBold": "Eine Website, die dein Team selbst pflegt — ohne Entwickler auf Abruf.",
-      "titleLight": "Mehrseitig, mehrsprachig, von deinem Team mit wenigen Klicks bearbeitbar.",
-      "subtitle": "Gebaut für Studios, Retreats und Kreativunternehmen, die aus einer One-Page-Website herausgewachsen sind. Du bekommst einen richtigen Editor (Sanity oder Storyblok), jede Seite als Teil eines Designsystems gedacht, und einen direkten Draht zu mir, wann immer die Website mit dir mitwachsen soll.",
-      "priceBadge": "Ab 3.800 €",
-      "deliveryBadge": "Launch in 4 Wochen · Zahlbar in 3 Meilensteinen"
+      "titleBold": "Eine Web-Plattform auf Enterprise-Niveau — ohne Agentur-Preisschild.",
+      "titleLight": "Mehrseitig, mehrsprachig, von deinem Team editierbar. Gebaut vom Engineer hinter den Web-Plattformen von Disney und LATAM Airlines.",
+      "subtitle": "Für Studios, Retreats und wachstumsstarke Marken, die aus einer One-Page-Website herausgewachsen sind. Du bekommst einen richtigen Editor (Sanity oder Storyblok), ein komponentenbasiertes Designsystem und einen direkten Draht zum Senior, der die Architektur aufsetzt — nicht zu einem Account Manager.",
+      "priceBadge": "Ab 5.800 €",
+      "deliveryBadge": "Launch in 4 Wochen · Lighthouse ≥ 95 garantiert · Zahlbar in 3 Meilensteinen"
     },
     "featuresSectionHeading": "Leistungen",
     "features": [
@@ -350,6 +354,10 @@
     "riskReversal": {
       "title": "So nehme ich Ihnen das Risiko ab",
       "points": [
+        {
+          "label": "Lighthouse ≥ 95 Garantie — oder ich baue sie gratis nach",
+          "detail": "Jede gelaunchte Website kommt mit grünen Core Web Vitals und einem Lighthouse-Score von 95+ in Performance, Accessibility, SEO und Best Practices. Wenn das am Launch-Tag nicht erreicht ist, überarbeite ich sie auf eigene Kosten, bis es so weit ist. Mit einem Klick im Browser überprüfbar."
+        },
         {
           "label": "Zahlung in drei Meilensteinen",
           "detail": "25 % beim Briefing, 50 % bei der ersten Version, 25 % beim Launch. Sie zahlen nie für etwas, das Sie nicht gesehen haben."
@@ -406,7 +414,7 @@
     "testimonials": {},
     "included": {
       "sectionTagline": "WAS DRIN IST",
-      "sectionHeadline": "Genau das bekommen Sie für €3.800 — und das nicht",
+      "sectionHeadline": "Genau das bekommen Sie für €5.800 — und das nicht",
       "columnLabels": {
         "included": "Enthalten",
         "excluded": "Nicht enthalten",
@@ -481,7 +489,7 @@
         },
         {
           "q": "Wie hoch sind die Gesamtkosten im Jahr 1?",
-          "a": "Build ab €3.800. CMS-Hosting (Sanity / Storyblok Free-Tiers oder ~€15–50/Monat). Edge-Hosting (Vercel / Netlify — meist kostenlos). Optionaler Care-Retainer ab €190/Monat. Scale-Kunden landen im ersten Jahr typischerweise zwischen €5k und €7k all-in."
+          "a": "Build ab €5.800. CMS-Hosting (Sanity / Storyblok Free-Tiers oder ~€15–50/Monat). Edge-Hosting (Vercel / Netlify — meist kostenlos). Optionaler Care-Retainer ab €190/Monat. Scale-Kunden landen im ersten Jahr typischerweise zwischen €7k und €9,5k all-in."
         }
       ]
     },
@@ -503,11 +511,11 @@
     },
     "hero": {
       "tagline": "FÜR GRÜNDER:INNEN, DIE ADS SCHALTEN",
-      "titleBold": "Hör auf, für Klicks zu zahlen, die nirgendwohin führen.",
-      "titleLight": "Eine fokussierte Landingpage, die deinen Meta- oder Google-Traffic in echte Buchungen verwandelt.",
-      "subtitle": "Gebaut um ein Angebot, einen Call-to-Action und eine einzige Geschichte. Ich kümmere mich um die Message Match zu deinen Anzeigen, das Tracking-Setup und die Geschwindigkeit — damit dein Budget Buchungen kauft, nicht Absprünge.",
+      "titleBold": "Von DMs zu ausverkauft — in einem Funnel.",
+      "titleLight": "Die gleiche conversion-optimierte Landingpage, die Carma Retreats geholfen hat, ihr erstes Retreat auszuverkaufen.",
+      "subtitle": "Ein Angebot. Eine Geschichte. Ein Call-to-Action. Ich kümmere mich um die Message Match zu deinen Anzeigen, das Tracking und die Geschwindigkeit — damit jeder Euro Werbebudget Buchungen kauft, nicht Absprünge.",
       "priceBadge": "Ab 1.750 €",
-      "deliveryBadge": "Launch in 10 Tagen · Tracking & Pixel-Setup inklusive"
+      "deliveryBadge": "Launch in 10 Tagen · Lighthouse ≥ 95 garantiert · Tracking & Pixel-Setup inklusive"
     },
     "featuresSectionHeading": "Leistungen",
     "features": [
@@ -537,6 +545,10 @@
     "riskReversal": {
       "title": "So nehme ich Ihnen das Risiko ab",
       "points": [
+        {
+          "label": "Lighthouse ≥ 95 Garantie — oder ich baue sie gratis nach",
+          "detail": "Jede gelaunchte Website kommt mit grünen Core Web Vitals und einem Lighthouse-Score von 95+ in Performance, Accessibility, SEO und Best Practices. Wenn das am Launch-Tag nicht erreicht ist, überarbeite ich sie auf eigene Kosten, bis es so weit ist. Mit einem Klick im Browser überprüfbar."
+        },
         {
           "label": "Erste Version ohne Verpflichtung",
           "detail": "Sie sehen die erste Version auf einer privaten Staging-URL, bevor eine Rechnung gestellt wird. Überzeugt sie nicht, iterieren wir oder trennen uns sauber."
@@ -846,16 +858,16 @@
   "partnershipPage": {
     "meta": {
       "ogTitle": "Designer-Partnerschaft | base-pages — White-Label-Entwicklung für UX/UI-Designer",
-      "ogDescription": "Ihr Figma, als produktionsreifes Astro oder Next.js geliefert. White-Label, NDA-first. Ab 80 €/Std."
+      "ogDescription": "Ihr Figma, als produktionsreifes Astro oder Next.js geliefert. White-Label, NDA-first. Festpreis ab €1.750 / Landingpage."
     },
     "hero": {
       "tagline": "FÜR UX/UI-DESIGNER · WHITE-LABEL DEV",
       "taglineMobile": "WHITE-LABEL DEV",
-      "titleBold": "Ihr Figma, als Code, den Sie Kunden zeigen möchten.",
-      "titleLight": "White-Label-Entwicklungspartnerschaft für Designer mit Pixelfokus.",
-      "subtitle": "Sie führen die Kundenbeziehung und das Design. Ich baue Ihr Figma als produktionsreifes Astro oder Next.js — schnelle Sites, saubere Übergabe, null Drama. Ihre Kunden erfahren nie, dass es mich gibt.",
-      "priceBadge": "Ab €80/Std · oder pro Projekt",
-      "deliveryBadge": "1–3 Wochen pro Projekt · NDA zuerst"
+      "titleBold": "Pixelgenaue Entwicklung, von der Ihre Kunden denken werden, Sie hätten sie selbst geschrieben.",
+      "titleLight": "Eine White-Label-Partnerschaft für Designer — Festpreis, fester Scope, NDA-first.",
+      "subtitle": "Sie führen das Design und die Kundenbeziehung. Ich liefere produktionsreifes Astro oder Next.js — pixelgenau aus Ihrem Figma, auf einer sauberen Festpreis-Rechnung im Namen Ihres Studios. Ihre Kunden erfahren nie, dass es mich gibt.",
+      "priceBadge": "Ab €1.750 / Landingpage · €2.800 / Wochen-Sprint",
+      "deliveryBadge": "1–3 Wochen pro Projekt · NDA zuerst · Lighthouse ≥ 95 garantiert"
     },
     "featuresSectionHeading": "Leistungen",
     "features": [
@@ -919,6 +931,10 @@
     "riskReversal": {
       "title": "So nehme ich Ihnen das Risiko ab",
       "points": [
+        {
+          "label": "Lighthouse ≥ 95 Garantie — oder ich baue sie gratis nach",
+          "detail": "Jede gelaunchte Website kommt mit grünen Core Web Vitals und einem Lighthouse-Score von 95+ in Performance, Accessibility, SEO und Best Practices. Wenn das am Launch-Tag nicht erreicht ist, überarbeite ich sie auf eigene Kosten, bis es so weit ist. Mit einem Klick im Browser überprüfbar."
+        },
         {
           "label": "White-Label-NDA, unterschrieben vor dem ersten Blick",
           "detail": "Standard-NDA auf Wunsch vor jedem Figma-Zugriff. Ihr Kunde erfährt nie, dass ich dabei bin — außer Sie sagen es."
@@ -1008,7 +1024,7 @@
         },
         {
           "q": "Wie rechnen Sie ab — stündlich oder pro Projekt?",
-          "a": "Ihre Wahl. Festpreis pro Projekt für abgegrenzte Figma-Handoffs, Wochensatz für längere Engagements oder €80/Stunde für ad-hoc Arbeit. Rechnungen laufen über mein Studio; Ihr Kunde sieht sie nie."
+          "a": "Zwei klare Strukturen. Pro Figma-Datei — Festpreis, fester Scope (ab €1.750 für eine Landingpage, ab €4.500 für mehrseitig). Wochen-Sprint — €2.800/Woche für längere Engagements oder Roadmap-Arbeit. Keine Stundenabrechnung, keine mysteriösen Posten. Rechnungen laufen über mein Studio; Ihr Kunde sieht sie nie."
         },
         {
           "q": "Können Sie einen knappen 1-Wochen-Sprint halten?",
@@ -1105,7 +1121,7 @@
       "interests": [
         "Das Starter-Paket (€890)",
         "Das Growth-Paket (€1.750)",
-        "Die Scale-Website (€3.800)",
+        "Die Scale-Website (€5.800)",
         "Partnerschaft / White-Label",
         "Kontinuierliche Betreuung (ab €190/Monat)",
         "Andere / Individuelle Anfrage"

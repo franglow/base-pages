@@ -58,7 +58,7 @@
     "items": [
       {
         "title": "El Paquete Starter",
-        "subtitle": "Una web de una página hecha a tu medida, en 5 días, que podés editar vos.",
+        "subtitle": "Una web de una página, en vivo en 5 días, que editás vos mismo.",
         "price": "Desde €890",
         "delivery": "Entrega en 5 días",
         "image": "/src/assets/images/services/pkg-01.webp",
@@ -66,7 +66,7 @@
       },
       {
         "title": "El Paquete Growth",
-        "subtitle": "Una landing page enfocada que convierte tu tráfico de Meta o Google en reservas reales.",
+        "subtitle": "De los DMs al cartel de agotado — la landing que llena tus retiros.",
         "price": "Desde €1.750",
         "delivery": "Lanzamiento en 10 días",
         "image": "/src/assets/images/services/pkg-02.webp",
@@ -74,8 +74,8 @@
       },
       {
         "title": "El Sitio Scale",
-        "subtitle": "Multipágina, multilenguaje, editable por tu equipo con unos pocos clics.",
-        "price": "Desde €3.800",
+        "subtitle": "Multipágina, headless, editable. Construido por un ingeniero ex-Disney/LATAM.",
+        "price": "Desde €5.800",
         "delivery": "Lanzamiento en 4 semanas",
         "image": "/src/assets/images/services/pkg-03.webp",
         "url": "/es/services/scale"
@@ -122,11 +122,11 @@
     "hero": {
       "tagline": "WEB DE UNA PÁGINA · LISTA EN UNA SEMANA",
       "taglineMobile": "WEB DE UNA PÁGINA",
-      "titleBold": "Convertí visitas en clientes — sin tocar una línea de código.",
-      "titleLight": "Una web de una página hecha a tu medida, en 5 días, que podés editar vos.",
-      "subtitle": "Pensada para estudios de yoga, retiros y fundadoras independientes cansadas de las plantillas genéricas, que quieren algo que hable de su marca — no de todas las demás. Vos actualizás los textos, yo cuido el diseño.",
+      "titleBold": "Tus primeros clientes, reservando desde una web que es realmente tuya.",
+      "titleLight": "Una web de una página hecha a tu medida, en vivo en 5 días, que editás vos.",
+      "subtitle": "Para estudios de yoga, retiros y fundadoras independientes que necesitan una presencia online en serio — rápido. El mismo estudio detrás del lanzamiento agotado de Carma Retreats. Vos actualizás los textos, yo cuido el diseño.",
       "priceBadge": "Desde €890",
-      "deliveryBadge": "Entrega en 5 días · 2 rondas de revisión"
+      "deliveryBadge": "Entrega en 5 días · Lighthouse ≥ 95 garantizado"
     },
     "featuresSectionHeading": "Características",
     "features": [
@@ -156,6 +156,10 @@
     "riskReversal": {
       "title": "Cómo te saco el riesgo de encima",
       "points": [
+        {
+          "label": "Garantía Lighthouse ≥ 95 — o lo reconstruyo gratis",
+          "detail": "Toda web que sale a producción lleva Core Web Vitals en verde y un Lighthouse de 95+ en Performance, Accesibilidad, SEO y Best Practices. Si el día del lanzamiento no llega, lo retrabajo en mi tiempo hasta que sí. Verificable con un clic desde cualquier navegador."
+        },
         {
           "label": "Primera versión, sin compromiso",
           "detail": "Vas a ver la primera versión en una URL privada antes de que se mueva una factura. Si no da con el brief, iteramos o nos separamos limpio."
@@ -312,15 +316,15 @@
   "scalePage": {
     "meta": {
       "ogTitle": "El Sitio Scale | base-pages — Plataforma Headless CMS",
-      "ogDescription": "Arquitectura multi-página en Astro con headless CMS, i18n y SEO avanzado. Desde €3.800."
+      "ogDescription": "Arquitectura multi-página en Astro con headless CMS, i18n y SEO avanzado. Desde €5.800."
     },
     "hero": {
       "tagline": "PARA MARCAS CONSOLIDADAS",
-      "titleBold": "Una web que tu equipo puede manejar — sin depender de un programador.",
-      "titleLight": "Multipágina, multilenguaje, editable por tu equipo con unos pocos clics.",
-      "subtitle": "Pensada para estudios, retiros y negocios creativos que ya quedaron chicos con una web de una sola página. Tenés un editor en serio (Sanity o Storyblok), cada página diseñada como parte de un sistema, y un canal directo conmigo cuando la web necesite crecer con vos.",
-      "priceBadge": "Desde €3.800",
-      "deliveryBadge": "Lanzamiento en 4 semanas · Pago en 3 hitos"
+      "titleBold": "Una plataforma web de nivel enterprise — sin el precio de una agencia.",
+      "titleLight": "Multipágina, multilenguaje, editable por tu equipo. Construida por el ingeniero detrás de las plataformas web de Disney y LATAM Airlines.",
+      "subtitle": "Para estudios, retiros y marcas en crecimiento que ya quedaron chicos con una web de una sola página. Tenés un editor en serio (Sanity o Storyblok), un sistema de diseño basado en componentes, y un canal directo con el senior que va a arquitecturarlo — no un account manager.",
+      "priceBadge": "Desde €5.800",
+      "deliveryBadge": "Lanzamiento en 4 semanas · Lighthouse ≥ 95 garantizado · Pago en 3 hitos"
     },
     "featuresSectionHeading": "Características",
     "features": [
@@ -350,6 +354,10 @@
     "riskReversal": {
       "title": "Cómo te saco el riesgo de encima",
       "points": [
+        {
+          "label": "Garantía Lighthouse ≥ 95 — o lo reconstruyo gratis",
+          "detail": "Toda web que sale a producción lleva Core Web Vitals en verde y un Lighthouse de 95+ en Performance, Accesibilidad, SEO y Best Practices. Si el día del lanzamiento no llega, lo retrabajo en mi tiempo hasta que sí. Verificable con un clic desde cualquier navegador."
+        },
         {
           "label": "Pago en tres hitos",
           "detail": "25% al brief, 50% en la primera versión, 25% al lanzamiento. Nunca pagás por algo que todavía no viste."
@@ -406,7 +414,7 @@
     "testimonials": {},
     "included": {
       "sectionTagline": "QUÉ INCLUYE",
-      "sectionHeadline": "Exactamente qué te llevás por €3.800 — y qué no",
+      "sectionHeadline": "Exactamente qué te llevás por €5.800 — y qué no",
       "columnLabels": {
         "included": "Incluido",
         "excluded": "No incluido",
@@ -481,7 +489,7 @@
         },
         {
           "q": "¿Cuál es el costo total de pertenencia en el año 1?",
-          "a": "Build desde €3.800. CMS hosting (Sanity / Storyblok planes gratuitos o ~€15–50/mes). Edge hosting (Vercel / Netlify — habitualmente gratis). Retainer Care opcional desde €190/mes. La mayoría de los clientes Scale cae entre €5k y €7k all-in en el primer año."
+          "a": "Build desde €5.800. CMS hosting (Sanity / Storyblok planes gratuitos o ~€15–50/mes). Edge hosting (Vercel / Netlify — habitualmente gratis). Retainer Care opcional desde €190/mes. La mayoría de los clientes Scale cae entre €7k y €9,5k all-in en el primer año."
         }
       ]
     },
@@ -503,11 +511,11 @@
     },
     "hero": {
       "tagline": "PARA EMPRENDEDORES QUE HACEN ADS",
-      "titleBold": "Dejá de pagar clics que no van a ningún lado.",
-      "titleLight": "Una landing page enfocada que convierte tu tráfico de Meta o Google en reservas reales.",
-      "subtitle": "Diseñada alrededor de una oferta, una sola llamada a la acción y una sola historia. Yo me ocupo de que la página coincida con tus anuncios, del tracking y de la velocidad — para que tu presupuesto se convierta en reservas, no en rebotes.",
+      "titleBold": "De los DMs al cartel de agotado — en un solo embudo.",
+      "titleLight": "La misma landing page enfocada en conversión que ayudó a Carma Retreats a agotar su primer retiro.",
+      "subtitle": "Una oferta. Una historia. Una llamada a la acción. Yo me ocupo del message match con tus anuncios, del tracking y de la velocidad — para que cada euro de presupuesto se convierta en reservas, no en rebotes.",
       "priceBadge": "Desde €1.750",
-      "deliveryBadge": "Lanzamiento en 10 días · Tracking y píxel incluidos"
+      "deliveryBadge": "Lanzamiento en 10 días · Lighthouse ≥ 95 garantizado · Tracking y píxel incluidos"
     },
     "featuresSectionHeading": "Características",
     "features": [
@@ -537,6 +545,10 @@
     "riskReversal": {
       "title": "Cómo te saco el riesgo de encima",
       "points": [
+        {
+          "label": "Garantía Lighthouse ≥ 95 — o lo reconstruyo gratis",
+          "detail": "Toda web que sale a producción lleva Core Web Vitals en verde y un Lighthouse de 95+ en Performance, Accesibilidad, SEO y Best Practices. Si el día del lanzamiento no llega, lo retrabajo en mi tiempo hasta que sí. Verificable con un clic desde cualquier navegador."
+        },
         {
           "label": "Primera versión, sin compromiso",
           "detail": "Vas a ver la primera versión en una URL privada antes de que se mueva una factura. Si no convence, iteramos o nos separamos limpio."
@@ -846,16 +858,16 @@
   "partnershipPage": {
     "meta": {
       "ogTitle": "Partnership para Diseñadores | base-pages — Desarrollo White-Label para UX/UI",
-      "ogDescription": "Tu Figma, llevado a Astro o Next.js de producción. White-label, NDA primero. Desde €80/h."
+      "ogDescription": "Tu Figma, llevado a Astro o Next.js de producción. White-label, NDA primero. Fee fijo desde €1.750 / landing page."
     },
     "hero": {
       "tagline": "PARA DISEÑADORES UX/UI · DEV WHITE-LABEL",
       "taglineMobile": "DEV WHITE-LABEL",
-      "titleBold": "Tu Figma, llevado a código que querés mostrarle al cliente.",
-      "titleLight": "Partnership de desarrollo white-label para diseñadores que cuidan el detalle.",
-      "subtitle": "Vos manejás la relación con el cliente y el diseño. Yo convierto tu Figma en Astro o Next.js production-grade — sitios rápidos, handoffs limpios, cero drama. Tus clientes nunca se enteran de que existo.",
-      "priceBadge": "Desde €80/h · o por proyecto",
-      "deliveryBadge": "1–3 semanas por proyecto · NDA primero"
+      "titleBold": "Dev pixel-perfect que tu cliente va a pensar que escribiste vos.",
+      "titleLight": "Partnership white-label para diseñadores — fee fijo, scope fijo, NDA primero.",
+      "subtitle": "Vos manejás el diseño y al cliente. Yo entrego Astro o Next.js production-grade — pixel-perfect desde tu Figma, en una factura limpia a nombre de tu estudio. Tus clientes nunca se enteran de que existo.",
+      "priceBadge": "Desde €1.750 / landing page · €2.800 / sprint semanal",
+      "deliveryBadge": "1–3 semanas por proyecto · NDA primero · Lighthouse ≥ 95 garantizado"
     },
     "featuresSectionHeading": "Características",
     "features": [
@@ -919,6 +931,10 @@
     "riskReversal": {
       "title": "Cómo te saco el riesgo de encima",
       "points": [
+        {
+          "label": "Garantía Lighthouse ≥ 95 — o lo reconstruyo gratis",
+          "detail": "Toda web que sale a producción lleva Core Web Vitals en verde y un Lighthouse de 95+ en Performance, Accesibilidad, SEO y Best Practices. Si el día del lanzamiento no llega, lo retrabajo en mi tiempo hasta que sí. Verificable con un clic desde cualquier navegador."
+        },
         {
           "label": "NDA white-label antes de ver el archivo",
           "detail": "NDA estándar bajo pedido antes de acceder a tu Figma. Tu cliente nunca se entera de que estoy en el proyecto a menos que vos se lo digas."
@@ -1008,7 +1024,7 @@
         },
         {
           "q": "¿Cómo cobrás — por hora o por proyecto?",
-          "a": "Vos decidís. Tarifa fija por proyecto para handoffs de Figma acotados, tarifa semanal para engagements largos o €80/hora para trabajo ad-hoc. Las facturas salen desde mi estudio; tu cliente nunca las ve."
+          "a": "Dos estructuras limpias. Por archivo de Figma — fee fijo, scope fijo (desde €1.750 para una landing page, desde €4.500 para multipágina). Sprint semanal — €2.800/semana para engagements largos o trabajo de roadmap. Sin facturación por hora, sin líneas misteriosas. Las facturas salen desde mi estudio; tu cliente nunca las ve."
         },
         {
           "q": "¿Podés meter un sprint de 1 semana?",
@@ -1105,7 +1121,7 @@
       "interests": [
         "El Paquete Starter (€890)",
         "El Paquete Growth (€1.750)",
-        "El Sitio Scale (€3.800)",
+        "El Sitio Scale (€5.800)",
         "Asociación / Marca blanca",
         "Cuidado Continuo (desde €190/mes)",
         "Otro / Consulta personalizada"

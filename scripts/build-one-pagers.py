@@ -79,8 +79,8 @@ TIERS_EN: list[dict] = [
         "slug": "scale",
         "title": "The Scale Package",
         "subtitle": "Headless CMS platform, built to scale.",
-        "price": "From \u20ac3,800",
-        "timeline": "3\u20135 weeks",
+        "price": "From \u20ac5,800",
+        "timeline": "4\u2013 weeks launch · Lighthouse ≥ 95 guaranteed · Payable in 3 milestones",
         "sections": [
             ("What you get", [
                 "Multi-page Astro architecture",
@@ -132,9 +132,9 @@ TIERS_EN: list[dict] = [
     {
         "slug": "partnership",
         "title": "Designer Partnership",
-        "subtitle": "Your Figma, shipped as code you're proud to show clients.",
-        "price": "From \u20ac80/hr - or per-project",
-        "timeline": "1-3 weeks per project",
+        "subtitle": "Pixel-perfect dev your clients will think you wrote yourself.",
+        "price": "From \u20ac1,750 / landing page · \u20ac2,800 / week sprint",
+        "timeline": "1-3 weeks per project · NDA-first · Lighthouse ≥ 95 guaranteed",
         "sections": [
             ("What you get", [
                 "Pixel-perfect implementation of your Figma file",
@@ -219,8 +219,8 @@ TIERS_DE: list[dict] = [
         "slug": "scale",
         "title": "Die Scale-Website",
         "subtitle": "Headless-CMS-Plattform, gebaut fuer Wachstum.",
-        "price": "Ab 3.800 \u20ac",
-        "timeline": "3-5 Wochen",
+        "price": "Ab 5.800 \u20ac",
+        "timeline": "Launch in 4 Wochen · Lighthouse ≥ 95 garantiert · Zahlbar in 3 Meilensteinen",
         "sections": [
             ("Was Sie bekommen", [
                 "Multi-Page Astro-Architektur",
@@ -272,9 +272,9 @@ TIERS_DE: list[dict] = [
     {
         "slug": "partnership",
         "title": "Designer-Partnerschaft",
-        "subtitle": "Ihr Figma, als Code, den Sie Kunden zeigen moechten.",
-        "price": "Ab \u20ac80/Std - oder pro Projekt",
-        "timeline": "1-3 Wochen pro Projekt",
+        "subtitle": "Pixelgenaue Entwicklung, von der Ihre Kunden denken werden, Sie hätten sie selbst geschrieben.",
+        "price": "Ab \u20ac1,750 / Landingpage · \u20ac2,800 / Wochen-Sprint",
+        "timeline": "1-3 Wochen pro Projekt · NDA-first · Lighthouse ≥ 95 garantiert",
         "sections": [
             ("Was Sie bekommen", [
                 "Pixelgenaue Umsetzung Ihrer Figma-Datei",
@@ -359,8 +359,8 @@ TIERS_ES: list[dict] = [
         "slug": "scale",
         "title": "El Sitio Scale",
         "subtitle": "Plataforma headless CMS, construida para escalar.",
-        "price": "Desde \u20ac3.800",
-        "timeline": "3-5 semanas",
+        "price": "Desde \u20ac5.800",
+        "timeline": "Lanzamiento en 4 semanas · Lighthouse ≥ 95 garantizado · Pago en 3 hitos",
         "sections": [
             ("Que recibis", [
                 "Arquitectura Astro multi-pagina",
@@ -412,9 +412,9 @@ TIERS_ES: list[dict] = [
     {
         "slug": "partnership",
         "title": "Partnership para Disenadores",
-        "subtitle": "Tu Figma, llevado a codigo que queres mostrarle al cliente.",
-        "price": "Desde \u20ac80/h - o por proyecto",
-        "timeline": "1-3 semanas por proyecto",
+        "subtitle": "Dev pixel-perfect que tu cliente va a pensar que escribiste vos.",
+        "price": "Desde \u20ac1.750 / landing page · \u20ac2.800 / sprint semanal",
+        "timeline": "1-3 semanas por proyecto · NDA-first · Lighthouse ≥ 95 garantizado",
         "sections": [
             ("Que recibis", [
                 "Implementacion pixel-perfect de tu archivo Figma",
