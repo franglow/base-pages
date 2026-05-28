@@ -514,8 +514,8 @@
       "titleBold": "De los DMs al cartel de agotado — en un solo embudo.",
       "titleLight": "La misma landing page enfocada en conversión que ayudó a Carma Retreats a agotar su primer retiro.",
       "subtitle": "Una oferta. Una historia. Una llamada a la acción. Yo me ocupo del message match con tus anuncios, del tracking y de la velocidad — para que cada euro de presupuesto se convierta en reservas, no en rebotes.",
-      "priceBadge": "Desde €1.750",
-      "deliveryBadge": "Lanzamiento en 10 días · Lighthouse ≥ 95 garantizado · Tracking y píxel incluidos"
+      "priceBadge": "Desde €1.750 · embudo completo",
+      "deliveryBadge": "Embudo lanzado en 10 días · Lighthouse ≥ 95 garantizado · Tracking y píxel incluidos"
     },
     "featuresSectionHeading": "Características",
     "features": [
@@ -866,7 +866,7 @@
       "titleBold": "Dev pixel-perfect que tu cliente va a pensar que escribiste vos.",
       "titleLight": "Partnership white-label para diseñadores — fee fijo, scope fijo, NDA primero.",
       "subtitle": "Vos manejás el diseño y al cliente. Yo entrego Astro o Next.js production-grade — pixel-perfect desde tu Figma, en una factura limpia a nombre de tu estudio. Tus clientes nunca se enteran de que existo.",
-      "priceBadge": "Desde €1.750 / landing page · €2.800 / sprint semanal",
+      "priceBadge": "Desde €1.750 / landing page · €2.800 / Embedded Studio Week",
       "deliveryBadge": "1–3 semanas por proyecto · NDA primero · Lighthouse ≥ 95 garantizado"
     },
     "featuresSectionHeading": "Características",
@@ -980,7 +980,7 @@
       ],
       "optional": [
         {
-          "label": "Sprint urgente de 1 semana",
+          "label": "Entrega urgente en 1 semana",
           "price": "+35%"
         },
         {
@@ -1003,6 +1003,10 @@
       "sectionHeadline": "Preguntas de diseñadores antes de arrancar una partnership",
       "items": [
         {
+          "q": "¿Por qué una Embedded Studio Week sale más que un Paquete Growth completo?",
+          "a": "Porque no estás comprando mis horas — estás comprando mi disponibilidad. El Paquete Growth es un lanzamiento productizado para una fundadora que corre sus propios ads: construyo, lanzo, entrego, listo. Una Embedded Studio Week reserva mi agenda exclusivamente para tu estudio durante la semana — prioridad entre múltiples archivos de Figma, scope-flex dentro del brief, respuestas en Loom el mismo día, disponibilidad white-label para reuniones con cliente y cero impuesto de context-switching. Distintos buyers, distinto value driver — el precio está armado para el segundo, no para el primero."
+        },
+        {
           "q": "¿Realmente te quedás white-label — mi cliente nunca se entera de vos?",
           "a": "Correcto. No aparezco en comunicaciones al cliente, facturas ni créditos a menos que vos me presentes explícitamente. Repos, cuentas de deploy y accesos al CMS van todos a nombre de tu estudio."
         },
@@ -1024,10 +1028,10 @@
         },
         {
           "q": "¿Cómo cobrás — por hora o por proyecto?",
-          "a": "Dos estructuras limpias. Por archivo de Figma — fee fijo, scope fijo (desde €1.750 para una landing page, desde €4.500 para multipágina). Sprint semanal — €2.800/semana para engagements largos o trabajo de roadmap. Sin facturación por hora, sin líneas misteriosas. Las facturas salen desde mi estudio; tu cliente nunca las ve."
+          "a": "Dos estructuras limpias. Por archivo de Figma — fee fijo, scope fijo (desde €1.750 para una landing page, desde €4.500 para multipágina). Embedded Studio Week — €2.800 reservan mi agenda exclusivamente para tu estudio durante la semana, con scope-flex entre múltiples archivos de Figma. Sin facturación por hora, sin líneas misteriosas. Las facturas salen desde mi estudio; tu cliente nunca las ve."
         },
         {
-          "q": "¿Podés meter un sprint de 1 semana?",
+          "q": "¿Podés meter una entrega urgente en 1 semana?",
           "a": "Sí, con un +35% de tarifa de urgencia. Dejo capacidad para emergencias pero necesito al menos 48 horas de aviso para reacomodar sin romper el timeline de otro cliente."
         },
         {

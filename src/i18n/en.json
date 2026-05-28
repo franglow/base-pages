@@ -518,8 +518,8 @@
       "titleBold": "From DMs to sold out — in one funnel.",
       "titleLight": "The same conversion-focused landing page that helped Carma Retreats sell out their first retreat.",
       "subtitle": "One offer. One story. One call-to-action. I handle message match with your ads, the tracking, and the speed — so every euro of ad spend buys bookings, not bounces.",
-      "priceBadge": "From €1,750",
-      "deliveryBadge": "10-day launch · Lighthouse ≥ 95 guaranteed · Tracking & pixel setup included"
+      "priceBadge": "From €1,750 · full funnel",
+      "deliveryBadge": "10-day funnel launch · Lighthouse ≥ 95 guaranteed · Tracking & pixel setup included"
     },
     "featuresSectionHeading": "Features",
     "features": [
@@ -880,7 +880,7 @@
       "titleBold": "Pixel-perfect dev your clients will think you wrote yourself.",
       "titleLight": "A white-label partnership for designers — fixed-fee, fixed-scope, NDA-first.",
       "subtitle": "You run the design and the client. I ship production-grade Astro or Next.js — pixel-perfect from your Figma, on a clean fixed-fee invoice in your studio's name. Your clients never know I exist.",
-      "priceBadge": "From €1,750 / landing page · €2,800 / week sprint",
+      "priceBadge": "From €1,750 / landing page · €2,800 / Embedded Studio Week",
       "deliveryBadge": "1–3 weeks per project · NDA-first · Lighthouse ≥ 95 guaranteed"
     },
     "featuresSectionHeading": "Features",
@@ -994,7 +994,7 @@
       ],
       "optional": [
         {
-          "label": "Urgent 1-week sprint",
+          "label": "Urgent 1-week delivery",
           "price": "+35%"
         },
         {
@@ -1017,6 +1017,10 @@
       "sectionHeadline": "Questions designers ask before starting a partnership",
       "items": [
         {
+          "q": "Why does an Embedded Studio Week cost more than a full Growth Package?",
+          "a": "Because you're not buying my hours — you're buying my availability. The Growth Package is a productized launch for a founder running their own ads: I build, ship, hand over, done. An Embedded Studio Week reserves my queue exclusively for your studio for the week — priority across multiple Figma files, scope-flex within the brief, same-day Loom replies, white-label availability for client meetings, and zero context-switching tax. Different buyer, different value driver — priced for the second, not the first."
+        },
+        {
           "q": "Do you really stay white-label — will my client ever learn your name?",
           "a": "No. I never appear in client communications, invoices, or credits unless you explicitly introduce me. Repos, deploy accounts and CMS access all carry your studio's name."
         },
@@ -1038,10 +1042,10 @@
         },
         {
           "q": "How do you charge — hourly or per-project?",
-          "a": "Two clean structures. Per Figma file — fixed-fee, fixed-scope (from €1,750 for a landing page, from €4,500 for multi-page). Weekly sprint — €2,800/week for longer engagements or roadmap work. No hourly billing, no mystery line items. Invoices are sent through my studio; your client never sees them."
+          "a": "Two clean structures. Per Figma file — fixed-fee, fixed-scope (from €1,750 for a landing page, from €4,500 for multi-page). Embedded Studio Week — €2,800 reserves my queue exclusively for your studio for the week, with scope-flex across multiple Figma files. No hourly billing, no mystery line items. Invoices are sent through my studio; your client never sees them."
         },
         {
-          "q": "Can you meet a tight 1-week sprint?",
+          "q": "Can you meet a tight 1-week delivery?",
           "a": "Yes, with a +35% urgency rate. I keep capacity for emergencies but need at least 48 hours of heads-up so I can reshuffle cleanly without dropping another client's timeline."
         },
         {

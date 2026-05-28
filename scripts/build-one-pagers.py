@@ -52,8 +52,8 @@ TIERS_EN: list[dict] = [
         "slug": "growth",
         "title": "The Growth Package",
         "subtitle": "High-converting landing for paid campaigns.",
-        "price": "From \u20ac1,750",
-        "timeline": "7\u201310 working days",
+        "price": "From \u20ac1,750 · full funnel",
+        "timeline": "10-day funnel launch · Lighthouse ≥ 95",
         "sections": [
             ("What you get", [
                 "CRO-informed landing page, modular sections",
@@ -80,7 +80,7 @@ TIERS_EN: list[dict] = [
         "title": "The Scale Package",
         "subtitle": "Headless CMS platform, built to scale.",
         "price": "From \u20ac5,800",
-        "timeline": "4\u2013 weeks launch · Lighthouse ≥ 95 guaranteed · Payable in 3 milestones",
+        "timeline": "4-week launch · Lighthouse ≥ 95 guaranteed · Payable in 3 milestones",
         "sections": [
             ("What you get", [
                 "Multi-page Astro architecture",
@@ -133,7 +133,7 @@ TIERS_EN: list[dict] = [
         "slug": "partnership",
         "title": "Designer Partnership",
         "subtitle": "Pixel-perfect dev your clients will think you wrote yourself.",
-        "price": "From \u20ac1,750 / landing page · \u20ac2,800 / week sprint",
+        "price": "From \u20ac1,750 / landing page · \u20ac2,800 / Embedded Studio Week",
         "timeline": "1-3 weeks per project · NDA-first · Lighthouse ≥ 95 guaranteed",
         "sections": [
             ("What you get", [
@@ -192,8 +192,8 @@ TIERS_DE: list[dict] = [
         "slug": "growth",
         "title": "Das Growth-Paket",
         "subtitle": "Hochkonvertierende Landingpage fuer bezahlte Kampagnen.",
-        "price": "Ab 1.750 \u20ac",
-        "timeline": "7-10 Werktage",
+        "price": "Ab 1.750 \u20ac · kompletter Funnel",
+        "timeline": "Funnel-Launch in 10 Tagen · Lighthouse ≥ 95",
         "sections": [
             ("Was Sie bekommen", [
                 "CRO-optimierte Landingpage, modulare Abschnitte",
@@ -273,7 +273,7 @@ TIERS_DE: list[dict] = [
         "slug": "partnership",
         "title": "Designer-Partnerschaft",
         "subtitle": "Pixelgenaue Entwicklung, von der Ihre Kunden denken werden, Sie hätten sie selbst geschrieben.",
-        "price": "Ab \u20ac1,750 / Landingpage · \u20ac2,800 / Wochen-Sprint",
+        "price": "Ab \u20ac1.750 / Landingpage · \u20ac2.800 / Embedded Studio Week",
         "timeline": "1-3 Wochen pro Projekt · NDA-first · Lighthouse ≥ 95 garantiert",
         "sections": [
             ("Was Sie bekommen", [
@@ -332,8 +332,8 @@ TIERS_ES: list[dict] = [
         "slug": "growth",
         "title": "El Paquete Growth",
         "subtitle": "Landing de alta conversion para campanas pagas.",
-        "price": "Desde \u20ac1.750",
-        "timeline": "7-10 dias habiles",
+        "price": "Desde \u20ac1.750 · embudo completo",
+        "timeline": "Embudo lanzado en 10 dias · Lighthouse ≥ 95",
         "sections": [
             ("Que recibis", [
                 "Landing page con CRO, secciones modulares",
@@ -413,7 +413,7 @@ TIERS_ES: list[dict] = [
         "slug": "partnership",
         "title": "Partnership para Disenadores",
         "subtitle": "Dev pixel-perfect que tu cliente va a pensar que escribiste vos.",
-        "price": "Desde \u20ac1.750 / landing page · \u20ac2.800 / sprint semanal",
+        "price": "Desde \u20ac1.750 / landing page · \u20ac2.800 / Embedded Studio Week",
         "timeline": "1-3 semanas por proyecto · NDA-first · Lighthouse ≥ 95 garantizado",
         "sections": [
             ("Que recibis", [
