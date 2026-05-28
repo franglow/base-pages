@@ -215,9 +215,9 @@ export async function sendOnePagerEmail(lang: Language, data: OnePagerData): Pro
 function getLeadRadarSubject(interest: string | undefined, name: string): string {
   const val = (interest || '').toLowerCase();
 
-  // Premium "Machine" — the €3,800 flagship (matches "scale" or "premium")
+  // Premium "Machine" — the €5,800 flagship (matches "scale" or "premium")
   if (val.includes('scale') || val.includes('premium'))
-    return `[🔥 PREMIUM - €3,800] New Lead: ${name}`;
+    return `[🔥 PREMIUM - €5,800] New Lead: ${name}`;
 
   // Growth Package
   if (val.includes('growth'))

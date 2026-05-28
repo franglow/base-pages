@@ -53,7 +53,7 @@ TIERS_EN: list[dict] = [
         "title": "The Growth Package",
         "subtitle": "High-converting landing for paid campaigns.",
         "price": "From \u20ac1,750",
-        "timeline": "7\u201310 working days",
+        "timeline": "10-day funnel launch · Lighthouse ≥ 95",
         "sections": [
             ("What you get", [
                 "CRO-informed landing page, modular sections",
@@ -79,8 +79,8 @@ TIERS_EN: list[dict] = [
         "slug": "scale",
         "title": "The Scale Package",
         "subtitle": "Headless CMS platform, built to scale.",
-        "price": "From \u20ac3,800",
-        "timeline": "3\u20135 weeks",
+        "price": "From \u20ac5,800",
+        "timeline": "4-week launch · Payable in 3 milestones",
         "sections": [
             ("What you get", [
                 "Multi-page Astro architecture",
@@ -90,6 +90,7 @@ TIERS_EN: list[dict] = [
                 "GSAP / View Transitions polish",
             ]),
             ("Proof", [
+                "Lighthouse \u2265 95 guaranteed on launch",
                 "Designed for growing brands with editorial teams",
                 "Content editors never break the layout",
                 "All clients own the repo + credentials",
@@ -132,9 +133,9 @@ TIERS_EN: list[dict] = [
     {
         "slug": "partnership",
         "title": "Designer Partnership",
-        "subtitle": "Your Figma, shipped as code you're proud to show clients.",
-        "price": "From \u20ac80/hr - or per-project",
-        "timeline": "1-3 weeks per project",
+        "subtitle": "Pixel-perfect dev your clients will think you wrote yourself.",
+        "price": "From \u20ac1,750 / landing page",
+        "timeline": "\u20ac2,800 / Embedded Studio Week",
         "sections": [
             ("What you get", [
                 "Pixel-perfect implementation of your Figma file",
@@ -145,6 +146,7 @@ TIERS_EN: list[dict] = [
             ]),
             ("How it works", [
                 "Brief + NDA: You share the Figma, I return a fixed estimate in 48h",
+                "1-3 weeks per project",
                 "First cut: Real HTML on a private staging URL, no Lorem Ipsum",
                 "Design QA: We walk through together on Loom or live",
                 "Handover: Repo, deploy pipeline, CMS access - all in your studio's name",
@@ -193,7 +195,7 @@ TIERS_DE: list[dict] = [
         "title": "Das Growth-Paket",
         "subtitle": "Hochkonvertierende Landingpage fuer bezahlte Kampagnen.",
         "price": "Ab 1.750 \u20ac",
-        "timeline": "7-10 Werktage",
+        "timeline": "Funnel-Launch in 10 Tagen · Lighthouse ≥ 95",
         "sections": [
             ("Was Sie bekommen", [
                 "CRO-optimierte Landingpage, modulare Abschnitte",
@@ -219,8 +221,8 @@ TIERS_DE: list[dict] = [
         "slug": "scale",
         "title": "Die Scale-Website",
         "subtitle": "Headless-CMS-Plattform, gebaut fuer Wachstum.",
-        "price": "Ab 3.800 \u20ac",
-        "timeline": "3-5 Wochen",
+        "price": "Ab 5.800 \u20ac",
+        "timeline": "Launch in 4 Wochen · Zahlbar in 3 Meilensteinen",
         "sections": [
             ("Was Sie bekommen", [
                 "Multi-Page Astro-Architektur",
@@ -230,6 +232,7 @@ TIERS_DE: list[dict] = [
                 "GSAP / View Transitions Feinschliff",
             ]),
             ("Nachweis", [
+                "Lighthouse \u2265 95 garantiert beim Launch",
                 "Fuer wachsende Marken mit Redaktionsteams",
                 "Content-Editoren koennen das Layout nie zerstoeren",
                 "Alle Kunden besitzen das Repo + Zugangsdaten",
@@ -272,9 +275,9 @@ TIERS_DE: list[dict] = [
     {
         "slug": "partnership",
         "title": "Designer-Partnerschaft",
-        "subtitle": "Ihr Figma, als Code, den Sie Kunden zeigen moechten.",
-        "price": "Ab \u20ac80/Std - oder pro Projekt",
-        "timeline": "1-3 Wochen pro Projekt",
+        "subtitle": "Pixelgenaue Entwicklung, von der Ihre Kunden denken werden, Sie hätten sie selbst geschrieben.",
+        "price": "Ab \u20ac1.750 / Landingpage",
+        "timeline": "\u20ac2.800 / Embedded Studio Week",
         "sections": [
             ("Was Sie bekommen", [
                 "Pixelgenaue Umsetzung Ihrer Figma-Datei",
@@ -285,6 +288,7 @@ TIERS_DE: list[dict] = [
             ]),
             ("So funktioniert's", [
                 "Brief + NDA: Figma teilen, Festpreis in 48h",
+                "1-3 Wochen pro Projekt",
                 "Erster Entwurf: Echtes HTML auf privater Staging-URL",
                 "Design-QA: Gemeinsamer Walk-Through per Loom oder live",
                 "Uebergabe: Repo, Deploy, CMS - alles unter Ihrem Namen",
@@ -333,7 +337,7 @@ TIERS_ES: list[dict] = [
         "title": "El Paquete Growth",
         "subtitle": "Landing de alta conversion para campanas pagas.",
         "price": "Desde \u20ac1.750",
-        "timeline": "7-10 dias habiles",
+        "timeline": "Embudo lanzado en 10 dias · Lighthouse ≥ 95",
         "sections": [
             ("Que recibis", [
                 "Landing page con CRO, secciones modulares",
@@ -359,8 +363,8 @@ TIERS_ES: list[dict] = [
         "slug": "scale",
         "title": "El Sitio Scale",
         "subtitle": "Plataforma headless CMS, construida para escalar.",
-        "price": "Desde \u20ac3.800",
-        "timeline": "3-5 semanas",
+        "price": "Desde \u20ac5.800",
+        "timeline": "Lanzamiento en 4 semanas · Pago en 3 hitos",
         "sections": [
             ("Que recibis", [
                 "Arquitectura Astro multi-pagina",
@@ -370,6 +374,7 @@ TIERS_ES: list[dict] = [
                 "GSAP / View Transitions pulido",
             ]),
             ("Prueba", [
+                "Lighthouse \u2265 95 garantizado en el lanzamiento",
                 "Para marcas en crecimiento con equipos editoriales",
                 "Los editores de contenido nunca rompen el layout",
                 "Todos los clientes son duenos del repo + credenciales",
@@ -412,9 +417,9 @@ TIERS_ES: list[dict] = [
     {
         "slug": "partnership",
         "title": "Partnership para Disenadores",
-        "subtitle": "Tu Figma, llevado a codigo que queres mostrarle al cliente.",
-        "price": "Desde \u20ac80/h - o por proyecto",
-        "timeline": "1-3 semanas por proyecto",
+        "subtitle": "Dev pixel-perfect que tu cliente va a pensar que escribiste vos.",
+        "price": "Desde \u20ac1.750 / landing page",
+        "timeline": "\u20ac2.800 / Embedded Studio Week",
         "sections": [
             ("Que recibis", [
                 "Implementacion pixel-perfect de tu archivo Figma",
@@ -425,6 +430,7 @@ TIERS_ES: list[dict] = [
             ]),
             ("Como funciona", [
                 "Brief + NDA: Compartis el Figma, presupuesto fijo en 48h",
+                "1-3 semanas por proyecto",
                 "Primer corte: HTML real en URL de staging privada",
                 "QA de diseno: Lo revisamos juntos por Loom o en vivo",
                 "Entrega: Repo, deploy, CMS - todo a nombre de tu estudio",
