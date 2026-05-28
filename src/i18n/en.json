@@ -68,7 +68,7 @@
       },
       {
         "title": "The Scale Website",
-        "subtitle": "Multi-page, headless, editable. Built by an ex-Disney/LATAM engineer.",
+        "subtitle": "Multi-page, headless, editable. Built by a senior who's shipped for Disney and LATAM Airlines.",
         "price": "From €5,800",
         "delivery": "4-week launch",
         "image": "/src/assets/images/services/pkg-03.webp",
@@ -320,7 +320,7 @@
     "hero": {
       "tagline": "FOR ESTABLISHED BRANDS",
       "titleBold": "An enterprise-grade web platform — without the agency price tag.",
-      "titleLight": "Multi-page, multilingual, editable by your team. Built by the engineer behind Disney and LATAM Airlines' web platforms.",
+      "titleLight": "Multi-page, multilingual, editable by your team. Built by a senior frontend engineer with 15 years on production teams including Disney and LATAM Airlines.",
       "subtitle": "For studios, retreats and growth-stage brands that have outgrown a one-page site. You get a proper editor (Sanity or Storyblok), a component-driven design system, and a direct line to the senior who'll architect it — not an account manager.",
       "priceBadge": "From €5,800",
       "deliveryBadge": "4-week launch · Lighthouse ≥ 95 guaranteed · Payable in 3 milestones"

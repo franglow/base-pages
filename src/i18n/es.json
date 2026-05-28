@@ -74,7 +74,7 @@
       },
       {
         "title": "El Sitio Scale",
-        "subtitle": "Multipágina, headless, editable. Construido por un ingeniero ex-Disney/LATAM.",
+        "subtitle": "Multipágina, headless, editable. Construido por un senior que entregó código para Disney y LATAM Airlines.",
         "price": "Desde €5.800",
         "delivery": "Lanzamiento en 4 semanas",
         "image": "/src/assets/images/services/pkg-03.webp",
@@ -321,7 +321,7 @@
     "hero": {
       "tagline": "PARA MARCAS CONSOLIDADAS",
       "titleBold": "Una plataforma web de nivel enterprise — sin el precio de una agencia.",
-      "titleLight": "Multipágina, multilenguaje, editable por tu equipo. Construida por el ingeniero detrás de las plataformas web de Disney y LATAM Airlines.",
+      "titleLight": "Multipágina, multilenguaje, editable por tu equipo. Construida por un senior frontend engineer con 15 años en equipos de producción, incluyendo Disney y LATAM Airlines.",
       "subtitle": "Para estudios, retiros y marcas en crecimiento que ya quedaron chicos con una web de una sola página. Tenés un editor en serio (Sanity o Storyblok), un sistema de diseño basado en componentes, y un canal directo con el senior que va a arquitecturarlo — no un account manager.",
       "priceBadge": "Desde €5.800",
       "deliveryBadge": "Lanzamiento en 4 semanas · Lighthouse ≥ 95 garantizado · Pago en 3 hitos"

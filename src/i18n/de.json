@@ -74,7 +74,7 @@
       },
       {
         "title": "Die Scale-Website",
-        "subtitle": "Mehrseitig, headless, editierbar. Vom Senior-Engineer hinter Disney und LATAM Airlines.",
+        "subtitle": "Mehrseitig, headless, editierbar. Von einem Senior Frontend Engineer mit Disney und LATAM Airlines im Lebenslauf.",
         "price": "Ab 5.800 €",
         "delivery": "Launch in 4 Wochen",
         "image": "/src/assets/images/services/pkg-03.webp",
@@ -321,7 +321,7 @@
     "hero": {
       "tagline": "FÜR ETABLIERTE MARKEN",
       "titleBold": "Eine Web-Plattform auf Enterprise-Niveau — ohne Agentur-Preisschild.",
-      "titleLight": "Mehrseitig, mehrsprachig, von deinem Team editierbar. Gebaut vom Engineer hinter den Web-Plattformen von Disney und LATAM Airlines.",
+      "titleLight": "Mehrseitig, mehrsprachig, von deinem Team editierbar. Gebaut von einem Senior Frontend Engineer mit 15 Jahren in Produktionsteams, u. a. bei Disney und LATAM Airlines.",
       "subtitle": "Für Studios, Retreats und wachstumsstarke Marken, die aus einer One-Page-Website herausgewachsen sind. Du bekommst einen richtigen Editor (Sanity oder Storyblok), ein komponentenbasiertes Designsystem und einen direkten Draht zum Senior, der die Architektur aufsetzt — nicht zu einem Account Manager.",
       "priceBadge": "Ab 5.800 €",
       "deliveryBadge": "Launch in 4 Wochen · Lighthouse ≥ 95 garantiert · Zahlbar in 3 Meilensteinen"
