@@ -704,56 +704,56 @@
   },
   "carePage": {
     "meta": {
-      "ogTitle": "Cuidado Continuo | base-pages — Mantenimiento y Seguridad Web",
-      "ogDescription": "Tu sitio monitoreado, parcheado y mejorando. Actualizaciones, uptime y soporte prioritario. Desde €190/mes."
+      "ogTitle": "Cuidado Continuo | base-pages — Mantenimiento Web para Cualquier Plataforma",
+      "ogDescription": "¿Ya tenés una web en Webflow, Wix, Squarespace o WordPress? La mantengo rápida, actualizada y segura, para que vos no tengas que hacerlo. Desde €190/mes."
     },
     "hero": {
       "tagline": "CUIDADO, NO ABANDONADO",
-      "titleBold": "Tu sitio, en buenas manos — las de quien lo construyó.",
-      "titleLight": "Actualizaciones, ajustes y mejoras pequeñas, resueltos por mí.",
-      "subtitle": "No necesitás aprender otra herramienta ni abrir un ticket de soporte. Escribime por WhatsApp o mail y el cambio queda hecho — normalmente el mismo día. Yo mantengo tu sitio rápido, seguro y al día, así vos seguís enfocado en lo que de verdad paga las cuentas.",
+      "titleBold": "Tu web, en buenas manos — la haya hecho quien la haya hecho.",
+      "titleLight": "Actualizaciones, ajustes y esas mejoras pequeñas que nunca llegás a hacer — resueltas por mí.",
+      "subtitle": "Ya tenés una web. Lo que no tenés es tiempo para mantenerla rápida, arreglar los detalles o preocuparte de si sigue siendo segura. De eso me ocupo yo. Escribime por WhatsApp o mail y queda hecho — normalmente el mismo día. Webflow, Wix, Squarespace, WordPress o un desarrollo a medida: yo la cuido, así vos volvés a ocuparte de tu negocio.",
       "priceBadge": "Desde €190/mes",
       "deliveryBadge": "Cancelás cuando quieras · Respondo en 48h"
     },
-    "featuresSectionHeading": "Características",
+    "featuresSectionHeading": "De qué me encargo",
     "features": [
       {
-        "title": "Hosting Edge Rápido",
-        "description": "Tu sitio se despliega globalmente en redes edge. Esto garantiza un 99.9% de uptime y tiempos de carga ultrarrápidos para tus usuarios, sin importar su ubicación geográfica."
+        "title": "Una web más rápida",
+        "description": "Una página lenta te hace perder clientes sin que te des cuenta. Encuentro qué la está frenando — imágenes pesadas, complementos torpes, ajustes recargados — y lo arreglo. Si estás en una plataforma que limita la velocidad, te digo con honestidad hasta dónde podemos llegar."
       },
       {
-        "title": "Seguridad Proactiva",
-        "description": "Actualizaciones constantes de dependencias y monitoreo de amenazas. Parcheo vulnerabilidades antes de que sean un problema, asegurando que tus datos y tus usuarios sigan estrictamente protegidos."
+        "title": "Segura y al día",
+        "description": "Los plugins desactualizados y la configuración olvidada son la forma en que las webs se hackean o se caen. Mantengo todo actualizado y atento a los problemas, así los temas chicos se resuelven antes de que lleguen a tus clientes."
       },
       {
-        "title": "Monitoreo de Rendimiento",
-        "description": "Rastreamos continuamente tus Core Web Vitals. Si una nueva actualización de contenido o un script de terceros reduce tu puntuación de Lighthouse, lo detectamos y lo optimizamos inmediatamente."
+        "title": "Detecto los problemas antes que vos",
+        "description": "Vigilo tu sitio a toda hora. Si se pone lento, se rompe o se cae, normalmente me entero antes que vos — y muchas veces antes de que un solo cliente lo note."
       },
       {
-        "title": "Soporte Prioritario",
-        "description": "Tenés línea directa con tu desarrollador. ¿Necesitás integrar un nuevo píxel, ajustar un diseño o consultar sobre SEO técnico? Consideranos tu socio técnico in-house."
+        "title": "Una persona real, no una mesa de ayuda",
+        "description": "Sin colas de tickets ni chatbots. ¿Necesitás cambiar una foto, actualizar un texto, sumar un banner de temporada o una opinión rápida sobre algo? Escribime directo y queda resuelto — normalmente el mismo día."
       }
     ],
     "finalCta": {
-      "headline": "Mantené tu motor funcionando al 100%",
-      "subtitle": "No dejes que tu activo digital se deteriore con el tiempo. Asociate con nosotros para tener total tranquilidad.",
+      "headline": "Dejá de preocuparte por tu web",
+      "subtitle": "Pasásela a alguien que la mantenga rápida, segura y al día — mes tras mes. Vos enfocate en tu negocio; del resto me ocupo yo.",
       "buttonText": "Iniciar plan",
       "buttonUrl": "/es/contact?tier=care"
     },
     "riskReversal": {
-      "title": "Cómo te saco el riesgo de encima",
+      "title": "Por qué es un sí fácil",
       "points": [
         {
           "label": "Cancelás cuando quieras",
-          "detail": "Facturación mes a mes. Avisás con 5 días y se termina — entrega limpia, sin culpa."
+          "detail": "Pagás mes a mes. ¿Querés parar? Avisás con cinco días y nos separamos limpio — te entrego todo, sin penalidades ni momentos incómodos."
         },
         {
-          "label": "Respuesta en 48 horas",
-          "detail": "Cualquier ticket tiene respuesta real en dos días hábiles. Urgencias, mismo día."
+          "label": "Cero sorpresas",
+          "detail": "Antes de tocar nada, aprendo cómo funciona tu web actual y lo dejo documentado. Nunca cambio tu diseño ni tus textos sin consultarte primero."
         },
         {
-          "label": "Meses parciales prorrateados",
-          "detail": "Arrancás o parás a mitad de mes y prorrateo por día. Pagás sólo lo que usaste."
+          "label": "Pagás sólo lo que usás",
+          "detail": "Arrancás o parás a mitad de mes y lo calculo por día. Nunca pagás por tiempo que no recibiste."
         }
       ]
     },
@@ -772,31 +772,31 @@
         "optional": "Extras opcionales"
       },
       "included": [
-        "Hosting edge rápido en Vercel o equivalente",
-        "Parches semanales de dependencias + seguridad",
-        "Monitoreo de Core Web Vitals",
-        "Informe mensual de Lighthouse por email",
-        "Hasta 2 horas mensuales de ediciones de contenido",
-        "Respuesta en 48 horas a cualquier ticket",
+        "Hosting en infraestructura rápida y confiable — o trabajo con tu setup actual",
+        "Actualizaciones regulares de seguridad y software",
+        "Chequeos continuos de velocidad y disponibilidad",
+        "Un informe mensual en lenguaje claro: qué hice y cómo está tu web",
+        "Hasta 2 horas mensuales de ediciones (textos, imágenes, cambios chicos)",
+        "Respuesta en 48 horas — el mismo día para lo urgente",
         "Mes a mes, cancelás cuando quieras"
       ],
       "excluded": [
-        "Desarrollo de nuevas features (se presupuesta aparte)",
-        "Rediseños (ver Scale)",
-        "Gestión de campañas de ads",
-        "SLA 24/7 de emergencia (ver extras)"
+        "Funciones o páginas nuevas (se presupuesta aparte)",
+        "Rediseños completos (ese es el paquete Scale)",
+        "Gestionar tus ads o tus redes",
+        "Línea telefónica de emergencia 24/7 (disponible como extra)"
       ],
       "optional": [
         {
-          "label": "Horas extra de edición de contenido",
+          "label": "Horas extra de ediciones",
           "price": "€90/h"
         },
         {
-          "label": "Revisión trimestral de diseño + recs",
+          "label": "Revisión trimestral con ideas de mejora",
           "price": "€250"
         },
         {
-          "label": "Upgrade a SLA prioritario 24h",
+          "label": "Respuesta urgente garantizada el mismo día",
           "price": "+€90/mes"
         }
       ]
@@ -804,50 +804,50 @@
     "founder": {
       "name": "Francisco Cortez",
       "role": "Fundador · Diseñador y desarrollador",
-      "message": "Sin capas de agencia, sin juniors, sin pases de mano — trabajás directo con quien lo va a construir. Desde la primera llamada hasta el launch, y los años que vienen."
+      "message": "La haya construido yo o la haya hecho otro, trabajás directo conmigo — sin capas de agencia, sin juniors, sin que te pasen de mano en mano. Aprendo cómo funciona tu web y la mantengo funcionando bien. Desde el primer mensaje, en cada arreglo, por el tiempo que me necesites."
     },
     "faq": {
       "sectionTagline": "PREGUNTAS",
-      "sectionHeadline": "Preguntas antes de arrancar tu retainer Care",
+      "sectionHeadline": "Preguntas antes de arrancar tu plan Care",
       "items": [
         {
           "q": "¿Qué hacés exactamente cada mes?",
-          "a": "Actualizaciones de dependencias y seguridad, monitoreo de Core Web Vitals, chequeo de Lighthouse, uptime monitoring, reporte mensual y un bloque de horas de implementación para cambios chicos (copy, imágenes, sección nueva, ajustes de tracking)."
+          "a": "Mantengo tu web actualizada y segura, vigilo su velocidad y disponibilidad, te mando un informe mensual simple y me ocupo de los cambios chicos — textos nuevos, fotos cambiadas, una sección fresca, un banner. Pensalo como tener una persona de web disponible, sin el costo de contratar a alguien."
+        },
+        {
+          "q": "No hice mi web con vos — ¿igual podés cuidarla?",
+          "a": "Casi siempre, sí. Webflow, Wix, Squarespace, WordPress, Shopify o un desarrollo a medida — arranco conociendo tu sitio y cómo está armado. En el raro caso de que haya algo con lo que realmente no pueda ayudarte, te lo digo en la primera llamada, antes de que pagues nada."
+        },
+        {
+          "q": "¿Podés hacer más rápida mi web de Wix o Squarespace?",
+          "a": "Hasta cierto punto — y voy a ser honesto al respecto. Algunos constructores de webs limitan qué tan rápida puede llegar a ser una página; es simplemente cómo están hechos. Exprimo cada mejora que sí es posible en tu plataforma — imágenes, ajustes, limpieza — y te digo con honestidad dónde está el techo. Si la lentitud te está costando clientes y tu plataforma no da para más, te lo digo claro, y recién ahí vale la pena hablar de rehacerla."
         },
         {
           "q": "¿Puedo cancelar cuando quiera?",
-          "a": "Sí — Care es mes a mes, sin permanencia. Cancelás con 14 días de aviso y te quedás con cada commit, repo y asset. Nada queda en rehén."
+          "a": "Sí — es mes a mes, sin permanencia y sin contratos largos. Avisás con cinco días, te entrego todo lo que es tuyo y listo. Nunca queda nada en rehén."
         },
         {
-          "q": "¿Cuál es la diferencia entre Care y un hosting web común?",
-          "a": "El hosting sólo sirve los archivos. Care mantiene el sitio rápido, seguro y al día: parchea vulnerabilidades, monitorea performance, resuelve regresiones y te da una línea directa con un dev que ya conoce tu codebase."
+          "q": "¿Qué pasa si mi sitio se cae?",
+          "a": "Lo vigilo de forma automática y normalmente me entero antes que vos. De lunes a viernes, de 9 a 18 (hora central europea), tenés respuesta en pocas horas. Si tu negocio necesita cobertura las 24 horas, está disponible como extra."
         },
         {
-          "q": "¿Cubre parches de seguridad y alertas CVE?",
-          "a": "Sí. Actualizaciones automáticas de dependencias, alertas CVE vía GitHub y parches manuales para todo lo que necesite ojo humano. Las vulnerabilidades críticas se resuelven el mismo día."
+          "q": "¿Vas a cambiar mi diseño o mi contenido sin avisar?",
+          "a": "Nunca. Dejo documentado cómo funciona tu web antes de tocar nada, y cualquier cambio que se vea pasa por vos primero. Vos mantenés el control — soy un par de manos confiable, no alguien que rehace tu sitio por detrás."
         },
         {
-          "q": "¿Qué tan rápido respondés si el sitio se cae?",
-          "a": "Lun–Vie, 9–18 CET: primera respuesta en menos de 4 horas. El uptime monitoring me avisa automáticamente antes que la mayoría de los clientes lo noten. Cobertura de emergencia / fuera de horario disponible como add-on opcional."
+          "q": "¿Cuál es la diferencia entre esto y pagar sólo el hosting?",
+          "a": "El hosting sólo mantiene tu web encendida. No la actualiza, no la acelera, no arregla lo que se rompe ni responde cuando algo sale mal. Care hace todo eso — y además tenés una persona real que conoce tu sitio y de verdad te contesta."
         },
         {
-          "q": "¿Tengo prioridad sobre los clientes de builds nuevos?",
-          "a": "Sí. Los clientes Care pasan al frente de la fila para arreglos rápidos y tareas chicas. Los builds nuevos se agendan alrededor de la carga existente de Care, no al revés."
-        },
-        {
-          "q": "¿Las horas de implementación no usadas se acumulan?",
-          "a": "Las horas incluidas se acumulan un mes. Más allá de eso, expiran — mantiene el retainer honesto para los dos y evita acaparar. Horas extra están siempre disponibles a tarifa reducida."
-        },
-        {
-          "q": "¿Qué pasa si en el futuro quiero rediseñar?",
-          "a": "Care es separado del build. Cuando estés listo para un rediseño lo armamos como proyecto nuevo (Starter / Growth / Scale), y el retainer sigue cubriendo el sitio actual hasta que salga el nuevo."
+          "q": "¿Y si más adelante quiero un rediseño completo?",
+          "a": "Eso es un proyecto aparte, y no hay ninguna presión por hacerlo. Cuando estés listo, lo armamos bien (mis paquetes Starter, Growth o Scale), y sigo cuidando tu web actual hasta el momento justo en que la nueva sale al aire."
         }
       ]
     },
     "softCta": {
       "eyebrow": "¿Todavía no estás listo para una llamada?",
       "headline": "Llevate el PDF resumen",
-      "subtitle": "El desglose completo del tier — precio, tiempos, entregables, FAQ — en tu inbox en 30 segundos.",
+      "subtitle": "El desglose completo — qué incluye, cuánto cuesta, cómo funciona — en tu inbox en 30 segundos.",
       "emailLabel": "Tu email",
       "emailPlaceholder": "vos@empresa.com",
       "buttonText": "Enviame el resumen",

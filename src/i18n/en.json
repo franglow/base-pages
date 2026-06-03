@@ -713,56 +713,56 @@
   },
   "carePage": {
     "meta": {
-      "ogTitle": "Continuous Care | base-pages — Website Maintenance & Security",
-      "ogDescription": "Your site monitored, patched, and improving. Dependency updates, uptime monitoring, and priority support. From €190/month."
+      "ogTitle": "Continuous Care | base-pages — Website Maintenance for Any Platform",
+      "ogDescription": "Already have a website on Webflow, Wix, Squarespace or WordPress? I keep it fast, updated and secure, so you don't have to. From €190/month."
     },
     "hero": {
       "tagline": "LOOKED AFTER, NOT LEFT ALONE",
-      "titleBold": "Your site, taken care of — by the person who built it.",
-      "titleLight": "Updates, fixes, and small improvements, handled for you.",
-      "subtitle": "You don't need another tool to learn or a support ticket to write. Send me a WhatsApp or an email and the change is live — usually the same day. I keep your site fast, safe and up to date, so you stay focused on the work that actually pays the bills.",
+      "titleBold": "Your website, looked after — whoever built it.",
+      "titleLight": "Updates, fixes, and the small improvements you never get around to — handled for you.",
+      "subtitle": "You already have a website. You just don't have the time to keep it fast, fix the little things, or worry about whether it's still secure. That becomes my job. Send me a WhatsApp or an email and it's done — usually the same day. Webflow, Wix, Squarespace, WordPress or a custom build: I look after it, so you can get back to running your business.",
       "priceBadge": "From €190/mo",
-      "deliveryBadge": "Cancel anytime · 48h response window"
+      "deliveryBadge": "Cancel anytime · Reply within 48h"
     },
-    "featuresSectionHeading": "Features",
+    "featuresSectionHeading": "What I take care of",
     "features": [
       {
-        "title": "Fast Edge Hosting",
-        "description": "Your site is deployed globally on edge networks. This guarantees 99.9% uptime and lightning-fast load times for your users, regardless of their geographical location."
+        "title": "A faster website",
+        "description": "Slow pages quietly cost you customers. I find what's dragging your site down — oversized images, clunky add-ons, bloated settings — and fix it. If you're on a platform that caps speed, I'll tell you honestly how far we can realistically push it."
       },
       {
-        "title": "Proactive Security",
-        "description": "Constant dependency updates and threat monitoring. I patch vulnerabilities before they become a problem, ensuring your data and your users remain strictly protected."
+        "title": "Kept safe and current",
+        "description": "Out-of-date plugins and forgotten settings are how websites get hacked or suddenly break. I keep everything updated and watch for trouble, so small problems get sorted before they ever reach your customers."
       },
       {
-        "title": "Performance Monitoring",
-        "description": "I track your Core Web Vitals continuously. If a new content update or third-party script degrades your Lighthouse score, I detect it and optimize it immediately."
+        "title": "I catch problems before you do",
+        "description": "I keep an eye on your site around the clock. If it slows down, breaks, or goes offline, I usually know before you — and often before a single customer notices."
       },
       {
-        "title": "Priority Support",
-        "description": "Get a direct line to your developer. Need to integrate a new tracking pixel, adjust a layout, or consult on technical SEO? Consider me your in-house technical partner."
+        "title": "A real person, not a help desk",
+        "description": "No ticket queues, no chatbots. Need a photo swapped, some text updated, a seasonal banner added, or a quick opinion on something? Message me directly and it gets handled — usually the same day."
       }
     ],
     "finalCta": {
-      "headline": "Keep your engine running at 100%",
-      "subtitle": "Don't let your digital asset degrade over time. Partner with me for peace of mind.",
+      "headline": "Stop worrying about your website",
+      "subtitle": "Hand it to someone who'll keep it fast, safe and current — month after month. You focus on your business; I'll take care of the rest.",
       "buttonText": "Start your retainer",
       "buttonUrl": "/contact?tier=care"
     },
     "riskReversal": {
-      "title": "How I de-risk this for you",
+      "title": "Why this is an easy yes",
       "points": [
         {
           "label": "Cancel any month",
-          "detail": "Month-by-month billing. Give 5 days notice and you're out — clean handover, no guilt trips."
+          "detail": "Pay month to month. Want to stop? Give me five days' notice and we part ways cleanly — everything handed over, no penalties, no awkwardness."
         },
         {
-          "label": "48-hour response window",
-          "detail": "Any ticket gets a real reply within two business days. Urgent issues get same-day attention."
+          "label": "No surprises, ever",
+          "detail": "Before I touch anything, I learn how your existing site works and write it down. I never change your design or your words without checking with you first."
         },
         {
-          "label": "Pro-rated partial months",
-          "detail": "Start or stop mid-month and I pro-rate to the day. You only pay for what you actually use."
+          "label": "Only pay for what you use",
+          "detail": "Start or stop in the middle of a month and I work it out to the day. You're never charged for time you didn't get."
         }
       ]
     },
@@ -781,31 +781,31 @@
         "optional": "Optional add-ons"
       },
       "included": [
-        "Fast edge hosting on Vercel or equivalent",
-        "Weekly dependency + security patches",
-        "Core Web Vitals monitoring",
-        "Monthly Lighthouse report, delivered by email",
-        "Up to 2 hours of content edits per month",
-        "48-hour response window on tickets",
-        "Month-by-month, cancel anytime"
+        "Hosting on fast, reliable infrastructure — or I work with your current setup",
+        "Regular security and software updates",
+        "Ongoing speed and uptime checks",
+        "A plain-English monthly report: what I did and how your site's doing",
+        "Up to 2 hours of edits a month (text, images, small changes)",
+        "A reply within 48 hours — same day for anything urgent",
+        "Month-to-month, cancel anytime"
       ],
       "excluded": [
-        "New feature development (quoted separately)",
-        "Design overhauls (see Scale)",
-        "Paid ad management",
-        "Emergency 24/7 SLA (see add-ons)"
+        "Brand-new features or extra pages (quoted separately)",
+        "Full redesigns (that's the Scale package)",
+        "Running your ads or social media",
+        "A 24/7 emergency phone line (available as an add-on)"
       ],
       "optional": [
         {
-          "label": "Extra content-edit hours",
+          "label": "Extra hours of edits",
           "price": "€90/hr"
         },
         {
-          "label": "Quarterly design review + recs",
+          "label": "Quarterly review with improvement ideas",
           "price": "€250"
         },
         {
-          "label": "Priority 24-hour SLA upgrade",
+          "label": "Guaranteed same-day urgent response",
           "price": "+€90/mo"
         }
       ]
@@ -813,7 +813,7 @@
     "founder": {
       "name": "Francisco Cortez",
       "role": "Founder · Designer & developer",
-      "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
+      "message": "Whether I built your site or someone else did, you get me directly — no agency layers, no juniors, no being passed around. I learn how your site works, then I keep it running well. From the first message through every fix, for as long as you need me."
     },
     "faq": {
       "sectionTagline": "QUESTIONS",
@@ -821,42 +821,42 @@
       "items": [
         {
           "q": "What exactly do you do every month?",
-          "a": "Dependency and security updates, Core Web Vitals monitoring, Lighthouse check, uptime monitoring, a monthly report, and a block of implementation hours for small changes (copy, images, new section, tracking tweaks)."
+          "a": "I keep your site updated and secure, watch its speed and uptime, send you a simple monthly report, and handle small changes for you — new text, swapped photos, a fresh section, a seasonal banner. Think of it as having a web person on call, without the cost of hiring one."
+        },
+        {
+          "q": "I didn't build my site with you — can you still look after it?",
+          "a": "Almost always, yes. Webflow, Wix, Squarespace, WordPress, Shopify or a custom build — I start by getting to know your site and how it's put together. On the rare occasion there's something I genuinely can't help with, I'll tell you on the first call, before you've paid anything."
+        },
+        {
+          "q": "Can you make my Wix or Squarespace site faster?",
+          "a": "Up to a point — and I'll be straight with you about it. Some website builders limit how fast a site can ever be; that's just how they're made. I'll squeeze out every improvement that's actually possible on your platform — images, settings, clean-up — and tell you honestly where the ceiling is. If slow speed is costing you customers and your platform can't go further, I'll say so plainly, and only then is a rebuild worth a conversation."
         },
         {
           "q": "Can I cancel at any time?",
-          "a": "Yes — Care is month-to-month, no lock-in. Cancel with 14 days notice and you keep every commit, repo and asset. Nothing is held hostage."
+          "a": "Yes — it's month to month, with no lock-in and no long contract. Give me five days' notice, I hand over everything that's yours, and we're done. Nothing is ever held hostage."
         },
         {
-          "q": "What's the difference between Care and regular web hosting?",
-          "a": "Hosting just serves files. Care keeps the site fast, secure and current: patches vulnerabilities, monitors performance, fixes regressions, and gives you a direct line to a developer who already knows your codebase."
+          "q": "What happens if my site goes down?",
+          "a": "I keep watch automatically and usually know before you do. Monday to Friday, 9–18 (Central European Time), you'll hear back within a few hours. If your business needs round-the-clock cover, that's available as an add-on."
         },
         {
-          "q": "Do you cover security patches and CVE alerts?",
-          "a": "Yes. Automated dependency updates, CVE alerts via GitHub, and manual patching for anything that needs a human. Critical vulnerabilities get same-day turnaround."
+          "q": "Will you change my design or content without asking?",
+          "a": "Never. I write down how your site works before I touch anything, and any change you'd actually see goes past you first. You stay in control — I'm a safe pair of hands, not someone quietly redoing your site behind your back."
         },
         {
-          "q": "How fast do you respond if the site goes down?",
-          "a": "Mon–Fri, 9–18 CET: first reply inside 4 hours. Uptime monitoring pings me automatically before most clients notice. Emergency / out-of-hours cover is available as an optional add-on."
+          "q": "What's the difference between this and just paying for hosting?",
+          "a": "Hosting only keeps your site switched on. It won't update it, speed it up, fix what breaks, or answer when something goes wrong. Care does all of that — and you get a real person who knows your site and actually replies."
         },
         {
-          "q": "Do I get priority over new-build clients?",
-          "a": "Yes. Care clients jump the queue for quick fixes and small tasks. New builds get scheduled around existing Care load, not the other way around."
-        },
-        {
-          "q": "Do unused implementation hours roll over?",
-          "a": "Included hours roll over one month. Beyond that they expire — it keeps the retainer honest for both of us and avoids hoarding. Extra hours are always available at a reduced rate."
-        },
-        {
-          "q": "What happens if I want to redesign later?",
-          "a": "Care is separate from build work. When you're ready for a redesign we scope it like a new project (Starter / Growth / Scale), and the retainer continues to cover the current site until the new one ships."
+          "q": "What if I want a full redesign later?",
+          "a": "That's a separate project, and there's no pressure to do it. When you're ready, we scope it properly (my Starter, Growth or Scale packages), and I keep looking after your current site right up until the new one goes live."
         }
       ]
     },
     "softCta": {
       "eyebrow": "Not ready for a call?",
       "headline": "Grab the one-pager PDF",
-      "subtitle": "The full tier breakdown — price, timeline, deliverables, FAQ — delivered to your inbox in 30 seconds.",
+      "subtitle": "The full breakdown — what's included, what it costs, how it works — in your inbox in 30 seconds.",
       "emailLabel": "Your email",
       "emailPlaceholder": "you@company.com",
       "buttonText": "Send me the one-pager",
