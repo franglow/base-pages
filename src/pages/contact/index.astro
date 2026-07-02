@@ -52,6 +52,7 @@ const growth = contactPage.form.growth;
 const scale = contactPage.form.scale;
 const partnership = contactPage.form.partnership;
 const care = contactPage.form.care;
+const carePlus = (contactPage.form as any).carePlus;
 const step1Copy = (contactPage.form as any).step1;
 const step2Copy = (contactPage.form as any).step2;
 
@@ -454,6 +455,43 @@ const formPayload = Astro.locals.formPayload || {};
               </div>
             </div>
 
+            <!-- Care Plus Fields -->
+            <div id="care-plus-fields" class="tier-fields" inert>
+              <p class="tier-section-label">{carePlus.sectionLabel}</p>
+              <div class="tier-inner">
+                <div class="input-group">
+                  <input type="url" id="carePlusWebsiteUrl" name="carePlusWebsiteUrl" placeholder={carePlus.websitePlaceholder} class="minimal-input" data-url-prefix value={formPayload?.carePlusWebsiteUrl || ''} />
+                </div>
+                <div class="input-group relative">
+                  <select id="carePlusPlatform" name="carePlusPlatform" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected={!formPayload?.carePlusPlatform} hidden>{carePlus.platformLabel}</option>
+                    {carePlus.platformOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.carePlusPlatform === opt}>{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="input-group relative">
+                  <select id="carePlusPriority" name="carePlusPriority" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected={!formPayload?.carePlusPriority} hidden>{carePlus.priorityLabel}</option>
+                    {carePlus.priorityOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.carePlusPriority === opt}>{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="input-group relative">
+                  <select id="carePlusOrigin" name="carePlusOrigin" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected={!formPayload?.carePlusOrigin} hidden>{carePlus.originLabel}</option>
+                    {carePlus.originOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.carePlusOrigin === opt}>{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="input-group">
               <label for="budget" class="field-label">{contactPage.form.budgetLabel} <span class="text-neutral-400 ml-1 text-sm" aria-hidden="true">(optional)</span></label>
               <input type="text" id="budget" name="budget" placeholder={contactPage.form.budgetLabel} class="minimal-input" value={formPayload?.budget || ''} />
@@ -488,13 +526,15 @@ const formPayload = Astro.locals.formPayload || {};
     const scaleFields = document.getElementById('scale-fields');
     const partnerFields = document.getElementById('partnership-fields');
     const careFields = document.getElementById('care-fields');
-    if (!interestSelect || !growthFields || !scaleFields || !partnerFields || !careFields) return;
+    const carePlusFields = document.getElementById('care-plus-fields');
+    if (!interestSelect || !growthFields || !scaleFields || !partnerFields || !careFields || !carePlusFields) return;
 
-    function getSelectedTier(): 'growth' | 'scale' | 'partnership' | 'care' | null {
+    function getSelectedTier(): 'growth' | 'scale' | 'partnership' | 'care' | 'care-plus' | null {
       const val = interestSelect!.value.toLowerCase();
       if (val.includes('growth')) return 'growth';
       if (val.includes('scale')) return 'scale';
       if (val.includes('partnership') || val.includes('white-label') || val.includes('marca blanca')) return 'partnership';
+      if (val.includes('care plus') || val.includes('care+') || val.includes('seo-tuning') || val.includes('optimización seo')) return 'care-plus';
       if (val.includes('care') || val.includes('cuidado') || val.includes('betreuung')) return 'care';
       return null;
     }
@@ -589,6 +629,28 @@ const formPayload = Astro.locals.formPayload || {};
       if (co) { co.removeAttribute('required'); co.selectedIndex = 0; }
     }
 
+    // ── Care Plus toggle ─────────────────────────────────────────────
+    function showCarePlus(): void {
+      carePlusFields!.classList.add('tier-visible');
+      setInert(carePlusFields!, false);
+      carePlusFields!.querySelector<HTMLInputElement>('#carePlusWebsiteUrl')?.setAttribute('required', '');
+      carePlusFields!.querySelector<HTMLSelectElement>('#carePlusPlatform')?.setAttribute('required', '');
+      carePlusFields!.querySelector<HTMLSelectElement>('#carePlusPriority')?.setAttribute('required', '');
+      carePlusFields!.querySelector<HTMLSelectElement>('#carePlusOrigin')?.setAttribute('required', '');
+    }
+    function hideCarePlus(): void {
+      carePlusFields!.classList.remove('tier-visible');
+      setInert(carePlusFields!, true);
+      const cw = carePlusFields!.querySelector<HTMLInputElement>('#carePlusWebsiteUrl');
+      const cp = carePlusFields!.querySelector<HTMLSelectElement>('#carePlusPlatform');
+      const cpr = carePlusFields!.querySelector<HTMLSelectElement>('#carePlusPriority');
+      const co = carePlusFields!.querySelector<HTMLSelectElement>('#carePlusOrigin');
+      if (cw) { cw.removeAttribute('required'); cw.value = ''; }
+      if (cp) { cp.removeAttribute('required'); cp.selectedIndex = 0; }
+      if (cpr) { cpr.removeAttribute('required'); cpr.selectedIndex = 0; }
+      if (co) { co.removeAttribute('required'); co.selectedIndex = 0; }
+    }
+
     // ── Master toggle ───────────────────────────────────────────────
     function toggleTierFields(): void {
       const tier = getSelectedTier();
@@ -596,6 +658,7 @@ const formPayload = Astro.locals.formPayload || {};
       tier === 'scale' ? showScale() : hideScale();
       tier === 'partnership' ? showPartnership() : hidePartnership();
       tier === 'care' ? showCare() : hideCare();
+      tier === 'care-plus' ? showCarePlus() : hideCarePlus();
     }
 
     interestSelect.addEventListener('change', () => {
@@ -699,14 +762,15 @@ const formPayload = Astro.locals.formPayload || {};
     // Auto-select tier from ?tier= query param
     const urlParams = new URLSearchParams(window.location.search);
     const tierParam = urlParams.get('tier');
-    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care' || tierParam === 'starter') {
+    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care' || tierParam === 'care-plus' || tierParam === 'starter') {
       // Keywords to match localized option values per tier
       const tierKeywords: Record<string, string[]> = {
         starter: ['starter'],
         growth: ['growth'],
         scale: ['scale'],
         partnership: ['partnership', 'white-label', 'marca blanca', 'partnerschaft'],
-        care: ['care', 'cuidado', 'betreuung'],
+        'care-plus': ['care plus', 'care+', 'seo-tuning', 'optimización seo'],
+        care: ['continuous care', 'kontinuierliche betreuung', 'cuidado continuo'],
       };
       const keywords = tierKeywords[tierParam];
       const options = interestSelect.options;

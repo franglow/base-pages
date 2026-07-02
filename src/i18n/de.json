@@ -54,7 +54,7 @@
     "tagline": "DIENSTLEISTUNGEN & PREISE",
     "headline": "Ich berechne nicht nach Stunden. Ich berechne für Wert, Geschwindigkeit und sauberen Code, der konvertiert. Wähle dein Fundament.",
     "headerTitle": "Dienstleistungen",
-    "headerCount": "5",
+    "headerCount": "6",
     "items": [
       {
         "title": "Das Starter-Paket",
@@ -89,6 +89,15 @@
       "exploreText": "Paket ansehen",
       "exploreUrl": "/de/services/care",
       "note": "Ab 190 €/Monat. Schnelles Edge-Hosting, Sicherheitsupdates und Performance-Überwachung."
+    },
+    "carePlus": {
+      "pill": "Care Plus",
+      "title": "Already have a site? Let's get it found by more of the right people.",
+      "buttonText": "Get found",
+      "buttonUrl": "/de/contact?tier=care-plus",
+      "exploreText": "Explore Care Plus",
+      "exploreUrl": "/de/services/care-plus",
+      "note": "One-time tune-up from €490, or ongoing from €290/mo. Any platform — Webflow, Wix, Squarespace, WordPress, Shopify."
     },
     "partnership": {
       "tagline": "FÜR UX/UI-DESIGNER",
@@ -855,6 +864,189 @@
       "privacyNote": "Eine E-Mail. Kein Newsletter. Keine Weitergabe. Abmeldung = ein Klick."
     }
   },
+  "carePlusPage": {
+    "meta": {
+      "ogTitle": "Care Plus | base-pages — SEO, Local & AI Search Visibility",
+      "ogDescription": "Already have a website on any platform? I tune it for Google, local searches, and AI answers — so the right people find you and book. One-time from €490, or ongoing from €290/mo."
+    },
+    "hero": {
+      "tagline": "FOUND, NOT HIDDEN",
+      "titleBold": "Get found — on Google, locally, and in AI search.",
+      "titleLight": "Traditional SEO, local visibility, and AI search — handled for you, in plain language.",
+      "subtitle": "You have a lovely website, but it's quiet. The people who'd love what you do aren't finding it — not on Google, not locally, and not when they ask ChatGPT or Google AI for a recommendation. That's what I fix. Whether you teach yoga, run a studio, or are just getting your practice off the ground: I tune your site so it loads fast, ranks for the searches that matter, shows up for people nearby, and can be recommended accurately by AI tools. I built it or someone else did — any platform works.",
+      "priceBadge": "One-time from €490 · or €290/mo",
+      "deliveryBadge": "Any platform · Honest about what's possible"
+    },
+    "featuresSectionHeading": "What I work on",
+    "features": [
+      {
+        "title": "A site that loads in a blink",
+        "description": "Speed is the foundation everything else sits on. When a page is slow, people leave — and search engines notice. I find what's holding yours back and fix it, so your site feels quick and trustworthy from the first second."
+      },
+      {
+        "title": "Found on Google for the right searches",
+        "description": "Traditional SEO — the behind-the-scenes details that help Google understand who you are, what you offer, and why you deserve to rank. I tune your titles, structure, and page content so you show up when people search for what you actually do."
+      },
+      {
+        "title": "Found locally — people nearby, on Google & Maps",
+        "description": "When someone near you searches 'yoga near me' or 'therapist in my area', you want to appear. I set up your local presence — Google Business Profile, consistent location details, and the signals that tell search engines where you are and who you serve."
+      },
+      {
+        "title": "Found in AI answers — ChatGPT, Google AI, and beyond",
+        "description": "More people now ask AI tools for recommendations instead of typing into Google. I make sure your site is structured so these tools can read it accurately and mention you when someone asks for what you offer — without changing your voice or turning your site into jargon."
+      }
+    ],
+    "howItWorks": {
+      "sectionTagline": "HOW IT WORKS",
+      "sectionHeadline": "Simple, and done for you",
+      "steps": [
+        {
+          "title": "I take a proper look",
+          "description": "I go through your site the way a visitor, Google, and an AI tool would — what's slow, what's missing, what's confusing — and write it down in plain English."
+        },
+        {
+          "title": "We agree what matters most",
+          "description": "No 200-point report you'll never read. I tell you the handful of changes that will actually move the needle — for Google, for local search, and for AI visibility — and what each one is worth."
+        },
+        {
+          "title": "I do the work",
+          "description": "I make the changes for you — speed, SEO structure, local setup, AI-readiness — and I never touch your design or your words without checking first."
+        },
+        {
+          "title": "You see the difference",
+          "description": "I show you what changed and how it's working, in plain numbers: faster pages, better rankings, stronger local presence, and whether AI tools are picking you up."
+        }
+      ]
+    },
+    "included": {
+      "sectionTagline": "WHAT'S IN IT",
+      "sectionHeadline": "Exactly what the tune-up covers — and what it doesn't",
+      "columnLabels": {
+        "included": "Included",
+        "excluded": "Not included",
+        "optional": "Optional add-ons"
+      },
+      "included": [
+        "Full speed tune-up — fast pages as the foundation",
+        "Traditional SEO — titles, structure, and content search engines read",
+        "Local search setup — Google Business Profile and location signals",
+        "AI search readiness — structured so ChatGPT and Google AI can recommend you",
+        "A plain-English before-and-after report",
+        "Works on Webflow, Wix, Squarespace, WordPress, Shopify or custom"
+      ],
+      "excluded": [
+        "Running your ads or social media",
+        "Brand-new pages or a full redesign (that's Starter, Growth or Scale)",
+        "Promises of '#1 on Google overnight' — no honest person can",
+        "Ongoing changes after the tune-up (that's the monthly Care+ plan)"
+      ],
+      "optional": [
+        {
+          "label": "Keep it improving every month (Care+ ongoing)",
+          "price": "€290/mo"
+        },
+        {
+          "label": "A second location or service page",
+          "price": "from €90"
+        },
+        {
+          "label": "Quarterly review with fresh ideas",
+          "price": "€150"
+        }
+      ]
+    },
+    "caseStudy": {
+      "sectionTagline": "PROOF",
+      "sectionHeadline": "Real sites, real change",
+      "blocks": []
+    },
+    "testimonials": {},
+    "riskReversal": {
+      "title": "Why this is an easy yes",
+      "points": [
+        {
+          "label": "I'm honest about what's possible",
+          "detail": "Some website builders limit how far you can go, and no one can promise the top of Google. I'll tell you plainly what's realistic for your site and your area before you spend a single euro."
+        },
+        {
+          "label": "Nothing changes without your say-so",
+          "detail": "I learn how your site works and write it down first. Your design and your words stay yours — I never change anything you'd notice without checking with you."
+        },
+        {
+          "label": "Made to be affordable",
+          "detail": "Good help shouldn't be priced only for big companies. A one-time tune-up starts at €490, or spread it across the monthly plan. Clear pricing, no lock-in."
+        }
+      ]
+    },
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Founder · Designer & developer",
+      "message": "I built base-pages for people who were told good web help is only for big budgets. Whether I made your site or someone else did, you work with me directly — no agency, no jargon, no being passed around. I'll tune your site for Google, for local search, and for AI answers, and explain everything in words that actually make sense."
+    },
+    "faq": {
+      "sectionTagline": "QUESTIONS",
+      "sectionHeadline": "Questions before your tune-up",
+      "items": [
+        {
+          "q": "I'm a yoga teacher / therapist, not a tech person — is this for me?",
+          "a": "Especially for you. This is made for small, independent businesses — yoga teachers, studios, therapists, people just starting out. You don't need to understand SEO, local search, or AI tools. I handle all of it and explain the rest in plain language."
+        },
+        {
+          "q": "What's the difference between SEO, local search, and AI search?",
+          "a": "SEO is how you rank on Google when someone types a search. Local search is how you show up when someone nearby looks for what you offer — on Google and Maps. AI search is the newer piece: when someone asks ChatGPT or Google AI for a recommendation, you want to be in that answer. Care+ covers all three."
+        },
+        {
+          "q": "Can you make my Squarespace or Wix site easier to find?",
+          "a": "Yes — up to a point, and I'll be honest about it. These builders limit how far you can go on speed and technical SEO. I'll push every improvement that's actually possible and tell you clearly where the ceiling is, so you never pay for promises I can't keep."
+        },
+        {
+          "q": "What about WordPress or Shopify?",
+          "a": "Those give us more room to work, so usually we can go further — faster loading, cleaner SEO structure, stronger local setup, and better AI-readiness. I start by learning how your site is built, then improve it carefully without breaking what already works."
+        },
+        {
+          "q": "What does 'AI search visibility' actually mean?",
+          "a": "When someone asks ChatGPT, Perplexity, or Google AI 'who's a good yoga teacher near me?' or 'recommend a therapist in Berlin', these tools look at websites to form their answer. I structure your site so they can read it accurately and mention you when it's relevant — without changing your voice or adding robotic marketing speak."
+        },
+        {
+          "q": "Will I really get more clients?",
+          "a": "I can make you faster, easier to find on Google, stronger locally, and more visible in AI answers — that's the part I control, and I'll prove it with before-and-after numbers. Whether someone books is down to you and your offer. Anyone promising guaranteed clients or '#1 on Google' is selling you a story."
+        },
+        {
+          "q": "One-time tune-up or the monthly plan — which do I need?",
+          "a": "If your site just needs a good once-over, the one-time tune-up is perfect. If you'd like it to keep improving — fresh SEO tweaks, local updates, staying current as AI search evolves — the monthly Care+ plan rolls it all together. No pressure either way."
+        },
+        {
+          "q": "Do I have to be on a Care plan already?",
+          "a": "No. Anyone can book the one-time tune-up, whoever built your site. Care+ is simply the ongoing version, for people who want me looking after things month to month."
+        },
+        {
+          "q": "Are you only working in Berlin?",
+          "a": "I'm based in Berlin and know it well, but this works anywhere — your local search is set up around your own area, wherever that is. I work with people across Europe, North America, and beyond."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "Not ready to chat?",
+      "headline": "Grab the one-pager",
+      "subtitle": "What's included, what it costs, and what to expect — in your inbox in 30 seconds.",
+      "emailLabel": "Your email",
+      "emailPlaceholder": "you@business.com",
+      "buttonText": "Send me the one-pager",
+      "successMessage": "Sent. Check your inbox — including spam, just in case.",
+      "privacyNote": "One email. No newsletter. No sharing. Unsubscribe = one click."
+    },
+    "finalCta": {
+      "headline": "Let's get you found",
+      "subtitle": "A faster site, stronger Google rankings, local visibility, and AI search readiness — so the people looking for what you do actually find you. One-time, or looked after every month — your call.",
+      "buttonText": "Start with a free look",
+      "buttonUrl": "/de/contact?tier=care-plus"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "services": "Services",
+      "current": "Care Plus"
+    }
+  },
   "partnershipPage": {
     "meta": {
       "ogTitle": "Designer-Partnerschaft | base-pages — White-Label-Entwicklung für UX/UI-Designer",
@@ -1128,6 +1320,7 @@
         "Die Scale-Website (€5.800)",
         "Partnerschaft / White-Label",
         "Kontinuierliche Betreuung (ab €190/Monat)",
+        "Care Plus — SEO-Tuning (ab €290/Monat oder €490 einmalig)",
         "Andere / Individuelle Anfrage"
       ],
       "messagePlaceholder": "Erzähl mir von deinem Projekt und deinen Zielen",
@@ -1231,6 +1424,32 @@
         "originOptions": [
           "Ja — base-pages hat sie gebaut",
           "Nein — ein anderes Team hat sie gebaut"
+        ]
+      },
+      "carePlus": {
+        "sectionLabel": "Hilf mir, die Sichtbarkeit deiner Website einzuschätzen",
+        "websitePlaceholder": "URL deiner aktuellen Website",
+        "platformLabel": "Aktuelle Plattform / Builder",
+        "platformOptions": [
+          "Webflow",
+          "Wix",
+          "Squarespace",
+          "WordPress",
+          "Shopify",
+          "Andere"
+        ],
+        "priorityLabel": "Was ist dir am wichtigsten?",
+        "priorityOptions": [
+          "Geschwindigkeit & technische Gesundheit",
+          "Google-Ranking (SEO)",
+          "Lokale Sichtbarkeit — Menschen in der Nähe finden mich",
+          "In KI-Suchantworten erscheinen",
+          "Alles davon"
+        ],
+        "originLabel": "Haben wir deine aktuelle Website erstellt?",
+        "originOptions": [
+          "Ja — base-pages hat sie gebaut",
+          "Nein — von jemand anderem gebaut"
         ]
       },
       "step1": {
