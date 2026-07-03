@@ -92,10 +92,10 @@
     },
     "carePlus": {
       "pill": "Care Plus",
-      "title": "Already have a site? Let's get it found by more of the right people.",
-      "buttonText": "Get found",
+      "title": "Schon eine Seite? Lass sie von mehr der richtigen Leute finden.",
+      "buttonText": "Gefunden werden",
       "buttonUrl": "/de/contact?tier=care-plus",
-      "exploreText": "Explore Care Plus",
+      "exploreText": "Care Plus entdecken",
       "exploreUrl": "/de/services/care-plus",
       "note": "Neu hier? Starte mit Care+: einmaliges Tuning ab 490 €, dann 290 €/Monat zum Erhalt. Jede Plattform — Webflow, Wix, Squarespace, WordPress, Shopify."
     },
@@ -866,184 +866,184 @@
   },
   "carePlusPage": {
     "meta": {
-      "ogTitle": "Care Plus | base-pages — SEO, Local & AI Search Visibility",
-      "ogDescription": "Already have a website on any platform? I tune it for Google, local searches, and AI answers — so the right people find you and book. One-time tune-up from €490, then €290/mo to keep it up."
+      "ogTitle": "Care Plus | base-pages — Sichtbar bei Google, lokal & in KI-Suche",
+      "ogDescription": "Schon eine Website auf irgendeiner Plattform? Ich optimiere sie für Google, lokale Suchen und KI-Antworten — damit die richtigen Leute dich finden und buchen. Einmaliges Tuning ab 490 €, dann 290 €/Monat zum Erhalt."
     },
     "hero": {
-      "tagline": "FOUND, NOT HIDDEN",
-      "titleBold": "Get found — on Google, locally, and in AI search.",
-      "titleLight": "Traditional SEO, local visibility, and AI search — handled for you, in plain language.",
-      "subtitle": "You have a lovely website, but it's quiet. The people who'd love what you do aren't finding it — not on Google, not locally, and not when they ask ChatGPT or Google AI for a recommendation. That's what I fix. Whether you teach yoga, run a studio, or are just getting your practice off the ground: I tune your site so it loads fast, ranks for the searches that matter, shows up for people nearby, and can be recommended accurately by AI tools. I built it or someone else did — any platform works.",
-      "priceBadge": "One-time tune-up €490 · then €290/mo to maintain",
-      "deliveryBadge": "Any platform · Honest about what's possible"
+      "tagline": "GEFUNDEN, NICHT VERSTECKT",
+      "titleBold": "Werde gefunden — bei Google, lokal und in der KI-Suche.",
+      "titleLight": "Klassisches SEO, lokale Sichtbarkeit und KI-Suche — für dich erledigt, in klarer Sprache.",
+      "subtitle": "Du hast eine schöne Website, aber es ist still um sie. Die Menschen, die lieben würden, was du tust, finden sie nicht — nicht bei Google, nicht lokal und nicht, wenn sie ChatGPT oder Google AI um eine Empfehlung bitten. Genau das behebe ich. Ob du Yoga unterrichtest, ein Studio führst oder gerade erst mit deiner Praxis startest: Ich optimiere deine Seite, damit sie schnell lädt, für die richtigen Suchanfragen rankt, bei Menschen in der Nähe auftaucht und von KI-Tools korrekt empfohlen werden kann. Ob ich sie gebaut habe oder jemand anderes — jede Plattform funktioniert.",
+      "priceBadge": "Einmaliges Tuning 490 € · dann 290 €/Monat zum Erhalt",
+      "deliveryBadge": "Jede Plattform · Ehrlich, was möglich ist"
     },
-    "featuresSectionHeading": "What I work on",
+    "featuresSectionHeading": "Woran ich arbeite",
     "features": [
       {
-        "title": "A site that loads in a blink",
-        "description": "Speed is the foundation everything else sits on. When a page is slow, people leave — and search engines notice. I find what's holding yours back and fix it, so your site feels quick and trustworthy from the first second."
+        "title": "Eine Seite, die blitzschnell lädt",
+        "description": "Geschwindigkeit ist das Fundament, auf dem alles andere steht. Ist eine Seite langsam, springen Leute ab — und Suchmaschinen merken es. Ich finde, was deine Seite ausbremst, und behebe es, damit sie sich von der ersten Sekunde an schnell und vertrauenswürdig anfühlt."
       },
       {
-        "title": "Found on Google for the right searches",
-        "description": "Traditional SEO — the behind-the-scenes details that help Google understand who you are, what you offer, and why you deserve to rank. I tune your titles, structure, and page content so you show up when people search for what you actually do."
+        "title": "Bei Google gefunden — für die richtigen Suchanfragen",
+        "description": "Klassisches SEO — die Details im Hintergrund, die Google helfen zu verstehen, wer du bist, was du anbietest und warum du weit oben stehen solltest. Ich optimiere deine Titel, deine Struktur und deine Inhalte, damit du auftauchst, wenn Menschen nach dem suchen, was du wirklich tust."
       },
       {
-        "title": "Found locally — people nearby, on Google & Maps",
-        "description": "When someone near you searches 'yoga near me' or 'therapist in my area', you want to appear. I set up your local presence — Google Business Profile, consistent location details, and the signals that tell search engines where you are and who you serve."
+        "title": "Lokal gefunden — Menschen in der Nähe, bei Google & Maps",
+        "description": "Wenn jemand in deiner Nähe nach „Yoga in der Nähe“ oder „Therapeut in meiner Gegend“ sucht, willst du erscheinen. Ich richte deine lokale Präsenz ein — Google Business Profil, einheitliche Standortangaben und die Signale, die Suchmaschinen sagen, wo du bist und wen du bedienst."
       },
       {
-        "title": "Found in AI answers — ChatGPT, Google AI, and beyond",
-        "description": "More people now ask AI tools for recommendations instead of typing into Google. I make sure your site is structured so these tools can read it accurately and mention you when someone asks for what you offer — without changing your voice or turning your site into jargon."
+        "title": "In KI-Antworten gefunden — ChatGPT, Google AI und mehr",
+        "description": "Immer mehr Menschen fragen KI-Tools nach Empfehlungen, statt bei Google zu tippen. Ich sorge dafür, dass deine Seite so strukturiert ist, dass diese Tools sie korrekt lesen und dich nennen können, wenn jemand nach dem fragt, was du anbietest — ohne deine Stimme zu verändern oder deine Seite in Fachjargon zu verwandeln."
       }
     ],
     "howItWorks": {
-      "sectionTagline": "HOW IT WORKS",
-      "sectionHeadline": "Simple, and done for you",
+      "sectionTagline": "SO LÄUFT ES",
+      "sectionHeadline": "Einfach, und für dich erledigt",
       "steps": [
         {
-          "title": "I take a proper look",
-          "description": "I go through your site the way a visitor, Google, and an AI tool would — what's slow, what's missing, what's confusing — and write it down in plain English."
+          "title": "Ich schaue genau hin",
+          "description": "Ich gehe deine Seite so durch, wie es ein Besucher, Google und ein KI-Tool tun würden — was langsam ist, was fehlt, was verwirrt — und halte es in klarer Sprache fest."
         },
         {
-          "title": "We agree what matters most",
-          "description": "No 200-point report you'll never read. I tell you the handful of changes that will actually move the needle — for Google, for local search, and for AI visibility — and what each one is worth."
+          "title": "Wir klären, worauf es am meisten ankommt",
+          "description": "Kein 200-Punkte-Report, den du nie liest. Ich sage dir die Handvoll Änderungen, die wirklich etwas bewegen — für Google, für die lokale Suche und für die KI-Sichtbarkeit — und was jede davon wert ist."
         },
         {
-          "title": "I do the work",
-          "description": "I make the changes for you — speed, SEO structure, local setup, AI-readiness — and I never touch your design or your words without checking first."
+          "title": "Ich mache die Arbeit",
+          "description": "Ich setze die Änderungen für dich um — Geschwindigkeit, SEO-Struktur, lokales Setup, KI-Bereitschaft — und rühre dein Design oder deine Worte nie an, ohne vorher zu fragen."
         },
         {
-          "title": "You see the difference",
-          "description": "I show you what changed and how it's working, in plain numbers: faster pages, better rankings, stronger local presence, and whether AI tools are picking you up."
+          "title": "Du siehst den Unterschied",
+          "description": "Ich zeige dir, was sich verändert hat und wie es wirkt, in klaren Zahlen: schnellere Seiten, bessere Rankings, stärkere lokale Präsenz und ob KI-Tools dich aufgreifen."
         }
       ]
     },
     "included": {
-      "sectionTagline": "WHAT'S IN IT",
-      "sectionHeadline": "Exactly what the tune-up covers — and what it doesn't",
+      "sectionTagline": "WAS DRIN IST",
+      "sectionHeadline": "Genau das deckt das Tuning ab — und das nicht",
       "columnLabels": {
-        "included": "Included",
-        "excluded": "Not included",
-        "optional": "Optional add-ons"
+        "included": "Enthalten",
+        "excluded": "Nicht enthalten",
+        "optional": "Optionale Add-ons"
       },
       "included": [
-        "Full speed tune-up — fast pages as the foundation",
-        "Traditional SEO — titles, structure, and content search engines read",
-        "Local search setup — Google Business Profile and location signals",
-        "AI search readiness — structured so ChatGPT and Google AI can recommend you",
-        "A plain-English before-and-after report",
-        "Works on Webflow, Wix, Squarespace, WordPress, Shopify or custom"
+        "Volles Speed-Tuning — schnelle Seiten als Fundament",
+        "Klassisches SEO — Titel, Struktur und Inhalte, die Suchmaschinen lesen",
+        "Lokales Such-Setup — Google Business Profil und Standort-Signale",
+        "KI-Suchbereitschaft — so strukturiert, dass ChatGPT und Google AI dich empfehlen können",
+        "Ein Vorher-Nachher-Report in klarer Sprache",
+        "Funktioniert mit Webflow, Wix, Squarespace, WordPress, Shopify oder Custom"
       ],
       "excluded": [
-        "Running your ads or social media",
-        "Brand-new pages or a full redesign (that's Starter, Growth or Scale)",
-        "Promises of '#1 on Google overnight' — no honest person can",
-        "Ongoing changes after the tune-up (that's the monthly Care+ plan)"
+        "Deine Anzeigen oder Social Media betreuen",
+        "Ganz neue Seiten oder ein komplettes Redesign (das ist Starter, Growth oder Scale)",
+        "Versprechen wie „über Nacht die Nummer 1 bei Google“ — das kann niemand ehrlich",
+        "Laufende Änderungen nach dem Tuning (das ist der monatliche Care+-Plan)"
       ],
       "optional": [
         {
-          "label": "Keep it maintained & improving after your tune-up (ongoing)",
-          "price": "€290/mo"
+          "label": "Nach dem Tuning gepflegt & verbessert halten (laufend)",
+          "price": "290 €/Monat"
         },
         {
-          "label": "A second location or service page",
-          "price": "from €90"
+          "label": "Eine zweite Standort- oder Leistungsseite",
+          "price": "ab 90 €"
         },
         {
-          "label": "Quarterly review with fresh ideas",
-          "price": "€150"
+          "label": "Vierteljährlicher Review mit frischen Ideen",
+          "price": "150 €"
         }
       ]
     },
     "caseStudy": {
-      "sectionTagline": "PROOF",
-      "sectionHeadline": "Real sites, real change",
+      "sectionTagline": "NACHWEIS",
+      "sectionHeadline": "Echte Seiten, echte Veränderung",
       "blocks": []
     },
     "testimonials": {},
     "riskReversal": {
-      "title": "Why this is an easy yes",
+      "title": "Warum das ein leichtes Ja ist",
       "points": [
         {
-          "label": "I'm honest about what's possible",
-          "detail": "Some website builders limit how far you can go, and no one can promise the top of Google. I'll tell you plainly what's realistic for your site and your area before you spend a single euro."
+          "label": "Ich bin ehrlich, was möglich ist",
+          "detail": "Manche Website-Baukästen begrenzen, wie weit du kommst, und niemand kann die Spitze bei Google versprechen. Ich sage dir klar, was für deine Seite und deine Region realistisch ist, bevor du auch nur einen Euro ausgibst."
         },
         {
-          "label": "Nothing changes without your say-so",
-          "detail": "I learn how your site works and write it down first. Your design and your words stay yours — I never change anything you'd notice without checking with you."
+          "label": "Nichts ändert sich ohne deine Zustimmung",
+          "detail": "Ich lerne zuerst, wie deine Seite funktioniert, und halte es fest. Dein Design und deine Worte bleiben deine — ich ändere nie etwas Sichtbares, ohne dich zu fragen."
         },
         {
-          "label": "Made to be affordable",
-          "detail": "Good help shouldn't be priced only for big companies. Your one-time tune-up starts at €490 and you own the results. Want it kept up as search keeps shifting? Add ongoing care for €290/mo afterwards. Clear pricing, no lock-in."
+          "label": "Bezahlbar gemacht",
+          "detail": "Gute Hilfe sollte nicht nur für große Firmen bezahlbar sein. Dein einmaliges Tuning startet ab 490 €, und die Ergebnisse gehören dir. Willst du es gepflegt halten, während sich die Suche weiter verändert? Ergänze danach laufende Betreuung für 290 €/Monat. Klare Preise, keine Bindung."
         }
       ]
     },
     "founder": {
       "name": "Francisco Cortez",
-      "role": "Founder · Designer & developer",
-      "message": "I built base-pages for people who were told good web help is only for big budgets. Whether I made your site or someone else did, you work with me directly — no agency, no jargon, no being passed around. I'll tune your site for Google, for local search, and for AI answers, and explain everything in words that actually make sense."
+      "role": "Gründer · Designer & Entwickler",
+      "message": "Ich habe base-pages für Menschen gebaut, denen gesagt wurde, gute Web-Hilfe gebe es nur für große Budgets. Ob ich deine Seite gemacht habe oder jemand anderes — du arbeitest direkt mit mir: keine Agentur, kein Fachjargon, kein Herumgereicht-Werden. Ich optimiere deine Seite für Google, für die lokale Suche und für KI-Antworten und erkläre dir alles in Worten, die wirklich Sinn ergeben."
     },
     "faq": {
-      "sectionTagline": "QUESTIONS",
-      "sectionHeadline": "Questions before your tune-up",
+      "sectionTagline": "FRAGEN",
+      "sectionHeadline": "Fragen vor deinem Tuning",
       "items": [
         {
-          "q": "I'm a yoga teacher / therapist, not a tech person — is this for me?",
-          "a": "Especially for you. This is made for small, independent businesses — yoga teachers, studios, therapists, people just starting out. You don't need to understand SEO, local search, or AI tools. I handle all of it and explain the rest in plain language."
+          "q": "Ich bin Yogalehrerin / Therapeut, kein Technik-Mensch — ist das etwas für mich?",
+          "a": "Ganz besonders für dich. Das ist für kleine, unabhängige Unternehmen gemacht — Yogalehrer, Studios, Therapeuten, Menschen, die gerade erst anfangen. Du musst weder SEO noch lokale Suche noch KI-Tools verstehen. Ich kümmere mich um alles und erkläre dir den Rest in klarer Sprache."
         },
         {
-          "q": "What's the difference between SEO, local search, and AI search?",
-          "a": "SEO is how you rank on Google when someone types a search. Local search is how you show up when someone nearby looks for what you offer — on Google and Maps. AI search is the newer piece: when someone asks ChatGPT or Google AI for a recommendation, you want to be in that answer. Care+ covers all three."
+          "q": "Was ist der Unterschied zwischen SEO, lokaler Suche und KI-Suche?",
+          "a": "SEO ist, wie du bei Google rankst, wenn jemand etwas eintippt. Lokale Suche ist, wie du auftauchst, wenn jemand in der Nähe nach dem sucht, was du anbietest — bei Google und Maps. KI-Suche ist das Neuere: Wenn jemand ChatGPT oder Google AI um eine Empfehlung bittet, willst du in dieser Antwort vorkommen. Care+ deckt alle drei ab."
         },
         {
-          "q": "Can you make my Squarespace or Wix site easier to find?",
-          "a": "Yes — up to a point, and I'll be honest about it. These builders limit how far you can go on speed and technical SEO. I'll push every improvement that's actually possible and tell you clearly where the ceiling is, so you never pay for promises I can't keep."
+          "q": "Kannst du meine Squarespace- oder Wix-Seite leichter auffindbar machen?",
+          "a": "Ja — bis zu einem gewissen Punkt, und ich bin ehrlich damit. Diese Baukästen begrenzen, wie weit du bei Geschwindigkeit und technischem SEO kommst. Ich hole jede Verbesserung heraus, die wirklich möglich ist, und sage dir klar, wo die Grenze liegt — damit du nie für Versprechen zahlst, die ich nicht halten kann."
         },
         {
-          "q": "What about WordPress or Shopify?",
-          "a": "Those give us more room to work, so usually we can go further — faster loading, cleaner SEO structure, stronger local setup, and better AI-readiness. I start by learning how your site is built, then improve it carefully without breaking what already works."
+          "q": "Und WordPress oder Shopify?",
+          "a": "Die geben uns mehr Spielraum, also kommen wir meist weiter — schnelleres Laden, sauberere SEO-Struktur, stärkeres lokales Setup und bessere KI-Bereitschaft. Ich lerne zuerst, wie deine Seite gebaut ist, und verbessere sie dann behutsam, ohne kaputtzumachen, was schon funktioniert."
         },
         {
-          "q": "What does 'AI search visibility' actually mean?",
-          "a": "When someone asks ChatGPT, Perplexity, or Google AI 'who's a good yoga teacher near me?' or 'recommend a therapist in Berlin', these tools look at websites to form their answer. I structure your site so they can read it accurately and mention you when it's relevant — without changing your voice or adding robotic marketing speak."
+          "q": "Was bedeutet „KI-Sichtbarkeit“ eigentlich?",
+          "a": "Wenn jemand ChatGPT, Perplexity oder Google AI fragt „wer ist eine gute Yogalehrerin in meiner Nähe?“ oder „empfiehl mir einen Therapeuten in Berlin“, schauen diese Tools auf Websites, um ihre Antwort zu bilden. Ich strukturiere deine Seite so, dass sie sie korrekt lesen und dich nennen können, wenn es passt — ohne deine Stimme zu verändern oder roboterhaftes Marketing-Gerede hinzuzufügen."
         },
         {
-          "q": "Will I really get more clients?",
-          "a": "I can make you faster, easier to find on Google, stronger locally, and more visible in AI answers — that's the part I control, and I'll prove it with before-and-after numbers. Whether someone books is down to you and your offer. Anyone promising guaranteed clients or '#1 on Google' is selling you a story."
+          "q": "Bekomme ich wirklich mehr Kunden?",
+          "a": "Ich kann dich schneller machen, leichter bei Google auffindbar, lokal stärker und in KI-Antworten sichtbarer — das ist der Teil, den ich steuere, und ich beweise es mit Vorher-Nachher-Zahlen. Ob jemand bucht, hängt von dir und deinem Angebot ab. Wer garantierte Kunden oder „Platz 1 bei Google“ verspricht, verkauft dir ein Märchen."
         },
         {
-          "q": "One-time tune-up or ongoing — which do I need?",
-          "a": "Everyone starts with the one-time tune-up (from €490) — that's the deep optimization pass, and you own the results. If you'd like me to keep it up as Google, local search and AI answers keep shifting, add ongoing care for €290/mo afterwards. The ongoing plan builds on the tune-up; it doesn't replace it, so a single month is never a shortcut around the setup work."
+          "q": "Einmaliges Tuning oder laufend — was brauche ich?",
+          "a": "Alle starten mit dem einmaligen Tuning (ab 490 €) — das ist der tiefe Optimierungsdurchgang, und die Ergebnisse gehören dir. Möchtest du, dass ich es pflege, während sich Google, lokale Suche und KI-Antworten weiter verändern, ergänze danach laufende Betreuung für 290 €/Monat. Der laufende Plan baut auf dem Tuning auf; er ersetzt es nicht, ein einzelner Monat ist also nie eine Abkürzung um die Aufbauarbeit herum."
         },
         {
-          "q": "How is this different from your standard Care plan?",
-          "a": "Care+ is the way in if I haven't worked on your site before — the tune-up lets me get to know it and get it into shape, whoever built it, on any platform. My standard Care plan (€190/mo) is reserved for existing clients whose sites I've already built or optimized, so it's pure upkeep with no tune-up needed. New here? Care+ is your starting point."
+          "q": "Wie unterscheidet sich das von deinem normalen Care-Plan?",
+          "a": "Care+ ist der Einstieg, wenn ich noch nicht an deiner Seite gearbeitet habe — das Tuning lässt mich sie kennenlernen und in Form bringen, egal wer sie gebaut hat, auf jeder Plattform. Mein normaler Care-Plan (190 €/Monat) ist bestehenden Kunden vorbehalten, deren Seiten ich bereits gebaut oder optimiert habe, also reine Pflege ohne nötiges Tuning. Neu hier? Care+ ist dein Startpunkt."
         },
         {
-          "q": "Are you only working in Berlin?",
-          "a": "I'm based in Berlin and know it well, but this works anywhere — your local search is set up around your own area, wherever that is. I work with people across Europe, North America, and beyond."
+          "q": "Arbeitest du nur in Berlin?",
+          "a": "Ich sitze in Berlin und kenne die Stadt gut, aber das funktioniert überall — deine lokale Suche wird rund um deine eigene Region eingerichtet, wo auch immer das ist. Ich arbeite mit Menschen in ganz Europa, Nordamerika und darüber hinaus."
         }
       ]
     },
     "softCta": {
-      "eyebrow": "Not ready to chat?",
-      "headline": "Grab the one-pager",
-      "subtitle": "What's included, what it costs, and what to expect — in your inbox in 30 seconds.",
-      "emailLabel": "Your email",
-      "emailPlaceholder": "you@business.com",
-      "buttonText": "Send me the one-pager",
-      "successMessage": "Sent. Check your inbox — including spam, just in case.",
-      "privacyNote": "One email. No newsletter. No sharing. Unsubscribe = one click."
+      "eyebrow": "Noch nicht bereit zu reden?",
+      "headline": "Hol dir den One-Pager",
+      "subtitle": "Was enthalten ist, was es kostet und was dich erwartet — in 30 Sekunden in deinem Postfach.",
+      "emailLabel": "Deine E-Mail",
+      "emailPlaceholder": "du@unternehmen.com",
+      "buttonText": "Schick mir den One-Pager",
+      "successMessage": "Gesendet. Schau in dein Postfach — auch im Spam, sicherheitshalber.",
+      "privacyNote": "Eine E-Mail. Kein Newsletter. Kein Teilen. Abmelden = ein Klick."
     },
     "finalCta": {
-      "headline": "Let's get you found",
-      "subtitle": "A faster site, stronger Google rankings, local visibility, and AI search readiness — so the people looking for what you do actually find you. Start with the one-time tune-up; keep it looked after monthly if you like — your call.",
-      "buttonText": "Start with a free look",
+      "headline": "Lass dich finden",
+      "subtitle": "Eine schnellere Seite, bessere Google-Rankings, lokale Sichtbarkeit und KI-Suchbereitschaft — damit die Menschen, die suchen, was du tust, dich auch finden. Starte mit dem einmaligen Tuning; lass es monatlich pflegen, wenn du magst — deine Entscheidung.",
+      "buttonText": "Mit einem kostenlosen Blick starten",
       "buttonUrl": "/de/contact?tier=care-plus"
     },
     "breadcrumb": {
-      "home": "Home",
-      "services": "Services",
+      "home": "Start",
+      "services": "Leistungen",
       "current": "Care Plus"
     }
   },
