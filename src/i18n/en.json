@@ -82,7 +82,7 @@
       "buttonUrl": "/contact?tier=care",
       "exploreText": "Explore package",
       "exploreUrl": "/services/care",
-      "note": "Starting at €190/mo. Fast edge hosting, security updates, and performance monitoring."
+      "note": "€190/mo, for existing base-pages clients (Starter, Growth or Scale). New here? Start with Care+. Fast edge hosting, security updates, and performance monitoring."
     },
     "carePlus": {
       "pill": "Care Plus",
@@ -91,7 +91,7 @@
       "buttonUrl": "/contact?tier=care-plus",
       "exploreText": "Explore Care Plus",
       "exploreUrl": "/services/care-plus",
-      "note": "One-time tune-up from €490, or ongoing from €290/mo. Any platform — Webflow, Wix, Squarespace, WordPress, Shopify."
+      "note": "New here? Start with Care+: a one-time tune-up from €490, then €290/mo to keep it up. Any platform — Webflow, Wix, Squarespace, WordPress, Shopify."
     },
     "partnership": {
       "tagline": "FOR UX/UI DESIGNERS",
@@ -834,7 +834,7 @@
         },
         {
           "q": "I didn't build my site with you — can you still look after it?",
-          "a": "Almost always, yes. Webflow, Wix, Squarespace, WordPress, Shopify or a custom build — I start by getting to know your site and how it's put together. On the rare occasion there's something I genuinely can't help with, I'll tell you on the first call, before you've paid anything."
+          "a": "Yes, but we start with Care+ rather than this plan. This Care retainer is for existing clients whose sites I've already built or optimized, so I know them inside out. If we haven't worked together yet, Care+ is the way in: a one-time tune-up gets your site — whoever built it, on any platform — into shape, and from there I can look after it month to month."
         },
         {
           "q": "Can you make my Wix or Squarespace site faster?",
@@ -881,14 +881,14 @@
   "carePlusPage": {
     "meta": {
       "ogTitle": "Care Plus | base-pages — SEO, Local & AI Search Visibility",
-      "ogDescription": "Already have a website on any platform? I tune it for Google, local searches, and AI answers — so the right people find you and book. One-time from €490, or ongoing from €290/mo."
+      "ogDescription": "Already have a website on any platform? I tune it for Google, local searches, and AI answers — so the right people find you and book. One-time tune-up from €490, then €290/mo to keep it up."
     },
     "hero": {
       "tagline": "FOUND, NOT HIDDEN",
       "titleBold": "Get found — on Google, locally, and in AI search.",
       "titleLight": "Traditional SEO, local visibility, and AI search — handled for you, in plain language.",
       "subtitle": "You have a lovely website, but it's quiet. The people who'd love what you do aren't finding it — not on Google, not locally, and not when they ask ChatGPT or Google AI for a recommendation. That's what I fix. Whether you teach yoga, run a studio, or are just getting your practice off the ground: I tune your site so it loads fast, ranks for the searches that matter, shows up for people nearby, and can be recommended accurately by AI tools. I built it or someone else did — any platform works.",
-      "priceBadge": "One-time from €490 · or €290/mo",
+      "priceBadge": "One-time tune-up €490 · then €290/mo to maintain",
       "deliveryBadge": "Any platform · Honest about what's possible"
     },
     "featuresSectionHeading": "What I work on",
@@ -956,7 +956,7 @@
       ],
       "optional": [
         {
-          "label": "Keep it improving every month (Care+ ongoing)",
+          "label": "Keep it maintained & improving after your tune-up (ongoing)",
           "price": "€290/mo"
         },
         {
@@ -988,7 +988,7 @@
         },
         {
           "label": "Made to be affordable",
-          "detail": "Good help shouldn't be priced only for big companies. A one-time tune-up starts at €490, or spread it across the monthly plan. Clear pricing, no lock-in."
+          "detail": "Good help shouldn't be priced only for big companies. Your one-time tune-up starts at €490 and you own the results. Want it kept up as search keeps shifting? Add ongoing care for €290/mo afterwards. Clear pricing, no lock-in."
         }
       ]
     },
@@ -1026,12 +1026,12 @@
           "a": "I can make you faster, easier to find on Google, stronger locally, and more visible in AI answers — that's the part I control, and I'll prove it with before-and-after numbers. Whether someone books is down to you and your offer. Anyone promising guaranteed clients or '#1 on Google' is selling you a story."
         },
         {
-          "q": "One-time tune-up or the monthly plan — which do I need?",
-          "a": "If your site just needs a good once-over, the one-time tune-up is perfect. If you'd like it to keep improving — fresh SEO tweaks, local updates, staying current as AI search evolves — the monthly Care+ plan rolls it all together. No pressure either way."
+          "q": "One-time tune-up or ongoing — which do I need?",
+          "a": "Everyone starts with the one-time tune-up (from €490) — that's the deep optimization pass, and you own the results. If you'd like me to keep it up as Google, local search and AI answers keep shifting, add ongoing care for €290/mo afterwards. The ongoing plan builds on the tune-up; it doesn't replace it, so a single month is never a shortcut around the setup work."
         },
         {
-          "q": "Do I have to be on a Care plan already?",
-          "a": "No. Anyone can book the one-time tune-up, whoever built your site. Care+ is simply the ongoing version, for people who want me looking after things month to month."
+          "q": "How is this different from your standard Care plan?",
+          "a": "Care+ is the way in if I haven't worked on your site before — the tune-up lets me get to know it and get it into shape, whoever built it, on any platform. My standard Care plan (€190/mo) is reserved for existing clients whose sites I've already built or optimized, so it's pure upkeep with no tune-up needed. New here? Care+ is your starting point."
         },
         {
           "q": "Are you only working in Berlin?",
@@ -1051,7 +1051,7 @@
     },
     "finalCta": {
       "headline": "Let's get you found",
-      "subtitle": "A faster site, stronger Google rankings, local visibility, and AI search readiness — so the people looking for what you do actually find you. One-time, or looked after every month — your call.",
+      "subtitle": "A faster site, stronger Google rankings, local visibility, and AI search readiness — so the people looking for what you do actually find you. Start with the one-time tune-up; keep it looked after monthly if you like — your call.",
       "buttonText": "Start with a free look",
       "buttonUrl": "/contact?tier=care-plus"
     },
@@ -1334,7 +1334,7 @@
         "The Scale Website (€5,800)",
         "Partnership / White-label",
         "Continuous Care (from €190/mo)",
-        "Care Plus — SEO tune-up (from €290/mo or €490 one-time)",
+        "Care Plus — SEO tune-up (from €490, then €290/mo)",
         "Other / Custom inquiry"
       ],
       "messagePlaceholder": "Tell me about your project and goals",

@@ -134,7 +134,7 @@ TIERS_EN: list[dict] = [
         "slug": "care-plus",
         "title": "Care Plus",
         "subtitle": "Get found on Google, locally, and in AI search.",
-        "price": "From \u20ac490 one-time \u00b7 or \u20ac290 / month",
+        "price": "Tune-up from \u20ac490 \u00b7 then \u20ac290 / month to maintain",
         "timeline": "Any platform \u00b7 Honest about what's possible",
         "sections": [
             ("What you get", [
@@ -304,7 +304,7 @@ TIERS_DE: list[dict] = [
         "slug": "care-plus",
         "title": "Care Plus",
         "subtitle": "Gefunden werden auf Google, lokal und in KI-Suche.",
-        "price": "Ab \u20ac490 einmalig \u00b7 oder \u20ac290 / Monat",
+        "price": "Tuning ab \u20ac490 \u00b7 dann \u20ac290 / Monat zum Erhalt",
         "timeline": "Jede Plattform \u00b7 Ehrlich, was moeglich ist",
         "sections": [
             ("Was Sie bekommen", [
@@ -474,7 +474,7 @@ TIERS_ES: list[dict] = [
         "slug": "care-plus",
         "title": "Care Plus",
         "subtitle": "Encontrarte en Google, localmente y en busqueda con IA.",
-        "price": "Desde \u20ac490 puntual \u00b7 o \u20ac290 / mes",
+        "price": "Optimizaci\u00f3n desde \u20ac490 \u00b7 luego \u20ac290 / mes para mantener",
         "timeline": "Cualquier plataforma \u00b7 Honesto sobre lo posible",
         "sections": [
             ("Que recibis", [
