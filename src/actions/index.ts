@@ -4,7 +4,7 @@ import { sendClientEmail, sendInternalNotification, sendOnePagerEmail } from '..
 import type { Language } from '../i18n/config';
 
 const SITE_URL = 'https://base-pages.com';
-const VALID_TIERS = ['starter', 'growth', 'scale', 'care', 'partnership'] as const;
+const VALID_TIERS = ['starter', 'growth', 'scale', 'care', 'care-plus', 'partnership'] as const;
 type Tier = (typeof VALID_TIERS)[number];
 
 /**
@@ -60,6 +60,12 @@ export const server = {
       carePlatform: optionalFormString(),
       carePriority: optionalFormString(),
       careOrigin: optionalFormString(),
+      // Care Plus fields (empty when Care Plus not selected). Distinct names
+      // from Care so the two field sets never collide in FormData.
+      carePlusWebsiteUrl: optionalFormUrl(),
+      carePlusPlatform: optionalFormString(),
+      carePlusPriority: optionalFormString(),
+      carePlusOrigin: optionalFormString(),
     }),
     handler: async (input) => {
       try {
@@ -79,12 +85,14 @@ export const server = {
         const isGrowthLead = interestLower.includes('growth');
         const isStarterLead = interestLower.includes('starter');
         const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('partnerschaft');
-        const isCareLead = interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung');
+        const isCarePlusLead = interestLower.includes('care plus') || interestLower.includes('care+');
+        const isCareLead = !isCarePlusLead && (interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung'));
 
         const tier = isPremium ? 'premium'
             : isGrowthLead ? 'growth'
             : isStarterLead ? 'starter'
             : isPartnershipLead ? 'partnership'
+            : isCarePlusLead ? 'care-plus'
             : isCareLead ? 'care'
             : 'general';
 
@@ -142,6 +150,12 @@ export const server = {
               carePlatform: input.carePlatform,
               carePriority: input.carePriority,
               careOrigin: input.careOrigin,
+            }),
+            ...(isCarePlusLead && {
+              carePlusWebsiteUrl: input.carePlusWebsiteUrl,
+              carePlusPlatform: input.carePlusPlatform,
+              carePlusPriority: input.carePlusPriority,
+              carePlusOrigin: input.carePlusOrigin,
             }),
           });
           console.log('[ACTION] ✓ Internal Lead Radar notification sent');
@@ -273,7 +287,7 @@ export const server = {
 
       const lang = input.lang as Language;
       const tier = input.tier as Tier;
-      const pdfUrl = `${SITE_URL}/one-pagers/${tier}.pdf`;
+      const pdfUrl = `${SITE_URL}/one-pagers/${lang}/${tier}-one-pager.pdf`;
 
       try {
         await sendOnePagerEmail(lang, { email: input.email, tier, pdfUrl });

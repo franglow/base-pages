@@ -54,7 +54,7 @@
     "tagline": "SERVICIOS Y PRECIOS",
     "headline": "No cobro por hora. Cobro por valor, velocidad y código limpio que convierte. Elegí tu base.",
     "headerTitle": "Servicios",
-    "headerCount": "5",
+    "headerCount": "6",
     "items": [
       {
         "title": "El Paquete Starter",
@@ -88,7 +88,16 @@
       "buttonUrl": "/es/contact?tier=care",
       "exploreText": "Explorar paquete",
       "exploreUrl": "/es/services/care",
-      "note": "Desde €190/mes. Hosting edge rápido, actualizaciones de seguridad y monitoreo de rendimiento."
+      "note": "€190/mes, para clientes existentes de base-pages (Starter, Growth o Scale). ¿Sos nuevo? Empezá con Care+. Hosting edge rápido, actualizaciones de seguridad y monitoreo de rendimiento."
+    },
+    "carePlus": {
+      "pill": "Care Plus",
+      "title": "¿Ya tenés un sitio? Hagamos que te encuentren más de las personas correctas.",
+      "buttonText": "Que te encuentren",
+      "buttonUrl": "/es/contact?tier=care-plus",
+      "exploreText": "Explorar Care Plus",
+      "exploreUrl": "/es/services/care-plus",
+      "note": "¿Sos nuevo? Empezá con Care+: una optimización puntual desde €490, luego €290/mes para mantenerla. Cualquier plataforma — Webflow, Wix, Squarespace, WordPress, Shopify."
     },
     "partnership": {
       "tagline": "PARA DISEÑADORES UX/UI",
@@ -816,7 +825,7 @@
         },
         {
           "q": "No hice mi web con vos — ¿igual podés cuidarla?",
-          "a": "Casi siempre, sí. Webflow, Wix, Squarespace, WordPress, Shopify o un desarrollo a medida — arranco conociendo tu sitio y cómo está armado. En el raro caso de que haya algo con lo que realmente no pueda ayudarte, te lo digo en la primera llamada, antes de que pagues nada."
+          "a": "Sí, pero arrancamos con Care+ en lugar de este plan. Este plan Care es para clientes existentes cuyos sitios ya construí u optimicé, así que los conozco a fondo. Si todavía no trabajamos juntos, Care+ es la puerta de entrada: una optimización puntual pone tu sitio — lo haya hecho quien lo haya hecho, en cualquier plataforma — en forma, y desde ahí puedo cuidarlo mes a mes."
         },
         {
           "q": "¿Podés hacer más rápida mi web de Wix o Squarespace?",
@@ -853,6 +862,189 @@
       "buttonText": "Enviame el resumen",
       "successMessage": "Enviado. Revisá tu inbox — y el spam por las dudas.",
       "privacyNote": "Un solo email. Sin newsletter. Sin compartir con nadie. Desuscripción = un clic."
+    }
+  },
+  "carePlusPage": {
+    "meta": {
+      "ogTitle": "Care Plus | base-pages — Visibilidad en Google, local y en búsqueda con IA",
+      "ogDescription": "¿Ya tenés una web en cualquier plataforma? La optimizo para Google, las búsquedas locales y las respuestas de IA — para que las personas correctas te encuentren y reserven. Optimización puntual desde €490, luego €290/mes para mantenerla."
+    },
+    "hero": {
+      "tagline": "ENCONTRADO, NO ESCONDIDO",
+      "titleBold": "Que te encuentren — en Google, localmente y en la búsqueda con IA.",
+      "titleLight": "SEO tradicional, visibilidad local y búsqueda con IA — gestionados por mí, en lenguaje simple.",
+      "subtitle": "Tenés una web preciosa, pero está en silencio. Las personas que amarían lo que hacés no la encuentran — ni en Google, ni localmente, ni cuando le piden una recomendación a ChatGPT o a Google AI. Eso es lo que arreglo. Ya sea que enseñes yoga, tengas un estudio o recién estés arrancando con tu práctica: optimizo tu sitio para que cargue rápido, aparezca en las búsquedas que importan, se muestre a las personas cercanas y pueda ser recomendado con precisión por las herramientas de IA. Lo hice yo o lo hizo otra persona — cualquier plataforma sirve.",
+      "priceBadge": "Optimización puntual €490 · luego €290/mes para mantener",
+      "deliveryBadge": "Cualquier plataforma · Honesto sobre lo posible"
+    },
+    "featuresSectionHeading": "En qué trabajo",
+    "features": [
+      {
+        "title": "Un sitio que carga en un parpadeo",
+        "description": "La velocidad es la base sobre la que se apoya todo lo demás. Cuando una página es lenta, la gente se va — y los buscadores lo notan. Encuentro qué la frena y lo arreglo, para que tu sitio se sienta rápido y confiable desde el primer segundo."
+      },
+      {
+        "title": "Encontrado en Google por las búsquedas correctas",
+        "description": "SEO tradicional — los detalles detrás de escena que ayudan a Google a entender quién sos, qué ofrecés y por qué merecés posicionar. Ajusto tus títulos, tu estructura y el contenido de tus páginas para que aparezcas cuando la gente busca lo que realmente hacés."
+      },
+      {
+        "title": "Encontrado localmente — gente cercana, en Google y Maps",
+        "description": "Cuando alguien cerca tuyo busca «yoga cerca mío» o «terapeuta en mi zona», querés aparecer. Configuro tu presencia local — Google Business Profile, datos de ubicación consistentes y las señales que le dicen a los buscadores dónde estás y a quién atendés."
+      },
+      {
+        "title": "Encontrado en respuestas de IA — ChatGPT, Google AI y más",
+        "description": "Cada vez más personas le piden recomendaciones a las herramientas de IA en lugar de escribir en Google. Me aseguro de que tu sitio esté estructurado para que estas herramientas lo lean con precisión y te mencionen cuando alguien pregunta por lo que ofrecés — sin cambiar tu voz ni llenar tu sitio de jerga."
+      }
+    ],
+    "howItWorks": {
+      "sectionTagline": "CÓMO FUNCIONA",
+      "sectionHeadline": "Simple, y hecho por mí",
+      "steps": [
+        {
+          "title": "Miro con atención",
+          "description": "Recorro tu sitio como lo harían un visitante, Google y una herramienta de IA — qué es lento, qué falta, qué confunde — y lo anoto en lenguaje claro."
+        },
+        {
+          "title": "Acordamos qué importa más",
+          "description": "Nada de un informe de 200 puntos que nunca vas a leer. Te digo el puñado de cambios que de verdad mueven la aguja — para Google, para la búsqueda local y para la visibilidad en IA — y cuánto vale cada uno."
+        },
+        {
+          "title": "Hago el trabajo",
+          "description": "Hago los cambios por vos — velocidad, estructura SEO, configuración local, preparación para IA — y nunca toco tu diseño ni tus palabras sin consultarte antes."
+        },
+        {
+          "title": "Ves la diferencia",
+          "description": "Te muestro qué cambió y cómo está funcionando, en números claros: páginas más rápidas, mejores posiciones, presencia local más fuerte y si las herramientas de IA te están tomando."
+        }
+      ]
+    },
+    "included": {
+      "sectionTagline": "QUÉ INCLUYE",
+      "sectionHeadline": "Exactamente qué cubre la optimización — y qué no",
+      "columnLabels": {
+        "included": "Incluido",
+        "excluded": "No incluido",
+        "optional": "Add-ons opcionales"
+      },
+      "included": [
+        "Optimización completa de velocidad — páginas rápidas como base",
+        "SEO tradicional — títulos, estructura y contenido que leen los buscadores",
+        "Configuración de búsqueda local — Google Business Profile y señales de ubicación",
+        "Preparación para búsqueda con IA — estructurado para que ChatGPT y Google AI te recomienden",
+        "Un informe antes/después en lenguaje claro",
+        "Funciona en Webflow, Wix, Squarespace, WordPress, Shopify o a medida"
+      ],
+      "excluded": [
+        "Gestionar tus anuncios o redes sociales",
+        "Páginas nuevas o un rediseño completo (eso es Starter, Growth o Scale)",
+        "Promesas de «número 1 en Google de un día para el otro» — nadie honesto puede",
+        "Cambios continuos después de la optimización (eso es el plan mensual Care+)"
+      ],
+      "optional": [
+        {
+          "label": "Mantenerlo cuidado y mejorando después de tu optimización (continuo)",
+          "price": "€290/mes"
+        },
+        {
+          "label": "Una segunda página de ubicación o servicio",
+          "price": "desde €90"
+        },
+        {
+          "label": "Revisión trimestral con ideas frescas",
+          "price": "€150"
+        }
+      ]
+    },
+    "caseStudy": {
+      "sectionTagline": "PRUEBA",
+      "sectionHeadline": "Sitios reales, cambios reales",
+      "blocks": []
+    },
+    "testimonials": {},
+    "riskReversal": {
+      "title": "Por qué es un sí fácil",
+      "points": [
+        {
+          "label": "Soy honesto sobre lo que es posible",
+          "detail": "Algunos creadores de webs limitan hasta dónde podés llegar, y nadie puede prometer la cima de Google. Te digo con claridad qué es realista para tu sitio y tu zona antes de que gastes un solo euro."
+        },
+        {
+          "label": "Nada cambia sin tu aprobación",
+          "detail": "Primero aprendo cómo funciona tu sitio y lo anoto. Tu diseño y tus palabras siguen siendo tuyos — nunca cambio nada que notarías sin consultarte."
+        },
+        {
+          "label": "Pensado para ser accesible",
+          "detail": "La buena ayuda no debería tener precio solo para las grandes empresas. Tu optimización puntual arranca desde €490 y los resultados son tuyos. ¿Querés mantenerlo a medida que la búsqueda sigue cambiando? Sumá cuidado continuo por €290/mes después. Precios claros, sin permanencia."
+        }
+      ]
+    },
+    "founder": {
+      "name": "Francisco Cortez",
+      "role": "Fundador · Diseñador y desarrollador",
+      "message": "Construí base-pages para las personas a quienes les dijeron que la buena ayuda web es solo para grandes presupuestos. Haya hecho yo tu sitio o lo haya hecho otra persona, trabajás directo conmigo — sin agencia, sin jerga, sin que te pasen de mano en mano. Optimizo tu sitio para Google, para la búsqueda local y para las respuestas de IA, y te explico todo en palabras que de verdad tienen sentido."
+    },
+    "faq": {
+      "sectionTagline": "PREGUNTAS",
+      "sectionHeadline": "Preguntas antes de tu optimización",
+      "items": [
+        {
+          "q": "Soy profesora de yoga / terapeuta, no una persona técnica — ¿esto es para mí?",
+          "a": "Especialmente para vos. Esto está hecho para negocios chicos e independientes — profes de yoga, estudios, terapeutas, gente que recién arranca. No necesitás entender de SEO, búsqueda local ni herramientas de IA. Yo me ocupo de todo y te explico el resto en lenguaje simple."
+        },
+        {
+          "q": "¿Cuál es la diferencia entre SEO, búsqueda local y búsqueda con IA?",
+          "a": "El SEO es cómo posicionás en Google cuando alguien escribe una búsqueda. La búsqueda local es cómo aparecés cuando alguien cerca busca lo que ofrecés — en Google y Maps. La búsqueda con IA es lo más nuevo: cuando alguien le pide una recomendación a ChatGPT o a Google AI, querés estar en esa respuesta. Care+ cubre las tres."
+        },
+        {
+          "q": "¿Podés hacer que mi sitio de Squarespace o Wix sea más fácil de encontrar?",
+          "a": "Sí — hasta cierto punto, y voy a ser honesto. Estos creadores limitan hasta dónde podés llegar en velocidad y SEO técnico. Empujo cada mejora que de verdad es posible y te digo con claridad dónde está el techo, para que nunca pagues por promesas que no puedo cumplir."
+        },
+        {
+          "q": "¿Y WordPress o Shopify?",
+          "a": "Esos nos dan más margen, así que normalmente podemos llegar más lejos — carga más rápida, estructura SEO más limpia, configuración local más fuerte y mejor preparación para IA. Empiezo por aprender cómo está construido tu sitio y luego lo mejoro con cuidado, sin romper lo que ya funciona."
+        },
+        {
+          "q": "¿Qué significa realmente «visibilidad en búsqueda con IA»?",
+          "a": "Cuando alguien le pregunta a ChatGPT, Perplexity o Google AI «¿quién es un buen profe de yoga cerca mío?» o «recomendame un terapeuta en Berlín», estas herramientas miran sitios web para armar su respuesta. Estructuro tu sitio para que lo lean con precisión y te mencionen cuando corresponde — sin cambiar tu voz ni sumar palabrería robótica de marketing."
+        },
+        {
+          "q": "¿De verdad voy a conseguir más clientes?",
+          "a": "Puedo hacerte más rápido, más fácil de encontrar en Google, más fuerte a nivel local y más visible en respuestas de IA — esa es la parte que controlo, y lo pruebo con números antes/después. Que alguien reserve depende de vos y de tu oferta. Cualquiera que prometa clientes garantizados o el «número 1 en Google» te está vendiendo un cuento."
+        },
+        {
+          "q": "¿Optimización puntual o continua — cuál necesito?",
+          "a": "Todos arrancan con la optimización puntual (desde €490) — ese es el trabajo profundo, y los resultados son tuyos. Si querés que lo mantenga a medida que Google, la búsqueda local y las respuestas de IA siguen cambiando, sumá cuidado continuo por €290/mes después. El plan continuo se apoya en la optimización; no la reemplaza, así que un solo mes nunca es un atajo para saltarse el trabajo inicial."
+        },
+        {
+          "q": "¿En qué se diferencia de tu plan Care estándar?",
+          "a": "Care+ es la puerta de entrada si todavía no trabajé en tu sitio — la optimización me deja conocerlo y ponerlo en forma, lo haya hecho quien lo haya hecho, en cualquier plataforma. Mi plan Care estándar (€190/mes) está reservado para clientes existentes cuyos sitios ya construí u optimicé, así que es pura mantención sin necesidad de optimización. ¿Sos nuevo? Care+ es tu punto de partida."
+        },
+        {
+          "q": "¿Trabajás solo en Berlín?",
+          "a": "Estoy en Berlín y la conozco bien, pero esto funciona en cualquier lado — tu búsqueda local se configura en torno a tu propia zona, donde sea que esté. Trabajo con personas en toda Europa, Norteamérica y más allá."
+        }
+      ]
+    },
+    "softCta": {
+      "eyebrow": "¿Todavía no querés hablar?",
+      "headline": "Llevate el one-pager",
+      "subtitle": "Qué incluye, cuánto cuesta y qué esperar — en tu inbox en 30 segundos.",
+      "emailLabel": "Tu email",
+      "emailPlaceholder": "vos@empresa.com",
+      "buttonText": "Enviame el one-pager",
+      "successMessage": "Enviado. Revisá tu inbox — incluido el spam, por las dudas.",
+      "privacyNote": "Un email. Sin newsletter. Sin compartir. Desuscribirte = un clic."
+    },
+    "finalCta": {
+      "headline": "Vamos a que te encuentren",
+      "subtitle": "Un sitio más rápido, mejores posiciones en Google, visibilidad local y preparación para búsqueda con IA — para que las personas que buscan lo que hacés realmente te encuentren. Arrancá con la optimización puntual; mantenelo cuidado cada mes si querés — vos decidís.",
+      "buttonText": "Empezá con una mirada gratis",
+      "buttonUrl": "/es/contact?tier=care-plus"
+    },
+    "breadcrumb": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "current": "Care Plus"
     }
   },
   "partnershipPage": {
@@ -1128,6 +1320,7 @@
         "El Sitio Scale (€5.800)",
         "Asociación / Marca blanca",
         "Cuidado Continuo (desde €190/mes)",
+        "Care Plus — optimización SEO (desde €490, luego €290/mes)",
         "Otro / Consulta personalizada"
       ],
       "messagePlaceholder": "Contame sobre tu proyecto y objetivos",
@@ -1231,6 +1424,32 @@
         "originOptions": [
           "Sí — base-pages lo construyó",
           "No — lo construyó otro equipo"
+        ]
+      },
+      "carePlus": {
+        "sectionLabel": "Ayudame a evaluar la visibilidad de tu sitio",
+        "websitePlaceholder": "URL de tu sitio web actual",
+        "platformLabel": "Plataforma / builder actual",
+        "platformOptions": [
+          "Webflow",
+          "Wix",
+          "Squarespace",
+          "WordPress",
+          "Shopify",
+          "Otro"
+        ],
+        "priorityLabel": "¿Qué te importa más?",
+        "priorityOptions": [
+          "Velocidad y salud técnica",
+          "Posicionamiento en Google (SEO)",
+          "Visibilidad local — que me encuentren cerca",
+          "Aparecer en respuestas de búsqueda con IA",
+          "Todo lo anterior"
+        ],
+        "originLabel": "¿Construí yo tu sitio actual?",
+        "originOptions": [
+          "Sí — base-pages lo construyó",
+          "No — lo construyó otra persona"
         ]
       },
       "step1": {

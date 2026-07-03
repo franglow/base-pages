@@ -131,6 +131,34 @@ TIERS_EN: list[dict] = [
         ],
     },
     {
+        "slug": "care-plus",
+        "title": "Care Plus",
+        "subtitle": "Get found on Google, locally, and in AI search.",
+        "price": "Tune-up from \u20ac490 \u00b7 then \u20ac290 / month to maintain",
+        "timeline": "Any platform \u00b7 Honest about what's possible",
+        "sections": [
+            ("What you get", [
+                "Full speed tune-up \u2014 fast pages as the foundation",
+                "Traditional SEO \u2014 titles, structure, and content search engines read",
+                "Local search \u2014 Google Business Profile and location signals",
+                "AI search readiness \u2014 structured for ChatGPT and Google AI answers",
+                "Plain-English before-and-after report",
+            ]),
+            ("Works with your platform", [
+                "Webflow, Wix, Squarespace, WordPress, Shopify or custom",
+                "I built it or someone else did \u2014 doesn't matter",
+                "Honest about what's possible on your platform",
+                "Nothing changes without your say-so",
+            ]),
+            ("Included", [
+                "Made for yoga teachers, therapists, studios and small businesses",
+                "One-time tune-up or ongoing monthly plan",
+                "Clear pricing, no lock-in",
+                "A real person on call \u2014 no ticket queues",
+            ]),
+        ],
+    },
+    {
         "slug": "partnership",
         "title": "Designer Partnership",
         "subtitle": "Pixel-perfect dev your clients will think you wrote yourself.",
@@ -269,6 +297,34 @@ TIERS_DE: list[dict] = [
                 "Monatlich kuendbar mit 5 Tagen Frist",
                 "Ein echter Mensch auf Abruf - keine Tickets, keine Chatbots",
                 "Sie zahlen nur, was Sie nutzen - tagesgenau abgerechnet",
+            ]),
+        ],
+    },
+    {
+        "slug": "care-plus",
+        "title": "Care Plus",
+        "subtitle": "Gefunden werden auf Google, lokal und in KI-Suche.",
+        "price": "Tuning ab \u20ac490 \u00b7 dann \u20ac290 / Monat zum Erhalt",
+        "timeline": "Jede Plattform \u00b7 Ehrlich, was moeglich ist",
+        "sections": [
+            ("Was Sie bekommen", [
+                "Volles Speed-Tuning \u2014 schnelle Seiten als Basis",
+                "Klassisches SEO \u2014 Titel, Struktur und Inhalte fuer Suchmaschinen",
+                "Lokale Suche \u2014 Google Business Profil und Standort-Signale",
+                "KI-Suchbereitschaft \u2014 strukturiert fuer ChatGPT und Google AI",
+                "Vorher-Nachher-Report in klarer Sprache",
+            ]),
+            ("Funktioniert mit Ihrer Plattform", [
+                "Webflow, Wix, Squarespace, WordPress, Shopify oder Custom",
+                "Ich habe sie gebaut oder jemand anderes \u2014 egal",
+                "Ehrlich, was auf Ihrer Plattform moeglich ist",
+                "Nichts aendert sich ohne Ihre Zustimmung",
+            ]),
+            ("Enthalten", [
+                "Fuer Yogalehrer, Therapeuten, Studios und kleine Unternehmen",
+                "Einmaliges Tuning oder laufender Monatsplan",
+                "Klare Preise, keine Bindung",
+                "Ein echter Mensch \u2014 keine Ticket-Warteschlangen",
             ]),
         ],
     },
@@ -415,6 +471,34 @@ TIERS_ES: list[dict] = [
         ],
     },
     {
+        "slug": "care-plus",
+        "title": "Care Plus",
+        "subtitle": "Encontrarte en Google, localmente y en busqueda con IA.",
+        "price": "Optimizaci\u00f3n desde \u20ac490 \u00b7 luego \u20ac290 / mes para mantener",
+        "timeline": "Cualquier plataforma \u00b7 Honesto sobre lo posible",
+        "sections": [
+            ("Que recibis", [
+                "Ajuste completo de velocidad \u2014 paginas rapidas como base",
+                "SEO tradicional \u2014 titulos, estructura y contenido para buscadores",
+                "Busqueda local \u2014 Google Business Profile y senales de ubicacion",
+                "Preparacion para busqueda con IA \u2014 ChatGPT y Google AI",
+                "Informe antes/despues en lenguaje claro",
+            ]),
+            ("Funciona con tu plataforma", [
+                "Webflow, Wix, Squarespace, WordPress, Shopify o custom",
+                "Lo hice yo o alguien mas \u2014 no importa",
+                "Honesto sobre lo posible en tu plataforma",
+                "Nada cambia sin tu aprobacion",
+            ]),
+            ("Incluido", [
+                "Para profesores de yoga, terapeutas, estudios y pequenos negocios",
+                "Ajuste puntual o plan mensual continuo",
+                "Precios claros, sin permanencia",
+                "Una persona real \u2014 sin tickets ni chatbots",
+            ]),
+        ],
+    },
+    {
         "slug": "partnership",
         "title": "Partnership para Disenadores",
         "subtitle": "Dev pixel-perfect que tu cliente va a pensar que escribiste vos.",
@@ -475,16 +559,67 @@ FOOTER_CTA = {
 # Minimal PDF/1.4 emitter
 # ---------------------------------------------------------------------------
 
-def escape_pdf_text(s: str) -> str:
-    replacements = {
-        "\u2014": "-", "\u2013": "-", "\u2022": "*", "\u00b7": "-",
-        "\u2026": "...", "\u20ac": "EUR ", "\u2265": ">=", "\u2264": "<=",
-        "\u2018": "'", "\u2019": "'", "\u201c": '"', "\u201d": '"',
-    }
-    for src, dst in replacements.items():
+REPLACEMENTS = {
+    "\u2014": "-", "\u2013": "-", "\u2022": "*", "\u00b7": "-",
+    "\u2026": "...", "\u20ac": "EUR ", "\u2265": ">=", "\u2264": "<=",
+    "\u2018": "'", "\u2019": "'", "\u201c": '"', "\u201d": '"',
+}
+
+
+def to_display(s: str) -> str:
+    """Apply the unicode->ASCII substitutions used when drawing text."""
+    for src, dst in REPLACEMENTS.items():
         s = s.replace(src, dst)
+    return s
+
+
+def escape_pdf_text(s: str) -> str:
+    s = to_display(s)
     s = s.encode("latin-1", errors="replace").decode("latin-1")
     return s.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+
+
+# Helvetica glyph advance widths (units per 1000 em) for the ASCII range.
+# Used only to estimate line widths so long header lines can wrap.
+_HELV_W = {
+    " ": 278, "!": 278, '"': 355, "#": 556, "$": 556, "%": 889, "&": 667,
+    "'": 191, "(": 333, ")": 333, "*": 389, "+": 584, ",": 278, "-": 333,
+    ".": 278, "/": 278, "0": 556, "1": 556, "2": 556, "3": 556, "4": 556,
+    "5": 556, "6": 556, "7": 556, "8": 556, "9": 556, ":": 278, ";": 278,
+    "<": 584, "=": 584, ">": 584, "?": 556, "@": 1015, "A": 667, "B": 667,
+    "C": 722, "D": 722, "E": 667, "F": 611, "G": 778, "H": 722, "I": 278,
+    "J": 500, "K": 667, "L": 556, "M": 833, "N": 722, "O": 778, "P": 667,
+    "Q": 778, "R": 722, "S": 667, "T": 611, "U": 722, "V": 667, "W": 944,
+    "X": 667, "Y": 667, "Z": 611, "[": 278, "\\": 278, "]": 278, "^": 469,
+    "_": 556, "`": 333, "a": 556, "b": 556, "c": 500, "d": 556, "e": 556,
+    "f": 278, "g": 556, "h": 556, "i": 222, "j": 222, "k": 500, "l": 222,
+    "m": 833, "n": 556, "o": 556, "p": 556, "q": 556, "r": 333, "s": 500,
+    "t": 278, "u": 556, "v": 500, "w": 722, "x": 500, "y": 500, "z": 500,
+    "{": 334, "|": 260, "}": 334, "~": 584,
+}
+_DEFAULT_W = 556
+
+
+def text_width(s: str, size: float, bold: bool = False) -> float:
+    units = sum(_HELV_W.get(ch, _DEFAULT_W) for ch in to_display(s))
+    width = units / 1000.0 * size
+    return width * 1.06 if bold else width
+
+
+def wrap_line(s: str, size: float, max_width: float, bold: bool = False) -> list[str]:
+    words = to_display(s).split(" ")
+    out: list[str] = []
+    current = ""
+    for word in words:
+        trial = word if not current else current + " " + word
+        if not current or text_width(trial, size, bold) <= max_width:
+            current = trial
+        else:
+            out.append(current)
+            current = word
+    if current:
+        out.append(current)
+    return out or [""]
 
 
 def build_content_stream(tier: dict, lang: str) -> bytes:
@@ -507,10 +642,26 @@ def build_content_stream(tier: dict, lang: str) -> bytes:
     text(margin_x, top - 6, "F2", 10, "BASE-PAGES  -  ONE-PAGER", color=(0.42, 0.45, 0.50))
     text(margin_x, top - 42, "F1", 28, tier["title"])
     text(margin_x, top - 66, "F2", 12, tier["subtitle"], color=(0.29, 0.33, 0.39))
-    text(margin_x, top - 98, "F1", 13, tier["price"] + "   -   " + tier["timeline"])
-    rule(top - 110)
 
-    y = top - 140
+    usable = width - 2 * margin_x
+    combined = tier["price"] + "   -   " + tier["timeline"]
+    if text_width(combined, 13, bold=True) <= usable:
+        last = top - 98
+        text(margin_x, last, "F1", 13, combined)
+    else:
+        py = top - 96
+        last = py
+        for ln in wrap_line(tier["price"], 13, usable, bold=True):
+            text(margin_x, py, "F1", 13, ln)
+            last = py
+            py -= 18
+        for ln in wrap_line(tier["timeline"], 11, usable):
+            text(margin_x, py, "F2", 11, ln, color=(0.29, 0.33, 0.39))
+            last = py
+            py -= 15
+    rule(last - 12)
+
+    y = last - 42
     for heading, bullets in tier["sections"]:
         text(margin_x, y, "F1", 13, heading.upper())
         y -= 18
