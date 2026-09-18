@@ -31,13 +31,6 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
   <main>
     <Hero data={enData.hero} />
 
-    <TestimonialQuote
-      label={enData.home.testimonialLabel}
-      quote={enData.home.testimonials.cornelia.quote}
-      attribution={enData.home.testimonials.cornelia.attribution}
-      emphasis={enData.home.testimonials.cornelia.emphasis}
-    />
-    
     <div class="max-w-7xl mx-auto px-6 mt-12 md:mt-24 w-full relative z-40">
       
       <div class="flex items-center pb-6 text-sm font-semibold text-gray-800">
@@ -69,9 +62,17 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
 
     </div>
 
+    <TestimonialQuote
+      label={enData.home.testimonialLabel}
+      quote={enData.home.testimonials.cornelia.quote}
+      attribution={enData.home.testimonials.cornelia.attribution}
+      emphasis={enData.home.testimonials.cornelia.emphasis}
+    />
+
     <div data-no-reveal>
       <RevealSection text={enData.home.revealText} />
     </div>
+
     <PortfolioGrid data={enData.portfolio} />
     
     <div class="max-w-7xl mx-auto px-6 mt-32">
