@@ -413,6 +413,14 @@ Found while reading the live copy. None of it blocks outreach, but a careful vis
   - The Starter "checklist the same day you book".
 - **German register:** the German Care page already mixed *du* (hero) and *Sie* (FAQ). I kept each line in the register it already used. Have the German changes proofread by a native speaker along with everything else.
 
+### The WhatsApp button (added 18 Sept)
+
+A floating **"Message me"** button now sits in the bottom-right corner of every page, in all three languages, with a message already written in the visitor's language ("Hi Fran! I have a question about my website."). On a phone it opens the WhatsApp app; on a computer it opens WhatsApp Web in a new tab, so your site stays open behind it.
+
+**What isn't possible:** a real WhatsApp conversation *inside* the page. WhatsApp only allows that through its Business Platform, which means a paid provider, a business verification, and a chat widget that loads Meta's code on your site — which in Germany also means it can only load after the visitor accepts cookies. For one person with a handful of enquiries a month, that's cost and legal exposure for no gain. The click-to-chat button loads nothing and sends nothing to Meta until someone actually clicks it, so it needs no consent.
+
+**One thing to add:** when you regenerate the privacy policy from e-recht24, include their WhatsApp/Meta paragraph, since visitors who click are contacting you through a Meta service.
+
 ### One practical step
 
 **WhatsApp creates an expectation of near-instant replies.** Set a WhatsApp Business greeting or away message that states the promise, for example: *"Thanks for your message! I reply within one working day — usually much sooner."* That way a two-hour silence doesn't feel like being ignored.

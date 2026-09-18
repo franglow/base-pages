@@ -22,6 +22,11 @@
     "contactHref": "/contact",
     "homeHref": "/"
   },
+  "whatsapp": {
+    "label": "Message me",
+    "prefill": "Hi Fran! I have a question about my website.",
+    "ariaLabel": "Message Fran on WhatsApp (opens WhatsApp in a new tab)"
+  },
   "hero": {
     "titles": [
       "Websites that perform.",

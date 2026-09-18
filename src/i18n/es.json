@@ -22,6 +22,11 @@
     "contactHref": "/es/contact",
     "homeHref": "/es"
   },
+  "whatsapp": {
+    "label": "Escribime",
+    "prefill": "¡Hola Fran! Tengo una pregunta sobre mi web.",
+    "ariaLabel": "Escribile a Fran por WhatsApp (abre WhatsApp en una pestaña nueva)"
+  },
   "hero": {
     "titles": [
       "Sitios web que rinden.",
