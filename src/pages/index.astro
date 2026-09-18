@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/sections/Header.astro';
 import Hero from '../components/sections/Hero.astro';
-import RevealSection from '../components/sections/RevealSection.astro';
 import PortfolioGrid from '../components/sections/PortfolioGrid.astro';
 import Services from '../components/sections/Services.astro';
 import Footer from '../components/sections/Footer.astro';
@@ -68,10 +67,6 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
       attribution={enData.home.testimonials.cornelia.attribution}
       emphasis={enData.home.testimonials.cornelia.emphasis}
     />
-
-    <div data-no-reveal>
-      <RevealSection text={enData.home.revealText} />
-    </div>
 
     <PortfolioGrid data={enData.portfolio} />
     
