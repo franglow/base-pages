@@ -1106,7 +1106,8 @@
       "titleLight": "Eine White-Label-Partnerschaft für Designer — Festpreis, fester Scope, NDA-first.",
       "subtitle": "Sie führen das Design und die Kundenbeziehung. Ich liefere produktionsreifes Astro oder Next.js — pixelgenau aus Ihrem Figma, auf einer sauberen Festpreis-Rechnung im Namen Ihres Studios. Ihre Kunden erfahren nie, dass es mich gibt.",
       "priceBadge": "Ab €1.750 / Landingpage · €2.800 / Embedded Studio Week",
-      "deliveryBadge": "1–3 Wochen pro Projekt · NDA zuerst · Lighthouse ≥ 95 garantiert"
+      "deliveryBadge": "1–3 Wochen pro Projekt · NDA zuerst · Lighthouse ≥ 95 garantiert",
+      "audienceNote": "Diese Seite ist für Designer:innen und Studios. Sie wird etwas technisch — absichtlich."
     },
     "featuresSectionHeading": "Leistungen",
     "features": [
@@ -1299,8 +1300,7 @@
   "aboutPage": {
     "hero": {
       "tagline": "ÜBER UNS",
-      "headline": "Hallo, ich bin Fran. Ich kümmere mich um die Technik, damit du dich um deine Klientinnen kümmern kannst.",
-      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+      "headline": "Hallo, ich bin Fran. Ich kümmere mich um die Technik, damit du dich um deine Klientinnen kümmern kannst."
     },
     "approach": {
       "tagline": "SO ARBEITE ICH",

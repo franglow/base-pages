@@ -1081,7 +1081,8 @@
       "titleLight": "A white-label partnership for designers — fixed-fee, fixed-scope, NDA-first.",
       "subtitle": "You run the design and the client. I ship production-grade Astro or Next.js — pixel-perfect from your Figma, on a clean fixed-fee invoice in your studio's name. Your clients never know I exist.",
       "priceBadge": "From €1,750 / landing page · €2,800 / Embedded Studio Week",
-      "deliveryBadge": "1–3 weeks per project · NDA-first · Lighthouse ≥ 95 guaranteed"
+      "deliveryBadge": "1–3 weeks per project · NDA-first · Lighthouse ≥ 95 guaranteed",
+      "audienceNote": "This page is for designers and studios. It gets a bit technical — on purpose."
     },
     "featuresSectionHeading": "Features",
     "features": [
@@ -1274,8 +1275,7 @@
   "aboutPage": {
     "hero": {
       "tagline": "ABOUT ME",
-      "headline": "Hi, I'm Fran. I take care of the tech, so you can take care of your clients.",
-      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
+      "headline": "Hi, I'm Fran. I take care of the tech, so you can take care of your clients."
     },
     "approach": {
       "tagline": "HOW I WORK",
