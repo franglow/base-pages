@@ -29,14 +29,13 @@
   },
   "hero": {
     "titles": [
-      "Websites that perform.",
-      "Landing pages that convert."
+      "You speak your practice.",
+      "I speak tech."
     ],
-    "subtitle": "Lightning-fast architectures designed to capture leads and outshine the competition.",
-    "cta": "Explore services",
-    "ctaUrl": "#services",
-    "location": "US",
-    "promo": "Use for free",
+    "subtitle": "I'm Fran. I build and look after websites for yoga teachers, therapists, coaches and retreat hosts in Berlin. You tell me what you need in your own words — I translate it into something that works, and explain it back in plain English.",
+    "cta": "Message me on WhatsApp",
+    "ctaUrl": "https://wa.me/491756975657?text=Hi%20Fran!%20I%20have%20a%20question%20about%20my%20website.",
+    "location": "Berlin",
     "language": "English",
     "languages": [
       {
@@ -47,17 +46,20 @@
         "label": "Español",
         "url": "/es"
       }
-    ]
+    ],
+    "secondaryCta": "See how I can help",
+    "secondaryCtaUrl": "#services",
+    "languageNote": "I work in English and Spanish."
   },
   "services": {
-    "tagline": "SERVICES & PRICING",
-    "headline": "I don't charge by the hour. I charge for value, speed, and clean code that converts. Pick your foundation.",
+    "tagline": "WHERE TO START",
+    "headline": "Start where you are.",
     "headerTitle": "Services",
-    "headerCount": "6",
+    "headerCount": "5",
     "items": [
       {
         "title": "The Starter Package",
-        "subtitle": "A custom one-page site, live in 5 days, that you edit yourself.",
+        "subtitle": "“I need a website I'm proud of.” A one-page site, live in 5 days, that you can update yourself.",
         "price": "From €890",
         "delivery": "5-day delivery",
         "image": "/src/assets/images/services/pkg-01.webp",
@@ -65,38 +67,38 @@
       },
       {
         "title": "The Growth Package",
-        "subtitle": "From DMs to sold out — the landing page that fills your retreats.",
+        "subtitle": "“I have a retreat or an offer to fill.” One page that turns interest into bookings — the same approach behind Carma Retreats' sold-out first retreat.",
         "price": "From €1,750",
         "delivery": "10-day launch",
         "image": "/src/assets/images/services/pkg-02.webp",
         "url": "/services/growth"
       },
       {
-        "title": "The Scale Website",
-        "subtitle": "Multi-page, headless, editable. Built by a senior who's shipped for Disney and LATAM Airlines.",
-        "price": "From €5,800",
-        "delivery": "4-week launch",
+        "title": "Care Plus",
+        "subtitle": "“I have a website, but it's quiet — or something's broken.” I get it into shape so the people nearby can find you, then keep it that way. Any platform.",
+        "price": "From €490",
+        "delivery": "then €290/mo",
         "image": "/src/assets/images/services/pkg-03.webp",
-        "url": "/services/scale"
+        "url": "/services/care-plus"
       }
     ],
     "cta": {
-      "pill": "Continuous Care",
-      "title": "Protect your investment with my Care & Optimization retainer.",
-      "buttonText": "Let's talk",
-      "buttonUrl": "/contact?tier=care",
-      "exploreText": "Explore package",
-      "exploreUrl": "/services/care",
-      "note": "€190/mo, for existing base-pages clients (Starter, Growth or Scale). New here? Start with Care+. Fast edge hosting, security updates, and performance monitoring."
+      "pill": "The Small Fix",
+      "title": "Just one thing isn't working? One fix, €120, done within a few days.",
+      "buttonText": "Tell me what's broken",
+      "buttonUrl": "/contact?tier=small-fix",
+      "exploreText": "Or see the care plans",
+      "exploreUrl": "/services/care-plus",
+      "note": "A booking link that goes nowhere, a form that doesn't send, a page that looks wrong on phones. Paid upfront — and it comes off the price if you go ahead with a bigger project within 30 days."
     },
     "carePlus": {
-      "pill": "Care Plus",
-      "title": "Already have a site? Let's get it found by more of the right people.",
-      "buttonText": "Get found",
-      "buttonUrl": "/contact?tier=care-plus",
-      "exploreText": "Explore Care Plus",
-      "exploreUrl": "/services/care-plus",
-      "note": "New here? Start with Care+: a one-time tune-up from €490, then €290/mo to keep it up. Any platform — Webflow, Wix, Squarespace, WordPress, Shopify."
+      "pill": "Continuous Care",
+      "title": "Already working together? I'll keep looking after your site.",
+      "buttonText": "Let's talk",
+      "buttonUrl": "/contact?tier=care",
+      "exploreText": "Explore Continuous Care",
+      "exploreUrl": "/services/care",
+      "note": "€190/mo, for sites I've built or tuned up. New here? Start with Care Plus or a small fix."
     },
     "partnership": {
       "tagline": "FOR UX/UI DESIGNERS",
@@ -120,7 +122,8 @@
         "buttonText": "See how the partnership works",
         "buttonUrl": "/partnership"
       }
-    }
+    },
+    "intro": "No website yet, a retreat to fill, or a site that's gone quiet — pick the one that sounds like you. Every price is fixed and written down, so there are no surprises."
   },
   "starterPage": {
     "meta": {
@@ -134,7 +137,7 @@
       "titleLight": "A custom one-page site, live in 5 days, that you edit yourself.",
       "subtitle": "For yoga studios, retreats and solo founders who need a serious online presence — fast. The same studio behind Carma Retreats' sold-out launch. You update the words, I protect the design.",
       "priceBadge": "From €890",
-      "deliveryBadge": "5-day delivery · Lighthouse ≥ 95 guaranteed"
+      "deliveryBadge": "5-day delivery · Loads fast on any phone"
     },
     "featuresSectionHeading": "Features",
     "features": [
@@ -268,7 +271,7 @@
       ]
     },
     "founder": {
-      "name": "Francisco Cortez",
+      "name": "Fran Cortez",
       "role": "Founder · Designer & developer",
       "message": "No agency layers, no juniors, no handoffs — you get the person who'll actually build it. From the first call to launch, and the years after."
     },
@@ -334,7 +337,7 @@
     "hero": {
       "tagline": "FOR ESTABLISHED BRANDS",
       "titleBold": "An enterprise-grade web platform — without the agency price tag.",
-      "titleLight": "Multi-page, multilingual, editable by your team. Built by a senior frontend engineer with 15 years on production teams including Disney and LATAM Airlines.",
+      "titleLight": "Multi-page, multilingual, editable by your team. Built by a senior frontend engineer with 10+ years on production teams including Disney and LATAM Airlines.",
       "subtitle": "For studios, retreats and growth-stage brands that have outgrown a one-page site. You get a proper editor (Sanity or Storyblok), a component-driven design system, and a direct line to the senior who'll architect it — not an account manager.",
       "priceBadge": "From €5,800",
       "deliveryBadge": "4-week launch · Lighthouse ≥ 95 guaranteed · Payable in 3 milestones"
@@ -590,10 +593,10 @@
           "industry": "Yoga Retreats · Berlin",
           "headlineMetric": {
             "value": "Sold out",
-            "label": "first retreat, via the new booking funnel"
+            "label": "first retreat, after the new page went live"
           },
-          "challenge": "Bookings happened in Instagram DMs. No inquiry funnel, no tracking, no way to scale paid campaigns or measure what was working — every lost DM was a lost retreat booking.",
-          "outcome": "A German-language landing page on Astro with inquiry form, Meta pixel + conversion events, and SEO set up from day one. When the site went live, the first retreat sold out.",
+          "challenge": "Bookings happened in Instagram DMs. There was nowhere to send people who were interested, no way to see what was working, and every missed message was a missed booking.",
+          "outcome": "A calm one-page site in German with an enquiry form, set up from day one so her ads and Google could send the right people to it. When the page went live, the first retreat sold out.",
           "quote": "Fran is very well structured and maps out the process very well, so I always knew at what stage the website was, and he checked in with me regularly when he needed some more material. Its very easy to work with him because he communicates so clearly, and he has done a wonderful job for Carma Retreats.",
           "quoteAttribution": "Mareen · Carma Retreats",
           "projectUrl": "/works/carma-retreats"
@@ -734,7 +737,7 @@
       "tagline": "LOOKED AFTER, NOT LEFT ALONE",
       "titleBold": "Your website, looked after — whoever built it.",
       "titleLight": "Updates, fixes, and the small improvements you never get around to — handled for you.",
-      "subtitle": "You already have a website. You just don't have the time to keep it fast, fix the little things, or worry about whether it's still secure. That becomes my job. Send me a WhatsApp or an email and you'll hear back within one working day — most small changes are done within two. Webflow, Wix, Squarespace, WordPress or a custom build: I look after it, so you can get back to running your business.",
+      "subtitle": "You already have a website. You just don't have the time to keep it fast, fix the little things, or worry about whether it's still secure. That becomes my job. Send me a WhatsApp or an email and you'll hear back within one working day — most small changes are done within two. Webflow, Wix, Squarespace, WordPress or a custom build: I look after it, so you can get back to running your business. If I haven't looked after your site before, we start with a one-time tune-up (Care Plus), and I keep it in shape from there.",
       "priceBadge": "From €190/mo",
       "deliveryBadge": "Cancel anytime · Reply within 1 working day"
     },
@@ -1271,25 +1274,25 @@
   "aboutPage": {
     "hero": {
       "tagline": "ABOUT ME",
-      "headline": "I future-proof brands for the AI search era with high-performance digital architectures.",
+      "headline": "Hi, I'm Fran. I take care of the tech, so you can take care of your clients.",
       "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
     },
     "approach": {
-      "tagline": "MY METHOD",
+      "tagline": "HOW I WORK",
       "items": [
         {
-          "title": "The Strategy",
-          "description": "Search has evolved. I map out your visibility not just for Google, but for AI engines like ChatGPT and Perplexity. I focus on entity optimization to ensure your brand becomes a cited authority.",
+          "title": "First, I listen",
+          "description": "We start with a conversation about your practice, not about technology. Who you help, how people find you now, what feels hard. I ask the questions — you don't need to know the answers in tech terms.",
           "image": "/src/assets/images/about-page/strategy.png"
         },
         {
-          "title": "The Execution",
-          "description": "I build lightning-fast, mobile-first platforms. Every pixel is optimized for conversions, and every line of code is structured with Schema markup so AI crawlers can easily extract and cite your data.",
+          "title": "Then I build — and keep you in the loop",
+          "description": "I map out every step before we start, so you always know where things are. You see your site as it takes shape, and you can change your mind along the way.",
           "image": "/src/assets/images/about-page/execution.png"
         },
         {
-          "title": "The Growth",
-          "description": "You get a digital asset that ranks higher in traditional search, gets recommended by AI assistants, and turns that high-quality, targeted traffic into loyal clients.",
+          "title": "Then I stay",
+          "description": "A website should keep working after launch day. I make sure yours loads quickly, stays safe, and shows up when people nearby search for what you offer. When something breaks, you message me.",
           "image": "/src/assets/images/about-page/growth.png"
         }
       ]
@@ -1297,20 +1300,20 @@
     "values": [
       {
         "number": "01",
-        "title": "I engineer for AI retrieval",
-        "description": "If an AI crawler cannot read your site, you don't exist in the new web. I deliver clean architecture, structured data, and ultra-fast load times so you are always the primary source.",
+        "title": "Plain words, always",
+        "description": "If I can't explain it simply, that's my job to fix, not yours. No jargon, and no question is too small.",
         "image": "/src/assets/images/about-page/retrieval.png"
       },
       {
         "number": "02",
-        "title": "I design conversion funnels",
-        "description": "As AI answers more questions directly, the traffic that does reach your site is highly qualified. I build frictionless user experiences that guide these high-intent visitors straight to checkout or contact.",
+        "title": "Honest about what's possible",
+        "description": "I'll tell you what a website can and can't do for your practice — and when you don't need me at all.",
         "image": "/src/assets/images/about-page/funnels.png"
       },
       {
         "number": "03",
-        "title": "I build resilient partnerships",
-        "description": "The digital landscape changes daily. Whether adapting to new LLM algorithms, optimizing for AI Overviews, or launching a new campaign, I act as your dedicated technical growth partner for the long haul.",
+        "title": "One person, for the long run",
+        "description": "No agency layers, no hand-offs. The person you talk to on day one builds your site and answers your message a year later.",
         "image": "/src/assets/images/about-page/resilient.png"
       }
     ],
@@ -1319,16 +1322,25 @@
       "members": [
         {
           "name": "Fran Cortez",
-          "role": "Founder & Senior Frontend Engineer",
+          "role": "Founder · I build and look after your website",
           "image": "/src/assets/team/fran.jpg",
           "linkedin": "https://www.linkedin.com/in/francortez/"
         }
       ],
       "linkedinText": "Connect on LinkedIn →"
+    },
+    "story": {
+      "tagline": "MY STORY",
+      "paragraphs": [
+        "For more than ten years I worked as a software engineer, on big teams, for large international companies. It taught me how to build things that are solid and don't break.",
+        "Now I use that for something that matters more to me. I do this so people who hold space for others can focus on that — instead of worrying about websites, bookings and technology.",
+        "Yoga teachers, therapists, coaches, retreat hosts — you're experts at something that has nothing to do with websites. You shouldn't have to learn a new language just to be found online. Think of me as the bridge between your practice and the tech it needs: you tell me what you need, however you'd say it, and I translate it into something that works — and explain it back in words that make sense.",
+        "I live in Berlin and work in English and Spanish. My German is still growing."
+      ]
     }
   },
   "contactPage": {
-    "title": "Let's build your engine",
+    "title": "Tell me what's going on.",
     "form": {
       "namePlaceholder": "Your name",
       "emailPlaceholder": "Your professional email",
@@ -1336,10 +1348,11 @@
       "interests": [
         "The Starter Package (€890)",
         "The Growth Package (€1,750)",
+        "Care Plus — get found (from €490, then €290/mo)",
+        "A small fix (€120)",
+        "Continuous Care (from €190/mo)",
         "The Scale Website (€5,800)",
         "Partnership / White-label",
-        "Continuous Care (from €190/mo)",
-        "Care Plus — SEO tune-up (from €490, then €290/mo)",
         "Other / Custom inquiry"
       ],
       "messagePlaceholder": "Tell me about your project and goals",
@@ -1612,6 +1625,10 @@
           {
             "label": "Contact",
             "href": "/contact"
+          },
+          {
+            "label": "For designers",
+            "href": "/partnership"
           }
         ]
       }
@@ -1716,5 +1733,50 @@
         "body": "<p>Source: <a href='https://www.e-recht24.de' target='_blank' rel='noopener noreferrer'>e-recht24.de</a></p>"
       }
     ]
+  },
+  "home": {
+    "testimonialLabel": "IN A CLIENT'S WORDS",
+    "testimonials": {
+      "cornelia": {
+        "quote": "Fran built a beautiful website for my coaching business this year, stepping in where I lacked technical know-how and ideas. From the very first moment, he was highly engaged, providing structure, ideas, and helpful suggestions. Fran was professional, reliable, and fast, and he always responded to change requests promptly and with a lot of patience.",
+        "attribution": "Cornelia Jaeger · Ergotherapie & Coaching",
+        "emphasis": "stepping in where I lacked technical know-how and ideas"
+      },
+      "mareen": {
+        "quote": "Fran is very well structured and maps out the process very well, so I always knew at what stage the website was, and he checked in with me regularly when he needed some more material. Its very easy to work with him because he communicates so clearly, and he has done a wonderful job for Carma Retreats.",
+        "attribution": "Mareen · Carma Retreats",
+        "emphasis": "he communicates so clearly"
+      }
+    },
+    "highlights": {
+      "tagline": "WHAT IT'S LIKE",
+      "items": [
+        {
+          "title": "One person, start to finish",
+          "description": "You talk to me, not a team. The person who builds your site is the one who answers your message a year later."
+        },
+        {
+          "title": "Plain words",
+          "description": "I explain what I'm doing and why — no jargon, and no question is too small."
+        },
+        {
+          "title": "Someone to message when it breaks",
+          "description": "WhatsApp or email. I reply within one working day, and urgent things usually get an answer the same day."
+        }
+      ]
+    },
+    "contact": {
+      "headline": "Not sure where to start? Tell me what's going on.",
+      "text": "A few lines are enough. I'll take a free 15-minute look and tell you honestly what I'd do — even if the answer is that you don't need me.",
+      "whatsappLabel": "Message me on WhatsApp",
+      "whatsappUrl": "https://wa.me/491756975657?text=Hi%20Fran!%20I%20have%20a%20question%20about%20my%20website.",
+      "formLabel": "Or use the contact form",
+      "formUrl": "/contact"
+    },
+    "meta": {
+      "ogTitle": "Base Pages — Websites for yoga teachers, therapists & retreat hosts in Berlin",
+      "ogDescription": "I'm Fran. I build and look after websites for yoga teachers, therapists, coaches and retreat hosts in Berlin — in plain words, from start to finish."
+    },
+    "revealText": "websites for people who hold space"
   }
 }

@@ -5,8 +5,10 @@ import Hero from '../../components/sections/Hero.astro';
 import RevealSection from '../../components/sections/RevealSection.astro';
 import PortfolioGrid from '../../components/sections/PortfolioGrid.astro';
 import Services from '../../components/sections/Services.astro';
-import DesignerBanner from '../../components/sections/DesignerBanner.astro';
 import Footer from '../../components/sections/Footer.astro';
+import TestimonialQuote from '../../components/sections/TestimonialQuote.astro';
+import HomeHighlights from '../../components/sections/HomeHighlights.astro';
+import ContactCTA from '../../components/sections/ContactCTA.astro';
 
 import { getI18n } from '../../i18n/utils';
 import { generateHreflangLinks } from '../../i18n/hreflang';
@@ -39,6 +41,13 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
   <Header navData={data.nav} />
   <main>
     <Hero data={data.hero} />
+
+    <TestimonialQuote
+      label={data.home.testimonialLabel}
+      quote={data.home.testimonials.cornelia.quote}
+      attribution={data.home.testimonials.cornelia.attribution}
+      emphasis={data.home.testimonials.cornelia.emphasis}
+    />
     
     <div class="max-w-7xl mx-auto px-6 mt-12 md:mt-24 w-full relative z-40">
       
@@ -71,7 +80,7 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
 
     </div>
 
-    <RevealSection />
+    <RevealSection text={data.home.revealText} />
     <PortfolioGrid data={data.portfolio} />
     
     <div class="max-w-7xl mx-auto px-6 mt-32">
@@ -79,7 +88,16 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
     </div>
     
     <Services data={data.services} />
-    <DesignerBanner data={data.designerBanner} />
+
+    <HomeHighlights data={data.home.highlights} />
+
+    <TestimonialQuote
+      quote={data.home.testimonials.mareen.quote}
+      attribution={data.home.testimonials.mareen.attribution}
+      emphasis={data.home.testimonials.mareen.emphasis}
+    />
+
+    <ContactCTA data={data.home.contact} />
   </main>
   <Footer data={data.footer} />
 </Layout>

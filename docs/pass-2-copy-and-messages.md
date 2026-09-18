@@ -4,6 +4,9 @@
 
 ---
 
+> **Applied to the site on 18 Sept 2026** (branch `copy/reply-times-and-positioning-docs`): the homepage (§1), the Small Fix (§2), the About page (§3), the designer link move (§6), the reply times (§9) and the factual fixes (§8), in English, German and Spanish.
+> **Still to do by hand:** a real photo of you in the hero and on About (§1.1, §3.1), the "for designers" line on the Partnership page (§6), the small label above the hero title, German proofreading, and the legal pages.
+
 ## Decisions this pass is built on
 
 - **Name: keep Base Pages.** This replaces Task 3 in Pass 1. To make it work, **always pair the brand with the person**: "Base Pages · Fran Cortez". Your face and first name should come before the brand wherever people meet you first (homepage hero, Instagram display name, DM signature, email signature). The brand can stay; people just need to see that a person is behind it.

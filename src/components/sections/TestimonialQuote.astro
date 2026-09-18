@@ -1,0 +1,46 @@
+---
+/**
+ * A single client testimonial.
+ *
+ * The quote text is reproduced verbatim — `emphasis` only picks out a phrase
+ * inside it to highlight visually. Nothing is rewritten, shortened or added.
+ */
+interface Props {
+  label?: string;
+  quote: string;
+  attribution: string;
+  emphasis?: string;
+  class?: string;
+}
+
+const { label, quote, attribution, emphasis, class: className = '' } = Astro.props;
+
+const parts =
+  emphasis && quote.includes(emphasis)
+    ? {
+        before: quote.slice(0, quote.indexOf(emphasis)),
+        highlight: emphasis,
+        after: quote.slice(quote.indexOf(emphasis) + emphasis.length),
+      }
+    : { before: quote, highlight: '', after: '' };
+---
+
+<section class:list={['max-w-4xl mx-auto px-6 py-20 md:py-28', className]}>
+  {label && (
+    <div class="flex items-center gap-4 mb-8">
+      <div class="h-[2px] w-12 bg-[linear-gradient(90deg,#A8BFAF_0%,#E8DDC8_50%,#F6D7C8_100%)]"></div>
+      <span class="text-sm font-bold tracking-widest uppercase text-gray-900">{label}</span>
+    </div>
+  )}
+
+  <figure class="m-0">
+    <blockquote class="text-[20px] md:text-[28px] leading-[1.45] font-medium tracking-tight text-gray-500">
+      <span>{parts.before}</span>
+      {parts.highlight && <strong class="font-medium text-gray-900">{parts.highlight}</strong>}
+      <span>{parts.after}</span>
+    </blockquote>
+    <figcaption class="mt-6 text-sm font-medium text-[var(--color-text-muted)]">
+      {attribution}
+    </figcaption>
+  </figure>
+</section>

@@ -1,7 +1,14 @@
 ---
 // src/components/sections/RevealSection.astro
 import { Picture } from 'astro:assets';
-import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg'; 
+import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
+
+interface Props {
+  /** The line shown between "Base" and "Pages". */
+  text?: string;
+}
+
+const { text = 'websites for people who hold space' } = Astro.props;
 ---
 
 <section class="reveal-container">
@@ -27,7 +34,7 @@ import revealBg from '../../assets/images/reveal-section/reveal-image-01.jpg';
         />
 
         <div class="overlay-text">
-          <p>foundations for <br class="mobile-break" /> high-performing</p>
+          <p>{text}</p>
         </div>
       </div>
 

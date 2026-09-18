@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/sections/Header.astro';
-import DesignerBanner from '../../components/sections/DesignerBanner.astro';
 import Footer from '../../components/sections/Footer.astro';
 import enData from '../../i18n/en.json'; 
 import { Image } from 'astro:assets';
@@ -22,8 +21,8 @@ const jsonLd = [
 ---
 
 <Layout
-  title="About | base-pages — Boutique Web Studio"
-  description="Meet the expert behind base-pages. A solo developer building ultra-fast, conversion-optimized websites with direct accountability and senior expertise."
+  title="About Fran — Base Pages"
+  description="I build and look after websites for yoga teachers, therapists, coaches and retreat hosts in Berlin — in plain words, from start to finish."
   canonicalUrl="https://base-pages.com/about"
   lang="en"
   hreflangLinks={hreflangLinks}
@@ -45,6 +44,19 @@ const jsonLd = [
         </h1>
       </div>
     </header>
+
+    <section class="max-w-3xl mx-auto px-6 mt-8 md:mt-16 reveal-element">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-[2px] w-8 bg-gradient-to-r from-[#A8BFAF] via-[#E8DDC8] to-[#F6D7C8]"></div>
+        <span class="text-sm font-bold tracking-widest uppercase text-gray-900">{aboutPage.story.tagline}</span>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        {aboutPage.story.paragraphs.map((paragraph: string) => (
+          <p class="text-[16px] md:text-[18px] leading-relaxed text-gray-500">{paragraph}</p>
+        ))}
+      </div>
+    </section>
 
     <section class="max-w-7xl mx-auto px-6 mt-32 reveal-element">
       <div class="border-t border-gray-200 pt-8 mb-16">
@@ -154,7 +166,6 @@ const jsonLd = [
         ))}
       </div>
     </section>
-    <DesignerBanner data={enData.designerBanner} />
   </main>
   
   <Footer data={footer} />
