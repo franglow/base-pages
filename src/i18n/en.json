@@ -49,7 +49,10 @@
     ],
     "secondaryCta": "See how I can help",
     "secondaryCtaUrl": "#services",
-    "languageNote": "I work in English and Spanish."
+    "languageNote": "I work in English and Spanish.",
+    "eyebrow": "BASE PAGES · BERLIN",
+    "photoAlt": "Fran Cortez, the person behind Base Pages",
+    "photoChip": "Fran · Berlin"
   },
   "services": {
     "tagline": "WHERE TO START",

@@ -1,66 +1,92 @@
 ---
 // src/components/sections/Hero.astro
 import { Image } from 'astro:assets';
+import franPhoto from '../../assets/team/fran.jpg';
 
 interface Props {
   data: any;
 }
 
 const { data } = Astro.props;
+
 /** The main CTA points at WhatsApp, so it opens in a new tab and shows the icon. */
 const isExternalCta = typeof data.ctaUrl === 'string' && data.ctaUrl.startsWith('http');
-const heroImagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/hero/*.{jpeg,jpg,png,gif,webp}');
-const heroImages = await Promise.all(
-  Object.keys(heroImagesGlob).map((key) => heroImagesGlob[key]().then(res => res.default))
-);
+
+/**
+ * Both headline lines stay on screen. The words still rise into place on load —
+ * the same effect as before, but it plays once instead of looping, so the
+ * visitor's half of the idea ("You speak your practice.") never disappears.
+ */
+const lines: string[] = data.titles ?? [];
+let wordIndex = 0;
+const headline = lines.map((line: string) => ({
+  line,
+  words: line.split(' ').map((word) => ({ word, delay: (wordIndex++ * 0.06).toFixed(2) })),
+}));
 ---
 
-<section class="hero-section relative w-full overflow-hidden flex flex-col items-center justify-center mt-[var(--header-height)] pt-[var(--header-height)]">
+<section class="hero-section relative w-full mt-[var(--header-height)] pt-10 md:pt-16 pb-16 md:pb-24">
+  <div class="max-w-6xl mx-auto px-6 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:items-center">
 
-  <div class="orbit-container absolute top-1/2 left-1/2 w-0 h-0 z-0">
-    {heroImages.map((img, index) => (
-      <div class="orbit-item absolute top-0 left-0 w-0 h-0 will-change-transform">
-        <div
-          class="orbit-card"
-          style={{
-            animationDelay: `${index * 0.2}s`
-          }}
-        >
-          <Image 
-            src={img} 
-            alt="" 
-            width={220}
-            class="w-full h-full object-cover" 
-            loading="eager" 
-          />
-        </div>
-      </div>
-    ))}
-  </div>
+    {/* ── Headline ─────────────────────────────────────── */}
+    <div class="order-1 lg:col-start-1 lg:row-start-1 lg:self-end">
+      {data.eyebrow && (
+        <p class="hero-fade text-[12px] md:text-[13px] font-bold tracking-[0.18em] uppercase text-[var(--color-text-muted)] mb-5 md:mb-7">
+          {data.eyebrow}
+        </p>
+      )}
 
-  <div class="hero-content relative z-30 text-center max-w-5xl w-full px-4 flex flex-col items-center -mt-16 max-[1000px]:landscape:mt-8">
-
-      <div class="relative h-[90px] md:h-[220px] w-full overflow-hidden flex items-center justify-center mb-1 md:mb-6">
-        <div class="h1-mask-container relative h-full w-full flex items-center justify-center">
-          <h1 class="sr-only">{data.titles.join(' ')}</h1>
-          {data.titles.map((title: string) => (
-            <span class="rotating-title absolute w-full max-w-[95%] md:max-w-[900px] lg:max-w-[600px] text-center text-[32px] md:text-[55px] lg:text-[55px] font-semibold tracking-tighter leading-[1.1] opacity-0" aria-hidden="true">
-              {title.split(" ").map((word: string) => (
-                <span class="inline-block translate-y-[120%] opacity-0 py-1 md:py-2 mr-[0.2em]">{word}</span>
+      <h1 class="text-[34px] md:text-[46px] lg:text-[52px] font-semibold tracking-tighter leading-[1.08] text-balance">
+        {headline.map(({ line, words }, lineIndex) => (
+          <span class="block overflow-hidden py-[0.06em]">
+            <span class:list={['block', lineIndex === 0 ? 'text-gray-900' : 'text-gray-400']}>
+              {words.map(({ word, delay }) => (
+                <span class="hero-word inline-block mr-[0.22em]" style={`animation-delay: ${delay}s`}>
+                  {word}
+                </span>
               ))}
             </span>
-          ))}
-        </div>
-      </div>
+            <span class="sr-only">{line}</span>
+          </span>
+        ))}
+      </h1>
+    </div>
 
-      <p class="text-[16px] md:text-[18px] text-[var(--color-text-muted)] font-medium max-w-lg text-balance mx-auto px-2 -mt-2 md:mt-0 mb-6 md:mb-8">
+    {/* ── Photo ────────────────────────────────────────── */}
+    <div class="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center flex justify-center lg:justify-end">
+      <div class="hero-fade hero-photo relative">
+        <div
+          class="absolute -inset-3 md:-inset-4 rounded-[36px] bg-[linear-gradient(135deg,#A8BFAF_0%,#E8DDC8_50%,#F6D7C8_100%)] opacity-70"
+          aria-hidden="true"
+        ></div>
+
+        <Image
+          src={franPhoto}
+          alt={data.photoAlt ?? ''}
+          width={512}
+          height={512}
+          loading="eager"
+          class="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] object-cover rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
+        />
+
+        {data.photoChip && (
+          <span class="absolute bottom-3 left-3 md:bottom-4 md:left-4 bg-white/90 backdrop-blur-sm text-gray-900 text-[13px] font-medium px-3 py-1.5 rounded-full shadow-sm">
+            {data.photoChip}
+          </span>
+        )}
+      </div>
+    </div>
+
+    {/* ── Subtitle, buttons, language note ─────────────── */}
+    <div class="order-3 lg:col-start-1 lg:row-start-2 lg:self-start">
+      <p class="hero-fade text-[16px] md:text-[18px] text-[var(--color-text-muted)] leading-relaxed max-w-xl">
         {data.subtitle}
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+      <div class="hero-fade flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-8">
         <a
-          href={data.ctaUrl || "#services"}
-          {...isExternalCta ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+          href={data.ctaUrl || '#services'}
+          {...isExternalCta ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
           class="inline-flex items-center justify-center gap-2.5 bg-black text-white px-8 py-4 rounded-2xl font-medium hover:scale-105 transition-transform shadow-lg"
         >
           {isExternalCta && (
@@ -73,7 +99,7 @@ const heroImages = await Promise.all(
 
         {data.secondaryCta && (
           <a
-            href={data.secondaryCtaUrl || "#services"}
+            href={data.secondaryCtaUrl || '#services'}
             class="inline-flex items-center gap-1.5 text-gray-900 font-medium hover:text-gray-500 transition-colors"
           >
             {data.secondaryCta} →
@@ -82,170 +108,52 @@ const heroImages = await Promise.all(
       </div>
 
       {data.languageNote && (
-        <p class="text-[14px] text-[var(--color-text-muted)] mt-6">{data.languageNote}</p>
+        <p class="hero-fade text-[14px] text-[var(--color-text-muted)] mt-6">{data.languageNote}</p>
       )}
     </div>
+  </div>
 </section>
 
 <style>
-/* 0. LOCKED VIEWPORT HEIGHTS */
-.hero-section {
-  min-height: calc(var(--vh, 1svh) * 90);
-}
-@media (min-width: 768px) {
-  .hero-section {
-    min-height: calc(var(--vh, 1svh) * 100);
-  }
-  .hero-content {
-    margin-top: calc(var(--vh, 1svh) * -12);
-  }
-}
-
-/* 1. CARTAS ORBIT */
-.orbit-card {
-  width: 66.7px;   
-  height: 86.7px;  
-  transform: translate(-50%, -50%);
-  border-radius: 0.6rem; 
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  animation: flip-domino 10s infinite ease-in-out;
-  backface-visibility: visible;
-}
-
-@media (min-width: 768px) {
-  .orbit-card {
-    width: 110px;
-    height: 144px;
-    border-radius: 1rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  /* Words rise into place once, then stay put. */
+  .hero-word {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: hero-word-in 0.75s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
   }
 
-  .h1-mask-container {
-    height: 220px; 
-  }
-}
-
-/* 3. CONTENEDOR DE TÍTULO */
-.h1-mask-container {
-  height: 110px; 
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rotating-title {
-  display: block; 
-  text-wrap: balance;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-}
-
-.rotating-title span {
-  display: inline-block;
-  will-change: transform, opacity;
-  padding: 0 0.05em; 
-}
-
-/* 4. KEYFRAMES */
-@keyframes flip-domino {
-  0%, 30% { transform: translate(-50%, -50%) perspective(1000px) rotateY(0deg); }
-  40% { transform: translate(-50%, -50%) perspective(1000px) rotateY(180deg); }
-  40%, 90% { transform: translate(-50%, -50%) perspective(1000px) rotateY(180deg); }
-  100% { transform: translate(-50%, -50%) perspective(1000px) rotateY(0deg); }
-}
-
-.hero-content-wrapper {
-  position: relative;
-  z-index: 30;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -2rem; 
-}
-
-@media (min-width: 768px) {
-  .hero-content-wrapper {
-    margin-top: -2vh;
-  }
-}
-</style>
-
-<script>
-  import { gsap } from "gsap";
-
-  const DURATION = 150;
-  const MOBILE_BREAKPOINT = 768;
-
-  let timeline = null;
-
-  // Cache the initial viewport height so the orbit radius never shifts
-  // when mobile browser chrome appears/disappears.
-  const cachedHeight = Math.max(window.innerHeight, 700);
-
-  const getRadiusVH = () => window.innerWidth < MOBILE_BREAKPOINT ? 29.5 : 41.8;
-
-  function initHero() {
-    const container = document.querySelector('.orbit-container');
-    const items = document.querySelectorAll('.orbit-item');
-    if (!container || !items.length) return;
-
-    const radiusPx = (cachedHeight * getRadiusVH()) / 100;
-    
-    const angleStep = 360 / items.length;
-    const progress = timeline?.progress() || 0;
-
-    timeline?.kill();
-
-    items.forEach((item, i) => {
-      const rad = (i * angleStep * Math.PI) / 180;
-      gsap.set(item, {
-        x: radiusPx * Math.cos(rad),
-        y: radiusPx * Math.sin(rad),
-      });
-    });
-
-    timeline = gsap.timeline({ repeat: -1, defaults: { ease: "none" } })
-      .to(container, { rotation: 360, duration: DURATION }, 0)
-      .to(items, { rotation: -360, duration: DURATION }, 0)
-      .progress(progress);
-  }
-
-  function initTitleRotation() {
-    const titles = document.querySelectorAll('.rotating-title');
-    if (!titles.length) return;
-
-    const masterTl = gsap.timeline({ repeat: -1 });
-
-    titles.forEach((title) => {
-      const words = title.querySelectorAll('span');
-      const tl = gsap.timeline();
-
-      tl.set(title, { opacity: 1 }) 
-        .to(words, { y: "0%", opacity: 1, duration: 0.8, ease: "back.out(2.5)", stagger: 0.08 })
-        .to(words, { y: "-120%", opacity: 0, duration: 0.6, ease: "back.in(1.5)", stagger: 0.05, delay: 2.5 })
-        .set(title, { opacity: 0 });
-
-      masterTl.add(tl);
-    });
-  }
-
-  initHero();
-  initTitleRotation();
-
-  let resizeTimer;
-  let currentWidth = window.innerWidth;
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth !== currentWidth) {
-      currentWidth = window.innerWidth;
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(initHero, 200);
+  @keyframes hero-word-in {
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
-  });
-</script>
+  }
+
+  .hero-fade {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: hero-fade-in 0.7s ease-out 0.35s forwards;
+  }
+
+  @keyframes hero-fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-photo {
+    animation-delay: 0.2s;
+  }
+
+  /* Anyone who asks for less motion gets the finished state immediately. */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-word,
+    .hero-fade {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
