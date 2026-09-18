@@ -6,6 +6,7 @@ import RevealSection from '../components/sections/RevealSection.astro';
 import PortfolioGrid from '../components/sections/PortfolioGrid.astro';
 import Services from '../components/sections/Services.astro';
 import Footer from '../components/sections/Footer.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
 import TestimonialQuote from '../components/sections/TestimonialQuote.astro';
 import HomeHighlights from '../components/sections/HomeHighlights.astro';
 import ContactCTA from '../components/sections/ContactCTA.astro';
@@ -68,7 +69,9 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
 
     </div>
 
-    <RevealSection text={enData.home.revealText} />
+    <div data-no-reveal>
+      <RevealSection text={enData.home.revealText} />
+    </div>
     <PortfolioGrid data={enData.portfolio} />
     
     <div class="max-w-7xl mx-auto px-6 mt-32">
@@ -87,6 +90,8 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
 
     <ContactCTA data={enData.home.contact} />
   </main>
+
+  <ScrollReveal />
   <Footer data={enData.footer} />
 </Layout>
 
