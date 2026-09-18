@@ -1,7 +1,7 @@
 ---
 // src/components/sections/Hero.astro
 import { Image } from 'astro:assets';
-import franPhoto from '../../assets/team/fran.jpg';
+import franPhoto from '../../assets/team/fran-hero.jpg';
 
 interface Props {
   data: any;
@@ -63,8 +63,9 @@ const headline = lines.map((line: string) => ({
         <Image
           src={franPhoto}
           alt={data.photoAlt ?? ''}
-          width={512}
-          height={512}
+          width={320}
+          height={320}
+          densities={[1, 2]}
           loading="eager"
           class="relative w-[220px] h-[220px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] object-cover rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
         />
