@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/sections/Header.astro';
 import Hero from '../components/sections/Hero.astro';
-import RevealSection from '../components/sections/RevealSection.astro';
 import PortfolioGrid from '../components/sections/PortfolioGrid.astro';
 import Services from '../components/sections/Services.astro';
-import DesignerBanner from '../components/sections/DesignerBanner.astro';
 import Footer from '../components/sections/Footer.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
+import TestimonialQuote from '../components/sections/TestimonialQuote.astro';
+import HomeHighlights from '../components/sections/HomeHighlights.astro';
+import ContactCTA from '../components/sections/ContactCTA.astro';
 import enData from '../i18n/en.json';
 
 import { generateHreflangLinks } from '../i18n/hreflang';
@@ -17,8 +19,8 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
 ---
 
 <Layout
-  title="base-pages — High-Performance Websites & Landing Pages"
-  description="Boutique web studio building ultra-fast, conversion-optimized websites. Expert-crafted Astro sites with premium design and white-glove service."
+  title={enData.home.meta.ogTitle}
+  description={enData.home.meta.ogDescription}
   canonicalUrl="https://base-pages.com/"
   lang="en"
   hreflangLinks={hreflangLinks}
@@ -27,7 +29,7 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
   <Header navData={enData.nav} />
   <main>
     <Hero data={enData.hero} />
-    
+
     <div class="max-w-7xl mx-auto px-6 mt-12 md:mt-24 w-full relative z-40">
       
       <div class="flex items-center pb-6 text-sm font-semibold text-gray-800">
@@ -59,7 +61,13 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
 
     </div>
 
-    <RevealSection />
+    <TestimonialQuote
+      label={enData.home.testimonialLabel}
+      quote={enData.home.testimonials.cornelia.quote}
+      attribution={enData.home.testimonials.cornelia.attribution}
+      emphasis={enData.home.testimonials.cornelia.emphasis}
+    />
+
     <PortfolioGrid data={enData.portfolio} />
     
     <div class="max-w-7xl mx-auto px-6 mt-32">
@@ -67,8 +75,19 @@ const jsonLd = [getOrganizationSchema(), getWebSiteSchema(), getGEOComparisonSch
     </div>
     
     <Services data={enData.services} />
-    <DesignerBanner data={enData.designerBanner} />
+
+    <HomeHighlights data={enData.home.highlights} />
+
+    <TestimonialQuote
+      quote={enData.home.testimonials.mareen.quote}
+      attribution={enData.home.testimonials.mareen.attribution}
+      emphasis={enData.home.testimonials.mareen.emphasis}
+    />
+
+    <ContactCTA data={enData.home.contact} />
   </main>
+
+  <ScrollReveal />
   <Footer data={enData.footer} />
 </Layout>
 

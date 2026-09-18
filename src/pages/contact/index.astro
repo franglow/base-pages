@@ -53,6 +53,7 @@ const scale = contactPage.form.scale;
 const partnership = contactPage.form.partnership;
 const care = contactPage.form.care;
 const carePlus = (contactPage.form as any).carePlus;
+const smallFix = (contactPage.form as any).smallFix;
 const step1Copy = (contactPage.form as any).step1;
 const step2Copy = (contactPage.form as any).step2;
 
@@ -66,8 +67,8 @@ const formPayload = Astro.locals.formPayload || {};
 ---
 
 <Layout
-  title="Contact | base-pages — Let's Build Your Engine"
-  description="Ready to launch your high-performance website? Get in touch for a free consultation. Expert Astro development with premium design."
+  title="Get in touch — Base Pages"
+  description="Tell me what's going on and I'll reply within one working day. Websites and tech help for yoga teachers, therapists, coaches and retreat hosts in Berlin."
   canonicalUrl="https://base-pages.com/contact"
   lang="en"
   hreflangLinks={hreflangLinks}
@@ -455,6 +456,35 @@ const formPayload = Astro.locals.formPayload || {};
               </div>
             </div>
 
+
+            <!-- Small Fix Fields -->
+            <div id="small-fix-fields" class="tier-fields" inert>
+              <p class="tier-section-label">{smallFix.sectionLabel}</p>
+              <div class="tier-inner">
+                <div class="input-group">
+                  <input type="url" id="smallFixWebsiteUrl" name="smallFixWebsiteUrl" placeholder={smallFix.websitePlaceholder} class="minimal-input" data-url-prefix value={formPayload?.smallFixWebsiteUrl || ''} />
+                </div>
+                <div class="input-group relative">
+                  <select id="smallFixIssue" name="smallFixIssue" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected={!formPayload?.smallFixIssue} hidden>{smallFix.issueLabel}</option>
+                    {smallFix.issueOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.smallFixIssue === opt}>{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="input-group relative">
+                  <select id="smallFixPlatform" name="smallFixPlatform" class="minimal-input appearance-none bg-transparent cursor-pointer">
+                    <option value="" disabled selected={!formPayload?.smallFixPlatform} hidden>{smallFix.platformLabel}</option>
+                    {smallFix.platformOptions.map((opt: string) => (<option value={opt} class="text-gray-900" selected={formPayload?.smallFixPlatform === opt}>{opt}</option>))}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-900">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Care Plus Fields -->
             <div id="care-plus-fields" class="tier-fields" inert>
               <p class="tier-section-label">{carePlus.sectionLabel}</p>
@@ -527,10 +557,12 @@ const formPayload = Astro.locals.formPayload || {};
     const partnerFields = document.getElementById('partnership-fields');
     const careFields = document.getElementById('care-fields');
     const carePlusFields = document.getElementById('care-plus-fields');
-    if (!interestSelect || !growthFields || !scaleFields || !partnerFields || !careFields || !carePlusFields) return;
+    const smallFixFields = document.getElementById('small-fix-fields');
+    if (!interestSelect || !growthFields || !scaleFields || !partnerFields || !careFields || !carePlusFields || !smallFixFields) return;
 
-    function getSelectedTier(): 'growth' | 'scale' | 'partnership' | 'care' | 'care-plus' | null {
+    function getSelectedTier(): 'growth' | 'scale' | 'partnership' | 'care' | 'care-plus' | 'small-fix' | null {
       const val = interestSelect!.value.toLowerCase();
+      if (val.includes('small fix') || val.includes('kleine reparatur') || val.includes('arreglo chico')) return 'small-fix';
       if (val.includes('growth')) return 'growth';
       if (val.includes('scale')) return 'scale';
       if (val.includes('partnership') || val.includes('white-label') || val.includes('marca blanca')) return 'partnership';
@@ -651,6 +683,24 @@ const formPayload = Astro.locals.formPayload || {};
       if (co) { co.removeAttribute('required'); co.selectedIndex = 0; }
     }
 
+    // ── Small Fix toggle ────────────────────────────────────────────
+    function showSmallFix(): void {
+      smallFixFields!.classList.add('tier-visible');
+      setInert(smallFixFields!, false);
+      smallFixFields!.querySelector<HTMLInputElement>('#smallFixWebsiteUrl')?.setAttribute('required', '');
+      smallFixFields!.querySelector<HTMLSelectElement>('#smallFixIssue')?.setAttribute('required', '');
+    }
+    function hideSmallFix(): void {
+      smallFixFields!.classList.remove('tier-visible');
+      setInert(smallFixFields!, true);
+      const su = smallFixFields!.querySelector<HTMLInputElement>('#smallFixWebsiteUrl');
+      const si = smallFixFields!.querySelector<HTMLSelectElement>('#smallFixIssue');
+      const sp = smallFixFields!.querySelector<HTMLSelectElement>('#smallFixPlatform');
+      if (su) { su.removeAttribute('required'); su.value = ''; }
+      if (si) { si.removeAttribute('required'); si.selectedIndex = 0; }
+      if (sp) { sp.removeAttribute('required'); sp.selectedIndex = 0; }
+    }
+
     // ── Master toggle ───────────────────────────────────────────────
     function toggleTierFields(): void {
       const tier = getSelectedTier();
@@ -659,6 +709,7 @@ const formPayload = Astro.locals.formPayload || {};
       tier === 'partnership' ? showPartnership() : hidePartnership();
       tier === 'care' ? showCare() : hideCare();
       tier === 'care-plus' ? showCarePlus() : hideCarePlus();
+      tier === 'small-fix' ? showSmallFix() : hideSmallFix();
     }
 
     interestSelect.addEventListener('change', () => {
@@ -762,7 +813,7 @@ const formPayload = Astro.locals.formPayload || {};
     // Auto-select tier from ?tier= query param
     const urlParams = new URLSearchParams(window.location.search);
     const tierParam = urlParams.get('tier');
-    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care' || tierParam === 'care-plus' || tierParam === 'starter') {
+    if (tierParam === 'growth' || tierParam === 'scale' || tierParam === 'partnership' || tierParam === 'care' || tierParam === 'care-plus' || tierParam === 'starter' || tierParam === 'small-fix') {
       // Keywords to match localized option values per tier
       const tierKeywords: Record<string, string[]> = {
         starter: ['starter'],
@@ -771,6 +822,7 @@ const formPayload = Astro.locals.formPayload || {};
         partnership: ['partnership', 'white-label', 'marca blanca', 'partnerschaft'],
         'care-plus': ['care plus', 'care+', 'seo-tuning', 'optimización seo'],
         care: ['continuous care', 'kontinuierliche betreuung', 'cuidado continuo'],
+        'small-fix': ['small fix', 'kleine reparatur', 'arreglo chico'],
       };
       const keywords = tierKeywords[tierParam];
       const options = interestSelect.options;
@@ -784,6 +836,27 @@ const formPayload = Astro.locals.formPayload || {};
       toggleTierFields();
     }
     
+    // ── Where the lead came from ────────────────────────────────────
+    // The Instagram bio and DM links carry ?utm_source=...&utm_medium=...,
+    // so the notification email can say which one brought someone in.
+    const trackingForm = interestSelect.closest('form');
+    if (trackingForm) {
+      const params = new URLSearchParams(window.location.search);
+      const tracking: Record<string, string> = {
+        utmSource: params.get('utm_source') || '',
+        utmMedium: params.get('utm_medium') || '',
+        utmCampaign: params.get('utm_campaign') || '',
+      };
+      Object.entries(tracking).forEach(([name, value]) => {
+        if (!value) return;
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = name;
+        hidden.value = value.slice(0, 120);
+        trackingForm.appendChild(hidden);
+      });
+    }
+
     // Merge checkboxes into hidden inputs on submit
     const form = interestSelect.closest('form');
     if (form) {

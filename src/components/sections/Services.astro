@@ -17,6 +17,10 @@ const { data } = Astro.props;
       <h2 id="reveal-text" class="text-[32px] md:text-[48px] lg:text-[56px] font-medium tracking-tight text-gray-900 lg:text-gray-300 leading-tight">
         {data.headline}
       </h2>
+
+      {data.intro && (
+        <p class="text-gray-500 leading-relaxed mt-6 md:mt-8 max-w-lg">{data.intro}</p>
+      )}
     </div>
 
     <div class="lg:col-span-5 flex flex-col gap-12 md:gap-20 lg:pt-24">

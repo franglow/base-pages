@@ -1,0 +1,172 @@
+---
+/**
+ * Scroll reveal for whole sections.
+ *
+ * Each section below the fold waits out of sight, then rises into place when
+ * it scrolls into view, overshooting its resting position by a few pixels
+ * before settling — the "pushed up from below" feel.
+ *
+ * Notes:
+ * - The first child of <main> is skipped: the hero has its own entrance.
+ * - Anything marked data-no-reveal is skipped too.
+ * - Once a section has finished, its transform is removed entirely, so it
+ *   never becomes a containing block for sticky or pinned children.
+ * - After the last reveal we fire a resize event, which is what GSAP's
+ *   ScrollTrigger listens to, so the scroll animations that were already on
+ *   the page re-measure themselves against the settled layout.
+ * - prefers-reduced-motion gets the finished page with no movement.
+ */
+interface Props {
+  /** Which elements to reveal. Defaults to the direct children of <main>. */
+  selector?: string;
+}
+
+const { selector = 'main > *' } = Astro.props;
+---
+
+<style is:global>
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(72px);
+    will-change: transform, opacity;
+  }
+
+  [data-reveal].is-revealing {
+    animation: section-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  [data-reveal].is-revealed {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  @keyframes section-rise {
+    0% {
+      opacity: 0;
+      transform: translateY(72px);
+    }
+    60% {
+      opacity: 1;
+    }
+    78% {
+      transform: translateY(-9px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal].is-revealing,
+    [data-reveal].is-revealed {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ selector }}>
+  (function () {
+    function init() {
+      var targets = Array.prototype.slice.call(document.querySelectorAll(selector));
+      if (!targets.length) return;
+
+      var skipTags = ['SCRIPT', 'STYLE', 'TEMPLATE', 'NOSCRIPT', 'LINK', 'META'];
+
+      // The hero animates itself on load, so it is left alone.
+      targets = targets.filter(function (el, index) {
+        return (
+          index !== 0 &&
+          skipTags.indexOf(el.tagName) === -1 &&
+          !el.hasAttribute('data-no-reveal')
+        );
+      });
+      if (!targets.length) return;
+
+      var reduceMotion =
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion) {
+        targets.forEach(function (el) {
+          el.classList.add('is-revealed');
+        });
+        return;
+      }
+
+      targets.forEach(function (el) {
+        el.setAttribute('data-reveal', '');
+      });
+
+      var settleTimer;
+      function scheduleRefresh() {
+        // Lets GSAP's ScrollTrigger re-measure now that transforms are gone.
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(function () {
+          window.dispatchEvent(new Event('resize'));
+        }, 200);
+      }
+
+      function reveal(el) {
+        el.classList.add('is-revealing');
+        el.addEventListener(
+          'animationend',
+          function () {
+            el.classList.remove('is-revealing');
+            el.classList.add('is-revealed');
+            scheduleRefresh();
+          },
+          { once: true }
+        );
+      }
+
+      // A position check rather than an IntersectionObserver: a fast scroll or a
+      // jump to an anchor can carry a section past the viewport inside a single
+      // frame, and an observer never reports those — the section would stay
+      // invisible for good.
+      var pending = targets.slice();
+      var ticking = false;
+
+      function check() {
+        ticking = false;
+        var trigger = window.innerHeight * 0.92;
+        var stillPending = [];
+
+        pending.forEach(function (el) {
+          if (el.getBoundingClientRect().top < trigger) {
+            reveal(el);
+          } else {
+            stillPending.push(el);
+          }
+        });
+
+        pending = stillPending;
+
+        if (!pending.length) {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+        }
+      }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(check);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      check();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

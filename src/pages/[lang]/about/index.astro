@@ -1,7 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/sections/Header.astro';
-import DesignerBanner from '../../../components/sections/DesignerBanner.astro';
 import Footer from '../../../components/sections/Footer.astro';
 import { Image } from 'astro:assets';
 
@@ -24,7 +23,7 @@ const hreflangLinks = generateHreflangLinks('/about', 'https://base-pages.com');
 const images = import.meta.glob<{ default: ImageMetadata }>(['/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}', '/src/assets/team/*.{jpeg,jpg,png,gif,webp}']);
 ---
 
-<Layout title="About Us - base-pages" lang={lang}>
+<Layout title="About Fran — Base Pages" lang={lang}>
   <Fragment slot="head">
     <link rel="canonical" href={`https://base-pages.com/${lang}/about`} />
     {hreflangLinks.map((link) => (
@@ -48,6 +47,19 @@ const images = import.meta.glob<{ default: ImageMetadata }>(['/src/assets/images
         </h1>
       </div>
     </header>
+
+    <section class="max-w-3xl mx-auto px-6 mt-8 md:mt-16 reveal-element">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-[2px] w-8 bg-gradient-to-r from-[#A8BFAF] via-[#E8DDC8] to-[#F6D7C8]"></div>
+        <span class="text-sm font-bold tracking-widest uppercase text-gray-900">{aboutPage.story.tagline}</span>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        {aboutPage.story.paragraphs.map((paragraph: string) => (
+          <p class="text-[16px] md:text-[18px] leading-relaxed text-gray-500">{paragraph}</p>
+        ))}
+      </div>
+    </section>
 
     <section class="max-w-7xl mx-auto px-6 mt-32 reveal-element">
       <div class="border-t border-gray-200 pt-8 mb-16">
@@ -157,7 +169,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>(['/src/assets/images
         ))}
       </div>
     </section>
-    <DesignerBanner data={data.designerBanner} />
   </main>
   
   <Footer data={footer} />

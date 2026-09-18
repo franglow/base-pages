@@ -19,7 +19,7 @@ const leadName = result?.data?.leadName;
 const leadEmail = result?.data?.leadEmail;
 ---
 
-<Layout title="Partnership Inquiry | Base Pages">
+<Layout title="Designer partnership — Base Pages">
   <Header navData={nav} />
 
   <main class="contact-page bg-[#f8f7f5] min-h-screen flex flex-col justify-center">
@@ -36,7 +36,7 @@ const leadEmail = result?.data?.leadEmail;
             Let's talk design
           </h1>
           <p class="text-gray-500 text-lg mb-12 max-w-md mx-auto">
-            Book your designer call below. We'll review your portfolio and discuss collaboration.
+            Book a call below. I'll look through your portfolio and we'll talk about working together.
           </p>
           
           <CalEmbed
@@ -47,7 +47,7 @@ const leadEmail = result?.data?.leadEmail;
             fallbackUrl="https://cal.com/base-pages.com/partnership-sync"
           />
           <p class="text-sm text-neutral-500 text-center mt-8 max-w-sm mx-auto leading-relaxed">
-            Not ready to book a time yet? No problem. We've sent a link to your inbox. In the meantime, explore our{' '}
+            Not ready to book a time? No problem — I've sent a link to your inbox. In the meantime, have a look at my{' '}
             <a href="/works" class="text-neutral-600 hover:text-black hover:underline transition-colors">Works</a>{' '}
             or return{' '}
             <a href="/" class="text-neutral-600 hover:text-black hover:underline transition-colors">Home</a>.
@@ -64,7 +64,7 @@ const leadEmail = result?.data?.leadEmail;
             Designer partnership
           </h1>
           <p class="text-gray-500 text-lg mb-12 max-w-md">
-            Show us your process. We'll schedule a call to explore how we can build together.
+            Show me how you work. I'll set up a call so we can see what we could build together.
           </p>
 
           <form method="POST" action={actions.submitPartnership} class="flex flex-col gap-8">

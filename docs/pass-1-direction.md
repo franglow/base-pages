@@ -2,6 +2,14 @@
 
 *15 Sept 2026. Covers: premises, Task 1 (90-day sequence), open questions 1–6, Task 2 (positioning), Task 3 (name). Copy and DMs (Tasks 4–5) come in Pass 2. Visual identity and Instagram (Tasks 6–7) come after the first ~10 real conversations.*
 
+> **Decisions made after this pass (16 Sept 2026):**
+> - **Name:** keep **Base Pages**. This overrides the Task 3 recommendation below; always pair it with "Fran Cortez".
+> - **Language:** Spanish is native; English is the main language.
+> - **Offer:** the €120 Small Fix and hiding Scale are agreed.
+> - **Client copy:** Disney and LATAM are not named, and "bridge" is not said out loud.
+>
+> See [pass-2-copy-and-messages.md](pass-2-copy-and-messages.md).
+
 ---
 
 ## What your answers changed

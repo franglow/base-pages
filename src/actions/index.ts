@@ -66,6 +66,14 @@ export const server = {
       carePlusPlatform: optionalFormString(),
       carePlusPriority: optionalFormString(),
       carePlusOrigin: optionalFormString(),
+      // Small Fix fields (empty when the small fix is not selected).
+      smallFixWebsiteUrl: optionalFormUrl(),
+      smallFixIssue: optionalFormString(),
+      smallFixPlatform: optionalFormString(),
+      // Where the lead came from, e.g. the Instagram bio link.
+      utmSource: optionalFormString(),
+      utmMedium: optionalFormString(),
+      utmCampaign: optionalFormString(),
     }),
     handler: async (input) => {
       try {
@@ -85,10 +93,12 @@ export const server = {
         const isGrowthLead = interestLower.includes('growth');
         const isStarterLead = interestLower.includes('starter');
         const isPartnershipLead = interestLower.includes('partnership') || interestLower.includes('white-label') || interestLower.includes('marca blanca') || interestLower.includes('partnerschaft');
+        const isSmallFixLead = interestLower.includes('small fix') || interestLower.includes('kleine reparatur') || interestLower.includes('arreglo chico');
         const isCarePlusLead = interestLower.includes('care plus') || interestLower.includes('care+');
         const isCareLead = !isCarePlusLead && (interestLower.includes('care') || interestLower.includes('cuidado') || interestLower.includes('betreuung'));
 
-        const tier = isPremium ? 'premium'
+        const tier = isSmallFixLead ? 'small-fix'
+            : isPremium ? 'premium'
             : isGrowthLead ? 'growth'
             : isStarterLead ? 'starter'
             : isPartnershipLead ? 'partnership'
@@ -157,6 +167,18 @@ export const server = {
               carePlusPriority: input.carePlusPriority,
               carePlusOrigin: input.carePlusOrigin,
             }),
+            ...(isSmallFixLead && {
+              smallFixWebsiteUrl: input.smallFixWebsiteUrl,
+              smallFixIssue: input.smallFixIssue,
+              smallFixPlatform: input.smallFixPlatform,
+            }),
+            ...(input.utmSource || input.utmMedium || input.utmCampaign
+              ? {
+                  utmSource: input.utmSource,
+                  utmMedium: input.utmMedium,
+                  utmCampaign: input.utmCampaign,
+                }
+              : {}),
           });
           console.log('[ACTION] ✓ Internal Lead Radar notification sent');
         } catch (err) {
