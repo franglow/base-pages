@@ -720,9 +720,9 @@
       "tagline": "BETREUT, NICHT ALLEINGELASSEN",
       "titleBold": "Deine Website, gepflegt — egal, wer sie gebaut hat.",
       "titleLight": "Updates, Fixes und die kleinen Verbesserungen, zu denen du nie kommst — für dich erledigt.",
-      "subtitle": "Du hast bereits eine Website. Dir fehlt nur die Zeit, sie schnell zu halten, die Kleinigkeiten zu reparieren oder dir Gedanken zu machen, ob sie noch sicher ist. Das wird mein Job. Schreib mir per WhatsApp oder E-Mail und es ist erledigt — meist noch am selben Tag. Webflow, Wix, Squarespace, WordPress oder ein Custom-Build: Ich kümmere mich darum, damit du dich wieder um dein Geschäft kümmern kannst.",
+      "subtitle": "Du hast bereits eine Website. Dir fehlt nur die Zeit, sie schnell zu halten, die Kleinigkeiten zu reparieren oder dir Gedanken zu machen, ob sie noch sicher ist. Das wird mein Job. Schreib mir per WhatsApp oder E-Mail — du bekommst innerhalb eines Werktags eine Antwort, und die meisten kleinen Änderungen sind innerhalb von zwei Werktagen erledigt. Webflow, Wix, Squarespace, WordPress oder ein Custom-Build: Ich kümmere mich darum, damit du dich wieder um dein Geschäft kümmern kannst.",
       "priceBadge": "Ab 190 €/Monat",
-      "deliveryBadge": "Jederzeit kündbar · Antwort in 48h"
+      "deliveryBadge": "Jederzeit kündbar · Antwort innerhalb eines Werktags"
     },
     "featuresSectionHeading": "Worum ich mich kümmere",
     "features": [
@@ -740,7 +740,7 @@
       },
       {
         "title": "Ein echter Mensch, kein Helpdesk",
-        "description": "Keine Ticket-Warteschlangen, keine Chatbots. Du brauchst ein neues Foto, einen aktualisierten Text, ein Saison-Banner oder schnell eine Meinung zu etwas? Schreib mir direkt und es wird erledigt — meist noch am selben Tag."
+        "description": "Keine Ticket-Warteschlangen, keine Chatbots. Du brauchst ein neues Foto, einen aktualisierten Text, ein Saison-Banner oder schnell eine Meinung zu etwas? Schreib mir direkt — ich antworte innerhalb eines Werktags, und die meisten kleinen Änderungen sind innerhalb von zwei Werktagen erledigt."
       }
     ],
     "finalCta": {
@@ -786,7 +786,7 @@
         "Laufende Geschwindigkeits- und Verfügbarkeitschecks",
         "Ein monatlicher Report in klarer Sprache: was ich getan habe und wie Ihre Seite läuft",
         "Bis zu 2 Stunden Änderungen pro Monat (Texte, Bilder, kleine Anpassungen)",
-        "Antwort innerhalb von 48 Stunden — am selben Tag bei Dringendem",
+        "Antwort innerhalb eines Werktags — bei Dringendem meist noch am selben Tag",
         "Monatlich, jederzeit kündbar"
       ],
       "excluded": [
@@ -837,7 +837,7 @@
         },
         {
           "q": "Was passiert, wenn meine Seite ausfällt?",
-          "a": "Ich überwache sie automatisch und weiß es meist vor Ihnen. Montag bis Freitag, 9–18 Uhr (mitteleuropäische Zeit), hören Sie innerhalb weniger Stunden von mir. Braucht Ihr Geschäft eine Rund-um-die-Uhr-Abdeckung, ist die als Add-on verfügbar."
+          "a": "Ich überwache sie automatisch und weiß es meist vor Ihnen. Montag bis Freitag, 9–18 Uhr (Berliner Zeit), hören Sie meist noch am selben Tag von mir. Braucht Ihr Geschäft eine Rund-um-die-Uhr-Abdeckung, ist die als Add-on verfügbar."
         },
         {
           "q": "Ändern Sie mein Design oder meine Inhalte ohne zu fragen?",
@@ -1472,7 +1472,7 @@
       "partnershipHeading": "Sprechen wir über Design",
       "partnershipSubheading": "Buchen Sie unten Ihren Designer-Termin. Wir sehen uns Ihr Portfolio an und besprechen die Zusammenarbeit.",
       "defaultHeading": "Nachricht erhalten.",
-      "defaultSubheading": "Wir prüfen Ihre Anfrage und melden uns innerhalb von 24 Stunden.",
+      "defaultSubheading": "Ich lese Ihre Nachricht und antworte innerhalb eines Werktags.",
       "bridgeText": "Sehen Sie sich an, wie wir leistungsstarke Web-Architekturen entwickeln.",
       "viewWorks": "Unsere Arbeiten",
       "backHome": "Zurück zur Startseite",

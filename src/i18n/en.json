@@ -729,9 +729,9 @@
       "tagline": "LOOKED AFTER, NOT LEFT ALONE",
       "titleBold": "Your website, looked after — whoever built it.",
       "titleLight": "Updates, fixes, and the small improvements you never get around to — handled for you.",
-      "subtitle": "You already have a website. You just don't have the time to keep it fast, fix the little things, or worry about whether it's still secure. That becomes my job. Send me a WhatsApp or an email and it's done — usually the same day. Webflow, Wix, Squarespace, WordPress or a custom build: I look after it, so you can get back to running your business.",
+      "subtitle": "You already have a website. You just don't have the time to keep it fast, fix the little things, or worry about whether it's still secure. That becomes my job. Send me a WhatsApp or an email and you'll hear back within one working day — most small changes are done within two. Webflow, Wix, Squarespace, WordPress or a custom build: I look after it, so you can get back to running your business.",
       "priceBadge": "From €190/mo",
-      "deliveryBadge": "Cancel anytime · Reply within 48h"
+      "deliveryBadge": "Cancel anytime · Reply within 1 working day"
     },
     "featuresSectionHeading": "What I take care of",
     "features": [
@@ -749,7 +749,7 @@
       },
       {
         "title": "A real person, not a help desk",
-        "description": "No ticket queues, no chatbots. Need a photo swapped, some text updated, a seasonal banner added, or a quick opinion on something? Message me directly and it gets handled — usually the same day."
+        "description": "No ticket queues, no chatbots. Need a photo swapped, some text updated, a seasonal banner added, or a quick opinion on something? Message me directly — I reply within one working day, and most small changes are done within two."
       }
     ],
     "finalCta": {
@@ -795,7 +795,7 @@
         "Ongoing speed and uptime checks",
         "A plain-English monthly report: what I did and how your site's doing",
         "Up to 2 hours of edits a month (text, images, small changes)",
-        "A reply within 48 hours — same day for anything urgent",
+        "A reply within one working day — usually the same day for anything urgent",
         "Month-to-month, cancel anytime"
       ],
       "excluded": [
@@ -846,7 +846,7 @@
         },
         {
           "q": "What happens if my site goes down?",
-          "a": "I keep watch automatically and usually know before you do. Monday to Friday, 9–18 (Central European Time), you'll hear back within a few hours. If your business needs round-the-clock cover, that's available as an add-on."
+          "a": "I keep watch automatically and usually know before you do. Monday to Friday, 9–18 (Berlin time), you'll usually hear from me the same day. If your business needs round-the-clock cover, that's available as an add-on."
         },
         {
           "q": "Will you change my design or content without asking?",
@@ -1486,7 +1486,7 @@
       "partnershipHeading": "Let's talk design",
       "partnershipSubheading": "Book your designer call below. We'll review your portfolio and discuss collaboration.",
       "defaultHeading": "Message received.",
-      "defaultSubheading": "We'll review your request and get back to you within 24 hours.",
+      "defaultSubheading": "I'll read your message and reply within one working day.",
       "bridgeText": "While you wait, see how we engineer high-performance web architecture.",
       "viewWorks": "View our Works",
       "backHome": "Back to Home",

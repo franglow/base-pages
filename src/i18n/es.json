@@ -720,9 +720,9 @@
       "tagline": "CUIDADO, NO ABANDONADO",
       "titleBold": "Tu web, en buenas manos — la haya hecho quien la haya hecho.",
       "titleLight": "Actualizaciones, ajustes y esas mejoras pequeñas que nunca llegás a hacer — resueltas por mí.",
-      "subtitle": "Ya tenés una web. Lo que no tenés es tiempo para mantenerla rápida, arreglar los detalles o preocuparte de si sigue siendo segura. De eso me ocupo yo. Escribime por WhatsApp o mail y queda hecho — normalmente el mismo día. Webflow, Wix, Squarespace, WordPress o un desarrollo a medida: yo la cuido, así vos volvés a ocuparte de tu negocio.",
+      "subtitle": "Ya tenés una web. Lo que no tenés es tiempo para mantenerla rápida, arreglar los detalles o preocuparte de si sigue siendo segura. De eso me ocupo yo. Escribime por WhatsApp o mail y te respondo dentro de un día hábil — la mayoría de los cambios chicos quedan hechos en dos. Webflow, Wix, Squarespace, WordPress o un desarrollo a medida: yo la cuido, así vos volvés a ocuparte de tu negocio.",
       "priceBadge": "Desde €190/mes",
-      "deliveryBadge": "Cancelás cuando quieras · Respondo en 48h"
+      "deliveryBadge": "Cancelás cuando quieras · Respondo en 1 día hábil"
     },
     "featuresSectionHeading": "De qué me encargo",
     "features": [
@@ -740,7 +740,7 @@
       },
       {
         "title": "Una persona real, no una mesa de ayuda",
-        "description": "Sin colas de tickets ni chatbots. ¿Necesitás cambiar una foto, actualizar un texto, sumar un banner de temporada o una opinión rápida sobre algo? Escribime directo y queda resuelto — normalmente el mismo día."
+        "description": "Sin colas de tickets ni chatbots. ¿Necesitás cambiar una foto, actualizar un texto, sumar un banner de temporada o una opinión rápida sobre algo? Escribime directo: te respondo dentro de un día hábil y la mayoría de los cambios chicos quedan hechos en dos."
       }
     ],
     "finalCta": {
@@ -786,7 +786,7 @@
         "Chequeos continuos de velocidad y disponibilidad",
         "Un informe mensual en lenguaje claro: qué hice y cómo está tu web",
         "Hasta 2 horas mensuales de ediciones (textos, imágenes, cambios chicos)",
-        "Respuesta en 48 horas — el mismo día para lo urgente",
+        "Respuesta dentro de un día hábil — lo urgente, normalmente el mismo día",
         "Mes a mes, cancelás cuando quieras"
       ],
       "excluded": [
@@ -837,7 +837,7 @@
         },
         {
           "q": "¿Qué pasa si mi sitio se cae?",
-          "a": "Lo vigilo de forma automática y normalmente me entero antes que vos. De lunes a viernes, de 9 a 18 (hora central europea), tenés respuesta en pocas horas. Si tu negocio necesita cobertura las 24 horas, está disponible como extra."
+          "a": "Lo vigilo de forma automática y normalmente me entero antes que vos. De lunes a viernes, de 9 a 18 (hora de Berlín), normalmente tenés respuesta el mismo día. Si tu negocio necesita cobertura las 24 horas, está disponible como extra."
         },
         {
           "q": "¿Vas a cambiar mi diseño o mi contenido sin avisar?",
@@ -1472,7 +1472,7 @@
       "partnershipHeading": "Hablemos de diseño",
       "partnershipSubheading": "Reserve su llamada de diseño abajo. Revisaremos su portfolio y hablaremos sobre la colaboración.",
       "defaultHeading": "Mensaje recibido.",
-      "defaultSubheading": "Revisaremos su solicitud y le responderemos en 24 horas.",
+      "defaultSubheading": "Leeré su mensaje y le responderé dentro de un día hábil.",
       "bridgeText": "Mientras espera, vea cómo diseñamos arquitecturas web de alto rendimiento.",
       "viewWorks": "Ver nuestros trabajos",
       "backHome": "Volver al inicio",
