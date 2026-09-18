@@ -215,6 +215,10 @@ export async function sendOnePagerEmail(lang: Language, data: OnePagerData): Pro
 function getLeadRadarSubject(interest: string | undefined, name: string): string {
   const val = (interest || '').toLowerCase();
 
+  // Small Fix — €120, checked first so "fix" never falls through to Care
+  if (val.includes('small fix') || val.includes('kleine reparatur') || val.includes('arreglo chico'))
+    return `[🔧 SMALL FIX - €120] New Lead: ${name}`;
+
   // Premium "Machine" — the €5,800 flagship (matches "scale" or "premium")
   if (val.includes('scale') || val.includes('premium'))
     return `[🔥 PREMIUM - €5,800] New Lead: ${name}`;

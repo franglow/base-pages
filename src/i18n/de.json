@@ -1370,8 +1370,8 @@
     "title": "Erzähl mir, worum es geht.",
     "form": {
       "namePlaceholder": "Dein Name",
-      "emailPlaceholder": "Deine geschäftliche E-Mail",
-      "interestLabel": "Ich interessiere mich für...",
+      "emailPlaceholder": "Deine E-Mail",
+      "interestLabel": "Wobei kann ich helfen?",
       "interests": [
         "Das Starter-Paket (890 €)",
         "Das Growth-Paket (1.750 €)",
@@ -1382,32 +1382,33 @@
         "Partnerschaft / White-Label",
         "Anderes / Individuelle Anfrage"
       ],
-      "messagePlaceholder": "Erzähl mir von deinem Projekt und deinen Zielen",
-      "budgetLabel": "Geschätztes Budget",
+      "messagePlaceholder": "Worum geht es? Ein paar Zeilen reichen.",
+      "budgetLabel": "Budget, falls du eines im Kopf hast",
       "submitText": "Nachricht senden",
       "growth": {
-        "sectionLabel": "Hilf mir, dein Performance-Audit vorzubereiten",
-        "websitePlaceholder": "URL deiner aktuellen Website",
-        "adSpendLabel": "Monatliche Werbeinvestition",
+        "sectionLabel": "Ein wenig zu deinem Launch",
+        "websitePlaceholder": "Die Adresse deiner Website, falls du eine hast",
+        "adSpendLabel": "Monatliches Werbebudget",
         "adSpendOptions": [
-          "< 1.000 €/Monat",
+          "Unter 1.000 €/Monat",
           "1.000 – 5.000 €/Monat",
           "5.000 – 15.000 €/Monat",
-          "15.000+ €/Monat"
+          "Mehr als 15.000 €/Monat"
         ],
-        "channelsLabel": "Aktive Marketing-Kanäle",
+        "channelsLabel": "Wo du schon wirbst",
         "channels": [
+          "Instagram",
           "Google Ads",
           "Meta Ads",
-          "TikTok Ads",
-          "LinkedIn Ads",
-          "Sonstige"
+          "Newsletter",
+          "Woanders"
         ],
-        "goalLabel": "Primäres Conversion-Ziel",
+        "goalLabel": "Was soll die Seite bewirken?",
         "goals": [
-          "Lead-Generierung",
-          "E-Commerce-Verkäufe",
-          "Markenbekanntheit"
+          "Ein Retreat oder einen Workshop füllen",
+          "Anfragen und Buchungen bringen",
+          "Etwas online verkaufen",
+          "Bekannter werden"
         ]
       },
       "scale": {
@@ -1461,87 +1462,109 @@
         "figmaSamplePlaceholder": "Figma-Datei-Link (optional)"
       },
       "care": {
-        "sectionLabel": "Hilf mir, den Zustand deiner Website zu bewerten",
-        "websitePlaceholder": "URL deiner aktuellen Website",
-        "platformLabel": "Aktuelle Plattform / Stack",
+        "sectionLabel": "Ein wenig zu deiner Seite",
+        "websitePlaceholder": "Die Adresse deiner Website",
+        "platformLabel": "Womit deine Seite gebaut ist",
         "platformOptions": [
-          "Astro",
-          "Next.js",
+          "Eine Seite, die du für mich gebaut hast",
           "WordPress",
-          "Shopify",
-          "Webflow",
-          "Andere"
-        ],
-        "priorityLabel": "Hauptpriorität",
-        "priorityOptions": [
-          "Leistung / Geschwindigkeit",
-          "Sicherheit & Backups",
-          "Regelmäßige Inhaltsupdates",
-          "Laufender Technischer Support"
-        ],
-        "originLabel": "Haben wir deine aktuelle Website erstellt?",
-        "originOptions": [
-          "Ja — base-pages hat sie gebaut",
-          "Nein — ein anderes Team hat sie gebaut"
-        ]
-      },
-      "carePlus": {
-        "sectionLabel": "Hilf mir, die Sichtbarkeit deiner Website einzuschätzen",
-        "websitePlaceholder": "URL deiner aktuellen Website",
-        "platformLabel": "Aktuelle Plattform / Builder",
-        "platformOptions": [
-          "Webflow",
           "Wix",
           "Squarespace",
-          "WordPress",
+          "Webflow",
           "Shopify",
-          "Andere"
+          "Weiß ich nicht"
         ],
         "priorityLabel": "Was ist dir am wichtigsten?",
         "priorityOptions": [
-          "Geschwindigkeit & technische Gesundheit",
-          "Google-Ranking (SEO)",
-          "Lokale Sichtbarkeit — Menschen in der Nähe finden mich",
-          "In KI-Suchantworten erscheinen",
+          "Dass sie schnell bleibt",
+          "Dass sie sicher ist und gesichert wird",
+          "Regelmäßige Updates von Texten und Fotos",
+          "Jemanden fragen können, wenn etwas kaputtgeht"
+        ],
+        "originLabel": "Habe ich deine jetzige Seite gebaut?",
+        "originOptions": [
+          "Ja, du hast sie gebaut",
+          "Nein, jemand anderes hat sie gebaut"
+        ]
+      },
+      "carePlus": {
+        "sectionLabel": "Ein wenig zu deiner Seite",
+        "websitePlaceholder": "Die Adresse deiner Website",
+        "platformLabel": "Womit deine Seite gebaut ist",
+        "platformOptions": [
+          "WordPress",
+          "Wix",
+          "Squarespace",
+          "Webflow",
+          "Shopify",
+          "Weiß ich nicht"
+        ],
+        "priorityLabel": "Was ist dir am wichtigsten?",
+        "priorityOptions": [
+          "Dass sie schneller lädt",
+          "Bei Google auftauchen",
+          "Von Menschen in der Nähe gefunden werden",
+          "Empfohlen werden, wenn jemand einen KI-Assistenten fragt",
           "Alles davon"
         ],
-        "originLabel": "Haben wir deine aktuelle Website erstellt?",
+        "originLabel": "Habe ich deine jetzige Seite gebaut?",
         "originOptions": [
-          "Ja — base-pages hat sie gebaut",
-          "Nein — von jemand anderem gebaut"
+          "Ja, du hast sie gebaut",
+          "Nein, jemand anderes hat sie gebaut"
         ]
       },
       "step1": {
-        "heading": "Schritt 1 · Das Wesentliche",
-        "description": "30 Sekunden. Name, E-Mail, Ihr Anliegen.",
+        "heading": "Schritt 1 · Das Wichtigste",
+        "description": "Dauert 30 Sekunden: dein Name, deine E-Mail und was du brauchst.",
         "continueText": "Weiter →"
       },
       "step2": {
-        "heading": "Schritt 2 · Optional — hilft mir bei der Vorbereitung",
-        "description": "Paketspezifische Fragen, damit meine Vorbereitung vor unserem Call schärfer ist. Dauert ~60 Sekunden. Sie können auch überspringen.",
-        "descriptionQuote": "Paketspezifische Fragen, damit ich Ihnen ein präzises Angebot ohne Überraschungen zusenden kann. Dauert ~60 Sekunden. Sie können auch überspringen.",
-        "skipText": "Überspringen — jetzt Call buchen →",
-        "skipTextQuote": "Überspringen — Anfrage senden →"
+        "heading": "Schritt 2 · Optional — es hilft mir bei der Vorbereitung",
+        "description": "Ein paar Fragen zu deinem Projekt, damit ich vorbereitet in unser Gespräch komme. Etwa eine Minute, und du kannst es überspringen.",
+        "descriptionQuote": "Ein paar Fragen zu deinem Projekt, damit ich dir einen genauen Preis nennen kann, ohne Überraschungen. Etwa eine Minute, und du kannst es überspringen.",
+        "skipText": "Überspringen — direkt zum Termin →",
+        "skipTextQuote": "Überspringen — Nachricht einfach abschicken →"
+      },
+      "smallFix": {
+        "sectionLabel": "Sag mir, was nicht funktioniert",
+        "websitePlaceholder": "Die Adresse deiner Website",
+        "issueLabel": "Was passiert gerade?",
+        "issueOptions": [
+          "Ein Link oder Button führt an die falsche Stelle",
+          "Ein Formular verschickt nichts",
+          "Auf dem Handy sieht es falsch aus",
+          "Ich kann Texte oder Fotos nicht selbst ändern",
+          "Etwas anderes — ich beschreibe es unten"
+        ],
+        "platformLabel": "Womit deine Seite gebaut ist",
+        "platformOptions": [
+          "WordPress",
+          "Wix",
+          "Squarespace",
+          "Webflow",
+          "Shopify",
+          "Weiß ich nicht"
+        ]
       }
     },
     "success": {
       "badge": "✓ NACHRICHT ERHALTEN",
       "scaleHeading": "Planen wir Ihre Architektur",
-      "scaleSubheading": "Buchen Sie unten Ihr Beratungsgespräch. Wir analysieren Ihren Stack und entwerfen eine maßgeschneiderte Architektur.",
+      "scaleSubheading": "Buche unten ein Gespräch. Ich schaue mir dein Setup an und plane, was gebaut werden soll.",
       "partnershipHeading": "Sprechen wir über Design",
-      "partnershipSubheading": "Buchen Sie unten Ihren Designer-Termin. Wir sehen uns Ihr Portfolio an und besprechen die Zusammenarbeit.",
+      "partnershipSubheading": "Buche unten ein Gespräch. Ich sehe mir dein Portfolio an, und wir sprechen über eine Zusammenarbeit.",
       "defaultHeading": "Nachricht erhalten.",
       "defaultSubheading": "Ich lese Ihre Nachricht und antworte innerhalb eines Werktags.",
-      "bridgeText": "Sehen Sie sich an, wie wir leistungsstarke Web-Architekturen entwickeln.",
-      "viewWorks": "Unsere Arbeiten",
+      "bridgeText": "Schau dir in der Zwischenzeit ein paar meiner letzten Arbeiten an.",
+      "viewWorks": "Meine Arbeiten ansehen",
       "backHome": "Zurück zur Startseite",
-      "escapeRoute": "Noch nicht bereit für einen Termin? Kein Problem. Wir haben Ihnen einen Link geschickt. Entdecken Sie inzwischen unsere",
+      "escapeRoute": "Noch nicht bereit für einen Termin? Kein Problem — ich habe dir einen Link geschickt. Schau dir in der Zwischenzeit meine",
       "escapeWorks": "Arbeiten",
       "escapeOr": "oder zurück zur",
       "escapeHome": "Startseite",
       "founderVideo": {
-        "title": "30 Sekunden vom Gründer",
-        "caption": "Eine kurze Vorstellung, damit Sie wissen, wer ans Telefon geht.",
+        "title": "30 Sekunden von mir",
+        "caption": "Ein kurzes Hallo, damit du weißt, mit wem du sprichst.",
         "placeholderLabel": "Intro-Video kommt bald"
       },
       "prepChecklist": {
