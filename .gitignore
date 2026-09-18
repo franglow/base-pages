@@ -14,3 +14,5 @@ npm-debug.log*
 .env
 .env.*
 .env.local
+# Claude Code local config (dev server preview, permissions)
+.claude/
